@@ -138,13 +138,52 @@
         .correct-option { background-color: #ecfdf5 !important; border-color: #10b981 !important; color: #047857 !important; }
         .incorrect-option { background-color: #fef2f2 !important; border-color: #ef4444 !important; color: #b91c1c !important; }
 
-        /* Reading Passage Styles */
-        .reading-content p {
-            margin-bottom: 16px;
-            font-size: 1.05rem;
-            color: var(--text);
-            line-height: 1.7;
+        /* Memory Game Styles (Bigger & Harder) */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 20px auto;
+            max-width: 650px;
         }
+        @media (min-width: 480px) {
+            .memory-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        .memory-card {
+            background-color: var(--primary);
+            color: transparent;
+            padding: 10px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s, color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 70px;
+            user-select: none;
+            border: 2px solid var(--primary-hover);
+            box-shadow: var(--shadow-sm);
+        }
+        .memory-card.flipped {
+            background-color: #f8fafc;
+            color: var(--text);
+            border-color: var(--border);
+            transform: scale(1.05);
+        }
+        .memory-card.matched {
+            background-color: #ecfdf5;
+            color: #047857;
+            border-color: #10b981;
+            cursor: default;
+            transform: scale(1);
+            opacity: 0.9;
+        }
+
+        /* Reading Passage Styles */
+        .reading-content p { margin-bottom: 16px; font-size: 1.05rem; color: var(--text); line-height: 1.7; }
 
         /* Values Grid Detailed */
         .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
@@ -389,8 +428,20 @@
                         <p style="font-size:3rem; margin: 10px 0 0 0;"><strong style="color:var(--primary);"><span id="score-display">0</span> / 5</strong></p>
                     </div>
                     
+                    <button class="btn-primary" style="width: 100%; margin-bottom: 12px; background-color: var(--primary);" onclick="startMiniGame()">🎮 Play Chakra Memory Match!</button>
                     <button class="btn-secondary" style="width: 100%;" onclick="location.reload()">🔄 Return to Home</button>
                 </div>
+
+                <div class="card-container hidden" id="game-container" style="text-align:center;">
+                    <h2 style="margin-top:0; color: var(--primary); font-size: 1.8rem;">🧘‍♀️ Chakra Memory Match</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 5px;">Flip the cards to match the identical Chakras!</p>
+                    
+                    <div id="memory-board" class="memory-grid"></div>
+                    
+                    <p id="game-message" style="font-size: 1.2rem; font-weight: 700; color: var(--secondary); min-height: 30px; margin-top: 15px;"></p>
+                    <button class="btn-secondary" style="width: 100%; margin-top: 10px;" onclick="location.reload()">🔄 Return to Home</button>
+                </div>
+
             </div>
         </section>
     </div>
@@ -407,26 +458,13 @@
         var ytPlayer;
         function onYouTubeIframeAPIReady() {
             ytPlayer = new YT.Player('youtube-audio', {
-                height: '0',
-                width: '0',
-                videoId: '312SQ9kea8M',
-                playerVars: {
-                    'autoplay': 0,
-                    'controls': 0,
-                    'showinfo': 0,
-                    'rel': 0,
-                    'start': 1770, // 29:30
-                    'end': 1938    // 32:18
-                },
+                height: '0', width: '0', videoId: '312SQ9kea8M',
+                playerVars: { 'autoplay': 0, 'controls': 0, 'showinfo': 0, 'rel': 0, 'start': 1770, 'end': 1938 },
                 events: {
-                    'onReady': function(event) {
-                        event.target.setVolume(20); // 20% Volume
-                    },
+                    'onReady': function(event) { event.target.setVolume(20); },
                     'onStateChange': function(event) {
-                        // Loop the specified section if the player reaches the end
                         if (event.data === YT.PlayerState.ENDED) {
-                            ytPlayer.seekTo(1770);
-                            ytPlayer.playVideo();
+                            ytPlayer.seekTo(1770); ytPlayer.playVideo();
                         }
                     }
                 }
@@ -435,9 +473,7 @@
 
         // 0. NAVIGATION LOGIC (SPA)
         function navigateTo(pageId) {
-            document.querySelectorAll('.page-view').forEach(page => {
-                page.classList.remove('active');
-            });
+            document.querySelectorAll('.page-view').forEach(page => page.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -517,31 +553,11 @@
 
         // 3. HINDI QUESTIONS
         const quizData = [
-            { 
-                question: "1. श्री माताजी निर्मला देवी का विवाह कब हुआ था?", 
-                options: ["21 मार्च 1923", "9 जुलाई 1986", "7 अप्रैल 1947", "15 अगस्त 1947"], 
-                correctAnswer: "7 अप्रैल 1947" 
-            },
-            { 
-                question: "2. श्री माताजी का विवाह किससे हुआ था?", 
-                options: ["प्रसाद साल्वे", "चंद्रिका प्रसाद श्रीवास्तव", "महात्मा गांधी", "जवाहरलाल नेहरू"], 
-                correctAnswer: "चंद्रिका प्रसाद श्रीवास्तव" 
-            },
-            { 
-                question: "3. श्री माताजी के अनुसार मनुष्य का वास्तविक परिवर्तन किससे संभव है?", 
-                options: ["प्रसिद्धि से", "केवल शिक्षा से", "आत्म-साक्षात्कार (Self Realisation) से", "धन और शक्ति से"], 
-                correctAnswer: "आत्म-साक्षात्कार (Self Realisation) से" 
-            },
-            { 
-                question: "4. आत्म-साक्षात्कार का अर्थ क्या है?", 
-                options: ["समाज सेवा करना", "भीतर की सूक्ष्म दिव्य शक्ति का जागरण", "नई भाषा सीखना", "केवल पूजा-पाठ करना"], 
-                correctAnswer: "भीतर की सूक्ष्म दिव्य शक्ति का जागरण" 
-            },
-            { 
-                question: "5. श्री माताजी के पिता उनसे क्या कहते थे?", 
-                options: ["तुम्हें राजनीति में जाना है", "तुम्हें बहुत लोगों को आत्म-साक्षात्कार देने का मार्ग खोजना है", "तुम्हें विदेश जाना है", "तुम्हें डॉक्टर बनना है"], 
-                correctAnswer: "तुम्हें बहुत लोगों को आत्म-साक्षात्कार देने का मार्ग खोजना है" 
-            }
+            { question: "1. श्री माताजी निर्मला देवी का विवाह कब हुआ था?", options: ["21 मार्च 1923", "9 जुलाई 1986", "7 अप्रैल 1947", "15 अगस्त 1947"], correctAnswer: "7 अप्रैल 1947" },
+            { question: "2. श्री माताजी का विवाह किससे हुआ था?", options: ["प्रसाद साल्वे", "चंद्रिका प्रसाद श्रीवास्तव", "महात्मा गांधी", "जवाहरलाल नेहरू"], correctAnswer: "चंद्रिका प्रसाद श्रीवास्तव" },
+            { question: "3. श्री माताजी के अनुसार मनुष्य का वास्तविक परिवर्तन किससे संभव है?", options: ["प्रसिद्धि से", "केवल शिक्षा से", "आत्म-साक्षात्कार (Self Realisation) से", "धन और शक्ति से"], correctAnswer: "आत्म-साक्षात्कार (Self Realisation) से" },
+            { question: "4. आत्म-साक्षात्कार का अर्थ क्या है?", options: ["समाज सेवा करना", "भीतर की सूक्ष्म दिव्य शक्ति का जागरण", "नई भाषा सीखना", "केवल पूजा-पाठ करना"], correctAnswer: "भीतर की सूक्ष्म दिव्य शक्ति का जागरण" },
+            { question: "5. श्री माताजी के पिता उनसे क्या कहते थे?", options: ["तुम्हें राजनीति में जाना है", "तुम्हें बहुत लोगों को आत्म-साक्षात्कार देने का मार्ग खोजना है", "तुम्हें विदेश जाना है", "तुम्हें डॉक्टर बनना है"], correctAnswer: "तुम्हें बहुत लोगों को आत्म-साक्षात्कार देने का मार्ग खोजना है" }
         ];
 
         let currentQuestionIndex = 0; let score = 0; let userName = "";
@@ -553,8 +569,7 @@
             const city = document.getElementById('userCity').value;
 
             if (!userName || !age || !city) {
-                alert("Please fill out your name, age, and district to proceed.");
-                return;
+                alert("Please fill out your name, age, and district to proceed."); return;
             }
 
             document.getElementById('form-container').classList.add('hidden');
@@ -568,12 +583,9 @@
             document.getElementById('quiz-container').classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
-            // START YOUTUBE MUSIC
             if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
-                ytPlayer.seekTo(1770);
-                ytPlayer.playVideo();
+                ytPlayer.seekTo(1770); ytPlayer.playVideo();
             }
-
             loadQuestion();
         }
 
@@ -601,32 +613,23 @@
             buttons.forEach(btn => btn.disabled = true);
 
             if (selectedOption === currentQ.correctAnswer) {
-                score++;
-                clickedButton.classList.add('correct-option');
+                score++; clickedButton.classList.add('correct-option');
             } else {
                 clickedButton.classList.add('incorrect-option');
                 buttons.forEach(btn => {
-                    if (btn.innerText === currentQ.correctAnswer) {
-                        btn.classList.add('correct-option');
-                    }
+                    if (btn.innerText === currentQ.correctAnswer) btn.classList.add('correct-option');
                 });
             }
 
             setTimeout(() => {
                 currentQuestionIndex++;
-                if (currentQuestionIndex < quizData.length) { 
-                    loadQuestion(); 
-                } else { 
-                    showResults(); 
-                }
+                if (currentQuestionIndex < quizData.length) { loadQuestion(); } 
+                else { showResults(); }
             }, 1500);
         }
 
         function showResults() {
-            // STOP YOUTUBE MUSIC
-            if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
-                ytPlayer.pauseVideo();
-            }
+            if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') ytPlayer.pauseVideo();
 
             document.getElementById('quiz-container').classList.add('hidden');
             document.getElementById('result-container').classList.remove('hidden');
@@ -640,29 +643,114 @@
 
             // --- SEND DATA TO SHEETDB ---
             const sheetdbURL = 'https://sheetdb.io/api/v1/k1qtzemkf5hq6'; 
-
             fetch(sheetdbURL, {
                 method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    data: [
-                        {
-                            'Timestamp': new Date().toLocaleString(),
-                            'Name': userName,
-                            'Age': age,
-                            'District': city,
-                            'Taluka': taluka,
-                            'Score': score
-                        }
-                    ]
-                })
-            })
-            .then(response => response.json())
-            .then(data => console.log('Successfully saved to spreadsheet!', data))
-            .catch(error => console.error('Error:', error));
+                headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+                body: JSON.stringify({ data: [{ 'Timestamp': new Date().toLocaleString(), 'Name': userName, 'Age': age, 'District': city, 'Taluka': taluka, 'Score': score }] })
+            }).catch(error => console.error('Error:', error));
+        }
+
+        // ==========================================
+        // 5. MINI GAME LOGIC (CHAKRA MEMORY MATCH - 16 CARDS)
+        // ==========================================
+        const gamePairs = [
+            { id: 1, text: 'Mooladhara' }, { id: 1, text: 'Mooladhara' },
+            { id: 2, text: 'Swadisthan' }, { id: 2, text: 'Swadisthan' },
+            { id: 3, text: 'Nabhi' },      { id: 3, text: 'Nabhi' },
+            { id: 4, text: 'Void' },       { id: 4, text: 'Void' },
+            { id: 5, text: 'Anahata' },    { id: 5, text: 'Anahata' },
+            { id: 6, text: 'Vishuddhi' },  { id: 6, text: 'Vishuddhi' },
+            { id: 7, text: 'Agnya' },      { id: 7, text: 'Agnya' },
+            { id: 8, text: 'Sahasrara' },  { id: 8, text: 'Sahasrara' }
+        ];
+
+        let firstCard = null;
+        let secondCard = null;
+        let lockBoard = false;
+        let matchedCount = 0;
+
+        window.startMiniGame = function() {
+            document.getElementById('result-container').classList.add('hidden');
+            document.getElementById('game-container').classList.remove('hidden');
+            document.getElementById('quiz-header').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setupMemoryGame();
+        }
+
+        function setupMemoryGame() {
+            const board = document.getElementById('memory-board');
+            board.innerHTML = '';
+            matchedCount = 0;
+            document.getElementById('game-message').innerText = '';
+            
+            // Shuffle cards
+            const shuffledCards = gamePairs.sort(() => 0.5 - Math.random());
+
+            shuffledCards.forEach((cardData) => {
+                const card = document.createElement('div');
+                card.classList.add('memory-card');
+                card.dataset.id = cardData.id;
+                card.dataset.text = cardData.text;
+                card.innerText = "?"; // Face down
+                
+                card.addEventListener('click', () => flipCard(card));
+                board.appendChild(card);
+            });
+        }
+
+        function flipCard(card) {
+            if (lockBoard) return;
+            if (card === firstCard) return; // Prevent clicking same card twice
+            if (card.classList.contains('matched')) return;
+
+            card.classList.add('flipped');
+            card.innerText = card.dataset.text;
+
+            if (!firstCard) {
+                firstCard = card;
+                return;
+            }
+
+            secondCard = card;
+            checkMatch();
+        }
+
+        function checkMatch() {
+            let isMatch = firstCard.dataset.id === secondCard.dataset.id;
+
+            if (isMatch) {
+                disableCards();
+            } else {
+                unflipCards();
+            }
+        }
+
+        function disableCards() {
+            firstCard.classList.add('matched');
+            secondCard.classList.add('matched');
+            matchedCount += 2;
+
+            if (matchedCount === gamePairs.length) {
+                document.getElementById('game-message').innerText = "🎉 Congratulations! You perfectly matched the Chakras! 🙏";
+            }
+
+            resetBoard();
+        }
+
+        function unflipCards() {
+            lockBoard = true;
+            // Flip back much faster now to make it harder!
+            setTimeout(() => {
+                firstCard.classList.remove('flipped');
+                firstCard.innerText = "?";
+                secondCard.classList.remove('flipped');
+                secondCard.innerText = "?";
+                resetBoard();
+            }, 800); 
+        }
+
+        function resetBoard() {
+            [firstCard, secondCard, lockBoard] = [null, null, false];
         }
     </script>
 </body>
