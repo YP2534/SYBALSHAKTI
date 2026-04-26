@@ -2,188 +2,409 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-adsense-account" content="ca-pub-1405909607524288">
-    <title>Balshakti Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahaj Yoga Balshakti Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #8b5cf6;
-            --primary-hover: #7c3aed;
+            --primary: #6d28d9;
+            --primary-hover: #5b21b6;
+            --secondary: #10b981;
             --bg: #f8fafc;
             --surface: #ffffff;
             --text: #0f172a;
-            --text-muted: #64748b;
+            --text-muted: #475569;
             --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background-color: var(--bg);
             color: var(--text);
             margin: 0;
-            padding-top: 70px;
+            padding-top: 72px;
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
+        /* Page View Logic */
+        .page-view {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+            flex: 1;
+        }
+        .page-view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Glassmorphism Navbar */
         .navbar {
             position: fixed; top: 0; left: 0; right: 0;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
             display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 5%; z-index: 1000;
+            padding: 16px 5%; z-index: 1000;
         }
 
-        .navbar-brand { font-size: 1.25rem; font-weight: 700; text-decoration: none; color: var(--text); }
-        .navbar-links { display: flex; gap: 24px; }
-        .navbar-links a { text-decoration: none; color: var(--text-muted); font-weight: 500; }
+        .navbar-brand { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--primary); letter-spacing: -0.5px; cursor: pointer; }
+        .navbar-links { display: flex; gap: 32px; align-items: center; }
+        .navbar-links a { text-decoration: none; color: var(--text-muted); font-weight: 500; transition: color 0.2s; cursor: pointer; }
         .navbar-links a:hover { color: var(--primary); }
 
-        .hero { padding: 80px 5% 40px; text-align: center; background: linear-gradient(to bottom, #ffffff, var(--bg)); }
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; line-height: 1.2; }
-        .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 30px; }
-        .hero-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        /* Modern Hero Section */
+        .hero { 
+            padding: 100px 5% 80px; 
+            text-align: center; 
+            background: radial-gradient(circle at top, #f3e8ff 0%, var(--bg) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 24px; line-height: 1.1; letter-spacing: -1px; color: #1e1b4b; }
+        .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 40px; }
+        .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
-        .btn-primary { background: var(--primary); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; border: none; cursor: pointer; font-size: 1rem; }
-        .btn-primary:hover { background: var(--primary-hover); }
-        .btn-secondary { background: white; color: var(--text); border: 1px solid var(--border); padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; cursor: pointer; font-size: 1rem; }
-
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; padding: 20px 5% 60px; max-width: 1200px; margin: auto; }
-        .feature-card { background: var(--surface); border: 1px solid var(--border); padding: 24px; border-radius: 12px; text-align: center; }
-        .feature-card .icon { font-size: 2.5rem; margin-bottom: 10px; }
-
-        .section { padding: 60px 5%; max-width: 1000px; margin: auto; }
-        .section-title { font-size: 2rem; margin-bottom: 30px; color: var(--text); }
+        .btn-primary { background: var(--primary); color: white; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: 600; border: none; cursor: pointer; font-size: 1.05rem; transition: all 0.2s; box-shadow: var(--shadow-md); display: inline-block; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); box-shadow: var(--shadow-lg); }
         
-        .split-section { display: flex; align-items: center; gap: 40px; }
-        .split-text { flex: 1.2; text-align: left; }
-        .split-image { flex: 0.8; text-align: center; }
-        .image-placeholder { background: #f1f5f9; padding: 80px 20px; font-size: 3rem; border: 2px dashed #cbd5e1; border-radius: 16px; color: #94a3b8; }
+        .btn-secondary { background: white; color: var(--text); border: 1px solid var(--border); padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: 600; cursor: pointer; font-size: 1.05rem; transition: all 0.2s; box-shadow: var(--shadow-sm); display: inline-block; }
+        .btn-secondary:hover { border-color: var(--text-muted); }
 
-        .card-container { background: var(--surface); padding: 40px; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-        .form-group { margin-bottom: 20px; text-align: left; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.95rem; }
-        .form-control { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; box-sizing: border-box; }
+        .btn-success { background-color: var(--secondary); border-color: var(--secondary); color: white; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 1.05rem; transition: all 0.2s; box-shadow: var(--shadow-md); display: inline-block;}
+        .btn-success:hover { background-color: #059669; transform: translateY(-1px); }
+
+        /* Features Grid */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; padding: 0 5%; max-width: 1200px; margin: -40px auto 60px; position: relative; z-index: 10; }
+        .feature-card { background: var(--surface); border: 1px solid var(--border); padding: 32px 24px; border-radius: 16px; text-align: center; box-shadow: var(--shadow-md); transition: transform 0.2s; }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-card .icon { font-size: 3rem; margin-bottom: 16px; }
+        .feature-card h3 { margin: 0 0 8px 0; font-size: 1.25rem; color: var(--text); }
+        .feature-card p { margin: 0; color: var(--text-muted); }
+
+        .section { padding: 60px 5%; max-width: 1100px; margin: auto; }
+        .section-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 20px; color: var(--text); text-align: center; letter-spacing: -0.5px; }
+        .section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 50px; font-size: 1.1rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        
+        .split-section { display: flex; align-items: flex-start; gap: 60px; background: var(--surface); padding: 40px; border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); margin-bottom: 40px; }
+        .split-text { flex: 1.2; text-align: left; }
+        .split-text h3 { font-size: 1.8rem; margin-top: 0; color: var(--primary); margin-bottom: 20px; }
+        .split-text p { margin-bottom: 16px; font-size: 1.05rem; }
+        .split-image { flex: 0.8; text-align: center; position: sticky; top: 100px; }
+        .image-placeholder { background: #f1f5f9; height: 400px; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 4rem; border: 2px dashed #cbd5e1; border-radius: 16px; color: #94a3b8; }
+
+        /* Quiz & Form Container */
+        .quiz-wrapper { max-width: 700px; margin: 0 auto; }
+        .card-container { background: var(--surface); padding: 48px; border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow-lg); }
+        
+        .form-group { margin-bottom: 24px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.95rem; color: var(--text); }
+        .form-control { width: 100%; padding: 14px 16px; border: 1px solid var(--border); border-radius: 10px; font-size: 1rem; box-sizing: border-box; background-color: var(--bg); transition: border-color 0.2s, box-shadow 0.2s; font-family: inherit; }
+        .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.1); background-color: var(--surface); }
         
         .hidden { display: none !important; }
         
-        .options-grid { display: flex; flex-direction: column; gap: 12px; }
-        .option-btn { background: var(--surface); border: 2px solid var(--border); padding: 16px; border-radius: 8px; font-size: 1rem; text-align: left; cursor: pointer; transition: all 0.2s; }
-        .option-btn:hover:not(:disabled) { border-color: var(--primary); background: #f5f3ff; }
-        .option-btn:disabled { cursor: not-allowed; }
+        /* Quiz specific styles */
+        #progress-text { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        #question-text { font-size: 1.5rem; font-weight: 700; line-height: 1.4; color: #1e293b; }
+        
+        .options-grid { display: flex; flex-direction: column; gap: 16px; }
+        .option-btn { background: var(--surface); border: 2px solid var(--border); padding: 18px 24px; border-radius: 12px; font-size: 1.05rem; font-weight: 500; text-align: left; cursor: pointer; transition: all 0.2s; font-family: inherit; color: var(--text); }
+        .option-btn:hover:not(:disabled) { border-color: var(--primary); background: #f5f3ff; transform: translateX(4px); }
+        .option-btn:disabled { cursor: not-allowed; opacity: 0.9; }
 
-        .correct-option { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
-        .incorrect-option { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+        .correct-option { background-color: #ecfdf5 !important; border-color: #10b981 !important; color: #047857 !important; }
+        .incorrect-option { background-color: #fef2f2 !important; border-color: #ef4444 !important; color: #b91c1c !important; }
 
-        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 20px; }
-        .values-card { background: var(--surface); border: 1px solid var(--border); padding: 24px; border-radius: 12px; }
+        /* Reading Passage Styles */
+        .reading-content p {
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+            color: var(--text);
+            line-height: 1.7;
+        }
 
-        footer { background: var(--surface); padding: 40px 20px; text-align: center; border-top: 1px solid var(--border); margin-top: 40px; }
+        /* Values Grid Detailed */
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .values-card { background: var(--surface); border: 1px solid var(--border); padding: 32px; border-radius: 16px; box-shadow: var(--shadow-sm); }
+        .values-card.highlight { border-top: 4px solid var(--primary); }
+        .values-card h3 { font-size: 1.4rem; margin-top: 0; color: var(--text); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+        .values-card p { color: var(--text-muted); margin-bottom: 16px; }
+        .values-card ul { padding-left: 20px; margin: 0; color: var(--text-muted); }
+        .values-card li { margin-bottom: 10px; }
+
+        /* Support Page Cards */
+        .support-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .support-card { background: var(--surface); border: 1px solid var(--border); padding: 40px 30px; border-radius: 16px; text-align: center; box-shadow: var(--shadow-sm); }
+        .support-card .icon { font-size: 3rem; margin-bottom: 20px; }
+        .support-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .support-card p { color: var(--text-muted); margin-bottom: 20px; }
+
+        footer { background: white; padding: 40px 20px; text-align: center; border-top: 1px solid var(--border); color: var(--text-muted); font-weight: 500; margin-top: auto; }
 
         @media (max-width: 768px) {
             .navbar-links { display: none; }
-            .split-section { flex-direction: column; }
+            .hero { padding: 100px 5% 50px; }
+            .hero h1 { font-size: 2.5rem; }
+            .split-section { flex-direction: column-reverse; padding: 24px; }
+            .split-image { position: static; width: 100%; }
+            .card-container { padding: 32px 20px; }
+            .features-grid { margin-top: 20px; }
         }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <a href="#" class="navbar-brand">🪷 Balshakti</a>
+        <a onclick="navigateTo('home-page')" class="navbar-brand">🪷 Sahaj Yoga Balshakti</a>
         <div class="navbar-links">
-            <a href="#home">🏠 Home</a>
-            <a href="#about">🙏 About</a>
-            <a href="#quiz-section">📝 Quiz</a>
-            <a href="#values">🌸 Values</a>
+            <a onclick="navigateTo('home-page')">Home</a>
+            <a onclick="navigateTo('about-page')">About</a>
+            <a onclick="navigateTo('values-page')">Values</a>
+            <a onclick="navigateTo('support-page')">Support</a>
+            <button onclick="navigateTo('quiz-page')" class="btn-primary" style="padding: 8px 20px; font-size: 0.95rem;">Start Quiz</button>
         </div>
     </nav>
 
-    <section id="home" class="hero">
-        <h1>Balshakti Quiz</h1>
-        <p>Test your knowledge and learn about the wisdom of Shri Mataji Nirmala Devi, Sahaj Yoga, meditation, and values.</p>
-        <div class="hero-buttons">
-            <a href="#quiz-section" class="btn-primary">📝 Start Quiz</a>
-            <a href="https://drive.google.com/file/d/1KvNkSp8vUlaMHyO36mrlTFNuHAhkgb6W/view?usp=sharing" target="_blank" class="btn-primary" style="background-color: #10b981; border-color: #10b981;">📱 Download Android App</a>
-        </div>
-    </section>
+    <div id="home-page" class="page-view active">
+        <section class="hero">
+            <h1>Sahaj Yoga Balshakti Quiz</h1>
+            <p>Test your knowledge, learn about the wisdom of Shri Mataji Nirmala Devi, and begin your journey towards inner peace through Sahaj Yoga meditation.</p>
+            <div class="hero-buttons">
+                <button onclick="navigateTo('quiz-page')" class="btn-primary">📝 Start Quiz</button>
+                <a href="https://drive.google.com/file/d/1KvNkSp8vUlaMHyO36mrlTFNuHAhkgb6W/view?usp=sharing" target="_blank" class="btn-success">📱 Download App</a>
+            </div>
+        </section>
 
-    <div class="features-grid">
-        <div class="feature-card"><div class="icon">📚</div><h3>Jr. Kg to 10th</h3><p>All Standards</p></div>
-        <div class="feature-card"><div class="icon">🧘‍♀️</div><h3>Meditation</h3><p>Inner Peace</p></div>
-        <div class="feature-card"><div class="icon">🙏</div><h3>Values & Culture</h3><p>Spiritual Growth</p></div>
-        <div class="feature-card"><div class="icon">🪷</div><h3>Teachings</h3><p>Wisdom & Joy</p></div>
+        <div class="features-grid">
+            <div class="feature-card"><div class="icon">📚</div><h3>For All Ages</h3><p>Inclusive for Jr. Kg to 10th Standards</p></div>
+            <div class="feature-card"><div class="icon">🧘‍♀️</div><h3>Meditation</h3><p>Discover Inner Peace & Balance</p></div>
+            <div class="feature-card"><div class="icon">🙏</div><h3>Values & Culture</h3><p>Nurture Spiritual & Moral Growth</p></div>
+            <div class="feature-card"><div class="icon">🪷</div><h3>Teachings</h3><p>Timeless Wisdom of Shri Mataji</p></div>
+        </div>
     </div>
 
-    <section id="about" class="section">
-        <h2 class="section-title">🙏 About Shri Mataji</h2>
-        <div class="split-section">
-            <div class="split-text">
-                <h3>Shri Mataji Nirmala Devi</h3>
-                <p>Founder of Sahaj Yoga (1923 – 2011)</p>
-                <p>Shri Mataji Nirmala Devi was born on March 21, 1923, in Chindwara, India. On May 5, 1970, she opened the Sahasrara Chakra, making it possible for everyone to achieve self-realization through Sahaj Yoga meditation.</p>
-                <ul>
-                    <li>✨ <strong>Innocence</strong> – Be pure in heart like a child</li>
-                    <li>✨ <strong>Truth</strong> – Always speak and live truthfully</li>
-                    <li>✨ <strong>Meditation</strong> – Sit quietly and feel the peace within</li>
-                </ul>
-            </div>
-            <div class="split-image">
-                <div class="image-placeholder">📸<br><span style="font-size:1rem;">Photo Space</span></div>
-            </div>
-        </div>
-    </section>
+    <div id="about-page" class="page-view">
+        <section class="section">
+            <h2 class="section-title">About Shri Mataji Nirmala Devi</h2>
+            <p class="section-subtitle">Discover the profound life and global spiritual legacy of the founder of Sahaj Yoga.</p>
+            
+            <div class="split-section">
+                <div class="split-text">
+                    <h3>The Early Years & Freedom Struggle</h3>
+                    <p>Shri Mataji Nirmala Devi was born on <strong>March 21, 1923</strong>, in Chhindwara, Madhya Pradesh, India, into a Christian family of noble descent. Her parents played a key role in India's liberation movement.</p>
+                    <p>As a child, she spent time with Mahatma Gandhi at his ashram. Gandhi recognized her extraordinary spiritual wisdom even at a young age.</p>
 
-    <section id="quiz-section" class="section">
-        <h2 class="section-title">📝 Take the Quiz</h2>
-        
-        <div class="card-container" id="form-container">
-            <p style="margin-top:0; margin-bottom:20px; color:var(--text-muted);">Please fill out your details to start the challenge.</p>
-            <div class="form-group">
-                <label>Player's Name *</label>
-                <input type="text" id="userName" class="form-control" required>
+                    <h3 style="margin-top: 30px;">The Discovery of Sahaj Yoga (1970)</h3>
+                    <p>On <strong>May 5, 1970</strong>, while meditating on a beach in Nargol, Gujarat, Shri Mataji experienced the opening of the Sahasrara (the seventh chakra). This monumental event made it possible for humanity to achieve <em>Self-Realization</em> en masse, a process previously available only to a few dedicated seekers after years of penance.</p>
+                    
+                    <h3 style="margin-top: 30px;">A Global Spiritual Movement</h3>
+                    <p>Unlike other modern spiritual teachers, Shri Mataji insisted that Self-Realization is a living process, and therefore, <strong>it cannot be paid for</strong>. She traveled across the globe completely free of charge, spreading the message of peace and awakening the Kundalini energy in hundreds of thousands of people.</p>
+                    <ul>
+                        <li>Nominated for the Nobel Peace Prize twice.</li>
+                        <li>Honored by the United Nations and multiple global institutions.</li>
+                        <li>Sahaj Yoga is now practiced in over 100 countries worldwide.</li>
+                    </ul>
+                </div>
+                <div class="split-image">
+                    <div class="image-placeholder">📸<br><span style="font-size:1.2rem; font-weight:500; color:#64748b; margin-top:10px;">Shri Mataji Photo</span></div>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Age *</label>
-                <select id="userAge" class="form-control" required><option value="">Select Age</option></select>
-            </div>
-            <div class="form-group">
-                <label>District *</label>
-                <select id="userCity" class="form-control" required><option value="">Select District</option></select>
-            </div>
-            <div class="form-group hidden" id="taluka-group">
-                <label>Taluka / Area *</label>
-                <select id="userTaluka" class="form-control" required><option value="">Select Taluka</option></select>
-            </div>
-            <button class="btn-primary" style="width:100%; margin-top:10px;" onclick="startQuiz()">🚀 Start Quiz Now</button>
-        </div>
+        </section>
+    </div>
 
-        <div class="card-container hidden" id="quiz-container">
-            <div id="progress-text" style="color:var(--primary); text-align:center; font-weight:700;">Question 1 of 5</div>
-            <h2 id="question-text" style="text-align:center; margin-bottom:30px;">Question goes here</h2>
-            <div id="options-container" class="options-grid"></div>
-        </div>
+    <div id="values-page" class="page-view">
+        <section class="section">
+            <h2 class="section-title">Core Values & Daily Routine</h2>
+            <p class="section-subtitle">The foundation of Balshakti is built upon pure moral values and dedicated spiritual routines for a joyous life.</p>
+            
+            <div class="values-grid">
+                <div class="values-card highlight">
+                    <h3>🧘‍♀️ Daily Meditation Routine</h3>
+                    <p>Consistency is the key to spiritual growth in Sahaj Yoga.</p>
+                    <ul>
+                        <li><strong>Morning:</strong> 10 minutes of meditation to start the day with positive energy.</li>
+                        <li><strong>Evening:</strong> Foot-soaking (Jal Kriya) to clear daily catchments and relieve stress.</li>
+                        <li><strong>Collectivity:</strong> Attending weekly center meditation to grow with others.</li>
+                    </ul>
+                </div>
 
-        <div class="card-container hidden" id="result-container" style="text-align:center;">
-            <h2>🎉 Quiz Complete!</h2>
-            <p>Great job, <span id="display-name" style="font-weight:bold;"></span>!</p>
-            <p style="font-size:1.5rem;">Score: <strong style="color:var(--primary);"><span id="score-display">0</span> / 5</strong></p>
-            <button class="btn-secondary" onclick="location.reload()">🔄 Play Again</button>
-        </div>
-    </section>
+                <div class="values-card highlight">
+                    <h3>✨ Innocence & Purity (Shri Ganesha)</h3>
+                    <p>The essence of the Mooladhara Chakra.</p>
+                    <ul>
+                        <li>Maintaining a pure heart, free from cunningness.</li>
+                        <li>Treating others with absolute honesty and transparency.</li>
+                        <li>Preserving childlike joy and avoiding artificial adult complications.</li>
+                    </ul>
+                </div>
 
-    <section id="values" class="section">
-        <h2 class="section-title">🌸 Daily Values & Tips</h2>
-        <div class="values-grid">
-            <div class="values-card"><h3>✅ Good Habits</h3><ul><li>Meditate every morning</li><li>Respect your parents</li></ul></div>
-            <div class="values-card"><h3>❌ Avoid</h3><ul><li>Anger and fighting</li><li>Telling lies</li></ul></div>
-        </div>
-    </section>
+                <div class="values-card highlight">
+                    <h3>🙏 Respect & Morality</h3>
+                    <p>Building a balanced character (The Void / Guru Principle).</p>
+                    <ul>
+                        <li>Always respecting parents, teachers, and elders.</li>
+                        <li>Speaking the truth gracefully, without hurting others.</li>
+                        <li>Avoiding bad habits, anger, and unnecessary arguments.</li>
+                    </ul>
+                </div>
+
+                <div class="values-card highlight">
+                    <h3>🌍 Universal Love & Brotherhood</h3>
+                    <p>Awakening the Heart (Anahata Chakra).</p>
+                    <ul>
+                        <li>Respecting all religions and spiritual true masters.</li>
+                        <li>Helping others selflessly without expecting anything in return.</li>
+                        <li>Protecting nature, animals, and our environment.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="support-page" class="page-view">
+        <section class="section">
+            <h2 class="section-title">Support & Contact</h2>
+            <p class="section-subtitle">Need help with the quiz, app downloads, or want to learn more about Sahaj Yoga meditation? We are here for you.</p>
+
+            <div class="support-grid">
+                <div class="support-card">
+                    <div class="icon">💬</div>
+                    <h3>WhatsApp Support</h3>
+                    <p>Join our official Balshakti WhatsApp group for daily updates, quiz hints, and meditation links.</p>
+                    <a href="#" class="btn-success" style="padding: 10px 20px; font-size: 0.95rem;">Join Group</a>
+                </div>
+                
+                <div class="support-card">
+                    <div class="icon">📧</div>
+                    <h3>Email Us</h3>
+                    <p>Facing technical issues with the quiz or the Android App? Send us a detailed email.</p>
+                    <a href="mailto:ypprogamer124@gmail.com" class="btn-secondary" style="padding: 10px 20px; font-size: 0.95rem;">Send Email</a>
+                </div>
+
+                <div class="support-card">
+                    <div class="icon">📞</div>
+                    <h3>Helpline</h3>
+                    <p>Call our toll-free national helpline to find a free Sahaj Yoga meditation center near you.</p>
+                    <h2 style="color: var(--primary); margin: 10px 0;">9359881192</h2>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="quiz-page" class="page-view">
+        <section class="section">
+            <h2 class="section-title" id="quiz-header">📝 Sahaj Yoga Balshakti Quiz</h2>
+            
+            <div class="quiz-wrapper">
+                <div class="card-container" id="form-container">
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <h3 style="margin-top:0; font-size: 1.5rem;">Participant Details</h3>
+                        <p style="color:var(--text-muted); margin:0;">Please fill out your details to enter the challenge.</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Player's Name *</label>
+                        <input type="text" id="userName" class="form-control" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Age *</label>
+                        <select id="userAge" class="form-control" required><option value="">Select Age</option></select>
+                    </div>
+                    <div class="form-group">
+                        <label>District *</label>
+                        <select id="userCity" class="form-control" required><option value="">Select District</option></select>
+                    </div>
+                    <div class="form-group hidden" id="taluka-group">
+                        <label>Taluka / Area *</label>
+                        <select id="userTaluka" class="form-control" required><option value="">Select Taluka</option></select>
+                    </div>
+                    <button class="btn-primary" style="width:100%; margin-top:20px; padding:16px; font-size:1.1rem;" onclick="processForm()">Proceed ➡️</button>
+                </div>
+
+                <div class="card-container hidden" id="reading-container">
+                    <h3 style="text-align: center; color: var(--primary); margin-top: 0; font-size: 1.6rem; border-bottom: 2px solid var(--border); padding-bottom: 15px; margin-bottom: 25px;">
+                        READ THIS AND SOLVE THE QUIZ
+                    </h3>
+                    
+                    <div class="reading-content" style="margin-bottom: 30px;">
+                        <p>7 अप्रैल 1947 को, 24 वर्ष की आयु में मिस निर्मला साल्वे का विवाह चंद्रिका प्रसाद श्रीवास्तव जी से हुआ। विवाह के बाद वे श्रीमती निर्मला श्रीवास्तव बनीं और अपने वैवाहिक जीवन में पूरी निष्ठा और प्रेम के साथ प्रवेश किया। उन्होंने अपने प्रतिष्ठित पति के कूटनीतिक (Diplomatic) जीवन में उनका पूरा साथ दिया और एक आदर्श पत्नी की भूमिका निभाई। साथ ही, उन्होंने अपनी दो पुत्रियों का पालन-पोषण बहुत प्रेम, संस्कार और जिम्मेदारी के साथ किया।</p>
+                        
+                        <p>विवाह के बाद से लेकर 1970 तक, श्री माताजी ने जीवन के हर क्षेत्र में अद्भुत साहस, धैर्य और समर्पण का परिचय दिया। उन्होंने समाज में मौजूद भेदभाव और अन्याय का दृढ़ता से सामना किया और हमेशा सत्य तथा धर्म के पक्ष में खड़ी रहीं। जो लोग किसी प्रकार की कठिनाई या संकट में होते थे, उन्हें वे सुरक्षा, सहारा और मार्गदर्शन देती थीं।</p>
+                        
+                        <p>वे केवल एक गृहिणी ही नहीं थीं, बल्कि एक ऐसी महिला थीं जिन्होंने परिवार, समाज और आध्यात्मिकता—तीनों क्षेत्रों में संतुलन बनाए रखा। उन्होंने अपने बढ़ते हुए परिवार की प्रेमपूर्वक देखभाल की, खेती-बाड़ी का कार्य भी संभाला, संगीत और चलचित्र (फिल्म) के माध्यम से संस्कृति को प्रोत्साहित किया, अनेक घरों के निर्माण में योगदान दिया और समाज सेवा तथा दान-पुण्य के कार्यों में भी सक्रिय रहीं।</p>
+                        
+                        <p>इसके साथ-साथ वे अपने घर के दैनिक कार्य भी पूरी जिम्मेदारी से निभाती थीं। वे एक स्नेहमयी पत्नी, एक आदर्श माता, एक सहयोगी बहन और आगे चलकर एक प्रेमपूर्ण दादी भी बनीं। उन्होंने अपने जीवन के हर संबंध को बहुत गहराई, प्रेम और संवेदनशीलता के साथ निभाया।</p>
+                        
+                        <p>इन सभी जिम्मेदारियों के बीच भी उनका ध्यान मानव स्वभाव को गहराई से समझने पर केंद्रित रहा। वे लगातार इस बात पर विचार करती रहीं कि मनुष्य को उसके सर्वोच्च आध्यात्मिक स्तर तक कैसे पहुँचाया जा सकता है। वे जानती थीं कि यह परिवर्तन केवल बाहरी शिक्षा या साधारण प्रयासों से संभव नहीं है, बल्कि इसके लिए आत्म-साक्षात्कार (Self Realisation) आवश्यक है।</p>
+                        
+                        <p>आत्म-साक्षात्कार का अर्थ है—हमारे भीतर पहले से विद्यमान सूक्ष्म दिव्य शक्ति का जागरण। श्री माताजी समझती थीं कि जब यह शक्ति जागृत होती है, तभी मनुष्य अपने वास्तविक स्वरूप को पहचान सकता है और एक गहरी आध्यात्मिक जागृति प्राप्त कर सकता है।</p>
+                        
+                        <p>उनके पिता को भी बचपन से ही अपनी पुत्री की इस महान क्षमता का आभास था। श्री माताजी स्वयं बताती हैं:</p>
+                        
+                        <blockquote style="font-style: italic; background: #f8fafc; padding: 15px; border-left: 4px solid var(--primary); margin: 0; color: #334155;">
+                            “मेरे पिता को लगता था कि मैं इस जीवन में कुछ बहुत महान कार्य करूँगी। मुझे नहीं पता कि उन्होंने यह सपना देखा था या वे इसे सहज रूप से समझते थे, लेकिन वे हमेशा मुझसे कहते थे—‘तुम्हें ऐसा मार्ग खोजना है जिससे बहुत सारे लोगों को एक साथ आत्म-साक्षात्कार मिल सके।’ यहाँ आत्म-साक्षात्कार से उनका अर्थ था—लोगों के भीतर गहरी आध्यात्मिक जागृति की आवश्यकता।”
+                            <br><br><strong>(9 जुलाई 1986)</strong>
+                        </blockquote>
+                    </div>
+
+                    <button class="btn-primary" style="width: 100%; padding: 16px; font-size: 1.1rem; background-color: var(--secondary); border-color: var(--secondary);" onclick="startActualQuiz()">Next ➡️ Start Quiz</button>
+                </div>
+
+                <div class="card-container hidden" id="quiz-container">
+                    <div id="progress-text" style="color:var(--primary); text-align:center; font-weight:700;">Question 1 of 5</div>
+                    <h2 id="question-text" style="text-align:center; margin-bottom:40px;">Question goes here</h2>
+                    <div id="options-container" class="options-grid"></div>
+                </div>
+
+                <div class="card-container hidden" id="result-container" style="text-align:center;">
+                    <div style="font-size: 4rem; margin-bottom: 20px;">🎉</div>
+                    <h2 style="font-size: 2rem; margin-bottom: 10px;">Quiz Complete!</h2>
+                    <p style="font-size: 1.2rem; color: var(--text-muted);">Great job, <span id="display-name" style="font-weight:700; color: var(--text);"></span>!</p>
+                    
+                    <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 16px; padding: 30px; margin: 30px 0;">
+                        <p style="font-size:1.2rem; margin: 0; color: var(--text-muted);">Your Final Score</p>
+                        <p style="font-size:3rem; margin: 10px 0 0 0;"><strong style="color:var(--primary);"><span id="score-display">0</span> / 5</strong></p>
+                    </div>
+                    
+                    <button class="btn-secondary" style="width: 100%;" onclick="location.reload()">🔄 Return to Home</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3" type="audio/mpeg">
+    </audio>
 
     <footer>
-        <p>🪷 <strong>Balshakti Quiz</strong></p>
+        <p>🪷 <strong>Sahaj Yoga Balshakti</strong> &copy; 2026. All rights reserved.</p>
     </footer>
 
     <script>
+        // 0. NAVIGATION LOGIC (SPA)
+        function navigateTo(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-view').forEach(page => {
+                page.classList.remove('active');
+            });
+            // Show target page
+            document.getElementById(pageId).classList.add('active');
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
         // 1. POPULATE AGE DROPDOWN
         const ageSelect = document.getElementById('userAge');
         for (let i = 4; i <= 20; i++) {
@@ -289,19 +510,36 @@
         let currentQuestionIndex = 0; let score = 0; let userName = "";
 
         // 4. QUIZ LOGIC
-        window.startQuiz = function() {
+        window.processForm = function() {
             userName = document.getElementById('userName').value;
             const age = document.getElementById('userAge').value;
             const city = document.getElementById('userCity').value;
 
             if (!userName || !age || !city) {
-                alert("Please fill out your name, age, and district to start the quiz.");
+                alert("Please fill out your name, age, and district to proceed.");
                 return;
             }
 
+            // Hide form, show READING PASSAGE
             document.getElementById('form-container').classList.add('hidden');
+            document.getElementById('reading-container').classList.remove('hidden');
+            document.getElementById('quiz-header').classList.add('hidden'); // Hide title while reading/playing
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.startActualQuiz = function() {
+            // Hide reading passage, show actual QUIZ
+            document.getElementById('reading-container').classList.add('hidden');
             document.getElementById('quiz-container').classList.remove('hidden');
-            document.getElementById('quiz-section').scrollIntoView({ behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // PLAY BACKGROUND MUSIC
+            const bgMusic = document.getElementById('bg-music');
+            bgMusic.volume = 0.2; // Set low volume so it's not distracting
+            bgMusic.play().catch(error => {
+                console.log("Audio autoplay was blocked by the browser. Interaction required.", error);
+            });
+
             loadQuestion();
         }
 
@@ -354,11 +592,17 @@
         }
 
         function showResults() {
+            // Stop the background music
+            const bgMusic = document.getElementById('bg-music');
+            bgMusic.pause();
+            bgMusic.currentTime = 0;
+
             // Show the result screen
             document.getElementById('quiz-container').classList.add('hidden');
             document.getElementById('result-container').classList.remove('hidden');
             document.getElementById('display-name').innerText = userName;
             document.getElementById('score-display').innerText = score;
+            document.getElementById('quiz-header').classList.remove('hidden');
             
             // Get form values for spreadsheet
             const age = document.getElementById('userAge').value;
