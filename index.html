@@ -384,24 +384,50 @@
         </section>
     </div>
 
-    <audio id="bg-music" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3" type="audio/mpeg">
-    </audio>
+    <div id="youtube-audio" style="display: none;"></div>
 
     <footer>
         <p>🪷 <strong>Sahaj Yoga Balshakti</strong> &copy; 2026. All rights reserved.</p>
     </footer>
 
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script>
+        // --- YOUTUBE API LOGIC ---
+        var ytPlayer;
+        function onYouTubeIframeAPIReady() {
+            ytPlayer = new YT.Player('youtube-audio', {
+                height: '0',
+                width: '0',
+                videoId: '312SQ9kea8M',
+                playerVars: {
+                    'autoplay': 0,
+                    'controls': 0,
+                    'showinfo': 0,
+                    'rel': 0,
+                    'start': 1770, // 29:30
+                    'end': 1938    // 32:18
+                },
+                events: {
+                    'onReady': function(event) {
+                        event.target.setVolume(20); // 20% Volume
+                    },
+                    'onStateChange': function(event) {
+                        // Loop the specified section if the player reaches the end
+                        if (event.data === YT.PlayerState.ENDED) {
+                            ytPlayer.seekTo(1770);
+                            ytPlayer.playVideo();
+                        }
+                    }
+                }
+            });
+        }
+
         // 0. NAVIGATION LOGIC (SPA)
         function navigateTo(pageId) {
-            // Hide all pages
             document.querySelectorAll('.page-view').forEach(page => {
                 page.classList.remove('active');
             });
-            // Show target page
             document.getElementById(pageId).classList.add('active');
-            // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -520,25 +546,22 @@
                 return;
             }
 
-            // Hide form, show READING PASSAGE
             document.getElementById('form-container').classList.add('hidden');
             document.getElementById('reading-container').classList.remove('hidden');
-            document.getElementById('quiz-header').classList.add('hidden'); // Hide title while reading/playing
+            document.getElementById('quiz-header').classList.add('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         window.startActualQuiz = function() {
-            // Hide reading passage, show actual QUIZ
             document.getElementById('reading-container').classList.add('hidden');
             document.getElementById('quiz-container').classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
-            // PLAY BACKGROUND MUSIC
-            const bgMusic = document.getElementById('bg-music');
-            bgMusic.volume = 0.2; // Set low volume so it's not distracting
-            bgMusic.play().catch(error => {
-                console.log("Audio autoplay was blocked by the browser. Interaction required.", error);
-            });
+            // START YOUTUBE MUSIC
+            if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
+                ytPlayer.seekTo(1770);
+                ytPlayer.playVideo();
+            }
 
             loadQuestion();
         }
@@ -564,10 +587,8 @@
             const currentQ = quizData[currentQuestionIndex];
             const buttons = document.querySelectorAll('.option-btn');
 
-            // Disable buttons so user can't click twice
             buttons.forEach(btn => btn.disabled = true);
 
-            // Add correct/incorrect styling
             if (selectedOption === currentQ.correctAnswer) {
                 score++;
                 clickedButton.classList.add('correct-option');
@@ -580,7 +601,6 @@
                 });
             }
 
-            // Wait 1.5 seconds, then move to next question
             setTimeout(() => {
                 currentQuestionIndex++;
                 if (currentQuestionIndex < quizData.length) { 
@@ -592,19 +612,17 @@
         }
 
         function showResults() {
-            // Stop the background music
-            const bgMusic = document.getElementById('bg-music');
-            bgMusic.pause();
-            bgMusic.currentTime = 0;
+            // STOP YOUTUBE MUSIC
+            if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
+                ytPlayer.pauseVideo();
+            }
 
-            // Show the result screen
             document.getElementById('quiz-container').classList.add('hidden');
             document.getElementById('result-container').classList.remove('hidden');
             document.getElementById('display-name').innerText = userName;
             document.getElementById('score-display').innerText = score;
             document.getElementById('quiz-header').classList.remove('hidden');
             
-            // Get form values for spreadsheet
             const age = document.getElementById('userAge').value;
             const city = document.getElementById('userCity').value;
             const taluka = document.getElementById('userTaluka').value;
