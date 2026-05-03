@@ -12,7 +12,10 @@
     
     <meta name="robots" content="index, follow">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta property="og:title" content="Sy Balshakti | Sahaj Yoga Quiz">
+    <meta property="og:description" content="Participate in the Sy Balshakti quiz. Learn about the teachings of Shri Mataji Nirmala Devi and begin your journey towards inner peace.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="YOUR_VERCEL_LINK_HERE"> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #6d28d9;
@@ -60,7 +63,7 @@
         /* Glassmorphism Navbar */
         .navbar {
             position: fixed; top: 0; left: 0; right: 0;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
@@ -69,7 +72,7 @@
         }
 
         .navbar-brand { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--primary); letter-spacing: -0.5px; cursor: pointer; }
-        .navbar-links { display: flex; gap: 24px; align-items: center; }
+        .navbar-links { display: flex; gap: 32px; align-items: center; }
         .navbar-links a { text-decoration: none; color: var(--text-muted); font-weight: 500; transition: color 0.2s; cursor: pointer; }
         .navbar-links a:hover { color: var(--primary); }
 
@@ -135,17 +138,54 @@
         .correct-option { background-color: #ecfdf5 !important; border-color: #10b981 !important; color: #047857 !important; }
         .incorrect-option { background-color: #fef2f2 !important; border-color: #ef4444 !important; color: #b91c1c !important; }
 
-        /* Memory Game Styles */
-        .memory-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 20px auto; max-width: 650px; }
-        @media (min-width: 480px) { .memory-grid { grid-template-columns: repeat(4, 1fr); } }
-        .memory-card { background-color: var(--primary); color: transparent; padding: 10px; border-radius: 12px; font-size: 0.9rem; font-weight: 600; text-align: center; cursor: pointer; transition: transform 0.3s, background-color 0.3s, color 0.3s; display: flex; align-items: center; justify-content: center; min-height: 70px; user-select: none; border: 2px solid var(--primary-hover); box-shadow: var(--shadow-sm); }
-        .memory-card.flipped { background-color: #f8fafc; color: var(--text); border-color: var(--border); transform: scale(1.05); }
-        .memory-card.matched { background-color: #ecfdf5; color: #047857; border-color: #10b981; cursor: default; transform: scale(1); opacity: 0.9; }
+        /* Memory Game Styles (Bigger & Harder) */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 20px auto;
+            max-width: 650px;
+        }
+        @media (min-width: 480px) {
+            .memory-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        .memory-card {
+            background-color: var(--primary);
+            color: transparent;
+            padding: 10px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s, color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 70px;
+            user-select: none;
+            border: 2px solid var(--primary-hover);
+            box-shadow: var(--shadow-sm);
+        }
+        .memory-card.flipped {
+            background-color: #f8fafc;
+            color: var(--text);
+            border-color: var(--border);
+            transform: scale(1.05);
+        }
+        .memory-card.matched {
+            background-color: #ecfdf5;
+            color: #047857;
+            border-color: #10b981;
+            cursor: default;
+            transform: scale(1);
+            opacity: 0.9;
+        }
 
         /* Reading Passage Styles */
         .reading-content p { margin-bottom: 16px; font-size: 1.05rem; color: var(--text); line-height: 1.7; }
 
-        /* Values Grid */
+        /* Values Grid Detailed */
         .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .values-card { background: var(--surface); border: 1px solid var(--border); padding: 32px; border-radius: 16px; box-shadow: var(--shadow-sm); }
         .values-card.highlight { border-top: 4px solid var(--primary); }
@@ -161,33 +201,11 @@
         .support-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
         .support-card p { color: var(--text-muted); margin-bottom: 20px; }
 
-        /* Bubble Shooter Canvas */
-        .bubble-container { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #1e293b; padding: 20px; border-radius: 16px; margin: 0 auto; max-width: 400px; box-shadow: var(--shadow-lg); }
-        canvas { background-color: #0f172a; border-radius: 8px; border: 2px solid #334155; width: 100%; max-width: 320px; height: auto; touch-action: none; cursor: crosshair; }
-        .game-hud { color: white; display: flex; justify-content: space-between; width: 100%; max-width: 320px; margin-bottom: 10px; font-weight: 600; }
-
         footer { background: white; padding: 40px 20px; text-align: center; border-top: 1px solid var(--border); color: var(--text-muted); font-weight: 500; margin-top: auto; }
 
-        /* Mobile Adjustments */
         @media (max-width: 768px) {
-            .navbar { 
-                flex-direction: column; 
-                padding: 15px 5%; 
-                gap: 15px;
-            }
-            .navbar-links { 
-                display: flex; 
-                flex-wrap: wrap; 
-                justify-content: center; 
-                gap: 12px; 
-                width: 100%;
-            }
-            .navbar-links a, .navbar-links button {
-                font-size: 0.9rem;
-            }
-            body { padding-top: 130px; } /* Increased padding for stacked navbar */
-            
-            .hero { padding: 60px 5% 50px; }
+            .navbar-links { display: none; }
+            .hero { padding: 100px 5% 50px; }
             .hero h1 { font-size: 2.5rem; }
             .split-section { flex-direction: column-reverse; padding: 24px; }
             .split-image { position: static; width: 100%; }
@@ -205,8 +223,7 @@
             <a onclick="navigateTo('about-page')">About</a>
             <a onclick="navigateTo('values-page')">Values</a>
             <a onclick="navigateTo('support-page')">Support</a>
-            <a onclick="navigateTo('games-hub-page')">Games</a>
-            <button onclick="navigateTo('quiz-page')" class="btn-primary" style="padding: 6px 16px; font-size: 0.9rem;">Start Quiz</button>
+            <button onclick="navigateTo('quiz-page')" class="btn-primary" style="padding: 8px 20px; font-size: 0.95rem;">Start Quiz</button>
         </div>
     </nav>
 
@@ -216,7 +233,7 @@
             <p>Test your knowledge, learn about the wisdom of Shri Mataji Nirmala Devi, and begin your journey towards inner peace through Sahaj Yoga meditation.</p>
             <div class="hero-buttons">
                 <button onclick="navigateTo('quiz-page')" class="btn-primary">📝 Start Quiz</button>
-                <button onclick="navigateTo('games-hub-page')" class="btn-secondary">🎮 Play Games</button>
+                <a href="https://drive.google.com/file/d/1upxjC12LD-XAX5BOOzxCA4eq32sWOx3P/view?usp=sharing" target="_blank" class="btn-success">📱 Download App</a>
             </div>
         </section>
 
@@ -336,43 +353,6 @@
         </section>
     </div>
 
-    <div id="games-hub-page" class="page-view">
-        <section class="section">
-            <h2 class="section-title">🎮 Balshakti Games Hub</h2>
-            <p class="section-subtitle">Learn through play! Enjoy these Sahaj Yoga inspired mini-games to improve focus and learn about the subtle system.</p>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="icon">🔴🟡🔵</div>
-                    <h3>Chakra Bubble Shooter</h3>
-                    <p>Clear the catchments by matching the 7 Chakras!</p>
-                    <button class="btn-primary" style="margin-top: 15px; width: 100%;" onclick="startBubbleShooter()">Play Now</button>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">🎴</div>
-                    <h3>Chakra Memory Match</h3>
-                    <p>Flip and match cards to test your subtle memory.</p>
-                    <button class="btn-secondary" style="margin-top: 15px; width: 100%;" onclick="startMiniGameFromHub()">Play Now</button>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <div id="bubble-game-page" class="page-view">
-        <section class="section">
-            <h2 class="section-title">Chakra Bubble Shooter</h2>
-            <p class="section-subtitle">Tap or click to shoot. Match 3 or more of the same Chakra color to clear them!</p>
-            
-            <div class="bubble-container">
-                <div class="game-hud">
-                    <span>Score: <span id="bubble-score">0</span></span>
-                    <button onclick="navigateTo('games-hub-page')" style="background:none; border:none; color:#ef4444; font-weight:bold; cursor:pointer;">Exit</button>
-                </div>
-                <canvas id="bubble-canvas" width="320" height="420"></canvas>
-            </div>
-        </section>
-    </div>
-
     <div id="quiz-page" class="page-view">
         <section class="section">
             <h2 class="section-title" id="quiz-header">📝 Sahaj Yoga Balshakti Quiz</h2>
@@ -459,7 +439,7 @@
                     <div id="memory-board" class="memory-grid"></div>
                     
                     <p id="game-message" style="font-size: 1.2rem; font-weight: 700; color: var(--secondary); min-height: 30px; margin-top: 15px;"></p>
-                    <button class="btn-secondary" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-hub-page')">⬅️ Back to Games</button>
+                    <button class="btn-secondary" style="width: 100%; margin-top: 10px;" onclick="location.reload()">🔄 Return to Home</button>
                 </div>
 
             </div>
@@ -496,11 +476,6 @@
             document.querySelectorAll('.page-view').forEach(page => page.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            // Stop bubble loop if navigating away
-            if(pageId !== 'bubble-game-page') {
-                isBubbleGameRunning = false;
-            }
         }
 
         // 1. POPULATE AGE DROPDOWN
@@ -515,9 +490,40 @@
         const locationData = {
             "Ahilyanagar (Ahmednagar)": ["Akola", "Jamkhed", "Karjat", "Kopargaon", "Nagar", "Nevasa", "Parner", "Pathardi", "Rahta", "Rahuri", "Sangamner", "Shevgaon", "Shrigonda", "Shrirampur"],
             "Akola": ["Akola", "Akot", "Balapur", "Barshitakli", "Murtijapur", "Patur", "Telhara"],
+            "Amravati": ["Achalpur", "Amravati", "Anjangaon Surji", "Bhatkuli", "Chandur Railway", "Chandurbazar", "Chikhaldara", "Daryapur", "Dhamangaon Railway", "Dharni", "Morshi", "Nandgaon-Khandeshwar", "Teosa", "Warud"],
+            "Beed": ["Ambejogai", "Ashti", "Beed", "Dharur", "Georai", "Kaij", "Majalgaon", "Parli", "Patoda", "Shirur Kasar", "Wadwani"],
+            "Bhandara": ["Bhandara", "Lakhandur", "Lakhani", "Mohadi", "Pauni", "Sakoli", "Tumsar"],
+            "Buldhana": ["Buldhana", "Chikhli", "Deolgaon Raja", "Jalgaon Jamod", "Khamgaon", "Lonar", "Malkapur", "Mehkar", "Motala", "Nandura", "Sangrampur", "Shegaon", "Sindkhed Raja"],
+            "Chandrapur": ["Ballarpur", "Bhadravati", "Brahmapuri", "Chandrapur", "Chimur", "Gondpipri", "Jiwati", "Korpana", "Mul", "Nagbhir", "Pombhurna", "Rajura", "Sawali", "Sindewahi", "Warora"],
+            "Chhatrapati Sambhajinagar (Aurangabad)": ["Aurangabad", "Gangapur", "Kannad", "Khuldabad", "Paithan", "Phulambri", "Sillod", "Soegaon", "Vaijapur"],
+            "Dharashiv (Osmanabad)": ["Bhum", "Dharashiv", "Kalamb", "Lohara", "Paranda", "Tuljapur", "Umarga", "Washi"],
+            "Dhule": ["Dhule", "Sakri", "Shirpur", "Sindkheda"],
+            "Gadchiroli": ["Aheri", "Armori", "Bhamragad", "Chamorshi", "Desaiganj", "Dhanora", "Etapalli", "Gadchiroli", "Korchi", "Kurkheda", "Mulchera", "Sironcha"],
+            "Gondia": ["Amgaon", "Arjuni Morgaon", "Deori", "Gondia", "Goregaon", "Sadak-Arjuni", "Salekasa", "Tirora"],
+            "Hingoli": ["Aundha Nagnath", "Basmath", "Hingoli", "Kalamnuri", "Sengaon"],
+            "Jalgaon": ["Amalner", "Bhadgaon", "Bhusawal", "Bodvad", "Chalisgaon", "Chopda", "Dharangaon", "Erandol", "Jalgaon", "Jamner", "Muktainagar", "Pachora", "Parola", "Raver", "Yawal"],
+            "Jalna": ["Ambad", "Badnapur", "Bhokardan", "Ghansawangi", "Jafferabad", "Jalna", "Mantha", "Partur"],
+            "Kolhapur": ["Ajra", "Bavda", "Bhudargad", "Chandgad", "Gadhinglaj", "Hatkanangle", "Kagal", "Karvir (Kolhapur)", "Panhala", "Radhanagari", "Shahuwadi", "Shirol"],
+            "Latur": ["Ahmadpur", "Ausa", "Chakur", "Deoni", "Jalkot", "Latur", "Nilanga", "Renapur", "Shirur-Anantpal", "Udgir"],
             "Mumbai City": ["Mumbai City"],
-            "Pune": ["Ambegaon", "Baramati", "Bhor", "Daund", "Haveli", "Indapur", "Junnar", "Khed", "Maval", "Mulshi", "Pune City", "Purandar", "Shirur", "Velhe"]
-            // Note: Kept short for snippet view, add remaining districts back here
+            "Mumbai Suburban": ["Andheri", "Borivali", "Kurla"],
+            "Nagpur": ["Bhiwapur", "Hingna", "Kalameshwar", "Kamptee", "Katol", "Kuhi", "Mauda", "Nagpur Rural", "Nagpur Urban", "Narkhed", "Parseoni", "Ramtek", "Savner", "Umred"],
+            "Nanded": ["Ardhapur", "Bhokar", "Biloli", "Deglur", "Dharmabad", "Hadgaon", "Himayatnagar", "Kandhar", "Kinwat", "Loha", "Mahoor", "Mudkhed", "Mukhed", "Naigaon", "Nanded", "Umri"],
+            "Nandurbar": ["Akkalkuwa", "Akrani", "Nandurbar", "Nawapur", "Shahade", "Talode"],
+            "Nashik": ["Baglan", "Chandvad", "Deola", "Dindori", "Igatpuri", "Kalwan", "Malegaon", "Nandgaon", "Nashik", "Niphad", "Peint", "Sinnar", "Surgana", "Trimbakeshwar", "Yevla"],
+            "Palghar": ["Dahanu", "Jawhar", "Mokhada", "Palghar", "Talasari", "Vada", "Vasai", "Vikramgad"],
+            "Parbhani": ["Gangakhed", "Jintur", "Manwath", "Palam", "Parbhani", "Pathri", "Purna", "Sailu", "Sonpeth"],
+            "Pune": ["Ambegaon", "Baramati", "Bhor", "Daund", "Haveli", "Indapur", "Junnar", "Khed", "Maval", "Mulshi", "Pune City", "Purandar", "Shirur", "Velhe"],
+            "Raigad": ["Alibag", "Karjat", "Khalapur", "Mahad", "Mangaon", "Mhasla", "Murud", "Panvel", "Pen", "Poladpur", "Roha", "Shrivardhan", "Sudhagad", "Tala", "Uran"],
+            "Ratnagiri": ["Chiplun", "Dapoli", "Guhagar", "Khed", "Lanja", "Mandangad", "Rajapur", "Ratnagiri", "Sangameshwar"],
+            "Sangli": ["Atpadi", "Jat", "Kadegaon", "Kavathe-Mahankal", "Khanapur", "Miraj", "Palus", "Shirala", "Tasgaon", "Walwa"],
+            "Satara": ["Jaoli", "Karad", "Khandala", "Khatav", "Koregaon", "Mahabaleshwar", "Man", "Patan", "Phaltan", "Satara", "Wai"],
+            "Sindhudurg": ["Devgad", "Dodamarg", "Kankavli", "Kudal", "Malwan", "Sawantwadi", "Vaibhavwadi", "Vengurla"],
+            "Solapur": ["Akkalkot", "Barshi", "Karmala", "Madha", "Malshiras", "Mangalwedhe", "Mohol", "Pandharpur", "Sangole", "Solapur North", "Solapur South"],
+            "Thane": ["Ambarnath", "Bhiwandi", "Kalyan", "Murbad", "Shahapur", "Thane", "Ulhasnagar"],
+            "Wardha": ["Arvi", "Ashti", "Deoli", "Hinganghat", "Karanja", "Samudrapur", "Seloo", "Wardha"],
+            "Washim": ["Karanja", "Malegaon", "Mangrulpir", "Manora", "Risod", "Washim"],
+            "Yavatmal": ["Arni", "Babhulgaon", "Darwha", "Digras", "Ghatanji", "Kalamb", "Kelapur", "Mahagaon", "Maregaon", "Ner", "Pandharkawada", "Pusad", "Ralegaon", "Umarkhed", "Wani", "Yavatmal", "Zari Jamani"]
         };
 
         const citySelect = document.getElementById('userCity');
@@ -550,7 +556,7 @@
             { question: "1. श्री माताजी निर्मला देवी का विवाह कब हुआ था?", options: ["21 मार्च 1923", "9 जुलाई 1986", "7 अप्रैल 1947", "15 अगस्त 1947"], correctAnswer: "7 अप्रैल 1947" },
             { question: "2. श्री माताजी का विवाह किससे हुआ था?", options: ["प्रसाद साल्वे", "चंद्रिका प्रसाद श्रीवास्तव", "महात्मा गांधी", "जवाहरलाल नेहरू"], correctAnswer: "चंद्रिका प्रसाद श्रीवास्तव" },
             { question: "3. श्री माताजी के अनुसार मनुष्य का वास्तविक परिवर्तन किससे संभव है?", options: ["प्रसिद्धि से", "केवल शिक्षा से", "आत्म-साक्षात्कार (Self Realisation) से", "धन और शक्ति से"], correctAnswer: "आत्म-साक्षात्कार (Self Realisation) से" },
-            { question: "4. आत्म-साक्षात्कार का अर्थ क्या historic है?", options: ["समाज सेवा करना", "भीतर की सूक्ष्म दिव्य शक्ति का जागरण", "नई भाषा सीखना", "केवल पूजा-पाठ करना"], correctAnswer: "भीतर की सूक्ष्म दिव्य शक्ति का जागरण" },
+            { question: "4. आत्म-साक्षात्कार का अर्थ क्या है?", options: ["समाज सेवा करना", "भीतर की सूक्ष्म दिव्य शक्ति का जागरण", "नई भाषा सीखना", "केवल पूजा-पाठ करना"], correctAnswer: "भीतर की सूक्ष्म दिव्य शक्ति का जागरण" },
             { question: "5. श्री माताजी के पिता उनसे क्या कहते थे?", options: ["तुम्हें राजनीति में जाना है", "तुम्हें बहुत लोगों को आत्म-साक्षात्कार देने का मार्ग खोजना है", "तुम्हें विदेश जाना है", "तुम्हें डॉक्टर बनना है"], correctAnswer: "तुम्हें बहुत लोगों को आत्म-साक्षात्कार देने का मार्ग खोजना है" }
         ];
 
@@ -630,10 +636,22 @@
             document.getElementById('display-name').innerText = userName;
             document.getElementById('score-display').innerText = score;
             document.getElementById('quiz-header').classList.remove('hidden');
+            
+            const age = document.getElementById('userAge').value;
+            const city = document.getElementById('userCity').value;
+            const taluka = document.getElementById('userTaluka').value;
+
+            // --- SEND DATA TO SHEETDB ---
+            const sheetdbURL = 'https://sheetdb.io/api/v1/k1qtzemkf5hq6'; 
+            fetch(sheetdbURL, {
+                method: 'POST',
+                headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+                body: JSON.stringify({ data: [{ 'Timestamp': new Date().toLocaleString(), 'Name': userName, 'Age': age, 'District': city, 'Taluka': taluka, 'Score': score }] })
+            }).catch(error => console.error('Error:', error));
         }
 
         // ==========================================
-        // 5. MEMORY MATCH LOGIC (CHAKRAS)
+        // 5. MINI GAME LOGIC (CHAKRA MEMORY MATCH - 16 CARDS)
         // ==========================================
         const gamePairs = [
             { id: 1, text: 'Mooladhara' }, { id: 1, text: 'Mooladhara' },
@@ -646,16 +664,10 @@
             { id: 8, text: 'Sahasrara' },  { id: 8, text: 'Sahasrara' }
         ];
 
-        let firstCard = null, secondCard = null, lockBoard = false, matchedCount = 0;
-
-        window.startMiniGameFromHub = function() {
-            navigateTo('quiz-page');
-            document.getElementById('form-container').classList.add('hidden');
-            document.getElementById('reading-container').classList.add('hidden');
-            document.getElementById('quiz-container').classList.add('hidden');
-            document.getElementById('result-container').classList.add('hidden');
-            startMiniGame();
-        }
+        let firstCard = null;
+        let secondCard = null;
+        let lockBoard = false;
+        let matchedCount = 0;
 
         window.startMiniGame = function() {
             document.getElementById('result-container').classList.add('hidden');
@@ -667,185 +679,79 @@
 
         function setupMemoryGame() {
             const board = document.getElementById('memory-board');
-            board.innerHTML = ''; matchedCount = 0;
+            board.innerHTML = '';
+            matchedCount = 0;
             document.getElementById('game-message').innerText = '';
             
+            // Shuffle cards
             const shuffledCards = gamePairs.sort(() => 0.5 - Math.random());
+
             shuffledCards.forEach((cardData) => {
                 const card = document.createElement('div');
                 card.classList.add('memory-card');
-                card.dataset.id = cardData.id; card.dataset.text = cardData.text;
-                card.innerText = "?"; 
+                card.dataset.id = cardData.id;
+                card.dataset.text = cardData.text;
+                card.innerText = "?"; // Face down
+                
                 card.addEventListener('click', () => flipCard(card));
                 board.appendChild(card);
             });
         }
 
         function flipCard(card) {
-            if (lockBoard || card === firstCard || card.classList.contains('matched')) return;
-            card.classList.add('flipped'); card.innerText = card.dataset.text;
-            if (!firstCard) { firstCard = card; return; }
-            secondCard = card; checkMatch();
+            if (lockBoard) return;
+            if (card === firstCard) return; // Prevent clicking same card twice
+            if (card.classList.contains('matched')) return;
+
+            card.classList.add('flipped');
+            card.innerText = card.dataset.text;
+
+            if (!firstCard) {
+                firstCard = card;
+                return;
+            }
+
+            secondCard = card;
+            checkMatch();
         }
 
         function checkMatch() {
-            if (firstCard.dataset.id === secondCard.dataset.id) {
-                firstCard.classList.add('matched'); secondCard.classList.add('matched');
-                matchedCount += 2;
-                if (matchedCount === gamePairs.length) document.getElementById('game-message').innerText = "🎉 Congratulations! You matched the Chakras! 🙏";
-                resetBoard();
+            let isMatch = firstCard.dataset.id === secondCard.dataset.id;
+
+            if (isMatch) {
+                disableCards();
             } else {
-                lockBoard = true;
-                setTimeout(() => {
-                    firstCard.classList.remove('flipped'); firstCard.innerText = "?";
-                    secondCard.classList.remove('flipped'); secondCard.innerText = "?";
-                    resetBoard();
-                }, 800); 
-            }
-        }
-        function resetBoard() { [firstCard, secondCard, lockBoard] = [null, null, false]; }
-
-        // ==========================================
-        // 6. CHAKRA BUBBLE SHOOTER LOGIC
-        // ==========================================
-        const canvas = document.getElementById('bubble-canvas');
-        const ctx = canvas.getContext('2d');
-        const bCols = 10; const bRows = 13; const bSize = 32;
-        let bGrid = []; let bScore = 0; let isBubbleGameRunning = false;
-        
-        // 7 Chakra Colors
-        const bColors = ['#ef4444', '#f97316', '#eab308', '#22c55e', '#3b82f6', '#4f46e5', '#a855f7'];
-
-        let bPlayer = { x: 160, y: 400, color: '', dx: 0, dy: 0, active: false };
-
-        window.startBubbleShooter = function() {
-            navigateTo('bubble-game-page');
-            bScore = 0; document.getElementById('bubble-score').innerText = bScore;
-            
-            // Generate Random Starting Bubbles
-            for(let r=0; r<bRows; r++) {
-                bGrid[r] = [];
-                for(let c=0; c<bCols; c++) {
-                    bGrid[r][c] = (r < 4) ? bColors[Math.floor(Math.random()*bColors.length)] : null;
-                }
-            }
-            bPlayer.color = bColors[Math.floor(Math.random()*bColors.length)];
-            bPlayer.active = false; bPlayer.x = 160; bPlayer.y = 400;
-            
-            if(!isBubbleGameRunning) {
-                isBubbleGameRunning = true;
-                requestAnimationFrame(bubbleLoop);
+                unflipCards();
             }
         }
 
-        function drawBubble(x, y, color) {
-            ctx.beginPath();
-            ctx.arc(x, y, 14, 0, Math.PI*2);
-            ctx.fillStyle = color; ctx.fill();
-            ctx.strokeStyle = 'rgba(255,255,255,0.4)'; ctx.lineWidth = 2; ctx.stroke();
-            
-            // Gloss effect
-            ctx.beginPath();
-            ctx.arc(x - 5, y - 5, 4, 0, Math.PI*2);
-            ctx.fillStyle = 'rgba(255,255,255,0.3)'; ctx.fill();
-            ctx.closePath();
+        function disableCards() {
+            firstCard.classList.add('matched');
+            secondCard.classList.add('matched');
+            matchedCount += 2;
+
+            if (matchedCount === gamePairs.length) {
+                document.getElementById('game-message').innerText = "🎉 Congratulations! You perfectly matched the Chakras! 🙏";
+            }
+
+            resetBoard();
         }
 
-        function updateBubble() {
-            if(bPlayer.active) {
-                bPlayer.x += bPlayer.dx; bPlayer.y += bPlayer.dy;
-                // Wall Bounce
-                if(bPlayer.x < 16 || bPlayer.x > canvas.width - 16) bPlayer.dx *= -1;
-
-                // Collision Detection
-                let hit = false;
-                if(bPlayer.y <= 16) hit = true; // Hit Top
-                else {
-                    for(let r=0; r<bRows; r++) {
-                        for(let c=0; c<bCols; c++) {
-                            if(bGrid[r][c]) {
-                                let bx = c * bSize + 16; let by = r * bSize + 16;
-                                if(Math.hypot(bPlayer.x - bx, bPlayer.y - by) < 28) { hit = true; break; }
-                            }
-                        }
-                        if(hit) break;
-                    }
-                }
-
-                if(hit) {
-                    let sRow = Math.floor(bPlayer.y / bSize);
-                    let sCol = Math.floor(bPlayer.x / bSize);
-                    if(sRow < 0) sRow = 0; if(sCol < 0) sCol = 0; if(sCol >= bCols) sCol = bCols-1;
-                    
-                    while(bGrid[sRow] && bGrid[sRow][sCol] !== null && sRow < bRows-1) sRow++;
-                    
-                    if(sRow < bRows) {
-                        bGrid[sRow][sCol] = bPlayer.color;
-                        checkBubbleMatches(sRow, sCol, bPlayer.color);
-                    } else {
-                        // Game Over Reset
-                        startBubbleShooter(); return; 
-                    }
-
-                    bPlayer.active = false; bPlayer.x = 160; bPlayer.y = 400;
-                    bPlayer.color = bColors[Math.floor(Math.random()*bColors.length)];
-                }
-            }
+        function unflipCards() {
+            lockBoard = true;
+            // Flip back much faster now to make it harder!
+            setTimeout(() => {
+                firstCard.classList.remove('flipped');
+                firstCard.innerText = "?";
+                secondCard.classList.remove('flipped');
+                secondCard.innerText = "?";
+                resetBoard();
+            }, 800); 
         }
 
-        function checkBubbleMatches(r, c, color) {
-            let matches = [];
-            let visited = Array(bRows).fill(0).map(()=>Array(bCols).fill(false));
-
-            function dfs(rr, cc) {
-                if(rr<0 || rr>=bRows || cc<0 || cc>=bCols || visited[rr][cc] || bGrid[rr][cc] !== color) return;
-                visited[rr][cc] = true; matches.push({r:rr, c:cc});
-                dfs(rr-1, cc); dfs(rr+1, cc); dfs(rr, cc-1); dfs(rr, cc+1);
-            }
-            dfs(r, c);
-
-            if(matches.length >= 3) {
-                matches.forEach(m => bGrid[m.r][m.c] = null);
-                bScore += matches.length * 10;
-                document.getElementById('bubble-score').innerText = bScore;
-            }
+        function resetBoard() {
+            [firstCard, secondCard, lockBoard] = [null, null, false];
         }
-
-        function bubbleLoop() {
-            if(!isBubbleGameRunning) return;
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            // Draw Grid
-            for(let r=0; r<bRows; r++) {
-                for(let c=0; c<bCols; c++) {
-                    if(bGrid[r][c]) drawBubble(c * bSize + 16, r * bSize + 16, bGrid[r][c]);
-                }
-            }
-            // Draw Player / Shooter
-            drawBubble(bPlayer.x, bPlayer.y, bPlayer.color);
-            
-            updateBubble();
-            requestAnimationFrame(bubbleLoop);
-        }
-
-        canvas.addEventListener('click', (e) => {
-            if(bPlayer.active) return;
-            const rect = canvas.getBoundingClientRect();
-            const scaleX = canvas.width / rect.width;
-            const scaleY = canvas.height / rect.height;
-            const clickX = (e.clientX - rect.left) * scaleX;
-            const clickY = (e.clientY - rect.top) * scaleY;
-
-            let angle = Math.atan2(clickY - bPlayer.y, clickX - bPlayer.x);
-            // Prevent shooting downwards
-            if(Math.sin(angle) > -0.1) angle = -Math.PI/2 - 0.1; 
-            
-            const speed = 12;
-            bPlayer.dx = Math.cos(angle) * speed;
-            bPlayer.dy = Math.sin(angle) * speed;
-            bPlayer.active = true;
-        });
-
     </script>
 </body>
 </html>
