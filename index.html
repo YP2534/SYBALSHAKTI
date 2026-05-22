@@ -61,7 +61,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Glassmorphism Navbar */
+        /* Glassmorphism Navbar (UPDATED FOR HAMBURGER MENU) */
         .navbar {
             position: fixed; top: 0; left: 0; right: 0;
             background: rgba(255, 255, 255, 0.85);
@@ -73,9 +73,26 @@
         }
 
         .navbar-brand { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--primary); letter-spacing: -0.5px; cursor: pointer; }
+        
         .navbar-links { display: flex; gap: 32px; align-items: center; }
         .navbar-links a { text-decoration: none; color: var(--text-muted); font-weight: 500; transition: color 0.2s; cursor: pointer; }
         .navbar-links a:hover { color: var(--primary); }
+        
+        /* HAMBURGER ICON STYLES */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+            padding: 5px;
+        }
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background-color: var(--text);
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
 
         /* Modern Hero Section */
         .hero { 
@@ -183,6 +200,33 @@
             opacity: 0.9;
         }
 
+        /* Bandhan Game Styles (NEW) */
+        .bandhan-area {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+            background: #f8fafc;
+            border-radius: 24px;
+            border: 2px dashed var(--border);
+            overflow: hidden;
+            touch-action: none;
+            cursor: crosshair;
+        }
+        .bandhan-area .yogi-emoji {
+            font-size: 6rem;
+            line-height: 300px;
+            text-align: center;
+            pointer-events: none;
+        }
+        #bandhanCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
         /* Reading Passage Styles */
         .reading-content p { margin-bottom: 16px; font-size: 1.05rem; color: var(--text); line-height: 1.7; }
 
@@ -204,8 +248,37 @@
 
         footer { background: white; padding: 40px 20px; text-align: center; border-top: 1px solid var(--border); color: var(--text-muted); font-weight: 500; margin-top: auto; }
 
+        /* Responsive Breakpoints (UPDATED FOR HAMBURGER MENU) */
         @media (max-width: 768px) {
-            .navbar-links { display: none; }
+            .hamburger { display: flex; }
+            .navbar-links {
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px 5%;
+                border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow-md);
+                display: none; /* Hidden by default */
+                gap: 20px;
+                align-items: flex-start;
+            }
+            .navbar-links.active {
+                display: flex;
+            }
+            .navbar-links a {
+                font-size: 1.1rem;
+                width: 100%;
+                padding: 10px 0;
+                border-bottom: 1px solid var(--bg);
+            }
+            .navbar-links button {
+                width: 100%;
+                margin-top: 10px;
+            }
+            
             .hero { padding: 100px 5% 50px; }
             .hero h1 { font-size: 2.5rem; }
             .split-section { flex-direction: column-reverse; padding: 24px; }
@@ -219,12 +292,20 @@
 
     <nav class="navbar">
         <a onclick="navigateTo('home-page')" class="navbar-brand">🪷 Sahaj Yoga Balshakti</a>
-        <div class="navbar-links">
-            <a onclick="navigateTo('home-page')">Home</a>
-            <a onclick="navigateTo('about-page')">About</a>
-            <a onclick="navigateTo('values-page')">Values</a>
-            <a onclick="navigateTo('support-page')">Support</a>
-            <button onclick="navigateTo('quiz-page')" class="btn-primary" style="padding: 8px 20px; font-size: 0.95rem;">Start Quiz</button>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="navbar-links" id="nav-links">
+            <a onclick="navigateTo('home-page'); closeMenu()">Home</a>
+            <a onclick="navigateTo('about-page'); closeMenu()">About</a>
+            <a onclick="navigateTo('values-page'); closeMenu()">Values</a>
+            <a onclick="navigateTo('support-page'); closeMenu()">Support</a>
+            
+            <a id="nav-games-link" class="hidden" onclick="navigateTo('games-dashboard'); closeMenu()" style="color: var(--secondary); font-weight: 700;">🎮 Games Zone</a>
+            
+            <button onclick="navigateTo('quiz-page'); closeMenu()" class="btn-primary" style="padding: 8px 20px; font-size: 0.95rem;">Start Quiz</button>
         </div>
     </nav>
 
@@ -354,6 +435,17 @@
         </section>
     </div>
 
+    <div id="games-dashboard" class="page-view">
+        <section class="section text-center">
+            <h2 class="section-title">🎮 Unlocked Games Zone</h2>
+            <p class="section-subtitle">You have successfully unlocked these games by completing the quiz!</p>
+            <div class="quiz-wrapper">
+                <button class="btn-primary" style="width: 100%; margin-bottom: 20px; padding: 20px; font-size: 1.2rem;" onclick="startMiniGame()">🧩 Play Chakra Memory Match</button>
+                <button class="btn-success" style="width: 100%; padding: 20px; font-size: 1.2rem;" onclick="startBandhanGame()">🛡️ Play Bandhan Tracer</button>
+            </div>
+        </section>
+    </div>
+
     <div id="quiz-page" class="page-view">
         <section class="section">
             <h2 class="section-title" id="quiz-header">📝 Sahaj Yoga Balshakti Quiz</h2>
@@ -397,7 +489,7 @@
                         <p> * *जन्म का नाम:* जन्म के समय उनके चेहरे पर एक अद्भुत तेज और निर्मलता थी, जो किसी नवजात शिशु में आमतौर पर नहीं देखी जाती। उनके चेहरे पर कोई दाग या सांसारिक मलिनता का भाव नहीं था। उनकी इस अलौकिक चमक और पवित्रता को देखकर उनकी दादी अत्यंत प्रभावित हुईं और उन्होंने तुरंत उनका नाम 'निर्मला' रखा। 'निर्मला' का अर्थ है—वह जो पूर्णतः शुद्ध, बेदाग और पवित्र है। यह नाम उनके संपूर्ण जीवन और उनके द्वारा स्थापित सहज योग के मूल दर्शन का पर्याय बन गया।</p>
                         <p>-Days in Mahatma Gandhi's Ashram</p>
                         <p> * बचपन से ही निर्मला देवी में गहरी आध्यात्मिक समझ थी। जब वे छोटी थीं, तब उनके माता-पिता उन्हें अक्सर महात्मा गांधी के आश्रम (सेवाग्राम) ले जाया करते थे।</p>
-                        <p> * महात्मा गांधी ने इस छोटी बच्ची के भीतर की असाधारण क्षमता को पहचान लिया था और वे प्यार से उन्हें 'नेपाली' कहकर बुलाते थे, क्योंकि उनके नैन-नक्श नेपालियों जैसे थे। गांधीजी अक्सर आध्यात्मिक और दार्शनिक विषयों पर उनसे चर्चा किया যত্ন करते थे।</p>
+                        <p> * महात्मा गांधी ने इस छोटी बच्ची के भीतर की असाधारण क्षमता को पहचान लिया था और वे प्यार से उन्हें 'नेपाली' कहकर बुलाते थे, क्योंकि उनके नैन-नक्श नेपालियों जैसे थे। गांधीजी अक्सर आध्यात्मिक और दार्शनिक विषयों पर उनसे चर्चा किया करते थे।</p>
                         
                         <blockquote style="font-style: italic; background: #f8fafc; padding: 15px; border-left: 4px solid var(--primary); margin: 0; color: #334155;">
                          Now we will take Chapter if today we take Chapter - 1 next time Chapter - 2
@@ -424,7 +516,11 @@
                         <p style="font-size:3rem; margin: 10px 0 0 0;"><strong style="color:var(--primary);"><span id="score-display">0</span> / 5</strong></p>
                     </div>
                     
+                    <p style="color: var(--secondary); font-weight: 600; margin-bottom: 20px;">🌟 You have unlocked new games in the menu!</p>
+
                     <button class="btn-primary" style="width: 100%; margin-bottom: 12px; background-color: var(--primary);" onclick="startMiniGame()">🎮 Play Chakra Memory Match!</button>
+                    <button class="btn-success" style="width: 100%; margin-bottom: 12px;" onclick="startBandhanGame()">🛡️ Play Bandhan Tracer</button>
+
                     <button class="btn-secondary" style="width: 100%;" onclick="location.reload()">🔄 Return to Home</button>
                 </div>
 
@@ -435,7 +531,24 @@
                     <div id="memory-board" class="memory-grid"></div>
                     
                     <p id="game-message" style="font-size: 1.2rem; font-weight: 700; color: var(--secondary); min-height: 30px; margin-top: 15px;"></p>
-                    <button class="btn-secondary" style="width: 100%; margin-top: 10px;" onclick="location.reload()">🔄 Return to Home</button>
+                    <button class="btn-secondary" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')">⬅️ Back to Games</button>
+                </div>
+
+                <div class="card-container hidden" id="bandhan-container" style="text-align:center;">
+                    <h2 style="margin-top:0; color: var(--secondary); font-size: 1.8rem;">🛡️ Bandhan Tracer</h2>
+                    <p style="color: var(--text-muted);">Drag/Swipe your finger over the yogi from <b>Left to Right</b> and back to complete 1 Bandhan. Do this 7 times!</p>
+                    
+                    <div class="bandhan-area" id="bandhanArea">
+                        <div class="yogi-emoji">🧘‍♂️</div>
+                        <canvas id="bandhanCanvas" width="300" height="300"></canvas>
+                    </div>
+
+                    <div style="background: #f8fafc; padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+                        <h3 style="margin: 0; color: var(--text);">Bandhans: <span id="bandhan-counter" style="color: var(--primary);">0</span> / 7</h3>
+                    </div>
+                    
+                    <p id="bandhan-message" style="font-size: 1.1rem; font-weight: 700; color: var(--secondary); min-height: 25px;"></p>
+                    <button class="btn-secondary" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')">⬅️ Back to Games</button>
                 </div>
 
             </div>
@@ -465,6 +578,14 @@
                     }
                 }
             });
+        }
+
+        // --- HAMBURGER MENU LOGIC ---
+        function toggleMenu() {
+            document.getElementById('nav-links').classList.toggle('active');
+        }
+        function closeMenu() {
+            document.getElementById('nav-links').classList.remove('active');
         }
 
         // 0. NAVIGATION LOGIC (SPA)
@@ -547,7 +668,7 @@
             }
         });
 
-        // 3. HINDI QUESTIONS (FROM CHAPTER 1 - HARD/GOOGLY OPTIONS)
+        // 3. HINDI QUESTIONS
         const quizData = [
             { 
                 question: "1. श्री माताजी निर्मला देवी के जन्म की सटीक खगोलीय और समयगत स्थिति के संबंध में निम्नलिखित में से कौन सा विकल्प पूर्णतः सत्य है?", 
@@ -653,7 +774,6 @@
 
             buttons.forEach(btn => btn.disabled = true);
 
-            // Using string.includes() or exact match to prevent minor encoding issues from breaking the quiz logic
             if (selectedOption === currentQ.correctAnswer || currentQ.correctAnswer.includes(selectedOption)) {
                 score++; clickedButton.classList.add('correct-option');
             } else {
@@ -681,6 +801,11 @@
             document.getElementById('score-display').innerText = score;
             document.getElementById('quiz-header').classList.remove('hidden');
             
+            // 🔥 CRITICAL: UNLOCK NAVBAR GAMES LINK HERE 🔥
+            const gamesLink = document.getElementById('nav-games-link');
+            gamesLink.classList.remove('hidden');
+            gamesLink.style.animation = "fadeIn 1s ease-in-out";
+
             const age = document.getElementById('userAge').value;
             const city = document.getElementById('userCity').value;
             const taluka = document.getElementById('userTaluka').value;
@@ -714,9 +839,11 @@
         let matchedCount = 0;
 
         window.startMiniGame = function() {
+            navigateTo('quiz-page'); // Stay in quiz view context
             document.getElementById('result-container').classList.add('hidden');
-            document.getElementById('game-container').classList.remove('hidden');
+            document.getElementById('bandhan-container').classList.add('hidden');
             document.getElementById('quiz-header').classList.add('hidden');
+            document.getElementById('game-container').classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
             setupMemoryGame();
         }
@@ -795,6 +922,103 @@
 
         function resetBoard() {
             [firstCard, secondCard, lockBoard] = [null, null, false];
+        }
+
+        // ==========================================
+        // 6. BANDHAN TRACER GAME LOGIC
+        // ==========================================
+        let bandhanCount = 0;
+        let swipeStage = 0; // 0: Start, 1: Dragged Right, 2: Dragged back Left
+        let isDrawing = false;
+        
+        window.startBandhanGame = function() {
+            navigateTo('quiz-page');
+            document.getElementById('result-container').classList.add('hidden');
+            document.getElementById('game-container').classList.add('hidden');
+            document.getElementById('quiz-header').classList.add('hidden');
+            document.getElementById('bandhan-container').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            resetBandhan();
+            initBandhanCanvas();
+        }
+
+        function resetBandhan() {
+            bandhanCount = 0; 
+            swipeStage = 0;
+            document.getElementById('bandhan-counter').innerText = "0";
+            document.getElementById('bandhan-message').innerText = "";
+            const canvas = document.getElementById('bandhanCanvas');
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function initBandhanCanvas() {
+            const canvas = document.getElementById('bandhanCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Mouse & Touch events
+            canvas.addEventListener('mousedown', startTrace);
+            canvas.addEventListener('mousemove', traceArc);
+            canvas.addEventListener('mouseup', endTrace);
+            canvas.addEventListener('mouseleave', endTrace);
+
+            canvas.addEventListener('touchstart', (e) => { e.preventDefault(); startTrace(e.touches[0]); }, {passive: false});
+            canvas.addEventListener('touchmove', (e) => { e.preventDefault(); traceArc(e.touches[0]); }, {passive: false});
+            canvas.addEventListener('touchend', endTrace);
+
+            function startTrace(e) {
+                if(bandhanCount >= 7) return;
+                isDrawing = true;
+                ctx.beginPath();
+                const pos = getPos(e);
+                ctx.moveTo(pos.x, pos.y);
+                checkZone(pos.x, pos.y);
+            }
+
+            function traceArc(e) {
+                if (!isDrawing || bandhanCount >= 7) return;
+                const pos = getPos(e);
+                
+                // Draw line
+                ctx.lineWidth = 6;
+                ctx.lineCap = 'round';
+                ctx.strokeStyle = `hsla(${bandhanCount * 50}, 70%, 50%, 0.6)`; // Changes color per bandhan
+                ctx.lineTo(pos.x, pos.y);
+                ctx.stroke();
+
+                checkZone(pos.x, pos.y);
+            }
+
+            function endTrace() { isDrawing = false; }
+
+            function getPos(e) {
+                const rect = canvas.getBoundingClientRect();
+                return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            }
+
+            function checkZone(x, y) {
+                // If trace is in the Left zone
+                if (x < 100) {
+                    if (swipeStage === 0) {
+                        swipeStage = 1; // Started left
+                    } else if (swipeStage === 2) {
+                        // Completed full left-right-left loop
+                        bandhanCount++;
+                        document.getElementById('bandhan-counter').innerText = bandhanCount;
+                        swipeStage = 1; // Reset to start next bandhan
+                        
+                        if(bandhanCount >= 7) {
+                            document.getElementById('bandhan-message').innerText = "🛡️ Perfect! Your Aura is fully protected! 🙏";
+                            ctx.fillStyle = "rgba(16, 185, 129, 0.2)";
+                            ctx.fillRect(0,0, canvas.width, canvas.height); // Green overlay
+                        }
+                    }
+                }
+                // If trace is in the Right zone
+                if (x > 200 && swipeStage === 1) {
+                    swipeStage = 2; // Reached right side
+                }
+            }
         }
     </script>
 </body>
