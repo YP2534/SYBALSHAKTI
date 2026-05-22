@@ -30,6 +30,7 @@
             --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --danger: #ef4444;
         }
 
         html { scroll-behavior: smooth; }
@@ -83,11 +84,12 @@
             display: none;
             flex-direction: column;
             cursor: pointer;
-            gap: 6px;
+            gap: 8px;
             padding: 5px;
+            margin-left: auto;
         }
         .hamburger span {
-            width: 30px;
+            width: 32px;
             height: 3px;
             background-color: var(--text);
             border-radius: 3px;
@@ -156,76 +158,42 @@
         .correct-option { background-color: #ecfdf5 !important; border-color: #10b981 !important; color: #047857 !important; }
         .incorrect-option { background-color: #fef2f2 !important; border-color: #ef4444 !important; color: #b91c1c !important; }
 
-        /* Memory Game Styles (Bigger & Harder) */
-        .memory-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin: 20px auto;
-            max-width: 650px;
-        }
-        @media (min-width: 480px) {
-            .memory-grid { grid-template-columns: repeat(4, 1fr); }
-        }
-        .memory-card {
-            background-color: var(--primary);
-            color: transparent;
-            padding: 10px;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s, background-color 0.3s, color 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 70px;
-            user-select: none;
-            border: 2px solid var(--primary-hover);
-            box-shadow: var(--shadow-sm);
-        }
-        .memory-card.flipped {
-            background-color: #f8fafc;
-            color: var(--text);
-            border-color: var(--border);
-            transform: scale(1.05);
-        }
-        .memory-card.matched {
-            background-color: #ecfdf5;
-            color: #047857;
-            border-color: #10b981;
-            cursor: default;
-            transform: scale(1);
-            opacity: 0.9;
-        }
+        /* Memory Game Styles */
+        .memory-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 20px auto; max-width: 650px; }
+        @media (min-width: 480px) { .memory-grid { grid-template-columns: repeat(4, 1fr); } }
+        .memory-card { background-color: var(--primary); color: transparent; padding: 10px; border-radius: 12px; font-size: 0.9rem; font-weight: 600; text-align: center; cursor: pointer; transition: transform 0.3s, background-color 0.3s, color 0.3s; display: flex; align-items: center; justify-content: center; min-height: 70px; user-select: none; border: 2px solid var(--primary-hover); box-shadow: var(--shadow-sm); }
+        .memory-card.flipped { background-color: #f8fafc; color: var(--text); border-color: var(--border); transform: scale(1.05); }
+        .memory-card.matched { background-color: #ecfdf5; color: #047857; border-color: #10b981; cursor: default; transform: scale(1); opacity: 0.9; }
 
-        /* Bandhan Game Styles (NEW) */
-        .bandhan-area {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            margin: 20px auto;
-            background: #f8fafc;
-            border-radius: 24px;
-            border: 2px dashed var(--border);
-            overflow: hidden;
-            touch-action: none;
-            cursor: crosshair;
-        }
-        .bandhan-area .yogi-emoji {
-            font-size: 6rem;
-            line-height: 300px;
-            text-align: center;
-            pointer-events: none;
-        }
-        #bandhanCanvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
+        /* Bandhan Game Styles */
+        .bandhan-area { position: relative; width: 300px; height: 300px; margin: 20px auto; background: #f8fafc; border-radius: 24px; border: 2px dashed var(--border); overflow: hidden; touch-action: none; cursor: crosshair; }
+        .bandhan-area .yogi-emoji { font-size: 6rem; line-height: 300px; text-align: center; pointer-events: none; }
+        #bandhanCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        /* Subtle System Drag & Drop Styles */
+        .builder-container { display: flex; flex-direction: column; align-items: center; gap: 30px; margin-top: 20px; }
+        .subtle-body { width: 180px; height: 420px; border: 2px dashed var(--primary); border-radius: 90px; position: relative; background: #f5f3ff; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 20px 0; }
+        .drop-zone { width: 45px; height: 45px; border: 2px dotted #94a3b8; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 0.8rem; color: #64748b; background: white; transition: 0.2s; }
+        .drop-zone.drag-over { background: #e2e8f0; transform: scale(1.1); border-color: var(--primary); }
+        .drop-zone.filled { border: 2px solid var(--secondary); background: #ecfdf5; color: var(--secondary); font-weight: bold; font-size: 0.7rem; }
+        .draggable-chakras { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; max-width: 400px; }
+        .drag-item { padding: 8px 16px; background: var(--primary); color: white; border-radius: 20px; cursor: grab; font-weight: 600; font-size: 0.9rem; user-select: none; box-shadow: var(--shadow-sm); }
+        .drag-item:active { cursor: grabbing; opacity: 0.8; }
+        .drag-item.hidden { display: none; }
+
+        /* Match Qualities Styles */
+        .match-container { display: flex; justify-content: space-between; gap: 20px; max-width: 600px; margin: 20px auto; }
+        .match-column { display: flex; flex-direction: column; gap: 12px; flex: 1; }
+        .match-btn { padding: 12px; background: white; border: 2px solid var(--border); border-radius: 12px; cursor: pointer; font-weight: 600; transition: 0.2s; }
+        .match-btn.selected { border-color: var(--primary); background: #f5f3ff; transform: scale(1.05); }
+        .match-btn.matched { border-color: var(--secondary); background: #ecfdf5; color: #047857; cursor: default; opacity: 0.8; }
+        
+        /* Clear the Catch Styles */
+        .whack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; max-width: 400px; margin: 20px auto; }
+        .whack-hole { height: 80px; background: #e2e8f0; border-radius: 50%; position: relative; overflow: hidden; display: flex; justify-content: center; align-items: flex-end; border: 3px solid #cbd5e1; }
+        .whack-catch { width: 60px; height: 60px; background: var(--danger); border-radius: 50%; color: white; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 0.8rem; position: absolute; bottom: -60px; cursor: pointer; transition: bottom 0.2s; }
+        .whack-catch.up { bottom: 0; }
+        .whack-catch.cleared { background: var(--secondary); pointer-events: none; }
 
         /* Reading Passage Styles */
         .reading-content p { margin-bottom: 16px; font-size: 1.05rem; color: var(--text); line-height: 1.7; }
@@ -248,37 +216,13 @@
 
         footer { background: white; padding: 40px 20px; text-align: center; border-top: 1px solid var(--border); color: var(--text-muted); font-weight: 500; margin-top: auto; }
 
-        /* Responsive Breakpoints (UPDATED FOR HAMBURGER MENU) */
-        @media (max-width: 768px) {
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
             .hamburger { display: flex; }
-            .navbar-links {
-                position: absolute;
-                top: 72px;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 20px 5%;
-                border-bottom: 1px solid var(--border);
-                box-shadow: var(--shadow-md);
-                display: none; /* Hidden by default */
-                gap: 20px;
-                align-items: flex-start;
-            }
-            .navbar-links.active {
-                display: flex;
-            }
-            .navbar-links a {
-                font-size: 1.1rem;
-                width: 100%;
-                padding: 10px 0;
-                border-bottom: 1px solid var(--bg);
-            }
-            .navbar-links button {
-                width: 100%;
-                margin-top: 10px;
-            }
-            
+            .navbar-links { position: absolute; top: 72px; left: 0; right: 0; background: white; flex-direction: column; padding: 20px 5%; border-bottom: 1px solid var(--border); box-shadow: var(--shadow-md); display: none; gap: 20px; align-items: flex-start; }
+            .navbar-links.active { display: flex; }
+            .navbar-links a { font-size: 1.1rem; width: 100%; padding: 10px 0; border-bottom: 1px solid var(--bg); }
+            .navbar-links button { width: 100%; margin-top: 10px; }
             .hero { padding: 100px 5% 50px; }
             .hero h1 { font-size: 2.5rem; }
             .split-section { flex-direction: column-reverse; padding: 24px; }
@@ -293,7 +237,6 @@
     <nav class="navbar">
         <a onclick="navigateTo('home-page')" class="navbar-brand">🪷 Sahaj Yoga Balshakti</a>
         <div class="hamburger" onclick="toggleMenu()">
-            <span></span>
             <span></span>
             <span></span>
         </div>
@@ -439,9 +382,12 @@
         <section class="section text-center">
             <h2 class="section-title">🎮 Unlocked Games Zone</h2>
             <p class="section-subtitle">You have successfully unlocked these games by completing the quiz!</p>
-            <div class="quiz-wrapper">
-                <button class="btn-primary" style="width: 100%; margin-bottom: 20px; padding: 20px; font-size: 1.2rem;" onclick="startMiniGame()">🧩 Play Chakra Memory Match</button>
-                <button class="btn-success" style="width: 100%; padding: 20px; font-size: 1.2rem;" onclick="startBandhanGame()">🛡️ Play Bandhan Tracer</button>
+            <div class="quiz-wrapper" style="display:flex; flex-direction:column; gap:15px;">
+                <button class="btn-primary" style="padding: 20px; font-size: 1.2rem;" onclick="startMiniGame()">🧩 1. Chakra Memory Match</button>
+                <button class="btn-success" style="padding: 20px; font-size: 1.2rem;" onclick="startBandhanGame()">🛡️ 2. Bandhan Tracer</button>
+                <button class="btn-secondary" style="padding: 20px; font-size: 1.2rem;" onclick="startBuilderGame()">🧘‍♂️ 3. Subtle System Builder</button>
+                <button class="btn-primary" style="padding: 20px; font-size: 1.2rem; background-color: #f59e0b; border-color: #f59e0b;" onclick="startMatchGame()">✨ 4. Match the Qualities</button>
+                <button class="btn-secondary" style="padding: 20px; font-size: 1.2rem; color: #ef4444; border-color: #ef4444;" onclick="startCatchGame()">💧 5. Clear the Catch</button>
             </div>
         </section>
     </div>
@@ -451,6 +397,7 @@
             <h2 class="section-title" id="quiz-header">📝 Sahaj Yoga Balshakti Quiz</h2>
             
             <div class="quiz-wrapper">
+                
                 <div class="card-container" id="form-container">
                     <div style="text-align: center; margin-bottom: 30px;">
                         <h3 style="margin-top:0; font-size: 1.5rem;">Participant Details</h3>
@@ -518,18 +465,14 @@
                     
                     <p style="color: var(--secondary); font-weight: 600; margin-bottom: 20px;">🌟 You have unlocked new games in the menu!</p>
 
-                    <button class="btn-primary" style="width: 100%; margin-bottom: 12px; background-color: var(--primary);" onclick="startMiniGame()">🎮 Play Chakra Memory Match!</button>
-                    <button class="btn-success" style="width: 100%; margin-bottom: 12px;" onclick="startBandhanGame()">🛡️ Play Bandhan Tracer</button>
-
+                    <button class="btn-primary" style="width: 100%; margin-bottom: 12px;" onclick="navigateTo('games-dashboard')">🎮 Go to Games Zone</button>
                     <button class="btn-secondary" style="width: 100%;" onclick="location.reload()">🔄 Return to Home</button>
                 </div>
 
                 <div class="card-container hidden" id="game-container" style="text-align:center;">
                     <h2 style="margin-top:0; color: var(--primary); font-size: 1.8rem;">🧘‍♀️ Chakra Memory Match</h2>
                     <p style="color: var(--text-muted); margin-bottom: 5px;">Flip the cards to match the identical Chakras!</p>
-                    
                     <div id="memory-board" class="memory-grid"></div>
-                    
                     <p id="game-message" style="font-size: 1.2rem; font-weight: 700; color: var(--secondary); min-height: 30px; margin-top: 15px;"></p>
                     <button class="btn-secondary" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')">⬅️ Back to Games</button>
                 </div>
@@ -537,17 +480,71 @@
                 <div class="card-container hidden" id="bandhan-container" style="text-align:center;">
                     <h2 style="margin-top:0; color: var(--secondary); font-size: 1.8rem;">🛡️ Bandhan Tracer</h2>
                     <p style="color: var(--text-muted);">Drag/Swipe your finger over the yogi from <b>Left to Right</b> and back to complete 1 Bandhan. Do this 7 times!</p>
-                    
                     <div class="bandhan-area" id="bandhanArea">
                         <div class="yogi-emoji">🧘‍♂️</div>
                         <canvas id="bandhanCanvas" width="300" height="300"></canvas>
                     </div>
-
                     <div style="background: #f8fafc; padding: 15px; border-radius: 12px; margin-bottom: 20px;">
                         <h3 style="margin: 0; color: var(--text);">Bandhans: <span id="bandhan-counter" style="color: var(--primary);">0</span> / 7</h3>
                     </div>
-                    
                     <p id="bandhan-message" style="font-size: 1.1rem; font-weight: 700; color: var(--secondary); min-height: 25px;"></p>
+                    <button class="btn-secondary" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')">⬅️ Back to Games</button>
+                </div>
+
+                <div class="card-container hidden" id="builder-container" style="text-align:center;">
+                    <h2 style="margin-top:0; color: var(--primary); font-size: 1.8rem;">🧘‍♂️ Build the Subtle System</h2>
+                    <p style="color: var(--text-muted);">Drag the Chakras to their correct physical position from bottom to top!</p>
+                    <div class="builder-container">
+                        <div class="subtle-body">
+                            <div class="drop-zone" data-target="Sahasrara">7</div>
+                            <div class="drop-zone" data-target="Agnya">6</div>
+                            <div class="drop-zone" data-target="Vishuddhi">5</div>
+                            <div class="drop-zone" data-target="Anahata">4</div>
+                            <div class="drop-zone" data-target="Nabhi">3</div>
+                            <div class="drop-zone" data-target="Swadisthan">2</div>
+                            <div class="drop-zone" data-target="Mooladhara">1</div>
+                        </div>
+                        <div class="draggable-chakras" id="draggable-items">
+                            <div class="drag-item" draggable="true" data-id="Nabhi">Nabhi</div>
+                            <div class="drag-item" draggable="true" data-id="Sahasrara">Sahasrara</div>
+                            <div class="drag-item" draggable="true" data-id="Mooladhara">Mooladhara</div>
+                            <div class="drag-item" draggable="true" data-id="Agnya">Agnya</div>
+                            <div class="drag-item" draggable="true" data-id="Anahata">Anahata</div>
+                            <div class="drag-item" draggable="true" data-id="Vishuddhi">Vishuddhi</div>
+                            <div class="drag-item" draggable="true" data-id="Swadisthan">Swadisthan</div>
+                        </div>
+                    </div>
+                    <p id="builder-message" style="font-size: 1.2rem; font-weight: 700; color: var(--secondary); margin-top: 20px;"></p>
+                    <button class="btn-secondary" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')">⬅️ Back to Games</button>
+                </div>
+
+                <div class="card-container hidden" id="match-container" style="text-align:center;">
+                    <h2 style="margin-top:0; color: #f59e0b; font-size: 1.8rem;">✨ Match the Qualities</h2>
+                    <p style="color: var(--text-muted);">Select a Chakra, then select its corresponding moral quality.</p>
+                    <div class="match-container">
+                        <div class="match-column" id="match-chakras"></div>
+                        <div class="match-column" id="match-qualities"></div>
+                    </div>
+                    <p id="match-message" style="font-size: 1.2rem; font-weight: 700; color: var(--secondary); margin-top: 20px;"></p>
+                    <button class="btn-secondary" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')">⬅️ Back to Games</button>
+                </div>
+
+                <div class="card-container hidden" id="catch-container" style="text-align:center;">
+                    <h2 style="margin-top:0; color: var(--danger); font-size: 1.8rem;">💧 Clear the Catch</h2>
+                    <p style="color: var(--text-muted);">Tap the red Stress/Catch bubbles quickly to clear the chakras!</p>
+                    <div style="background: #f8fafc; padding: 15px; border-radius: 12px; margin-bottom: 20px; display:flex; justify-content:space-around;">
+                        <h3 style="margin: 0;">Score: <span id="catch-score" style="color: var(--primary);">0</span></h3>
+                        <h3 style="margin: 0;">Time: <span id="catch-time" style="color: var(--danger);">30</span>s</h3>
+                    </div>
+                    <div class="whack-grid" id="whack-grid">
+                        <div class="whack-hole"><div class="whack-catch" onclick="whackCatch(this)">Anger</div></div>
+                        <div class="whack-hole"><div class="whack-catch" onclick="whackCatch(this)">Stress</div></div>
+                        <div class="whack-hole"><div class="whack-catch" onclick="whackCatch(this)">Fear</div></div>
+                        <div class="whack-hole"><div class="whack-catch" onclick="whackCatch(this)">Ego</div></div>
+                        <div class="whack-hole"><div class="whack-catch" onclick="whackCatch(this)">Greed</div></div>
+                        <div class="whack-hole"><div class="whack-catch" onclick="whackCatch(this)">Guilt</div></div>
+                    </div>
+                    <button class="btn-primary" id="btn-start-catch" style="width: 100%; margin-top: 20px;" onclick="startGameCatch()">▶️ Start Cleaning!</button>
                     <button class="btn-secondary" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')">⬅️ Back to Games</button>
                 </div>
 
@@ -569,24 +566,13 @@
             ytPlayer = new YT.Player('youtube-audio', {
                 height: '0', width: '0', videoId: '312SQ9kea8M',
                 playerVars: { 'autoplay': 0, 'controls': 0, 'showinfo': 0, 'rel': 0, 'start': 1770, 'end': 1938 },
-                events: {
-                    'onReady': function(event) { event.target.setVolume(20); },
-                    'onStateChange': function(event) {
-                        if (event.data === YT.PlayerState.ENDED) {
-                            ytPlayer.seekTo(1770); ytPlayer.playVideo();
-                        }
-                    }
-                }
+                events: { 'onReady': function(event) { event.target.setVolume(20); }, 'onStateChange': function(event) { if (event.data === YT.PlayerState.ENDED) { ytPlayer.seekTo(1770); ytPlayer.playVideo(); } } }
             });
         }
 
         // --- HAMBURGER MENU LOGIC ---
-        function toggleMenu() {
-            document.getElementById('nav-links').classList.toggle('active');
-        }
-        function closeMenu() {
-            document.getElementById('nav-links').classList.remove('active');
-        }
+        function toggleMenu() { document.getElementById('nav-links').classList.toggle('active'); }
+        function closeMenu() { document.getElementById('nav-links').classList.remove('active'); }
 
         // 0. NAVIGATION LOGIC (SPA)
         function navigateTo(pageId) {
@@ -595,13 +581,14 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        function hideAllGameContainers() {
+            const containers = ['form-container', 'reading-container', 'quiz-container', 'result-container', 'game-container', 'bandhan-container', 'builder-container', 'match-container', 'catch-container'];
+            containers.forEach(id => document.getElementById(id).classList.add('hidden'));
+        }
+
         // 1. POPULATE AGE DROPDOWN
         const ageSelect = document.getElementById('userAge');
-        for (let i = 4; i <= 20; i++) {
-            let option = document.createElement('option');
-            option.value = i; option.text = i;
-            ageSelect.appendChild(option);
-        }
+        for (let i = 4; i <= 20; i++) { let option = document.createElement('option'); option.value = i; option.text = i; ageSelect.appendChild(option); }
 
         // 2. EXPANDED MAHARASHTRA LOCATIONS
         const locationData = {
@@ -648,9 +635,7 @@
         const talukaGroup = document.getElementById('taluka-group');
 
         Object.keys(locationData).forEach(district => {
-            let option = document.createElement('option');
-            option.value = district; option.text = district;
-            citySelect.appendChild(option);
+            let option = document.createElement('option'); option.value = district; option.text = district; citySelect.appendChild(option);
         });
 
         citySelect.addEventListener('change', function() {
@@ -658,68 +643,19 @@
             talukaSelect.innerHTML = '<option value="">Select Taluka</option>'; 
             if (selectedCity && locationData[selectedCity]) {
                 locationData[selectedCity].forEach(taluka => {
-                    let option = document.createElement('option');
-                    option.value = taluka; option.text = taluka;
-                    talukaSelect.appendChild(option);
+                    let option = document.createElement('option'); option.value = taluka; option.text = taluka; talukaSelect.appendChild(option);
                 });
                 talukaGroup.classList.remove('hidden');
-            } else {
-                talukaGroup.classList.add('hidden');
-            }
+            } else { talukaGroup.classList.add('hidden'); }
         });
 
         // 3. HINDI QUESTIONS
         const quizData = [
-            { 
-                question: "1. श्री माताजी निर्मला देवी के जन्म की सटीक खगोलीय और समयगत स्थिति के संबंध में निम्नलिखित में से कौन सा विकल्प पूर्णतः सत्य है?", 
-                options: [
-                    "(A) 21 मार्च 1923, मध्य रात्रि 12 बजे, शरद विषुव (Autumn Equinox) के दिन।", 
-                    "(B) 21 मार्च 1923, ठीक दोपहर 12 बजे, वसंत विषुव (Spring Equinox) के दिन।", 
-                    "(C) 21 मार्च 1923, ठीक दोपहर 12 बजे, शालिवाहन नववर्ष के दिन।", 
-                    "(D) 21 मार्च 1923, संध्याकाल में, सेवाग्राम आश्रम में।"
-                ], 
-                correctAnswer: "(B) 21 मार्च 1923, ঠিক दोपहर 12 बजे, वसंत विषुव (Spring Equinox) के दिन।" 
-            },
-            { 
-                question: "2. श्री माताजी के पिता, श्री प्रसाद राव साल्वे की उपलब्धियों के बारे में परिच्छेद में कौन सा विशिष्ट तथ्य बताया गया है?", 
-                options: [
-                    "(A) वे 14 भाषाओं के ज्ञाता थे और उन्होंने कुरान का हिंदी में अनुवाद किया था।", 
-                    "(B) वे महात्मा गांधी के आश्रम के प्रमुख विद्वान थे जिन्होंने 14 भाषाओं में रचनाएं कीं।", 
-                    "(C) वे एक प्रख्यात वकील थे जिन्होंने 14 भाषाओं के ज्ञान के साथ कुरान का मराठी में अनुवाद किया था।", 
-                    "(D) वे शालिवाहन राजवंश के 14वें वंशज थे और उन्होंने मराठी साहित्य का कुरान में अनुवाद किया था।"
-                ], 
-                correctAnswer: "(C) वे एक प्रख्यात वकील थे जिन्होंने 14 भाषाओं के ज्ञान के साथ कुरान का मराठी में अनुवाद किया था।" 
-            },
-            { 
-                question: "3. नवजात बालिका का नाम 'निर्मला' रखे जाने का मुख्य कारण और यह नाम रखने वाले व्यक्ति का सही युग्म (Pair) चुनें:", 
-                options: [
-                    "(A) माता कॉर्नेलिया साल्वे द्वारा; क्योंकि बालिका शालिवाहन वंश की थी।", 
-                    "(B) महात्मा गांधी द्वारा; क्योंकि बालिका के चेहरे पर बेदाग तेज था।", 
-                    "(C) पिता प्रसाद राव साल्वे द्वारा; क्योंकि 'निर्मला' सहज योग के दर्शन का पर्याय है।", 
-                    "(D) दादी द्वारा; क्योंकि जन्म के समय उनके चेहरे पर एक अद्भुत तेज और सांसारिक मलिनता का अभाव था।"
-                ], 
-                correctAnswer: "(D) दादी द्वारा; क्योंकि जन्म के समय उनके चेहरे पर एक अद्भुत तेज और सांसारिक मलिनता का अभाव था।" 
-            },
-            { 
-                question: "4. महात्मा गांधी अक्सर छोटी निर्मला के साथ किन विशिष्ट विषयों पर चर्चा किया करते थे और वे उन्हें प्यार से क्या बुलाते थे?", 
-                options: [
-                    "(A) भारत के स्वतंत्रता संग्राम पर; वे उन्हें 'निर्मला' बुलाते थे।", 
-                    "(B) आध्यात्मिक और दार्शनिक विषयों पर; वे उन्हें 'नेपाली' कहकर बुलाते थे।", 
-                    "(C) 14 विभिन्न भाषाओं के साहित्य पर; वे उन्हें 'नेपाली' कहकर बुलाते थे।", 
-                    "(D) सहज योग के दर्शन पर; वे उन्हें 'शुद्ध बालिका' बुलाते थे।"
-                ], 
-                correctAnswer: "(B) आध्यात्मिक और दार्शनिक विषयों पर; वे उन्हें 'नेपाली' कहकर बुलाते थे।" 
-            },
-            { 
-                question: "5. परिच्छेद के अंतिम वाक्यों के अनुसार, गांधीजी द्वारा बालिका को 'नेपाली' नाम दिए जाने का वास्तविक आधार क्या था?", 
-                options: [
-                    "(A) क्योंकि उनका जन्म नेपाल की सीमा के पास छिंदवाड़ा में हुआ था।", 
-                    "(B) क्योंकि उनके पिता ने नेपाली भाषा सहित 14 भाषाएं सीखी थीं।", 
-                    "(C) क्योंकि बालिका की आध्यात्मिक क्षमता नेपाल के योगियों जैसी थी।", 
-                    "(D) क्योंकि बालिका के नैन-नक्श (Facial features) नेपालियों जैसे थे।"
-                ], 
-                correctAnswer: "(D) क्योंकि बालिका के नैन-नक्श (Facial features) नेपालियों जैसे थे।" 
-            }
+            { question: "1. श्री माताजी निर्मला देवी के जन्म की सटीक खगोलीय और समयगत स्थिति के संबंध में निम्नलिखित में से कौन सा विकल्प पूर्णतः सत्य है?", options: ["(A) 21 मार्च 1923, मध्य रात्रि 12 बजे, शरद विषुव (Autumn Equinox) के दिन।", "(B) 21 मार्च 1923, ठीक दोपहर 12 बजे, वसंत विषुव (Spring Equinox) के दिन।", "(C) 21 मार्च 1923, ठीक दोपहर 12 बजे, शालिवाहन नववर्ष के दिन।", "(D) 21 मार्च 1923, संध्याकाल में, सेवाग्राम आश्रम में।"], correctAnswer: "(B) 21 मार्च 1923, ठीक दोपहर 12 बजे, वसंत विषुव (Spring Equinox) के दिन।" },
+            { question: "2. श्री माताजी के पिता, श्री प्रसाद राव साल्वे की उपलब्धियों के बारे में परिच्छेद में कौन सा विशिष्ट तथ्य बताया गया है?", options: ["(A) वे 14 भाषाओं के ज्ञाता थे और उन्होंने कुरान का हिंदी में अनुवाद किया था।", "(B) वे महात्मा गांधी के आश्रम के प्रमुख विद्वान थे जिन्होंने 14 भाषाओं में रचनाएं कीं।", "(C) वे एक प्रख्यात वकील थे जिन्होंने 14 भाषाओं के ज्ञान के साथ कुरान का मराठी में अनुवाद किया था।", "(D) वे शालिवाहन राजवंश के 14वें वंशज थे और उन्होंने मराठी साहित्य का कुरान में अनुवाद किया था।"], correctAnswer: "(C) वे एक प्रख्यात वकील थे जिन्होंने 14 भाषाओं के ज्ञान के साथ कुरान का मराठी में अनुवाद किया था।" },
+            { question: "3. नवजात बालिका का नाम 'निर्मला' रखे जाने का मुख्य कारण और यह नाम रखने वाले व्यक्ति का सही युग्म (Pair) चुनें:", options: ["(A) माता कॉर्नेलिया साल्वे द्वारा; क्योंकि बालिका शालिवाहन वंश की थी।", "(B) महात्मा गांधी द्वारा; क्योंकि बालिका के चेहरे पर बेदाग तेज था।", "(C) पिता प्रसाद राव साल्वे द्वारा; क्योंकि 'निर्मला' सहज योग के दर्शन का पर्याय है।", "(D) दादी द्वारा; क्योंकि जन्म के समय उनके चेहरे पर एक अद्भुत तेज और सांसारिक मलिनता का अभाव था।"], correctAnswer: "(D) दादी द्वारा; क्योंकि जन्म के समय उनके चेहरे पर एक अद्भुत तेज और सांसारिक मलिनता का अभाव था।" },
+            { question: "4. महात्मा गांधी अक्सर छोटी निर्मला के साथ किन विशिष्ट विषयों पर चर्चा किया करते थे और वे उन्हें प्यार से क्या बुलाते थे?", options: ["(A) भारत के स्वतंत्रता संग्राम पर; वे उन्हें 'निर्मला' बुलाते थे।", "(B) आध्यात्मिक और दार्शनिक विषयों पर; वे उन्हें 'नेपाली' कहकर बुलाते थे।", "(C) 14 विभिन्न भाषाओं के साहित्य पर; वे उन्हें 'नेपाली' कहकर बुलाते थे।", "(D) सहज योग के दर्शन पर; वे उन्हें 'शुद्ध बालिका' बुलाते थे।"], correctAnswer: "(B) आध्यात्मिक और दार्शनिक विषयों पर; वे उन्हें 'नेपाली' कहकर बुलाते थे।" },
+            { question: "5. परिच्छेद के अंतिम वाक्यों के अनुसार, गांधीजी द्वारा बालिका को 'नेपाली' नाम दिए जाने का वास्तविक आधार क्या था?", options: ["(A) क्योंकि उनका जन्म नेपाल की सीमा के पास छिंदवाड़ा में हुआ था।", "(B) क्योंकि उनके पिता ने नेपाली भाषा सहित 14 भाषाएं सीखी थीं।", "(C) क्योंकि बालिका की आध्यात्मिक क्षमता नेपाल के योगियों जैसी थी।", "(D) क्योंकि बालिका के नैन-नक्श (Facial features) नेपालियों जैसे थे।"], correctAnswer: "(D) क्योंकि बालिका के नैन-नक्श (Facial features) नेपालियों जैसे थे।" }
         ];
 
         let currentQuestionIndex = 0; let score = 0; let userName = "";
@@ -730,24 +666,18 @@
             const age = document.getElementById('userAge').value;
             const city = document.getElementById('userCity').value;
 
-            if (!userName || !age || !city) {
-                alert("Please fill out your name, age, and district to proceed."); return;
-            }
-
-            document.getElementById('form-container').classList.add('hidden');
+            if (!userName || !age || !city) { alert("Please fill out your name, age, and district to proceed."); return; }
+            hideAllGameContainers();
             document.getElementById('reading-container').classList.remove('hidden');
             document.getElementById('quiz-header').classList.add('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         window.startActualQuiz = function() {
-            document.getElementById('reading-container').classList.add('hidden');
+            hideAllGameContainers();
             document.getElementById('quiz-container').classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
-                ytPlayer.seekTo(1770); ytPlayer.playVideo();
-            }
+            if (ytPlayer && typeof ytPlayer.playVideo === 'function') { ytPlayer.seekTo(1770); ytPlayer.playVideo(); }
             loadQuestion();
         }
 
@@ -755,14 +685,10 @@
             const qData = quizData[currentQuestionIndex];
             document.getElementById('question-text').innerText = qData.question;
             document.getElementById('progress-text').innerText = `Question ${currentQuestionIndex + 1} of 5`;
-            
-            const optionsContainer = document.getElementById('options-container');
-            optionsContainer.innerHTML = ''; 
+            const optionsContainer = document.getElementById('options-container'); optionsContainer.innerHTML = ''; 
 
             qData.options.forEach(option => {
-                const btn = document.createElement('button');
-                btn.className = 'option-btn'; 
-                btn.innerText = option;
+                const btn = document.createElement('button'); btn.className = 'option-btn'; btn.innerText = option;
                 btn.onclick = () => checkAnswer(option, btn);
                 optionsContainer.appendChild(btn);
             });
@@ -771,255 +697,263 @@
         function checkAnswer(selectedOption, clickedButton) {
             const currentQ = quizData[currentQuestionIndex];
             const buttons = document.querySelectorAll('.option-btn');
-
             buttons.forEach(btn => btn.disabled = true);
 
             if (selectedOption === currentQ.correctAnswer || currentQ.correctAnswer.includes(selectedOption)) {
                 score++; clickedButton.classList.add('correct-option');
             } else {
                 clickedButton.classList.add('incorrect-option');
-                buttons.forEach(btn => {
-                    if (btn.innerText === currentQ.correctAnswer || currentQ.correctAnswer.includes(btn.innerText)) {
-                        btn.classList.add('correct-option');
-                    }
-                });
+                buttons.forEach(btn => { if (btn.innerText === currentQ.correctAnswer || currentQ.correctAnswer.includes(btn.innerText)) btn.classList.add('correct-option'); });
             }
 
             setTimeout(() => {
                 currentQuestionIndex++;
-                if (currentQuestionIndex < quizData.length) { loadQuestion(); } 
-                else { showResults(); }
+                if (currentQuestionIndex < quizData.length) { loadQuestion(); } else { showResults(); }
             }, 1500);
         }
 
         function showResults() {
             if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') ytPlayer.pauseVideo();
-
-            document.getElementById('quiz-container').classList.add('hidden');
+            hideAllGameContainers();
             document.getElementById('result-container').classList.remove('hidden');
             document.getElementById('display-name').innerText = userName;
             document.getElementById('score-display').innerText = score;
             document.getElementById('quiz-header').classList.remove('hidden');
             
-            // 🔥 CRITICAL: UNLOCK NAVBAR GAMES LINK HERE 🔥
+            // UNLOCK NAVBAR GAMES LINK
             const gamesLink = document.getElementById('nav-games-link');
             gamesLink.classList.remove('hidden');
             gamesLink.style.animation = "fadeIn 1s ease-in-out";
 
-            const age = document.getElementById('userAge').value;
-            const city = document.getElementById('userCity').value;
-            const taluka = document.getElementById('userTaluka').value;
-
-            // --- SEND DATA TO SHEETDB ---
+            // SHEETDB
+            const age = document.getElementById('userAge').value; const city = document.getElementById('userCity').value; const taluka = document.getElementById('userTaluka').value;
             const sheetdbURL = 'https://sheetdb.io/api/v1/k1qtzemkf5hq6'; 
-            fetch(sheetdbURL, {
-                method: 'POST',
-                headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-                body: JSON.stringify({ data: [{ 'Timestamp': new Date().toLocaleString(), 'Name': userName, 'Age': age, 'District': city, 'Taluka': taluka, 'Score': score }] })
-            }).catch(error => console.error('Error:', error));
+            fetch(sheetdbURL, { method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, body: JSON.stringify({ data: [{ 'Timestamp': new Date().toLocaleString(), 'Name': userName, 'Age': age, 'District': city, 'Taluka': taluka, 'Score': score }] }) }).catch(error => console.error('Error:', error));
         }
 
         // ==========================================
-        // 5. MINI GAME LOGIC (CHAKRA MEMORY MATCH - 16 CARDS)
+        // GAME 1: CHAKRA MEMORY MATCH
         // ==========================================
         const gamePairs = [
-            { id: 1, text: 'Mooladhara' }, { id: 1, text: 'Mooladhara' },
-            { id: 2, text: 'Swadisthan' }, { id: 2, text: 'Swadisthan' },
-            { id: 3, text: 'Nabhi' },      { id: 3, text: 'Nabhi' },
-            { id: 4, text: 'Void' },       { id: 4, text: 'Void' },
-            { id: 5, text: 'Anahata' },    { id: 5, text: 'Anahata' },
-            { id: 6, text: 'Vishuddhi' },  { id: 6, text: 'Vishuddhi' },
-            { id: 7, text: 'Agnya' },      { id: 7, text: 'Agnya' },
-            { id: 8, text: 'Sahasrara' },  { id: 8, text: 'Sahasrara' }
+            { id: 1, text: 'Mooladhara' }, { id: 1, text: 'Mooladhara' }, { id: 2, text: 'Swadisthan' }, { id: 2, text: 'Swadisthan' },
+            { id: 3, text: 'Nabhi' }, { id: 3, text: 'Nabhi' }, { id: 4, text: 'Void' }, { id: 4, text: 'Void' },
+            { id: 5, text: 'Anahata' }, { id: 5, text: 'Anahata' }, { id: 6, text: 'Vishuddhi' }, { id: 6, text: 'Vishuddhi' },
+            { id: 7, text: 'Agnya' }, { id: 7, text: 'Agnya' }, { id: 8, text: 'Sahasrara' }, { id: 8, text: 'Sahasrara' }
         ];
 
-        let firstCard = null;
-        let secondCard = null;
-        let lockBoard = false;
-        let matchedCount = 0;
+        let firstCard = null, secondCard = null, lockBoard = false, matchedCount = 0;
 
         window.startMiniGame = function() {
-            navigateTo('quiz-page'); // Stay in quiz view context
-            document.getElementById('result-container').classList.add('hidden');
-            document.getElementById('bandhan-container').classList.add('hidden');
-            document.getElementById('quiz-header').classList.add('hidden');
+            navigateTo('quiz-page'); hideAllGameContainers(); document.getElementById('quiz-header').classList.add('hidden');
             document.getElementById('game-container').classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            setupMemoryGame();
+            window.scrollTo({ top: 0, behavior: 'smooth' }); setupMemoryGame();
         }
 
         function setupMemoryGame() {
-            const board = document.getElementById('memory-board');
-            board.innerHTML = '';
-            matchedCount = 0;
-            document.getElementById('game-message').innerText = '';
-            
-            // Shuffle cards
+            const board = document.getElementById('memory-board'); board.innerHTML = ''; matchedCount = 0; document.getElementById('game-message').innerText = '';
             const shuffledCards = gamePairs.sort(() => 0.5 - Math.random());
-
             shuffledCards.forEach((cardData) => {
-                const card = document.createElement('div');
-                card.classList.add('memory-card');
-                card.dataset.id = cardData.id;
-                card.dataset.text = cardData.text;
-                card.innerText = "?"; // Face down
-                
-                card.addEventListener('click', () => flipCard(card));
-                board.appendChild(card);
+                const card = document.createElement('div'); card.classList.add('memory-card'); card.dataset.id = cardData.id; card.dataset.text = cardData.text; card.innerText = "?"; 
+                card.addEventListener('click', () => flipCard(card)); board.appendChild(card);
             });
         }
 
         function flipCard(card) {
-            if (lockBoard) return;
-            if (card === firstCard) return; // Prevent clicking same card twice
-            if (card.classList.contains('matched')) return;
-
-            card.classList.add('flipped');
-            card.innerText = card.dataset.text;
-
-            if (!firstCard) {
-                firstCard = card;
-                return;
-            }
-
-            secondCard = card;
-            checkMatch();
+            if (lockBoard || card === firstCard || card.classList.contains('matched')) return;
+            card.classList.add('flipped'); card.innerText = card.dataset.text;
+            if (!firstCard) { firstCard = card; return; }
+            secondCard = card; checkMatch();
         }
 
         function checkMatch() {
-            let isMatch = firstCard.dataset.id === secondCard.dataset.id;
-
-            if (isMatch) {
-                disableCards();
+            if (firstCard.dataset.id === secondCard.dataset.id) {
+                firstCard.classList.add('matched'); secondCard.classList.add('matched'); matchedCount += 2;
+                if (matchedCount === gamePairs.length) document.getElementById('game-message').innerText = "🎉 Congratulations! You matched all Chakras!";
+                firstCard = null; secondCard = null; lockBoard = false;
             } else {
-                unflipCards();
+                lockBoard = true; setTimeout(() => { firstCard.classList.remove('flipped'); firstCard.innerText = "?"; secondCard.classList.remove('flipped'); secondCard.innerText = "?"; firstCard = null; secondCard = null; lockBoard = false; }, 800); 
             }
         }
 
-        function disableCards() {
-            firstCard.classList.add('matched');
-            secondCard.classList.add('matched');
-            matchedCount += 2;
-
-            if (matchedCount === gamePairs.length) {
-                document.getElementById('game-message').innerText = "🎉 Congratulations! You perfectly matched the Chakras! 🙏";
-            }
-
-            resetBoard();
-        }
-
-        function unflipCards() {
-            lockBoard = true;
-            // Flip back much faster now to make it harder!
-            setTimeout(() => {
-                firstCard.classList.remove('flipped');
-                firstCard.innerText = "?";
-                secondCard.classList.remove('flipped');
-                secondCard.innerText = "?";
-                resetBoard();
-            }, 800); 
-        }
-
-        function resetBoard() {
-            [firstCard, secondCard, lockBoard] = [null, null, false];
-        }
-
         // ==========================================
-        // 6. BANDHAN TRACER GAME LOGIC
+        // GAME 2: BANDHAN TRACER
         // ==========================================
-        let bandhanCount = 0;
-        let swipeStage = 0; // 0: Start, 1: Dragged Right, 2: Dragged back Left
-        let isDrawing = false;
+        let bandhanCount = 0, swipeStage = 0, isDrawing = false;
         
         window.startBandhanGame = function() {
-            navigateTo('quiz-page');
-            document.getElementById('result-container').classList.add('hidden');
-            document.getElementById('game-container').classList.add('hidden');
-            document.getElementById('quiz-header').classList.add('hidden');
+            navigateTo('quiz-page'); hideAllGameContainers(); document.getElementById('quiz-header').classList.add('hidden');
             document.getElementById('bandhan-container').classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            resetBandhan();
-            initBandhanCanvas();
+            window.scrollTo({ top: 0, behavior: 'smooth' }); resetBandhan(); initBandhanCanvas();
         }
 
         function resetBandhan() {
-            bandhanCount = 0; 
-            swipeStage = 0;
-            document.getElementById('bandhan-counter').innerText = "0";
-            document.getElementById('bandhan-message').innerText = "";
-            const canvas = document.getElementById('bandhanCanvas');
-            const ctx = canvas.getContext('2d');
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            bandhanCount = 0; swipeStage = 0; document.getElementById('bandhan-counter').innerText = "0"; document.getElementById('bandhan-message').innerText = "";
+            const canvas = document.getElementById('bandhanCanvas'); const ctx = canvas.getContext('2d'); ctx.clearRect(0, 0, canvas.width, canvas.height);
         }
 
         function initBandhanCanvas() {
-            const canvas = document.getElementById('bandhanCanvas');
-            const ctx = canvas.getContext('2d');
-            
-            // Mouse & Touch events
-            canvas.addEventListener('mousedown', startTrace);
-            canvas.addEventListener('mousemove', traceArc);
-            canvas.addEventListener('mouseup', endTrace);
-            canvas.addEventListener('mouseleave', endTrace);
-
+            const canvas = document.getElementById('bandhanCanvas'); const ctx = canvas.getContext('2d');
+            canvas.addEventListener('mousedown', startTrace); canvas.addEventListener('mousemove', traceArc); canvas.addEventListener('mouseup', endTrace); canvas.addEventListener('mouseleave', endTrace);
             canvas.addEventListener('touchstart', (e) => { e.preventDefault(); startTrace(e.touches[0]); }, {passive: false});
             canvas.addEventListener('touchmove', (e) => { e.preventDefault(); traceArc(e.touches[0]); }, {passive: false});
             canvas.addEventListener('touchend', endTrace);
 
-            function startTrace(e) {
-                if(bandhanCount >= 7) return;
-                isDrawing = true;
-                ctx.beginPath();
-                const pos = getPos(e);
-                ctx.moveTo(pos.x, pos.y);
-                checkZone(pos.x, pos.y);
-            }
-
-            function traceArc(e) {
-                if (!isDrawing || bandhanCount >= 7) return;
-                const pos = getPos(e);
-                
-                // Draw line
-                ctx.lineWidth = 6;
-                ctx.lineCap = 'round';
-                ctx.strokeStyle = `hsla(${bandhanCount * 50}, 70%, 50%, 0.6)`; // Changes color per bandhan
-                ctx.lineTo(pos.x, pos.y);
-                ctx.stroke();
-
-                checkZone(pos.x, pos.y);
-            }
-
+            function startTrace(e) { if(bandhanCount >= 7) return; isDrawing = true; ctx.beginPath(); const pos = getPos(e); ctx.moveTo(pos.x, pos.y); checkZone(pos.x, pos.y); }
+            function traceArc(e) { if (!isDrawing || bandhanCount >= 7) return; const pos = getPos(e); ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.strokeStyle = `hsla(${bandhanCount * 50}, 70%, 50%, 0.6)`; ctx.lineTo(pos.x, pos.y); ctx.stroke(); checkZone(pos.x, pos.y); }
             function endTrace() { isDrawing = false; }
-
-            function getPos(e) {
-                const rect = canvas.getBoundingClientRect();
-                return { x: e.clientX - rect.left, y: e.clientY - rect.top };
-            }
+            function getPos(e) { const rect = canvas.getBoundingClientRect(); return { x: e.clientX - rect.left, y: e.clientY - rect.top }; }
 
             function checkZone(x, y) {
-                // If trace is in the Left zone
                 if (x < 100) {
-                    if (swipeStage === 0) {
-                        swipeStage = 1; // Started left
-                    } else if (swipeStage === 2) {
-                        // Completed full left-right-left loop
-                        bandhanCount++;
-                        document.getElementById('bandhan-counter').innerText = bandhanCount;
-                        swipeStage = 1; // Reset to start next bandhan
-                        
-                        if(bandhanCount >= 7) {
-                            document.getElementById('bandhan-message').innerText = "🛡️ Perfect! Your Aura is fully protected! 🙏";
-                            ctx.fillStyle = "rgba(16, 185, 129, 0.2)";
-                            ctx.fillRect(0,0, canvas.width, canvas.height); // Green overlay
-                        }
+                    if (swipeStage === 0) { swipeStage = 1; } 
+                    else if (swipeStage === 2) {
+                        bandhanCount++; document.getElementById('bandhan-counter').innerText = bandhanCount; swipeStage = 1; 
+                        if(bandhanCount >= 7) { document.getElementById('bandhan-message').innerText = "🛡️ Perfect! Your Aura is fully protected! 🙏"; ctx.fillStyle = "rgba(16, 185, 129, 0.2)"; ctx.fillRect(0,0, canvas.width, canvas.height); }
                     }
                 }
-                // If trace is in the Right zone
-                if (x > 200 && swipeStage === 1) {
-                    swipeStage = 2; // Reached right side
-                }
+                if (x > 200 && swipeStage === 1) { swipeStage = 2; }
             }
         }
+
+        // ==========================================
+        // GAME 3: SUBTLE SYSTEM BUILDER (DRAG & DROP)
+        // ==========================================
+        window.startBuilderGame = function() {
+            navigateTo('quiz-page'); hideAllGameContainers(); document.getElementById('quiz-header').classList.add('hidden');
+            document.getElementById('builder-container').classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); setupBuilderGame();
+        }
+
+        function setupBuilderGame() {
+            document.getElementById('builder-message').innerText = "";
+            let draggables = document.querySelectorAll('.drag-item');
+            let dropZones = document.querySelectorAll('.drop-zone');
+            
+            // Reset state
+            draggables.forEach(item => { item.classList.remove('hidden'); });
+            dropZones.forEach(zone => { 
+                zone.classList.remove('filled'); zone.innerText = zone.getAttribute('data-target') === 'Sahasrara' ? '7' : (zone.getAttribute('data-target') === 'Agnya' ? '6' : (zone.getAttribute('data-target') === 'Vishuddhi' ? '5' : (zone.getAttribute('data-target') === 'Anahata' ? '4' : (zone.getAttribute('data-target') === 'Nabhi' ? '3' : (zone.getAttribute('data-target') === 'Swadisthan' ? '2' : '1')))));
+            });
+
+            draggables.forEach(draggable => {
+                draggable.addEventListener('dragstart', () => { draggable.classList.add('dragging'); });
+                draggable.addEventListener('dragend', () => { draggable.classList.remove('dragging'); });
+            });
+
+            dropZones.forEach(zone => {
+                zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
+                zone.addEventListener('dragleave', () => { zone.classList.remove('drag-over'); });
+                zone.addEventListener('drop', e => {
+                    e.preventDefault(); zone.classList.remove('drag-over');
+                    const draggable = document.querySelector('.dragging');
+                    if (draggable && draggable.dataset.id === zone.dataset.target) {
+                        zone.classList.add('filled'); zone.innerText = draggable.dataset.id;
+                        draggable.classList.add('hidden');
+                        checkBuilderWin();
+                    }
+                });
+            });
+        }
+        function checkBuilderWin() {
+            if(document.querySelectorAll('.drop-zone.filled').length === 7) { document.getElementById('builder-message').innerText = "🙏 Beautiful! You have balanced the Subtle System!"; }
+        }
+
+        // ==========================================
+        // GAME 4: MATCH THE QUALITIES
+        // ==========================================
+        const qualitiesData = [
+            { ch: "Mooladhara", q: "Innocence & Purity" }, { ch: "Swadisthan", q: "Creativity & Attention" },
+            { ch: "Nabhi", q: "Satisfaction & Peace" }, { ch: "Anahata", q: "Love & Compassion" },
+            { ch: "Vishuddhi", q: "Collectivity & Sweetness" }, { ch: "Agnya", q: "Forgiveness" }, { ch: "Sahasrara", q: "Integration & Joy" }
+        ];
+        let selectedMatchItem = null; let matchCount = 0;
+
+        window.startMatchGame = function() {
+            navigateTo('quiz-page'); hideAllGameContainers(); document.getElementById('quiz-header').classList.add('hidden');
+            document.getElementById('match-container').classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); setupMatchGame();
+        }
+
+        function setupMatchGame() {
+            matchCount = 0; selectedMatchItem = null; document.getElementById('match-message').innerText = "";
+            const chCol = document.getElementById('match-chakras'); const qCol = document.getElementById('match-qualities');
+            chCol.innerHTML = ''; qCol.innerHTML = '';
+            
+            const shuffledChakras = [...qualitiesData].sort(() => 0.5 - Math.random());
+            const shuffledQualities = [...qualitiesData].sort(() => 0.5 - Math.random());
+
+            shuffledChakras.forEach(d => {
+                let btn = document.createElement('div'); btn.className = 'match-btn type-ch'; btn.innerText = d.ch; btn.dataset.match = d.ch;
+                btn.onclick = () => handleMatchClick(btn, 'ch'); chCol.appendChild(btn);
+            });
+            shuffledQualities.forEach(d => {
+                let btn = document.createElement('div'); btn.className = 'match-btn type-q'; btn.innerText = d.q; btn.dataset.match = d.ch;
+                btn.onclick = () => handleMatchClick(btn, 'q'); qCol.appendChild(btn);
+            });
+        }
+
+        function handleMatchClick(btn, type) {
+            if(btn.classList.contains('matched')) return;
+            
+            // Deselect others of same type
+            document.querySelectorAll(`.type-${type}`).forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+
+            if(!selectedMatchItem) { selectedMatchItem = btn; return; }
+            
+            // If clicking same type twice, just update selection
+            if((selectedMatchItem.classList.contains('type-ch') && type === 'ch') || (selectedMatchItem.classList.contains('type-q') && type === 'q')){
+                selectedMatchItem = btn; return;
+            }
+
+            // Check match
+            if(selectedMatchItem.dataset.match === btn.dataset.match) {
+                btn.classList.remove('selected'); btn.classList.add('matched');
+                selectedMatchItem.classList.remove('selected'); selectedMatchItem.classList.add('matched');
+                matchCount++;
+                if(matchCount === qualitiesData.length) document.getElementById('match-message').innerText = "✨ Amazing! You matched all the qualities perfectly!";
+            } else {
+                setTimeout(() => { btn.classList.remove('selected'); if(selectedMatchItem) selectedMatchItem.classList.remove('selected'); selectedMatchItem = null; }, 400);
+            }
+            selectedMatchItem = null;
+        }
+
+        // ==========================================
+        // GAME 5: CLEAR THE CATCH (WHACK-A-MOLE)
+        // ==========================================
+        let catchScore = 0; let catchTime = 30; let catchTimerId = null; let catchIntervalId = null;
+
+        window.startCatchGame = function() {
+            navigateTo('quiz-page'); hideAllGameContainers(); document.getElementById('quiz-header').classList.add('hidden');
+            document.getElementById('catch-container').classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.getElementById('btn-start-catch').style.display = 'block'; document.getElementById('catch-score').innerText = '0'; document.getElementById('catch-time').innerText = '30';
+            document.querySelectorAll('.whack-catch').forEach(c => { c.classList.remove('up'); c.classList.remove('cleared'); });
+        }
+
+        window.startGameCatch = function() {
+            document.getElementById('btn-start-catch').style.display = 'none';
+            catchScore = 0; catchTime = 30; document.getElementById('catch-score').innerText = catchScore; document.getElementById('catch-time').innerText = catchTime;
+            
+            catchTimerId = setInterval(() => {
+                catchTime--; document.getElementById('catch-time').innerText = catchTime;
+                if(catchTime <= 0) { clearInterval(catchTimerId); clearInterval(catchIntervalId); document.querySelectorAll('.whack-catch').forEach(c => c.classList.remove('up')); alert(`Time's up! You cleared ${catchScore} catches!`); document.getElementById('btn-start-catch').style.display = 'block'; document.getElementById('btn-start-catch').innerText = '🔄 Play Again'; }
+            }, 1000);
+
+            catchIntervalId = setInterval(() => {
+                const catches = document.querySelectorAll('.whack-catch');
+                const randomCatch = catches[Math.floor(Math.random() * catches.length)];
+                if(!randomCatch.classList.contains('up')) {
+                    randomCatch.classList.add('up'); randomCatch.classList.remove('cleared'); randomCatch.innerText = ["Anger", "Stress", "Ego", "Fear", "Greed"][Math.floor(Math.random()*5)];
+                    setTimeout(() => { randomCatch.classList.remove('up'); }, 1200); // Speed of popping down
+                }
+            }, 800); // Speed of popping up
+        }
+
+        window.whackCatch = function(element) {
+            if(!element.classList.contains('up') || element.classList.contains('cleared')) return;
+            element.classList.add('cleared'); element.innerText = "✨ Clear!";
+            catchScore += 10; document.getElementById('catch-score').innerText = catchScore;
+            setTimeout(() => { element.classList.remove('up'); }, 300);
+        }
+
     </script>
 </body>
 </html>
