@@ -170,15 +170,53 @@
         .bandhan-area .yogi-emoji { font-size: 6rem; line-height: 300px; text-align: center; pointer-events: none; }
         #bandhanCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        /* Subtle System Drag & Drop Styles */
+        /* Subtle System Drag & Drop Styles (UPDATED) */
         .builder-container { display: flex; flex-direction: column; align-items: center; gap: 30px; margin-top: 20px; }
-        .subtle-body { width: 180px; height: 420px; border: 2px dashed var(--primary); border-radius: 90px; position: relative; background: #f5f3ff; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 20px 0; }
-        .drop-zone { width: 45px; height: 45px; border: 2px dotted #94a3b8; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 0.8rem; color: #64748b; background: white; transition: 0.2s; }
-        .drop-zone.drag-over { background: #e2e8f0; transform: scale(1.1); border-color: var(--primary); }
-        .drop-zone.filled { border: 2px solid var(--secondary); background: #ecfdf5; color: var(--secondary); font-weight: bold; font-size: 0.7rem; }
-        .draggable-chakras { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; max-width: 400px; }
-        .drag-item { padding: 8px 16px; background: var(--primary); color: white; border-radius: 20px; cursor: grab; font-weight: 600; font-size: 0.9rem; user-select: none; box-shadow: var(--shadow-sm); }
-        .drag-item:active { cursor: grabbing; opacity: 0.8; }
+        .subtle-body { 
+            width: 180px; height: 460px; 
+            border: 3px solid #d8b4fe; 
+            border-radius: 90px; 
+            position: relative; 
+            background: linear-gradient(to top, #ffe4e6, #ffedd5, #fef08a, #dcfce7, #dbeafe, #e0e7ff, #f3e8ff);
+            display: flex; flex-direction: column; align-items: center; justify-content: space-between; 
+            padding: 25px 0; 
+            box-shadow: inset 0 0 20px rgba(255,255,255,0.8);
+        }
+        .drop-zone { 
+            width: 52px; height: 52px; 
+            border: 2px dashed #94a3b8; 
+            border-radius: 50%; 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            font-size: 1rem; color: #64748b; 
+            background: rgba(255, 255, 255, 0.6); 
+            transition: 0.3s; 
+        }
+        .drop-zone.drag-over { background: white; transform: scale(1.15); border: 2px solid var(--primary); box-shadow: 0 0 10px rgba(109, 40, 217, 0.2); }
+        .drop-zone.filled { 
+            border: 2px solid white; 
+            background: white; 
+            color: var(--text); 
+            font-weight: bold; 
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+        }
+        .draggable-chakras { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; max-width: 450px; }
+        .drag-item { 
+            padding: 10px 18px; 
+            background: white; 
+            color: var(--text); 
+            border: 2px solid var(--border); 
+            border-radius: 25px; 
+            cursor: grab; 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            user-select: none; 
+            box-shadow: var(--shadow-sm); 
+            transition: all 0.2s;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .drag-item:hover { transform: translateY(-3px); border-color: var(--primary); box-shadow: var(--shadow-md); }
+        .drag-item:active { cursor: grabbing; transform: scale(0.95); opacity: 0.9; }
         .drag-item.hidden { display: none; }
 
         /* Match Qualities Styles */
@@ -491,6 +529,7 @@
                     <button class="btn-secondary" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')">⬅️ Back to Games</button>
                 </div>
 
+                <!-- UPDATE: Subtle System Builder Container -->
                 <div class="card-container hidden" id="builder-container" style="text-align:center;">
                     <h2 style="margin-top:0; color: var(--primary); font-size: 1.8rem;">🧘‍♂️ Build the Subtle System</h2>
                     <p style="color: var(--text-muted);">Drag the Chakras to their correct physical position from bottom to top!</p>
@@ -505,13 +544,13 @@
                             <div class="drop-zone" data-target="Mooladhara">1</div>
                         </div>
                         <div class="draggable-chakras" id="draggable-items">
-                            <div class="drag-item" draggable="true" data-id="Nabhi">Nabhi</div>
-                            <div class="drag-item" draggable="true" data-id="Sahasrara">Sahasrara</div>
-                            <div class="drag-item" draggable="true" data-id="Mooladhara">Mooladhara</div>
-                            <div class="drag-item" draggable="true" data-id="Agnya">Agnya</div>
-                            <div class="drag-item" draggable="true" data-id="Anahata">Anahata</div>
-                            <div class="drag-item" draggable="true" data-id="Vishuddhi">Vishuddhi</div>
-                            <div class="drag-item" draggable="true" data-id="Swadisthan">Swadisthan</div>
+                            <div class="drag-item" draggable="true" data-id="Nabhi" data-symbol="🟡">🟡 Nabhi</div>
+                            <div class="drag-item" draggable="true" data-id="Sahasrara" data-symbol="🪷">🪷 Sahasrara</div>
+                            <div class="drag-item" draggable="true" data-id="Mooladhara" data-symbol="🔴">🔴 Mooladhara</div>
+                            <div class="drag-item" draggable="true" data-id="Agnya" data-symbol="🟣">🟣 Agnya</div>
+                            <div class="drag-item" draggable="true" data-id="Anahata" data-symbol="🟢">🟢 Anahata</div>
+                            <div class="drag-item" draggable="true" data-id="Vishuddhi" data-symbol="🔵">🔵 Vishuddhi</div>
+                            <div class="drag-item" draggable="true" data-id="Swadisthan" data-symbol="🟠">🟠 Swadisthan</div>
                         </div>
                     </div>
                     <p id="builder-message" style="font-size: 1.2rem; font-weight: 700; color: var(--secondary); margin-top: 20px;"></p>
@@ -816,7 +855,7 @@
         }
 
         // ==========================================
-        // GAME 3: SUBTLE SYSTEM BUILDER (DRAG & DROP)
+        // GAME 3: SUBTLE SYSTEM BUILDER (DRAG & DROP) - UPDATED
         // ==========================================
         window.startBuilderGame = function() {
             navigateTo('quiz-page'); hideAllGameContainers(); document.getElementById('quiz-header').classList.add('hidden');
@@ -828,33 +867,48 @@
             let draggables = document.querySelectorAll('.drag-item');
             let dropZones = document.querySelectorAll('.drop-zone');
             
-            // Reset state
+            // Reset state with the correct numbers
             draggables.forEach(item => { item.classList.remove('hidden'); });
             dropZones.forEach(zone => { 
-                zone.classList.remove('filled'); zone.innerText = zone.getAttribute('data-target') === 'Sahasrara' ? '7' : (zone.getAttribute('data-target') === 'Agnya' ? '6' : (zone.getAttribute('data-target') === 'Vishuddhi' ? '5' : (zone.getAttribute('data-target') === 'Anahata' ? '4' : (zone.getAttribute('data-target') === 'Nabhi' ? '3' : (zone.getAttribute('data-target') === 'Swadisthan' ? '2' : '1')))));
+                zone.classList.remove('filled'); 
+                const target = zone.getAttribute('data-target');
+                zone.innerHTML = target === 'Sahasrara' ? '7' : (target === 'Agnya' ? '6' : (target === 'Vishuddhi' ? '5' : (target === 'Anahata' ? '4' : (target === 'Nabhi' ? '3' : (target === 'Swadisthan' ? '2' : '1')))));
             });
 
-            draggables.forEach(draggable => {
-                draggable.addEventListener('dragstart', () => { draggable.classList.add('dragging'); });
-                draggable.addEventListener('dragend', () => { draggable.classList.remove('dragging'); });
-            });
-
-            dropZones.forEach(zone => {
-                zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
-                zone.addEventListener('dragleave', () => { zone.classList.remove('drag-over'); });
-                zone.addEventListener('drop', e => {
-                    e.preventDefault(); zone.classList.remove('drag-over');
-                    const draggable = document.querySelector('.dragging');
-                    if (draggable && draggable.dataset.id === zone.dataset.target) {
-                        zone.classList.add('filled'); zone.innerText = draggable.dataset.id;
-                        draggable.classList.add('hidden');
-                        checkBuilderWin();
-                    }
+            // Prevent event listeners from stacking if the game is opened multiple times
+            if (!window.builderListenersAdded) {
+                draggables.forEach(draggable => {
+                    draggable.addEventListener('dragstart', () => { draggable.classList.add('dragging'); });
+                    draggable.addEventListener('dragend', () => { draggable.classList.remove('dragging'); });
                 });
-            });
+
+                dropZones.forEach(zone => {
+                    zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
+                    zone.addEventListener('dragleave', () => { zone.classList.remove('drag-over'); });
+                    zone.addEventListener('drop', e => {
+                        e.preventDefault(); zone.classList.remove('drag-over');
+                        const draggable = document.querySelector('.dragging');
+                        
+                        // Check if it's correct
+                        if (draggable && draggable.dataset.id === zone.dataset.target) {
+                            zone.classList.add('filled'); 
+                            
+                            // Beautiful format: Symbol on top, text underneath
+                            zone.innerHTML = `<span style="font-size:1.2rem; line-height:1; margin-bottom:2px;">${draggable.dataset.symbol}</span><span style="font-size:0.55rem; display:block; line-height:1;">${draggable.dataset.id}</span>`;
+                            
+                            draggable.classList.add('hidden');
+                            checkBuilderWin();
+                        }
+                    });
+                });
+                window.builderListenersAdded = true;
+            }
         }
+        
         function checkBuilderWin() {
-            if(document.querySelectorAll('.drop-zone.filled').length === 7) { document.getElementById('builder-message').innerText = "🙏 Beautiful! You have balanced the Subtle System!"; }
+            if(document.querySelectorAll('.drop-zone.filled').length === 7) { 
+                document.getElementById('builder-message').innerText = "🙏 Beautiful! You have balanced the Subtle System!"; 
+            }
         }
 
         // ==========================================
