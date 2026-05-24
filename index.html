@@ -273,65 +273,68 @@
 <body>
 
     <nav class="navbar">
-        <a onclick="navigateTo('home-page')" class="navbar-brand">🪷 Sahaj Yoga Balshakti</a>
+        <a onclick="navigateTo('home-page')" class="navbar-brand translate" data-en="🪷 Sahaj Yoga Balshakti" data-hi="🪷 सहज योग बालशक्ति">🪷 Sahaj Yoga Balshakti</a>
         <div class="hamburger" onclick="toggleMenu()">
             <span></span>
             <span></span>
         </div>
         <div class="navbar-links" id="nav-links">
-            <a onclick="navigateTo('home-page'); closeMenu()">Home</a>
-            <a onclick="navigateTo('about-page'); closeMenu()">About</a>
-            <a onclick="navigateTo('values-page'); closeMenu()">Values</a>
-            <a onclick="navigateTo('support-page'); closeMenu()">Support</a>
+            <a onclick="navigateTo('home-page'); closeMenu()" class="translate" data-en="Home" data-hi="मुख्य पृष्ठ">Home</a>
+            <a onclick="navigateTo('about-page'); closeMenu()" class="translate" data-en="About" data-hi="परिचय">About</a>
+            <a onclick="navigateTo('values-page'); closeMenu()" class="translate" data-en="Values" data-hi="मूल्य">Values</a>
+            <a onclick="navigateTo('support-page'); closeMenu()" class="translate" data-en="Support" data-hi="संपर्क">Support</a>
             
-            <a id="nav-games-link" class="hidden" onclick="navigateTo('games-dashboard'); closeMenu()" style="color: var(--secondary); font-weight: 700;">🎮 Games Zone</a>
+            <a id="nav-games-link" class="hidden translate" onclick="navigateTo('games-dashboard'); closeMenu()" style="color: var(--secondary); font-weight: 700;" data-en="🎮 Games Zone" data-hi="🎮 गेम्स ज़ोन">🎮 Games Zone</a>
             
-            <button onclick="navigateTo('quiz-page'); closeMenu()" class="btn-primary" style="padding: 8px 20px; font-size: 0.95rem;">Start Quiz</button>
+            <button onclick="navigateTo('quiz-page'); closeMenu()" class="btn-primary translate" style="padding: 8px 20px; font-size: 0.95rem;" data-en="Start Quiz" data-hi="क्विज शुरू करें">Start Quiz</button>
+            
+            <!-- Language Toggle Button -->
+            <button id="lang-toggle-btn" onclick="toggleLanguage()" class="btn-secondary" style="padding: 6px 12px; font-size: 0.9rem; border: 2px solid var(--primary); color: var(--primary);">🌐 हिंदी</button>
         </div>
     </nav>
 
     <div id="home-page" class="page-view active">
         <section class="hero">
-            <h1>Sahaj Yoga Balshakti Quiz</h1>
-            <p>Test your knowledge, learn about the wisdom of Shri Mataji Nirmala Devi, and begin your journey towards inner peace through Sahaj Yoga meditation.</p>
+            <h1 class="translate" data-en="Sahaj Yoga Balshakti Quiz" data-hi="सहज योग बालशक्ति क्विज">Sahaj Yoga Balshakti Quiz</h1>
+            <p class="translate" data-en="Test your knowledge, learn about the wisdom of Shri Mataji Nirmala Devi, and begin your journey towards inner peace through Sahaj Yoga meditation." data-hi="अपने ज्ञान का परीक्षण करें, श्री माताजी निर्मला देवी के ज्ञान के बारे में जानें, और सहज योग ध्यान के माध्यम से आंतरिक शांति की ओर अपनी यात्रा शुरू करें।">Test your knowledge, learn about the wisdom of Shri Mataji Nirmala Devi, and begin your journey towards inner peace through Sahaj Yoga meditation.</p>
             <div class="hero-buttons">
-                <button onclick="navigateTo('quiz-page')" class="btn-primary">📝 Start Quiz</button>
-                <a href="https://drive.google.com/file/d/1upxjC12LD-XAX5BOOzxCA4eq32sWOx3P/view?usp=sharing" target="_blank" class="btn-success">📱 Download App</a>
+                <button onclick="navigateTo('quiz-page')" class="btn-primary translate" data-en="📝 Start Quiz" data-hi="📝 क्विज शुरू करें">📝 Start Quiz</button>
+                <a href="https://drive.google.com/file/d/1upxjC12LD-XAX5BOOzxCA4eq32sWOx3P/view?usp=sharing" target="_blank" class="btn-success translate" data-en="📱 Download App" data-hi="📱 ऐप डाउनलोड करें">📱 Download App</a>
             </div>
         </section>
 
         <div class="features-grid">
-            <div class="feature-card"><div class="icon">📚</div><h3>For All Ages</h3><p>Inclusive for Jr. Kg to 10th Standards</p></div>
-            <div class="feature-card"><div class="icon">🧘‍♀️</div><h3>Meditation</h3><p>Discover Inner Peace & Balance</p></div>
-            <div class="feature-card"><div class="icon">🙏</div><h3>Values & Culture</h3><p>Nurture Spiritual & Moral Growth</p></div>
-            <div class="feature-card"><div class="icon">🪷</div><h3>Teachings</h3><p>Timeless Wisdom of Shri Mataji</p></div>
+            <div class="feature-card"><div class="icon">📚</div><h3 class="translate" data-en="For All Ages" data-hi="सभी उम्र के लिए">For All Ages</h3><p class="translate" data-en="Inclusive for Jr. Kg to 10th Standards" data-hi="जूनियर केजी से 10वीं कक्षा तक के लिए">Inclusive for Jr. Kg to 10th Standards</p></div>
+            <div class="feature-card"><div class="icon">🧘‍♀️</div><h3 class="translate" data-en="Meditation" data-hi="ध्यान">Meditation</h3><p class="translate" data-en="Discover Inner Peace & Balance" data-hi="आंतरिक शांति और संतुलन की खोज">Discover Inner Peace & Balance</p></div>
+            <div class="feature-card"><div class="icon">🙏</div><h3 class="translate" data-en="Values & Culture" data-hi="मूल्य और संस्कृति">Values & Culture</h3><p class="translate" data-en="Nurture Spiritual & Moral Growth" data-hi="आध्यात्मिक और नैतिक विकास को बढ़ावा">Nurture Spiritual & Moral Growth</p></div>
+            <div class="feature-card"><div class="icon">🪷</div><h3 class="translate" data-en="Teachings" data-hi="शिक्षाएं">Teachings</h3><p class="translate" data-en="Timeless Wisdom of Shri Mataji" data-hi="श्री माताजी का शाश्वत ज्ञान">Timeless Wisdom of Shri Mataji</p></div>
         </div>
     </div>
 
     <div id="about-page" class="page-view">
         <section class="section">
-            <h2 class="section-title">About Shri Mataji Nirmala Devi</h2>
-            <p class="section-subtitle">Discover the profound life and global spiritual legacy of the founder of Sahaj Yoga.</p>
+            <h2 class="section-title translate" data-en="About Shri Mataji Nirmala Devi" data-hi="श्री माताजी निर्मला देवी के बारे में">About Shri Mataji Nirmala Devi</h2>
+            <p class="section-subtitle translate" data-en="Discover the profound life and global spiritual legacy of the founder of Sahaj Yoga." data-hi="सहज योग की संस्थापिका के गहन जीवन और वैश्विक आध्यात्मिक विरासत की खोज करें।">Discover the profound life and global spiritual legacy of the founder of Sahaj Yoga.</p>
             
             <div class="split-section">
                 <div class="split-text">
-                    <h3>The Early Years & Freedom Struggle</h3>
-                    <p>Shri Mataji Nirmala Devi was born on <strong>March 21, 1923</strong>, in Chhindwara, Madhya Pradesh, India, into a Christian family of noble descent. Her parents played a key role in India's liberation movement.</p>
-                    <p>As a child, she spent time with Mahatma Gandhi at his ashram. Gandhi recognized her extraordinary spiritual wisdom even at a young age.</p>
+                    <h3 class="translate" data-en="The Early Years & Freedom Struggle" data-hi="प्रारंभिक वर्ष और स्वतंत्रता संग्राम">The Early Years & Freedom Struggle</h3>
+                    <p class="translate" data-en="Shri Mataji Nirmala Devi was born on <strong>March 21, 1923</strong>, in Chhindwara, Madhya Pradesh, India, into a Christian family of noble descent. Her parents played a key role in India's liberation movement." data-hi="श्री माताजी निर्मला देवी का जन्म <strong>21 मार्च 1923</strong> को छिंदवाड़ा, मध्य प्रदेश में एक कुलीन परिवार में हुआ था। उनके माता-पिता ने भारत के स्वतंत्रता आंदोलन में महत्वपूर्ण भूमिका निभाई थी।">Shri Mataji Nirmala Devi was born on <strong>March 21, 1923</strong>, in Chhindwara, Madhya Pradesh, India, into a Christian family of noble descent. Her parents played a key role in India's liberation movement.</p>
+                    <p class="translate" data-en="As a child, she spent time with Mahatma Gandhi at his ashram. Gandhi recognized her extraordinary spiritual wisdom even at a young age." data-hi="बचपन में, उन्होंने महात्मा गांधी के साथ उनके आश्रम में समय बिताया। गांधीजी ने छोटी उम्र में ही उनके असाधारण आध्यात्मिक ज्ञान को पहचान लिया था।">As a child, she spent time with Mahatma Gandhi at his ashram. Gandhi recognized her extraordinary spiritual wisdom even at a young age.</p>
 
-                    <h3 style="margin-top: 30px;">The Discovery of Sahaj Yoga (1970)</h3>
-                    <p>On <strong>May 5, 1970</strong>, while meditating on a beach in Nargol, Gujarat, Shri Mataji experienced the opening of the Sahasrara (the seventh chakra). This monumental event made it possible for humanity to achieve <em>Self-Realization</em> en masse, a process previously available only to a few dedicated seekers after years of penance.</p>
+                    <h3 style="margin-top: 30px;" class="translate" data-en="The Discovery of Sahaj Yoga (1970)" data-hi="सहज योग की खोज (1970)">The Discovery of Sahaj Yoga (1970)</h3>
+                    <p class="translate" data-en="On <strong>May 5, 1970</strong>, while meditating on a beach in Nargol, Gujarat, Shri Mataji experienced the opening of the Sahasrara (the seventh chakra). This monumental event made it possible for humanity to achieve <em>Self-Realization</em> en masse, a process previously available only to a few dedicated seekers after years of penance." data-hi="<strong>5 मई 1970</strong> को, गुजरात के नारगोल में समुद्र तट पर ध्यान करते हुए, श्री माताजी ने सहस्रार (सातवें चक्र) के खुलने का अनुभव किया। इस घटना ने मानवता के लिए बड़े पैमाने पर <em>आत्म-साक्षात्कार</em> प्राप्त करना संभव बना दिया।">On <strong>May 5, 1970</strong>, while meditating on a beach in Nargol, Gujarat, Shri Mataji experienced the opening of the Sahasrara (the seventh chakra). This monumental event made it possible for humanity to achieve <em>Self-Realization</em> en masse, a process previously available only to a few dedicated seekers after years of penance.</p>
                     
-                    <h3 style="margin-top: 30px;">A Global Spiritual Movement</h3>
-                    <p>Unlike other modern spiritual teachers, Shri Mataji insisted that Self-Realization is a living process, and therefore, <strong>it cannot be paid for</strong>. She traveled across the globe completely free of charge, spreading the message of peace and awakening the Kundalini energy in hundreds of thousands of people.</p>
+                    <h3 style="margin-top: 30px;" class="translate" data-en="A Global Spiritual Movement" data-hi="एक वैश्विक आध्यात्मिक आंदोलन">A Global Spiritual Movement</h3>
+                    <p class="translate" data-en="Unlike other modern spiritual teachers, Shri Mataji insisted that Self-Realization is a living process, and therefore, <strong>it cannot be paid for</strong>. She traveled across the globe completely free of charge, spreading the message of peace and awakening the Kundalini energy in hundreds of thousands of people." data-hi="अन्य आधुनिक आध्यात्मिक गुरुओं के विपरीत, श्री माताजी ने जोर दिया कि आत्म-साक्षात्कार एक जीवंत प्रक्रिया है, और इसलिए, <strong>इसके लिए पैसे नहीं दिए जा सकते</strong>। उन्होंने शांति का संदेश फैलाने के लिए दुनिया भर की यात्रा की।">Unlike other modern spiritual teachers, Shri Mataji insisted that Self-Realization is a living process, and therefore, <strong>it cannot be paid for</strong>. She traveled across the globe completely free of charge, spreading the message of peace and awakening the Kundalini energy in hundreds of thousands of people.</p>
                     <ul>
-                        <li>Nominated for the Nobel Peace Prize twice.</li>
-                        <li>Honored by the United Nations and multiple global institutions.</li>
-                        <li>Sahaj Yoga is now practiced in over 100 countries worldwide.</li>
+                        <li class="translate" data-en="Nominated for the Nobel Peace Prize twice." data-hi="नोबेल शांति पुरस्कार के लिए दो बार नामांकित।">Nominated for the Nobel Peace Prize twice.</li>
+                        <li class="translate" data-en="Honored by the United Nations and multiple global institutions." data-hi="संयुक्त राष्ट्र और कई वैश्विक संस्थानों द्वारा सम्मानित।">Honored by the United Nations and multiple global institutions.</li>
+                        <li class="translate" data-en="Sahaj Yoga is now practiced in over 100 countries worldwide." data-hi="सहज योग अब दुनिया भर के 100 से अधिक देशों में किया जाता है।">Sahaj Yoga is now practiced in over 100 countries worldwide.</li>
                     </ul>
                 </div>
                 <div class="split-image">
-                    <div class="https://i.pinimg.com/736x/c0/a8/69/c0a869b40e12bb723012d21abeb07ea6.jpg">📸<br><span style="font-size:1.2rem; font-weight:500; color:#64748b; margin-top:10px;">Shri Mataji Photo</span></div>
+                    <div class="https://i.pinimg.com/736x/c0/a8/69/c0a869b40e12bb723012d21abeb07ea6.jpg">📸<br><span style="font-size:1.2rem; font-weight:500; color:#64748b; margin-top:10px;" class="translate" data-en="Shri Mataji Photo" data-hi="श्री माताजी की फोटो">Shri Mataji Photo</span></div>
                 </div>
             </div>
         </section>
@@ -339,47 +342,47 @@
 
     <div id="values-page" class="page-view">
         <section class="section">
-            <h2 class="section-title">Core Values & Daily Routine</h2>
-            <p class="section-subtitle">The foundation of Balshakti is built upon pure moral values and dedicated spiritual routines for a joyous life.</p>
+            <h2 class="section-title translate" data-en="Core Values & Daily Routine" data-hi="मुख्य मूल्य और दिनचर्या">Core Values & Daily Routine</h2>
+            <p class="section-subtitle translate" data-en="The foundation of Balshakti is built upon pure moral values and dedicated spiritual routines for a joyous life." data-hi="बालशक्ति की नींव शुद्ध नैतिक मूल्यों और आनंदमय जीवन के लिए समर्पित आध्यात्मिक दिनचर्या पर बनी है।">The foundation of Balshakti is built upon pure moral values and dedicated spiritual routines for a joyous life.</p>
             
             <div class="values-grid">
                 <div class="values-card highlight">
-                    <h3>🧘‍♀️ Daily Meditation Routine</h3>
-                    <p>Consistency is the key to spiritual growth in Sahaj Yoga.</p>
+                    <h3 class="translate" data-en="🧘‍♀️ Daily Meditation Routine" data-hi="🧘‍♀️ दैनिक ध्यान दिनचर्या">🧘‍♀️ Daily Meditation Routine</h3>
+                    <p class="translate" data-en="Consistency is the key to spiritual growth in Sahaj Yoga." data-hi="सहज योग में आध्यात्मिक विकास के लिए निरंतरता कुंजी है।">Consistency is the key to spiritual growth in Sahaj Yoga.</p>
                     <ul>
-                        <li><strong>Morning:</strong> 10 minutes of meditation to start the day with positive energy.</li>
-                        <li><strong>Evening:</strong> Foot-soaking (Jal Kriya) to clear daily catchments and relieve stress.</li>
-                        <li><strong>Collectivity:</strong> Attending weekly center meditation to grow with others.</li>
+                        <li class="translate" data-en="<strong>Morning:</strong> 10 minutes of meditation to start the day with positive energy." data-hi="<strong>सुबह:</strong> सकारात्मक ऊर्जा के साथ दिन की शुरुआत करने के लिए 10 मिनट का ध्यान।"><strong>Morning:</strong> 10 minutes of meditation to start the day with positive energy.</li>
+                        <li class="translate" data-en="<strong>Evening:</strong> Foot-soaking (Jal Kriya) to clear daily catchments and relieve stress." data-hi="<strong>शाम:</strong> दैनिक बाधाओं को दूर करने और तनाव से राहत के लिए फुट-सोकिंग (जल क्रिया)।"><strong>Evening:</strong> Foot-soaking (Jal Kriya) to clear daily catchments and relieve stress.</li>
+                        <li class="translate" data-en="<strong>Collectivity:</strong> Attending weekly center meditation to grow with others." data-hi="<strong>सामूहिकता:</strong> दूसरों के साथ बढ़ने के लिए साप्ताहिक ध्यान केंद्र में भाग लेना।"><strong>Collectivity:</strong> Attending weekly center meditation to grow with others.</li>
                     </ul>
                 </div>
 
                 <div class="values-card highlight">
-                    <h3>✨ Innocence & Purity (Shri Ganesha)</h3>
-                    <p>The essence of the Mooladhara Chakra.</p>
+                    <h3 class="translate" data-en="✨ Innocence & Purity (Shri Ganesha)" data-hi="✨ अबोधता और पवित्रता (श्री गणेश)">✨ Innocence & Purity (Shri Ganesha)</h3>
+                    <p class="translate" data-en="The essence of the Mooladhara Chakra." data-hi="मूलाधार चक्र का सार।">The essence of the Mooladhara Chakra.</p>
                     <ul>
-                        <li>Maintaining a pure heart, free from cunningness.</li>
-                        <li>Treating others with absolute honesty and transparency.</li>
-                        <li>Preserving childlike joy and avoiding artificial adult complications.</li>
+                        <li class="translate" data-en="Maintaining a pure heart, free from cunningness." data-hi="चालाकी से मुक्त, एक शुद्ध हृदय बनाए रखना।">Maintaining a pure heart, free from cunningness.</li>
+                        <li class="translate" data-en="Treating others with absolute honesty and transparency." data-hi="दूसरों के साथ पूर्ण ईमानदारी और पारदर्शिता के साथ व्यवहार करना।">Treating others with absolute honesty and transparency.</li>
+                        <li class="translate" data-en="Preserving childlike joy and avoiding artificial adult complications." data-hi="बच्चों जैसी खुशी को बनाए रखना और कृत्रिम वयस्क जटिलताओं से बचना।">Preserving childlike joy and avoiding artificial adult complications.</li>
                     </ul>
                 </div>
 
                 <div class="values-card highlight">
-                    <h3>🙏 Respect & Morality</h3>
-                    <p>Building a balanced character (The Void / Guru Principle).</p>
+                    <h3 class="translate" data-en="🙏 Respect & Morality" data-hi="🙏 सम्मान और नैतिकता">🙏 Respect & Morality</h3>
+                    <p class="translate" data-en="Building a balanced character (The Void / Guru Principle)." data-hi="एक संतुलित चरित्र का निर्माण (भवसागर / गुरु तत्व)।">Building a balanced character (The Void / Guru Principle).</p>
                     <ul>
-                        <li>Always respecting parents, teachers, and elders.</li>
-                        <li>Speaking the truth gracefully, without hurting others.</li>
-                        <li>Avoiding bad habits, anger, and unnecessary arguments.</li>
+                        <li class="translate" data-en="Always respecting parents, teachers, and elders." data-hi="हमेशा माता-पिता, शिक्षकों और बड़ों का सम्मान करना।">Always respecting parents, teachers, and elders.</li>
+                        <li class="translate" data-en="Speaking the truth gracefully, without hurting others." data-hi="दूसरों को चोट पहुँचाए बिना शालीनता से सच बोलना।">Speaking the truth gracefully, without hurting others.</li>
+                        <li class="translate" data-en="Avoiding bad habits, anger, and unnecessary arguments." data-hi="बुरी आदतों, क्रोध और अनावश्यक तर्कों से बचना।">Avoiding bad habits, anger, and unnecessary arguments.</li>
                     </ul>
                 </div>
 
                 <div class="values-card highlight">
-                    <h3>🌍 Universal Love & Brotherhood</h3>
-                    <p>Awakening the Heart (Anahata Chakra).</p>
+                    <h3 class="translate" data-en="🌍 Universal Love & Brotherhood" data-hi="🌍 सार्वभौमिक प्रेम और भाईचारा">🌍 Universal Love & Brotherhood</h3>
+                    <p class="translate" data-en="Awakening the Heart (Anahata Chakra)." data-hi="हृदय का जागरण (अनाहत चक्र)।">Awakening the Heart (Anahata Chakra).</p>
                     <ul>
-                        <li>Respecting all religions and spiritual true masters.</li>
-                        <li>Helping others selflessly without expecting anything in return.</li>
-                        <li>Protecting nature, animals, and our environment.</li>
+                        <li class="translate" data-en="Respecting all religions and spiritual true masters." data-hi="सभी धर्मों और सच्चे आध्यात्मिक गुरुओं का सम्मान करना।">Respecting all religions and spiritual true masters.</li>
+                        <li class="translate" data-en="Helping others selflessly without expecting anything in return." data-hi="बिना किसी स्वार्थ के दूसरों की निस्वार्थ भाव से मदद करना।">Helping others selflessly without expecting anything in return.</li>
+                        <li class="translate" data-en="Protecting nature, animals, and our environment." data-hi="प्रकृति, जानवरों और हमारे पर्यावरण की रक्षा करना।">Protecting nature, animals, and our environment.</li>
                     </ul>
                 </div>
             </div>
@@ -388,28 +391,28 @@
 
     <div id="support-page" class="page-view">
         <section class="section">
-            <h2 class="section-title">Support & Contact</h2>
-            <p class="section-subtitle">Need help with the quiz, app downloads, or want to learn more about Sahaj Yoga meditation? We are here for you.</p>
+            <h2 class="section-title translate" data-en="Support & Contact" data-hi="संपर्क और सहायता">Support & Contact</h2>
+            <p class="section-subtitle translate" data-en="Need help with the quiz, app downloads, or want to learn more about Sahaj Yoga meditation? We are here for you." data-hi="क्या आपको क्विज़, ऐप डाउनलोड में मदद चाहिए, या सहज योग ध्यान के बारे में अधिक जानना चाहते हैं? हम यहाँ हैं।">Need help with the quiz, app downloads, or want to learn more about Sahaj Yoga meditation? We are here for you.</p>
 
             <div class="support-grid">
                 <div class="support-card">
                     <div class="icon">💬</div>
-                    <h3>WhatsApp Support</h3>
-                    <p>Join our official Balshakti WhatsApp group for daily updates, quiz hints, and meditation links.</p>
-                    <a href="#" class="btn-success" style="padding: 10px 20px; font-size: 0.95rem;">Join Group</a>
+                    <h3 class="translate" data-en="WhatsApp Support" data-hi="व्हाट्सएप सपोर्ट">WhatsApp Support</h3>
+                    <p class="translate" data-en="Join our official Balshakti WhatsApp group for daily updates, quiz hints, and meditation links." data-hi="दैनिक अपडेट, क्विज़ हिंट्स और ध्यान लिंक के लिए हमारे आधिकारिक बालशक्ति व्हाट्सएप समूह में शामिल हों।">Join our official Balshakti WhatsApp group for daily updates, quiz hints, and meditation links.</p>
+                    <a href="#" class="btn-success translate" style="padding: 10px 20px; font-size: 0.95rem;" data-en="Join Group" data-hi="ग्रुप से जुड़ें">Join Group</a>
                 </div>
                 
                 <div class="support-card">
                     <div class="icon">📧</div>
-                    <h3>Email Us</h3>
-                    <p>Facing technical issues with the quiz or the Android App? Send us a detailed email.</p>
-                    <a href="mailto:ypprogamer124@gmail.com" class="btn-secondary" style="padding: 10px 20px; font-size: 0.95rem;">Send Email</a>
+                    <h3 class="translate" data-en="Email Us" data-hi="हमें ईमेल करें">Email Us</h3>
+                    <p class="translate" data-en="Facing technical issues with the quiz or the Android App? Send us a detailed email." data-hi="क्विज़ या एंड्रॉइड ऐप के साथ तकनीकी समस्याओं का सामना कर रहे हैं? हमें ईमेल भेजें।">Facing technical issues with the quiz or the Android App? Send us a detailed email.</p>
+                    <a href="mailto:ypprogamer124@gmail.com" class="btn-secondary translate" style="padding: 10px 20px; font-size: 0.95rem;" data-en="Send Email" data-hi="ईमेल भेजें">Send Email</a>
                 </div>
 
                 <div class="support-card">
                     <div class="icon">📞</div>
-                    <h3>Helpline</h3>
-                    <p>Call our toll-free national helpline to find a free Sahaj Yoga meditation center near you.</p>
+                    <h3 class="translate" data-en="Helpline" data-hi="हेल्पलाइन">Helpline</h3>
+                    <p class="translate" data-en="Call our toll-free national helpline to find a free Sahaj Yoga meditation center near you." data-hi="अपने आस-पास एक निःशुल्क सहज योग ध्यान केंद्र खोजने के लिए हमारी टोल-फ्री राष्ट्रीय हेल्पलाइन पर कॉल करें।">Call our toll-free national helpline to find a free Sahaj Yoga meditation center near you.</p>
                     <h2 style="color: var(--primary); margin: 10px 0;">9359881192</h2>
                 </div>
             </div>
@@ -418,18 +421,19 @@
 
     <div id="games-dashboard" class="page-view">
         <section class="section text-center">
-            <h2 class="section-title">🎮 Unlocked Games Zone</h2>
-            <p class="section-subtitle">You have successfully unlocked these games by completing the quiz!</p>
+            <h2 class="section-title translate" data-en="🎮 Unlocked Games Zone" data-hi="🎮 अनलॉक गेम्स ज़ोन">🎮 Unlocked Games Zone</h2>
+            <p class="section-subtitle translate" data-en="You have successfully unlocked these games by completing the quiz!" data-hi="क्विज पूरा करके आपने सफलतापूर्वक इन गेम्स को अनलॉक कर लिया है!">You have successfully unlocked these games by completing the quiz!</p>
             <div class="quiz-wrapper" style="display:flex; flex-direction:column; gap:15px;">
-                <button class="btn-primary" style="padding: 20px; font-size: 1.2rem;" onclick="startMiniGame()">🧩 1. Chakra Memory Match</button>
-                <button class="btn-success" style="padding: 20px; font-size: 1.2rem;" onclick="startBandhanGame()">🛡️ 2. Bandhan Tracer</button>
-                <button class="btn-secondary" style="padding: 20px; font-size: 1.2rem;" onclick="startBuilderGame()">🧘‍♂️ 3. Subtle System Builder</button>
-                <button class="btn-primary" style="padding: 20px; font-size: 1.2rem; background-color: #f59e0b; border-color: #f59e0b;" onclick="startMatchGame()">✨ 4. Match the Qualities</button>
-                <button class="btn-secondary" style="padding: 20px; font-size: 1.2rem; color: #ef4444; border-color: #ef4444;" onclick="startCatchGame()">💧 5. Clear the Catch</button>
+                <button class="btn-primary translate" style="padding: 20px; font-size: 1.2rem;" onclick="startMiniGame()" data-en="🧩 1. Chakra Memory Match" data-hi="🧩 1. चक्र मेमोरी मैच">🧩 1. Chakra Memory Match</button>
+                <button class="btn-success translate" style="padding: 20px; font-size: 1.2rem;" onclick="startBandhanGame()" data-en="🛡️ 2. Bandhan Tracer" data-hi="🛡️ 2. बंधन ट्रेसर">🛡️ 2. Bandhan Tracer</button>
+                <button class="btn-secondary translate" style="padding: 20px; font-size: 1.2rem;" onclick="startBuilderGame()" data-en="🧘‍♂️ 3. Subtle System Builder" data-hi="🧘‍♂️ 3. सूक्ष्म तंत्र (Subtle System) बिल्डर">🧘‍♂️ 3. Subtle System Builder</button>
+                <button class="btn-primary translate" style="padding: 20px; font-size: 1.2rem; background-color: #f59e0b; border-color: #f59e0b;" onclick="startMatchGame()" data-en="✨ 4. Match the Qualities" data-hi="✨ 4. गुणों का मिलान करें">✨ 4. Match the Qualities</button>
+                <button class="btn-secondary translate" style="padding: 20px; font-size: 1.2rem; color: #ef4444; border-color: #ef4444;" onclick="startCatchGame()" data-en="💧 5. Clear the Catch" data-hi="💧 5. कैच (बाधा) साफ़ करें">💧 5. Clear the Catch</button>
             </div>
         </section>
     </div>
 
+    <!-- QUIZ SYSTEM: Left exactly as is, completely English/Original per request -->
     <div id="quiz-page" class="page-view">
         <section class="section">
             <h2 class="section-title" id="quiz-header">📝 Sahaj Yoga Balshakti Quiz</h2>
@@ -507,32 +511,32 @@
                     <button class="btn-secondary" style="width: 100%;" onclick="location.reload()">🔄 Return to Home</button>
                 </div>
 
+                <!-- Game Container headings translated for better UX, game core logic untouched -->
                 <div class="card-container hidden" id="game-container" style="text-align:center;">
-                    <h2 style="margin-top:0; color: var(--primary); font-size: 1.8rem;">🧘‍♀️ Chakra Memory Match</h2>
-                    <p style="color: var(--text-muted); margin-bottom: 5px;">Flip the cards to match the identical Chakras!</p>
+                    <h2 style="margin-top:0; color: var(--primary); font-size: 1.8rem;" class="translate" data-en="🧘‍♀️ Chakra Memory Match" data-hi="🧘‍♀️ चक्र मेमोरी मैच">🧘‍♀️ Chakra Memory Match</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 5px;" class="translate" data-en="Flip the cards to match the identical Chakras!" data-hi="समान चक्रों का मिलान करने के लिए कार्ड को पलटें!">Flip the cards to match the identical Chakras!</p>
                     <div id="memory-board" class="memory-grid"></div>
                     <p id="game-message" style="font-size: 1.2rem; font-weight: 700; color: var(--secondary); min-height: 30px; margin-top: 15px;"></p>
-                    <button class="btn-secondary" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')">⬅️ Back to Games</button>
+                    <button class="btn-secondary translate" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')" data-en="⬅️ Back to Games" data-hi="⬅️ गेम्स पर वापस जाएं">⬅️ Back to Games</button>
                 </div>
 
                 <div class="card-container hidden" id="bandhan-container" style="text-align:center;">
-                    <h2 style="margin-top:0; color: var(--secondary); font-size: 1.8rem;">🛡️ Bandhan Tracer</h2>
-                    <p style="color: var(--text-muted);">Drag/Swipe your finger over the yogi from <b>Left to Right</b> and back to complete 1 Bandhan. Do this 7 times!</p>
+                    <h2 style="margin-top:0; color: var(--secondary); font-size: 1.8rem;" class="translate" data-en="🛡️ Bandhan Tracer" data-hi="🛡️ बंधन ट्रेसर">🛡️ Bandhan Tracer</h2>
+                    <p style="color: var(--text-muted);" class="translate" data-en="Drag/Swipe your finger over the yogi from <b>Left to Right</b> and back to complete 1 Bandhan. Do this 7 times!" data-hi="1 बंधन पूरा करने के लिए अपनी उंगली को <b>बाएं से दाएं</b> और वापस स्वाइप करें। इसे 7 बार करें!">Drag/Swipe your finger over the yogi from <b>Left to Right</b> and back to complete 1 Bandhan. Do this 7 times!</p>
                     <div class="bandhan-area" id="bandhanArea">
                         <div class="yogi-emoji">🧘‍♂️</div>
                         <canvas id="bandhanCanvas" width="300" height="300"></canvas>
                     </div>
                     <div style="background: #f8fafc; padding: 15px; border-radius: 12px; margin-bottom: 20px;">
-                        <h3 style="margin: 0; color: var(--text);">Bandhans: <span id="bandhan-counter" style="color: var(--primary);">0</span> / 7</h3>
+                        <h3 style="margin: 0; color: var(--text);"><span class="translate" data-en="Bandhans:" data-hi="बंधन:">Bandhans:</span> <span id="bandhan-counter" style="color: var(--primary);">0</span> / 7</h3>
                     </div>
                     <p id="bandhan-message" style="font-size: 1.1rem; font-weight: 700; color: var(--secondary); min-height: 25px;"></p>
-                    <button class="btn-secondary" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')">⬅️ Back to Games</button>
+                    <button class="btn-secondary translate" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')" data-en="⬅️ Back to Games" data-hi="⬅️ गेम्स पर वापस जाएं">⬅️ Back to Games</button>
                 </div>
 
-                <!-- UPDATE: Subtle System Builder Container -->
                 <div class="card-container hidden" id="builder-container" style="text-align:center;">
-                    <h2 style="margin-top:0; color: var(--primary); font-size: 1.8rem;">🧘‍♂️ Build the Subtle System</h2>
-                    <p style="color: var(--text-muted);">Drag the Chakras to their correct physical position from bottom to top!</p>
+                    <h2 style="margin-top:0; color: var(--primary); font-size: 1.8rem;" class="translate" data-en="🧘‍♂️ Build the Subtle System" data-hi="🧘‍♂️ सूक्ष्म तंत्र (Subtle System) बनाएं">🧘‍♂️ Build the Subtle System</h2>
+                    <p style="color: var(--text-muted);" class="translate" data-en="Drag the Chakras to their correct physical position from bottom to top!" data-hi="चक्रों को नीचे से ऊपर उनके सही भौतिक स्थान पर ड्रैग करें!">Drag the Chakras to their correct physical position from bottom to top!</p>
                     <div class="builder-container">
                         <div class="subtle-body">
                             <div class="drop-zone" data-target="Sahasrara">7</div>
@@ -544,36 +548,36 @@
                             <div class="drop-zone" data-target="Mooladhara">1</div>
                         </div>
                         <div class="draggable-chakras" id="draggable-items">
-                            <div class="drag-item" draggable="true" data-id="Nabhi" data-symbol="🟢">🟢 Nabhi</div>
+                            <div class="drag-item" draggable="true" data-id="Nabhi" data-symbol="🟡">🟡 Nabhi</div>
                             <div class="drag-item" draggable="true" data-id="Sahasrara" data-symbol="🪷">🪷 Sahasrara</div>
                             <div class="drag-item" draggable="true" data-id="Mooladhara" data-symbol="🔴">🔴 Mooladhara</div>
-                            <div class="drag-item" draggable="true" data-id="Agnya" data-symbol="⚪️">⚪️ Agnya</div>
-                            <div class="drag-item" draggable="true" data-id="Anahata" data-symbol="🟠">🟠 Anahata</div>
+                            <div class="drag-item" draggable="true" data-id="Agnya" data-symbol="🟣">🟣 Agnya</div>
+                            <div class="drag-item" draggable="true" data-id="Anahata" data-symbol="🟢">🟢 Anahata</div>
                             <div class="drag-item" draggable="true" data-id="Vishuddhi" data-symbol="🔵">🔵 Vishuddhi</div>
-                            <div class="drag-item" draggable="true" data-id="Swadisthan" data-symbol="🟡">🟡 Swadisthan</div>\
+                            <div class="drag-item" draggable="true" data-id="Swadisthan" data-symbol="🟠">🟠 Swadisthan</div>
                         </div>
                     </div>
                     <p id="builder-message" style="font-size: 1.2rem; font-weight: 700; color: var(--secondary); margin-top: 20px;"></p>
-                    <button class="btn-secondary" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')">⬅️ Back to Games</button>
+                    <button class="btn-secondary translate" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')" data-en="⬅️ Back to Games" data-hi="⬅️ गेम्स पर वापस जाएं">⬅️ Back to Games</button>
                 </div>
 
                 <div class="card-container hidden" id="match-container" style="text-align:center;">
-                    <h2 style="margin-top:0; color: #f59e0b; font-size: 1.8rem;">✨ Match the Qualities</h2>
-                    <p style="color: var(--text-muted);">Select a Chakra, then select its corresponding moral quality.</p>
+                    <h2 style="margin-top:0; color: #f59e0b; font-size: 1.8rem;" class="translate" data-en="✨ Match the Qualities" data-hi="✨ गुणों का मिलान करें">✨ Match the Qualities</h2>
+                    <p style="color: var(--text-muted);" class="translate" data-en="Select a Chakra, then select its corresponding moral quality." data-hi="एक चक्र चुनें, फिर उसके संबंधित नैतिक गुण का चयन करें।">Select a Chakra, then select its corresponding moral quality.</p>
                     <div class="match-container">
                         <div class="match-column" id="match-chakras"></div>
                         <div class="match-column" id="match-qualities"></div>
                     </div>
                     <p id="match-message" style="font-size: 1.2rem; font-weight: 700; color: var(--secondary); margin-top: 20px;"></p>
-                    <button class="btn-secondary" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')">⬅️ Back to Games</button>
+                    <button class="btn-secondary translate" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')" data-en="⬅️ Back to Games" data-hi="⬅️ गेम्स पर वापस जाएं">⬅️ Back to Games</button>
                 </div>
 
                 <div class="card-container hidden" id="catch-container" style="text-align:center;">
-                    <h2 style="margin-top:0; color: var(--danger); font-size: 1.8rem;">💧 Clear the Catch</h2>
-                    <p style="color: var(--text-muted);">Tap the red Stress/Catch bubbles quickly to clear the chakras!</p>
+                    <h2 style="margin-top:0; color: var(--danger); font-size: 1.8rem;" class="translate" data-en="💧 Clear the Catch" data-hi="💧 कैच (बाधा) साफ़ करें">💧 Clear the Catch</h2>
+                    <p style="color: var(--text-muted);" class="translate" data-en="Tap the red Stress/Catch bubbles quickly to clear the chakras!" data-hi="चक्रों को साफ करने के लिए लाल तनाव/कैच बुलबुले को जल्दी से टैप करें!">Tap the red Stress/Catch bubbles quickly to clear the chakras!</p>
                     <div style="background: #f8fafc; padding: 15px; border-radius: 12px; margin-bottom: 20px; display:flex; justify-content:space-around;">
-                        <h3 style="margin: 0;">Score: <span id="catch-score" style="color: var(--primary);">0</span></h3>
-                        <h3 style="margin: 0;">Time: <span id="catch-time" style="color: var(--danger);">30</span>s</h3>
+                        <h3 style="margin: 0;"><span class="translate" data-en="Score:" data-hi="स्कोर:">Score:</span> <span id="catch-score" style="color: var(--primary);">0</span></h3>
+                        <h3 style="margin: 0;"><span class="translate" data-en="Time:" data-hi="समय:">Time:</span> <span id="catch-time" style="color: var(--danger);">30</span>s</h3>
                     </div>
                     <div class="whack-grid" id="whack-grid">
                         <div class="whack-hole"><div class="whack-catch" onclick="whackCatch(this)">Anger</div></div>
@@ -583,8 +587,8 @@
                         <div class="whack-hole"><div class="whack-catch" onclick="whackCatch(this)">Greed</div></div>
                         <div class="whack-hole"><div class="whack-catch" onclick="whackCatch(this)">Guilt</div></div>
                     </div>
-                    <button class="btn-primary" id="btn-start-catch" style="width: 100%; margin-top: 20px;" onclick="startGameCatch()">▶️ Start Cleaning!</button>
-                    <button class="btn-secondary" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')">⬅️ Back to Games</button>
+                    <button class="btn-primary translate" id="btn-start-catch" style="width: 100%; margin-top: 20px;" onclick="startGameCatch()" data-en="▶️ Start Cleaning!" data-hi="▶️ सफाई शुरू करें!">▶️ Start Cleaning!</button>
+                    <button class="btn-secondary translate" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')" data-en="⬅️ Back to Games" data-hi="⬅️ गेम्स पर वापस जाएं">⬅️ Back to Games</button>
                 </div>
 
             </div>
@@ -594,11 +598,33 @@
     <div id="youtube-audio" style="display: none;"></div>
 
     <footer>
-        <p>🪷 <strong>Sy Balshakti</strong> &copy; 2026. All rights reserved.</p>
+        <p class="translate" data-en="🪷 <strong>Sy Balshakti</strong> &copy; 2026. All rights reserved." data-hi="🪷 <strong>Sy बालशक्ति</strong> &copy; 2026. सर्वाधिकार सुरक्षित।">🪷 <strong>Sy Balshakti</strong> &copy; 2026. All rights reserved.</p>
     </footer>
 
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
+        // --- TRANSLATION LOGIC ---
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'hi' : 'en';
+            
+            // Update Toggle Button Text
+            const toggleBtn = document.getElementById('lang-toggle-btn');
+            toggleBtn.innerText = currentLang === 'en' ? '🌐 हिंदी' : '🌐 English';
+
+            // Swap out all translatable elements
+            const translatableElements = document.querySelectorAll('.translate');
+            translatableElements.forEach(el => {
+                if (currentLang === 'hi' && el.dataset.hi) {
+                    el.innerHTML = el.dataset.hi;
+                } else if (currentLang === 'en' && el.dataset.en) {
+                    el.innerHTML = el.dataset.en;
+                }
+            });
+        }
+
+
         // --- YOUTUBE API LOGIC ---
         var ytPlayer;
         function onYouTubeIframeAPIReady() {
@@ -807,7 +833,9 @@
         function checkMatch() {
             if (firstCard.dataset.id === secondCard.dataset.id) {
                 firstCard.classList.add('matched'); secondCard.classList.add('matched'); matchedCount += 2;
-                if (matchedCount === gamePairs.length) document.getElementById('game-message').innerText = "🎉 Congratulations! You matched all Chakras!";
+                if (matchedCount === gamePairs.length) {
+                    document.getElementById('game-message').innerText = currentLang === 'en' ? "🎉 Congratulations! You matched all Chakras!" : "🎉 बधाई हो! आपने सभी चक्रों का मिलान कर लिया!";
+                }
                 firstCard = null; secondCard = null; lockBoard = false;
             } else {
                 lockBoard = true; setTimeout(() => { firstCard.classList.remove('flipped'); firstCard.innerText = "?"; secondCard.classList.remove('flipped'); secondCard.innerText = "?"; firstCard = null; secondCard = null; lockBoard = false; }, 800); 
@@ -847,7 +875,10 @@
                     if (swipeStage === 0) { swipeStage = 1; } 
                     else if (swipeStage === 2) {
                         bandhanCount++; document.getElementById('bandhan-counter').innerText = bandhanCount; swipeStage = 1; 
-                        if(bandhanCount >= 7) { document.getElementById('bandhan-message').innerText = "🛡️ Perfect! Your Aura is fully protected! 🙏"; ctx.fillStyle = "rgba(16, 185, 129, 0.2)"; ctx.fillRect(0,0, canvas.width, canvas.height); }
+                        if(bandhanCount >= 7) { 
+                            document.getElementById('bandhan-message').innerText = currentLang === 'en' ? "🛡️ Perfect! Your Aura is fully protected! 🙏" : "🛡️ उत्तम! आपका आभामंडल पूरी तरह से सुरक्षित है! 🙏"; 
+                            ctx.fillStyle = "rgba(16, 185, 129, 0.2)"; ctx.fillRect(0,0, canvas.width, canvas.height); 
+                        }
                     }
                 }
                 if (x > 200 && swipeStage === 1) { swipeStage = 2; }
@@ -855,7 +886,7 @@
         }
 
         // ==========================================
-        // GAME 3: SUBTLE SYSTEM BUILDER (DRAG & DROP) - UPDATED
+        // GAME 3: SUBTLE SYSTEM BUILDER (DRAG & DROP)
         // ==========================================
         window.startBuilderGame = function() {
             navigateTo('quiz-page'); hideAllGameContainers(); document.getElementById('quiz-header').classList.add('hidden');
@@ -867,7 +898,6 @@
             let draggables = document.querySelectorAll('.drag-item');
             let dropZones = document.querySelectorAll('.drop-zone');
             
-            // Reset state with the correct numbers
             draggables.forEach(item => { item.classList.remove('hidden'); });
             dropZones.forEach(zone => { 
                 zone.classList.remove('filled'); 
@@ -875,7 +905,6 @@
                 zone.innerHTML = target === 'Sahasrara' ? '7' : (target === 'Agnya' ? '6' : (target === 'Vishuddhi' ? '5' : (target === 'Anahata' ? '4' : (target === 'Nabhi' ? '3' : (target === 'Swadisthan' ? '2' : '1')))));
             });
 
-            // Prevent event listeners from stacking if the game is opened multiple times
             if (!window.builderListenersAdded) {
                 draggables.forEach(draggable => {
                     draggable.addEventListener('dragstart', () => { draggable.classList.add('dragging'); });
@@ -889,13 +918,9 @@
                         e.preventDefault(); zone.classList.remove('drag-over');
                         const draggable = document.querySelector('.dragging');
                         
-                        // Check if it's correct
                         if (draggable && draggable.dataset.id === zone.dataset.target) {
                             zone.classList.add('filled'); 
-                            
-                            // Beautiful format: Symbol on top, text underneath
                             zone.innerHTML = `<span style="font-size:1.2rem; line-height:1; margin-bottom:2px;">${draggable.dataset.symbol}</span><span style="font-size:0.55rem; display:block; line-height:1;">${draggable.dataset.id}</span>`;
-                            
                             draggable.classList.add('hidden');
                             checkBuilderWin();
                         }
@@ -907,7 +932,7 @@
         
         function checkBuilderWin() {
             if(document.querySelectorAll('.drop-zone.filled').length === 7) { 
-                document.getElementById('builder-message').innerText = "🙏 Beautiful! You have balanced the Subtle System!"; 
+                document.getElementById('builder-message').innerText = currentLang === 'en' ? "🙏 Beautiful! You have balanced the Subtle System!" : "🙏 सुंदर! आपने सूक्ष्म तंत्र को संतुलित कर लिया है!"; 
             }
         }
 
@@ -915,9 +940,13 @@
         // GAME 4: MATCH THE QUALITIES
         // ==========================================
         const qualitiesData = [
-            { ch: "Mooladhara", q: "Innocence & Purity" }, { ch: "Swadisthan", q: "Creativity & Attention" },
-            { ch: "Nabhi", q: "Satisfaction & Peace" }, { ch: "Anahata", q: "Love & Compassion" },
-            { ch: "Vishuddhi", q: "Collectivity & Sweetness" }, { ch: "Agnya", q: "Forgiveness" }, { ch: "Sahasrara", q: "Integration & Joy" }
+            { ch: "Mooladhara", q: "Innocence & Purity", hi_q: "अबोधता और पवित्रता" }, 
+            { ch: "Swadisthan", q: "Creativity & Attention", hi_q: "रचनात्मकता और ध्यान" },
+            { ch: "Nabhi", q: "Satisfaction & Peace", hi_q: "संतुष्टि और शांति" }, 
+            { ch: "Anahata", q: "Love & Compassion", hi_q: "प्रेम और करुणा" },
+            { ch: "Vishuddhi", q: "Collectivity & Sweetness", hi_q: "सामूहिकता और मधुरता" }, 
+            { ch: "Agnya", q: "Forgiveness", hi_q: "क्षमाशीलता" }, 
+            { ch: "Sahasrara", q: "Integration & Joy", hi_q: "एकीकरण और आनंद" }
         ];
         let selectedMatchItem = null; let matchCount = 0;
 
@@ -939,7 +968,10 @@
                 btn.onclick = () => handleMatchClick(btn, 'ch'); chCol.appendChild(btn);
             });
             shuffledQualities.forEach(d => {
-                let btn = document.createElement('div'); btn.className = 'match-btn type-q'; btn.innerText = d.q; btn.dataset.match = d.ch;
+                let btn = document.createElement('div'); btn.className = 'match-btn type-q'; 
+                // Render Hindi if currently active, else English
+                btn.innerText = currentLang === 'en' ? d.q : d.hi_q; 
+                btn.dataset.match = d.ch;
                 btn.onclick = () => handleMatchClick(btn, 'q'); qCol.appendChild(btn);
             });
         }
@@ -947,23 +979,21 @@
         function handleMatchClick(btn, type) {
             if(btn.classList.contains('matched')) return;
             
-            // Deselect others of same type
             document.querySelectorAll(`.type-${type}`).forEach(b => b.classList.remove('selected'));
             btn.classList.add('selected');
 
             if(!selectedMatchItem) { selectedMatchItem = btn; return; }
-            
-            // If clicking same type twice, just update selection
             if((selectedMatchItem.classList.contains('type-ch') && type === 'ch') || (selectedMatchItem.classList.contains('type-q') && type === 'q')){
                 selectedMatchItem = btn; return;
             }
 
-            // Check match
             if(selectedMatchItem.dataset.match === btn.dataset.match) {
                 btn.classList.remove('selected'); btn.classList.add('matched');
                 selectedMatchItem.classList.remove('selected'); selectedMatchItem.classList.add('matched');
                 matchCount++;
-                if(matchCount === qualitiesData.length) document.getElementById('match-message').innerText = "✨ Amazing! You matched all the qualities perfectly!";
+                if(matchCount === qualitiesData.length) {
+                    document.getElementById('match-message').innerText = currentLang === 'en' ? "✨ Amazing! You matched all the qualities perfectly!" : "✨ बहुत बढ़िया! आपने सभी गुणों का पूरी तरह से मिलान कर लिया!";
+                }
             } else {
                 setTimeout(() => { btn.classList.remove('selected'); if(selectedMatchItem) selectedMatchItem.classList.remove('selected'); selectedMatchItem = null; }, 400);
             }
@@ -988,22 +1018,32 @@
             
             catchTimerId = setInterval(() => {
                 catchTime--; document.getElementById('catch-time').innerText = catchTime;
-                if(catchTime <= 0) { clearInterval(catchTimerId); clearInterval(catchIntervalId); document.querySelectorAll('.whack-catch').forEach(c => c.classList.remove('up')); alert(`Time's up! You cleared ${catchScore} catches!`); document.getElementById('btn-start-catch').style.display = 'block'; document.getElementById('btn-start-catch').innerText = '🔄 Play Again'; }
+                if(catchTime <= 0) { 
+                    clearInterval(catchTimerId); clearInterval(catchIntervalId); 
+                    document.querySelectorAll('.whack-catch').forEach(c => c.classList.remove('up')); 
+                    const msg = currentLang === 'en' ? `Time's up! You cleared ${catchScore} catches!` : `समय समाप्त! आपने ${catchScore} बाधाएं साफ़ कीं!`;
+                    alert(msg); 
+                    document.getElementById('btn-start-catch').style.display = 'block'; 
+                    document.getElementById('btn-start-catch').innerText = currentLang === 'en' ? '🔄 Play Again' : '🔄 फिर से खेलें'; 
+                }
             }, 1000);
 
             catchIntervalId = setInterval(() => {
                 const catches = document.querySelectorAll('.whack-catch');
                 const randomCatch = catches[Math.floor(Math.random() * catches.length)];
                 if(!randomCatch.classList.contains('up')) {
-                    randomCatch.classList.add('up'); randomCatch.classList.remove('cleared'); randomCatch.innerText = ["Anger", "Stress", "Ego", "Fear", "Greed"][Math.floor(Math.random()*5)];
-                    setTimeout(() => { randomCatch.classList.remove('up'); }, 1200); // Speed of popping down
+                    randomCatch.classList.add('up'); randomCatch.classList.remove('cleared'); 
+                    const words = currentLang === 'en' ? ["Anger", "Stress", "Ego", "Fear", "Greed"] : ["क्रोध", "तनाव", "अहंकार", "भय", "लालच"];
+                    randomCatch.innerText = words[Math.floor(Math.random()*5)];
+                    setTimeout(() => { randomCatch.classList.remove('up'); }, 1200);
                 }
-            }, 800); // Speed of popping up
+            }, 800);
         }
 
         window.whackCatch = function(element) {
             if(!element.classList.contains('up') || element.classList.contains('cleared')) return;
-            element.classList.add('cleared'); element.innerText = "✨ Clear!";
+            element.classList.add('cleared'); 
+            element.innerText = currentLang === 'en' ? "✨ Clear!" : "✨ साफ़!";
             catchScore += 10; document.getElementById('catch-score').innerText = catchScore;
             setTimeout(() => { element.classList.remove('up'); }, 300);
         }
