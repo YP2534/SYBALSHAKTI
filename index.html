@@ -62,7 +62,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Glassmorphism Navbar (UPDATED FOR HAMBURGER MENU) */
+        /* Glassmorphism Navbar */
         .navbar {
             position: fixed; top: 0; left: 0; right: 0;
             background: rgba(255, 255, 255, 0.85);
@@ -75,21 +75,22 @@
 
         .navbar-brand { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--primary); letter-spacing: -0.5px; cursor: pointer; }
         
-        .navbar-links { display: flex; gap: 32px; align-items: center; }
+        .navbar-links { display: flex; gap: 32px; align-items: center; margin-left: auto; margin-right: 25px; }
         .navbar-links a { text-decoration: none; color: var(--text-muted); font-weight: 500; transition: color 0.2s; cursor: pointer; }
         .navbar-links a:hover { color: var(--primary); }
         
+        .right-controls { display: flex; align-items: center; gap: 15px; }
+
         /* HAMBURGER ICON STYLES */
         .hamburger {
             display: none;
             flex-direction: column;
             cursor: pointer;
-            gap: 8px;
-            padding: 5px;
-            margin-left: auto;
+            gap: 6px;
+            padding: 4px;
         }
         .hamburger span {
-            width: 32px;
+            width: 28px;
             height: 3px;
             background-color: var(--text);
             border-radius: 3px;
@@ -254,9 +255,10 @@
 
         footer { background: white; padding: 40px 20px; text-align: center; border-top: 1px solid var(--border); color: var(--text-muted); font-weight: 500; margin-top: auto; }
 
-        /* Responsive Breakpoints */
+        /* Responsive Breakpoints - UPDATED */
         @media (max-width: 1024px) {
             .hamburger { display: flex; }
+            .navbar-links { margin-right: 0; margin-left: 0; }
             .navbar-links { position: absolute; top: 72px; left: 0; right: 0; background: white; flex-direction: column; padding: 20px 5%; border-bottom: 1px solid var(--border); box-shadow: var(--shadow-md); display: none; gap: 20px; align-items: flex-start; }
             .navbar-links.active { display: flex; }
             .navbar-links a { font-size: 1.1rem; width: 100%; padding: 10px 0; border-bottom: 1px solid var(--bg); }
@@ -274,10 +276,7 @@
 
     <nav class="navbar">
         <a onclick="navigateTo('home-page')" class="navbar-brand translate" data-en="🪷 Sahaj Yoga Balshakti" data-hi="🪷 सहज योग बालशक्ति">🪷 Sahaj Yoga Balshakti</a>
-        <div class="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-        </div>
+        
         <div class="navbar-links" id="nav-links">
             <a onclick="navigateTo('home-page'); closeMenu()" class="translate" data-en="Home" data-hi="मुख्य पृष्ठ">Home</a>
             <a onclick="navigateTo('about-page'); closeMenu()" class="translate" data-en="About" data-hi="परिचय">About</a>
@@ -287,9 +286,17 @@
             <a id="nav-games-link" class="hidden translate" onclick="navigateTo('games-dashboard'); closeMenu()" style="color: var(--secondary); font-weight: 700;" data-en="🎮 Games Zone" data-hi="🎮 गेम्स ज़ोन">🎮 Games Zone</a>
             
             <button onclick="navigateTo('quiz-page'); closeMenu()" class="btn-primary translate" style="padding: 8px 20px; font-size: 0.95rem;" data-en="Start Quiz" data-hi="क्विज शुरू करें">Start Quiz</button>
+        </div>
+
+        <!-- RIGHT CONTROLS: Language Toggle + Hamburger (Always visible on mobile) -->
+        <div class="right-controls">
+            <button id="lang-toggle-btn" onclick="toggleLanguage()" class="btn-secondary" style="padding: 6px 10px; font-size: 0.85rem; border: 2px solid var(--primary); color: var(--primary); font-weight: 700;">🌐 हिंदी</button>
             
-            <!-- Language Toggle Button -->
-            <button id="lang-toggle-btn" onclick="toggleLanguage()" class="btn-secondary" style="padding: 6px 12px; font-size: 0.9rem; border: 2px solid var(--primary); color: var(--primary);">🌐 हिंदी</button>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
@@ -716,7 +723,7 @@
 
         // 3. HINDI QUESTIONS
         const quizData = [
-            { question: "1. श्री माताजी निर्मला देवी के जन्म की सटीक खगोलीय और समयगत स्थिति के संबंध में निम्नलिखित में से कौन सा विकल्प पूर्णतः सत्य है?", options: ["(A) 21 मार्च 1923, मध्य रात्रि 12 बजे, शरद विषुव (Autumn Equinox) के दिन।", "(B) 21 मार्च 1923, ठीक दोपहर 12 बजे, वसंत विषुव (Spring Equinox) के दिन।", "(C) 21 मार्च 1923, ठीक दोपहर 12 बजे, शालिवाहन नववर्ष के दिन।", "(D) 21 मार्च 1923, संध्याकाल में, सेवाग्राम आश्रम में।"], correctAnswer: "(B) 21 मार्च 1923, ठीक दोपहर 12 बजे, वसंत विषुव (Spring Equinox) के दिन।" },
+            { question: "1. श्री माताजी निर्मला देवी के जन्म की सटीक खगोलीय और समयगत स्थिति के संबंध में निम्नलिखित में से कौन सा विकल्प पूर्णतः सत्य है?", options: ["(A) 21 मार्च 1923, मध्य रात्रि 12 बजे, शरद विषुव (Autumn Equinox) के दिन।", "(B) 21 मार्च 1923, ठीक दोपहर 12 बजे, वसंत विषुव (Spring Equinox) के दिन।", "(C) 21 मार्च 1923, ঠিক दोपहर 12 बजे, शालिवाहन नववर्ष के दिन।", "(D) 21 मार्च 1923, संध्याकाल में, सेवाग्राम आश्रम में।"], correctAnswer: "(B) 21 मार्च 1923, ठीक दोपहर 12 बजे, वसंत विषुव (Spring Equinox) के दिन।" },
             { question: "2. श्री माताजी के पिता, श्री प्रसाद राव साल्वे की उपलब्धियों के बारे में परिच्छेद में कौन सा विशिष्ट तथ्य बताया गया है?", options: ["(A) वे 14 भाषाओं के ज्ञाता थे और उन्होंने कुरान का हिंदी में अनुवाद किया था।", "(B) वे महात्मा गांधी के आश्रम के प्रमुख विद्वान थे जिन्होंने 14 भाषाओं में रचनाएं कीं।", "(C) वे एक प्रख्यात वकील थे जिन्होंने 14 भाषाओं के ज्ञान के साथ कुरान का मराठी में अनुवाद किया था।", "(D) वे शालिवाहन राजवंश के 14वें वंशज थे और उन्होंने मराठी साहित्य का कुरान में अनुवाद किया था।"], correctAnswer: "(C) वे एक प्रख्यात वकील थे जिन्होंने 14 भाषाओं के ज्ञान के साथ कुरान का मराठी में अनुवाद किया था।" },
             { question: "3. नवजात बालिका का नाम 'निर्मला' रखे जाने का मुख्य कारण और यह नाम रखने वाले व्यक्ति का सही युग्म (Pair) चुनें:", options: ["(A) माता कॉर्नेलिया साल्वे द्वारा; क्योंकि बालिका शालिवाहन वंश की थी।", "(B) महात्मा गांधी द्वारा; क्योंकि बालिका के चेहरे पर बेदाग तेज था।", "(C) पिता प्रसाद राव साल्वे द्वारा; क्योंकि 'निर्मला' सहज योग के दर्शन का पर्याय है।", "(D) दादी द्वारा; क्योंकि जन्म के समय उनके चेहरे पर एक अद्भुत तेज और सांसारिक मलिनता का अभाव था।"], correctAnswer: "(D) दादी द्वारा; क्योंकि जन्म के समय उनके चेहरे पर एक अद्भुत तेज और सांसारिक मलिनता का अभाव था।" },
             { question: "4. महात्मा गांधी अक्सर छोटी निर्मला के साथ किन विशिष्ट विषयों पर चर्चा किया करते थे और वे उन्हें प्यार से क्या बुलाते थे?", options: ["(A) भारत के स्वतंत्रता संग्राम पर; वे उन्हें 'निर्मला' बुलाते थे।", "(B) आध्यात्मिक और दार्शनिक विषयों पर; वे उन्हें 'नेपाली' कहकर बुलाते थे।", "(C) 14 विभिन्न भाषाओं के साहित्य पर; वे उन्हें 'नेपाली' कहकर बुलाते थे।", "(D) सहज योग के दर्शन पर; वे उन्हें 'शुद्ध बालिका' बुलाते थे।"], correctAnswer: "(B) आध्यात्मिक और दार्शनिक विषयों पर; वे उन्हें 'नेपाली' कहकर बुलाते थे।" },
