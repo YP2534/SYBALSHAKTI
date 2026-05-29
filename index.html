@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -288,7 +288,6 @@
             <button onclick="navigateTo('quiz-page'); closeMenu()" class="btn-primary translate" style="padding: 8px 20px; font-size: 0.95rem;" data-en="Start Quiz" data-hi="क्विज शुरू करें">Start Quiz</button>
         </div>
 
-        <!-- RIGHT CONTROLS: Language Toggle + Hamburger (Always visible on mobile) -->
         <div class="right-controls">
             <button id="lang-toggle-btn" onclick="toggleLanguage()" class="btn-secondary" style="padding: 6px 10px; font-size: 0.85rem; border: 2px solid var(--primary); color: var(--primary); font-weight: 700;">🌐 हिंदी</button>
             
@@ -440,7 +439,6 @@
         </section>
     </div>
 
-    <!-- QUIZ SYSTEM: Left exactly as is, completely English/Original per request -->
     <div id="quiz-page" class="page-view">
         <section class="section">
             <h2 class="section-title" id="quiz-header">📝 Sahaj Yoga Balshakti Quiz</h2>
@@ -480,22 +478,22 @@
                     <div class="reading-content" style="margin-bottom: 30px;">
                      <h2>Chapter 2: Youth and India's Freedom Struggle</h2>
 
-<h3>Participation in the Quit India Movement (1942)</h3>
-<ul>
-  <li>श्री माताजी के माता-पिता ने भारत के स्वतंत्रता संग्राम में अपना सर्वस्व न्योछावर कर दिया था। इसी माहौल में पली-बढ़ीं श्री माताजी भी देशप्रेम से ओत-प्रोत थीं।</li>
-  <li>1942 के 'भारत छोड़ो आंदोलन' के दौरान, जब वे एक युवा छात्रा थीं, उन्होंने भी स्वतंत्रता संग्राम में सक्रिय रूप से भाग लिया। युवा छात्रों के नेतृत्व के लिए उन्हें कई बार जेल भी जाना पड़ा और पुलिस की यातनाएं भी सहनी पड़ीं।</li>
-</ul>
+                        <h3>Participation in the Quit India Movement (1942)</h3>
+                        <ul>
+                        <li>श्री माताजी के माता-पिता ने भारत के स्वतंत्रता संग्राम में अपना सर्वस्व न्योछावर कर दिया था। इसी माहौल में पली-बढ़ीं श्री माताजी भी देशप्रेम से ओत-प्रोत थीं।</li>
+                        <li>1942 के 'भारत छोड़ो आंदोलन' के दौरान, जब वे एक युवा छात्रा थीं, उन्होंने भी स्वतंत्रता संग्राम में सक्रिय रूप से भाग लिया। युवा छात्रों के नेतृत्व के लिए उन्हें कई बार जेल भी जाना पड़ा और पुलिस की यातनाएं भी सहनी पड़ीं।</li>
+                        </ul>
 
-<h3>Medical Education</h3>
-<ul>
-  <li>गांधीजी के आदर्शों से प्रेरित होकर और मानव शरीर विज्ञान को गहराई से समझने की इच्छा से उन्होंने क्रिश्चियन मेडिकल कॉलेज (लाहौर) और बाद में बालकोवा मेडिकल कॉलेज में प्रवेश लिया।</li>
-  <li>उन्होंने मेडिकल की पढ़ाई इसलिए चुनी ताकि वे वैज्ञानिक दृष्टिकोण से मानव शरीर के 'सूक्ष्म तंत्र' (Subtle System) और नाड़ियों का अध्ययन कर सकें, जो बाद में सहज योग के वैज्ञानिक आधार को समझाने में मददगार साबित हुआ।</li>
-</ul>
+                        <h3>Medical Education</h3>
+                        <ul>
+                        <li>गांधीजी के आदर्शों से प्रेरित होकर और मानव शरीर विज्ञान को गहराई से समझने की इच्छा से उन्होंने क्रिश्चियन मेडिकल कॉलेज (लाहौर) और बाद में बालकोवा मेडिकल कॉलेज में प्रवेश लिया।</li>
+                        <li>उन्होंने मेडिकल की पढ़ाई इसलिए चुनी ताकि वे वैज्ञानिक दृष्टिकोण से मानव शरीर के 'सूक्ष्म तंत्र' (Subtle System) और नाड़ियों का अध्ययन कर सकें, जो बाद में सहज योग के वैज्ञानिक आधार को समझाने में मददगार साबित हुआ।</li>
+                        </ul>
 
                         
                         <blockquote style="font-style: italic; background: #f8fafc; padding: 15px; border-left: 4px solid var(--primary); margin: 0; color: #334155;">
                          Now we will take Chapter if today we take Chapter - 2 next time Chapter - 3
-                            <br><br><strong>(CHAPTER - 1)</strong>
+                            <br><br><strong>(CHAPTER - 2)</strong>
                         </blockquote>
                     </div>
 
@@ -524,7 +522,6 @@
                     <button class="btn-secondary" style="width: 100%;" onclick="location.reload()">🔄 Return to Home</button>
                 </div>
 
-                <!-- Game Container headings translated for better UX, game core logic untouched -->
                 <div class="card-container hidden" id="game-container" style="text-align:center;">
                     <h2 style="margin-top:0; color: var(--primary); font-size: 1.8rem;" class="translate" data-en="🧘‍♀️ Chakra Memory Match" data-hi="🧘‍♀️ चक्र मेमोरी मैच">🧘‍♀️ Chakra Memory Match</h2>
                     <p style="color: var(--text-muted); margin-bottom: 5px;" class="translate" data-en="Flip the cards to match the identical Chakras!" data-hi="समान चक्रों का मिलान करने के लिए कार्ड को पलटें!">Flip the cards to match the identical Chakras!</p>
@@ -587,7 +584,7 @@
 
                 <div class="card-container hidden" id="catch-container" style="text-align:center;">
                     <h2 style="margin-top:0; color: var(--danger); font-size: 1.8rem;" class="translate" data-en="💧 Clear the Catch" data-hi="💧 कैच (बाधा) साफ़ करें">💧 Clear the Catch</h2>
-                    <p style="color: var(--text-muted);" class="translate" data-en="Tap the red Stress/Catch bubbles quickly to clear the chakras!" data-hi="चक्रों को साफ करने के लिए लाल तनाव/कैच बुलबुले को जल्दी से टैप करें!">Tap the red Stress/Catch bubbles quickly to clear the chakras!</p>
+                    <p style="color: var(--text-muted);" class="translate" data-en="Tap the red Stress/Catch bubbles quickly to clear the chakras!" data-hi="चक्रों को साफ करने বঙ্গবন্ধकों को साफ करने के लिए लाल तनाव/कैच बुलबुले को जल्दी से टैप करें!">Tap the red Stress/Catch bubbles quickly to clear the chakras!</p>
                     <div style="background: #f8fafc; padding: 15px; border-radius: 12px; margin-bottom: 20px; display:flex; justify-content:space-around;">
                         <h3 style="margin: 0;"><span class="translate" data-en="Score:" data-hi="स्कोर:">Score:</span> <span id="catch-score" style="color: var(--primary);">0</span></h3>
                         <h3 style="margin: 0;"><span class="translate" data-en="Time:" data-hi="समय:">Time:</span> <span id="catch-time" style="color: var(--danger);">30</span>s</h3>
@@ -727,13 +724,13 @@
             } else { talukaGroup.classList.add('hidden'); }
         });
 
-        // 3. HINDI QUESTIONS
+        // 3. HINDI QUESTIONS (CHAPTER 2)
         const quizData = [
-            { question: "1. श्री माताजी निर्मला देवी के जन्म की सटीक खगोलीय और समयगत स्थिति के संबंध में निम्नलिखित में से कौन सा विकल्प पूर्णतः सत्य है?", options: ["(A) 21 मार्च 1923, मध्य रात्रि 12 बजे, शरद विषुव (Autumn Equinox) के दिन।", "(B) 21 मार्च 1923, ठीक दोपहर 12 बजे, वसंत विषुव (Spring Equinox) के दिन।", "(C) 21 मार्च 1923, ঠিক दोपहर 12 बजे, शालिवाहन नववर्ष के दिन।", "(D) 21 मार्च 1923, संध्याकाल में, सेवाग्राम आश्रम में।"], correctAnswer: "(B) 21 मार्च 1923, ठीक दोपहर 12 बजे, वसंत विषुव (Spring Equinox) के दिन।" },
-            { question: "2. श्री माताजी के पिता, श्री प्रसाद राव साल्वे की उपलब्धियों के बारे में परिच्छेद में कौन सा विशिष्ट तथ्य बताया गया है?", options: ["(A) वे 14 भाषाओं के ज्ञाता थे और उन्होंने कुरान का हिंदी में अनुवाद किया था।", "(B) वे महात्मा गांधी के आश्रम के प्रमुख विद्वान थे जिन्होंने 14 भाषाओं में रचनाएं कीं।", "(C) वे एक प्रख्यात वकील थे जिन्होंने 14 भाषाओं के ज्ञान के साथ कुरान का मराठी में अनुवाद किया था।", "(D) वे शालिवाहन राजवंश के 14वें वंशज थे और उन्होंने मराठी साहित्य का कुरान में अनुवाद किया था।"], correctAnswer: "(C) वे एक प्रख्यात वकील थे जिन्होंने 14 भाषाओं के ज्ञान के साथ कुरान का मराठी में अनुवाद किया था।" },
-            { question: "3. नवजात बालिका का नाम 'निर्मला' रखे जाने का मुख्य कारण और यह नाम रखने वाले व्यक्ति का सही युग्म (Pair) चुनें:", options: ["(A) माता कॉर्नेलिया साल्वे द्वारा; क्योंकि बालिका शालिवाहन वंश की थी।", "(B) महात्मा गांधी द्वारा; क्योंकि बालिका के चेहरे पर बेदाग तेज था।", "(C) पिता प्रसाद राव साल्वे द्वारा; क्योंकि 'निर्मला' सहज योग के दर्शन का पर्याय है।", "(D) दादी द्वारा; क्योंकि जन्म के समय उनके चेहरे पर एक अद्भुत तेज और सांसारिक मलिनता का अभाव था।"], correctAnswer: "(D) दादी द्वारा; क्योंकि जन्म के समय उनके चेहरे पर एक अद्भुत तेज और सांसारिक मलिनता का अभाव था।" },
-            { question: "4. महात्मा गांधी अक्सर छोटी निर्मला के साथ किन विशिष्ट विषयों पर चर्चा किया करते थे और वे उन्हें प्यार से क्या बुलाते थे?", options: ["(A) भारत के स्वतंत्रता संग्राम पर; वे उन्हें 'निर्मला' बुलाते थे।", "(B) आध्यात्मिक और दार्शनिक विषयों पर; वे उन्हें 'नेपाली' कहकर बुलाते थे।", "(C) 14 विभिन्न भाषाओं के साहित्य पर; वे उन्हें 'नेपाली' कहकर बुलाते थे।", "(D) सहज योग के दर्शन पर; वे उन्हें 'शुद्ध बालिका' बुलाते थे।"], correctAnswer: "(B) आध्यात्मिक और दार्शनिक विषयों पर; वे उन्हें 'नेपाली' कहकर बुलाते थे।" },
-            { question: "5. परिच्छेद के अंतिम वाक्यों के अनुसार, गांधीजी द्वारा बालिका को 'नेपाली' नाम दिए जाने का वास्तविक आधार क्या था?", options: ["(A) क्योंकि उनका जन्म नेपाल की सीमा के पास छिंदवाड़ा में हुआ था।", "(B) क्योंकि उनके पिता ने नेपाली भाषा सहित 14 भाषाएं सीखी थीं।", "(C) क्योंकि बालिका की आध्यात्मिक क्षमता नेपाल के योगियों जैसी थी।", "(D) क्योंकि बालिका के नैन-नक्श (Facial features) नेपालियों जैसे थे।"], correctAnswer: "(D) क्योंकि बालिका के नैन-नक्श (Facial features) नेपालियों जैसे थे।" }
+            { question: "1. 1942 के 'भारत छोड़ो आंदोलन' के दौरान श्री माताजी को जेल क्यों जाना पड़ा?", options: ["A) हिंसक प्रदर्शन करने के कारण", "B) युवा छात्रों का नेतृत्व करने के कारण", "C) विदेशी कपड़ों का बहिष्कार करने के कारण", "D) गुप्त सभाएं करने के कारण"], correctAnswer: "B) युवा छात्रों का नेतृत्व करने के कारण" },
+            { question: "2. श्री माताजी ने मेडिकल कॉलेज में प्रवेश किसकी प्रेरणा से लिया था?", options: ["A) अपने माता-पिता की", "B) ब्रिटिश डॉक्टरों की", "C) महात्मा गांधी की", "D) युवा छात्रों की"], correctAnswer: "C) महात्मा गांधी की" },
+            { question: "3. उनके मेडिकल अध्ययन का मुख्य उद्देश्य मानव शरीर के किस हिस्से को समझना था?", options: ["A) तंत्रिका तंत्र (Nervous System)", "B) सूक्ष्म तंत्र (Subtle System)", "C) पाचन तंत्र", "D) हृदय प्रणाली"], correctAnswer: "B) सूक्ष्म तंत्र (Subtle System)" },
+            { question: "4. उन्होंने किस शहर के क्रिश्चियन मेडिकल कॉलेज में प्रवेश लिया था?", options: ["A) दिल्ली", "B) पुणे", "C) लाहौर", "D) अमृतसर"], correctAnswer: "C) लाहौर" },
+            { question: "5. मानव शरीर और नाड़ियों के उनके वैज्ञानिक अध्ययन ने बाद में किस योग का आधार समझाने में मदद की?", options: ["A) हठ योग", "B) कर्म योग", "C) अष्टांग योग", "D) सहज योग"], correctAnswer: "D) सहज योग" }
         ];
 
         let currentQuestionIndex = 0; let score = 0; let userName = "";
