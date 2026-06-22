@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balshakti Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #6d28d9; --bg: #f8fafc; --surface: #ffffff; --text: #0f172a; --border: #e2e8f0; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); padding: 40px 5%; margin: 0; }
+        .container { max-width: 800px; margin: auto; background: var(--surface); padding: 40px; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        h1 { color: var(--primary); text-align: center; margin-bottom: 30px; font-weight: 800; }
+        h2 { border-bottom: 2px solid var(--border); padding-bottom: 10px; margin-top: 40px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.95rem; }
+        input, textarea, select { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; font-family: inherit; box-sizing: border-box; }
+        textarea { resize: vertical; min-height: 100px; }
+        .question-block { background: #f1f5f9; padding: 20px; border-radius: 12px; margin-bottom: 20px; border: 1px solid var(--border); }
+        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        button { width: 100%; padding: 16px; background: var(--primary); color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: 0.2s; margin-top: 20px; }
+        button:hover { background: #5b21b6; transform: translateY(-2px); }
+        #status-msg { text-align: center; margin-top: 20px; font-weight: 600; font-size: 1.1rem; }
+        .success { color: #10b981; }
+        .error { color: #ef4444; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🪷 Balshakti Content Admin</h1>
+        <form id="adminForm">
+            
+            <h2>📖 Reading Passage</h2>
+            <div class="form-group">
+                <label>Chapter Title</label>
+                <input type="text" id="passageTitle" placeholder="e.g. Chapter 4: The Historic Day..." required>
+            </div>
+            <div class="form-group">
+                <label>Passage Content (HTML or plain text)</label>
+                <textarea id="passageBody" placeholder="Enter the reading material here..." required></textarea>
+            </div>
+
+            <h2>📝 Quiz Questions</h2>
+            <div id="questions-container"></div>
+
+            <button type="submit" id="saveBtn">💾 Save and Publish to Website</button>
+            <div id="status-msg"></div>
+        </form>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAFQiG-abyL68Sps6rHC9VAH5ytkrt_8FM",
+            authDomain: "sy-balshakti-admin.firebaseapp.com",
+            projectId: "sy-balshakti-admin",
+            storageBucket: "sy-balshakti-admin.firebasestorage.app",
+            messagingSenderId: "652006613871",
+            appId: "1:652006613871:web:eae3f5a3d3bff69ab43e9a",
+            measurementId: "G-EL7K7HPFQE"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const qContainer = document.getElementById('questions-container');
+        for(let i = 1; i <= 5; i++) {
+            qContainer.innerHTML += `
+                <div class="question-block">
+                    <label><strong>Question ${i}</strong></label>
+                    <input type="text" id="q${i}_text" class="form-group" placeholder="Enter question..." required>
+                    
+                    <div class="options-grid form-group">
+                        <input type="text" id="q${i}_optA" placeholder="Option A" required>
+                        <input type="text" id="q${i}_optB" placeholder="Option B" required>
+                        <input type="text" id="q${i}_optC" placeholder="Option C" required>
+                        <input type="text" id="q${i}_optD" placeholder="Option D" required>
+                    </div>
+                    
+                    <label>Correct Answer</label>
+                    <select id="q${i}_correct" required>
+                        <option value="A">Option A</option>
+                        <option value="B">Option B</option>
+                        <option value="C">Option C</option>
+                        <option value="D">Option D</option>
+                    </select>
+                </div>
+            `;
+        }
+
+        document.getElementById('adminForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const saveBtn = document.getElementById('saveBtn');
+            const statusMsg = document.getElementById('status-msg');
+            
+            saveBtn.innerText = "Saving...";
+            saveBtn.disabled = true;
+            statusMsg.innerText = "";
+
+            try {
+                const passageData = {
+                    title: document.getElementById('passageTitle').value,
+                    body: document.getElementById('passageBody').value
+                };
+
+                const questionsData = [];
+                for(let i = 1; i <= 5; i++) {
+                    const correctLetter = document.getElementById(`q${i}_correct`).value;
+                    const correctText = document.getElementById(`q${i}_opt${correctLetter}`).value;
+
+                    questionsData.push({
+                        question: document.getElementById(`q${i}_text`).value,
+                        options: [
+                            document.getElementById(`q${i}_optA`).value,
+                            document.getElementById(`q${i}_optB`).value,
+                            document.getElementById(`q${i}_optC`).value,
+                            document.getElementById(`q${i}_optD`).value
+                        ],
+                        correctAnswer: correctText
+                    });
+                }
+
+                await setDoc(doc(db, "quizContent", "live"), {
+                    passage: passageData,
+                    questions: questionsData,
+                    lastUpdated: new Date().toISOString()
+                });
+
+                statusMsg.className = "success";
+                statusMsg.innerText = "✅ Successfully published to database!";
+                saveBtn.innerText = "💾 Save and Publish to Website";
+                saveBtn.disabled = false;
+
+            } catch (error) {
+                console.error("Error writing document: ", error);
+                statusMsg.className = "error";
+                statusMsg.innerText = "❌ Error saving data. Check console.";
+                saveBtn.innerText = "Try Again";
+                saveBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
