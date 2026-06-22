@@ -253,9 +253,6 @@
         .support-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
         .support-card p { color: var(--text-muted); margin-bottom: 20px; }
 
-        /* Disabled button state */
-        .btn-primary.disabled { background-color: #cbd5e1; border-color: #cbd5e1; color: #94a3b8; cursor: not-allowed; pointer-events: none; }
-
         /* ==========================================
            SNAKES & LADDERS CUSTOM STYLES
            ========================================== */
@@ -580,15 +577,29 @@
                         READ THIS AND SOLVE THE QUIZ
                     </h3>
                     
-                    <!-- DYNAMIC ADAPTED READING TARGETS -->
-                    <div class="reading-content" id="dynamic-reading-content" style="margin-bottom: 30px;">
-                        <h2 id="passage-title">Loading Study Material...</h2>
-                        <div id="passage-body">
-                            <p>Please wait while the latest chapter content loads securely...</p>
-                        </div>
+                    <div class="reading-content" style="margin-bottom: 30px;">
+                        <h2>Chapter 4: The Historic Day of Spiritual Awakening (1970)</h2>
+
+                        <h3>The Opening of the Sahasrara Chakra</h3>
+                        <p>यह अध्याय आपकी पुस्तक का सबसे महत्वपूर्ण हिस्सा होगा।</p>
+                        <ul>
+                        <li>5 मई 1970 का दिन मानव इतिहास में एक युगांतरकारी दिन माना जाता है। गुजरात के नारगोल नामक स्थान पर, समुद्र के किनारे एक एकांत जगह पर ध्यान करते हुए, श्री माताजी ने ब्रह्मांडीय चेतना के साथ एकाकार होने का अनुभव किया।</li>
+                        <li>इसी दिन उन्होंने सामूहिक स्तर पर 'सहस्रार चक्र' (सिर के ऊपरी हिस्से में स्थित 7वां चक्र) खोला। इससे पहले, कुंडलिनी जागरण केवल कुछ गिने-चुने संतों और योगियों तक ही सीमित था, जो वर्षों की कठोर तपस्या के बाद इसे प्राप्त करते थे।</li>
+                        </ul>
+
+                        <h3>The Birth of Sahaja Yoga</h3>
+                        <ul>
+                        <li>श्री माताजी ने एक ऐसी विधि खोजी जिससे किसी भी सामान्य व्यक्ति की कुंडलिनी शक्ति को सहजता से (बिना किसी कठोर तपस्या के) जागृत किया जा सकता था।</li>
+                        <li>इसे उन्होंने <strong>'सहज योग'</strong> (सह = साथ, ज = जन्म) नाम दिया, जिसका अर्थ है वह योग (परमात्मा से मिलन) जो आपके साथ ही जन्मा है।</li>
+                        </ul>
+                        
+                        <blockquote style="font-style: italic; background: #f8fafc; padding: 15px; border-left: 4px solid var(--primary); margin: 0; color: #334155;">
+                         Now we will take Chapter if today we take Chapter - 4 next time Chapter - 5
+                            <br><br><strong>(CHAPTER - 4)</strong>
+                        </blockquote>
                     </div>
 
-                    <button id="start-quiz-btn" class="btn-primary disabled" style="width: 100%; padding: 16px; font-size: 1.1rem; background-color: var(--secondary); border-color: var(--secondary);" onclick="startActualQuiz()" disabled>Fetching Quiz Content...</button>
+                    <button class="btn-primary" style="width: 100%; padding: 16px; font-size: 1.1rem; background-color: var(--secondary); border-color: var(--secondary);" onclick="startActualQuiz()">Next ➡️ Start Quiz</button>
                 </div>
 
                 <div class="card-container hidden" id="quiz-container">
@@ -853,49 +864,16 @@
             } else { talukaGroup.classList.add('hidden'); }
         });
 
-        // 3. QUESTIONS ARE EMPTY BY DEFAULT - LOADED VIA SHEETDB API
-        let quizData = [];
+        // 3. HINDI QUESTIONS (CHAPTER 4)
+        const quizData = [
+            { question: "1. 5 मई 1970 को कौन सी ऐतिहासिक घटना हुई थी?", options: ["A) श्री माताजी ने गुजरात में एक बहुत बड़ा योग केंद्र खोला।", "B) सामूहिक स्तर पर 'सहस्रार चक्र' खोला गया।", "C) संतों और योगियों के एक समूह ने अपनी तपस्या पूरी की।", "D) श्री माताजी ने अपनी पुस्तक का सबसे महत्वपूर्ण अध्याय लिखा।"], correctAnswer: "B) सामूहिक स्तर पर 'सहस्रार चक्र' खोला गया।" },
+            { question: "2. जब श्री माताजी ने ब्रह्मांडीय चेतना के साथ एकाकार होने का अनुभव किया, तब वे वास्तव में कहाँ ध्यान कर रही थीं? (सावधान, यह एक गुगली है!)", options: ["A) गुजरात के नारगोल के एक प्राचीन मंदिर में", "B) गुजरात के एक घने जंगल के बीच में", "C) नारगोल में समुद्र के किनारे एक एकांत जगह पर", "D) अन्य योगियों के साथ एक पहाड़ की चोटी पर"], correctAnswer: "C) नारगोल में समुद्र के किनारे एक एकांत जगह पर" },
+            { question: "3. 1970 की इस घटना से पहले, कुंडलिनी जागरण प्राप्त करने के लिए क्या आवश्यक माना जाता था?", options: ["A) वर्षों की कठोर तपस्या", "B) समुद्र के किनारे जाकर रहना", "C) केवल संतों के परिवार में जन्म लेना", "D) प्राचीन योग ग्रंथों का अध्ययन करना"], correctAnswer: "A) वर्षों की कठोर तपस्या" },
+            { question: "4. \"सहज\" शब्द का शाब्दिक अर्थ क्या है? (एक और गुगली!)", options: ["A) जो करने में बहुत आसान हो", "B) जिसमें कोई सख्त नियम न আসতে हो", "C) जो आपके साथ ही जन्मा है", "D) ब्रह्मांडीय ऊर्जा का स्रोत"], correctAnswer: "C) जो आपके साथ ही जन्मा है" },
+            { question: "5. \"सहज योग\" की सबसे बड़ी विशेषता या उपलब्धि क्या है?", options: ["A) इसने सामान्य लोगों को बिना किसी कठोर तपस्या के अपनी कुंडलिनी जागृत करने का अवसर दिया।", "B) इसके माध्यम से योग केवल कुछ संतों तक ही सीमित रह गया।", "C) इसने लोगों को 7वें चक्र पर घंटों तक ध्यान लगाना सिखाया।", "D) इसने नारगोल को एक प्रसिद्ध पर्यटन स्थल बना दिया।"], correctAnswer: "A) इसने सामान्य लोगों को बिना किसी कठोर तपस्या के अपनी कुंडलिनी जागृत करने का अवसर दिया।" }
+        ];
+
         let currentQuestionIndex = 0; let score = 0; let userName = "";
-
-        // NEW: LIVE CONTENT MANAGEMENT FETCH LOGIC
-        async function loadDynamicContent() {
-            try {
-                // Fetch the dynamic reading passage (Assumes a Google Sheet tab named "Passage")
-                const passageResponse = await fetch('https://sheetdb.io/api/v1/k1qtzemkf5hq6?sheet=Passage');
-                const passageArray = await passageResponse.json();
-                
-                if(passageArray && passageArray.length > 0) {
-                    document.getElementById('passage-title').innerText = passageArray[0].Title;
-                    document.getElementById('passage-body').innerHTML = passageArray[0].BodyHTML;
-                }
-
-                // Fetch the dynamic quiz questions (Assumes a Google Sheet tab named "Questions")
-                const quizResponse = await fetch('https://sheetdb.io/api/v1/k1qtzemkf5hq6?sheet=Questions');
-                const fetchedQuestions = await quizResponse.json();
-                
-                if(fetchedQuestions && fetchedQuestions.length > 0) {
-                    // Turn rows into clean usable data format structures
-                    quizData = fetchedQuestions.map((row, index) => {
-                        return {
-                            question: `${index + 1}. ${row.Question}`,
-                            options: [row.OptionA, row.OptionB, row.OptionC, row.OptionD],
-                            correctAnswer: row.CorrectAnswer
-                        };
-                    });
-
-                    // Activate Next Button once all dependencies are resolved
-                    const startBtn = document.getElementById('start-quiz-btn');
-                    startBtn.innerText = "Next ➡️ Start Quiz";
-                    startBtn.disabled = false;
-                    startBtn.classList.remove('disabled');
-                } else {
-                    alert("No quiz questions found inside your Admin Spreadsheet.");
-                }
-            } catch (err) {
-                console.error("Content Delivery Failure:", err);
-                alert("Failed to synchronize with backend database. Please reload and verify connectivity.");
-            }
-        }
 
         // 4. QUIZ LOGIC
         window.processForm = function() {
@@ -908,9 +886,6 @@
             document.getElementById('reading-container').classList.remove('hidden');
             document.getElementById('quiz-header').classList.add('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            // Trigger structural download
-            loadDynamicContent();
         }
 
         window.startActualQuiz = function() {
@@ -965,14 +940,14 @@
             gamesLink.classList.remove('hidden');
             gamesLink.style.animation = "fadeIn 1s ease-in-out";
 
-            // SHEETDB SCORE POSTING (Explicitly mapping to the Scores sheet)
+            // SHEETDB
             const age = document.getElementById('userAge').value; const city = document.getElementById('userCity').value; const taluka = document.getElementById('userTaluka').value;
-            const sheetdbURL = 'https://sheetdb.io/api/v1/k1qtzemkf5hq6?sheet=Scores'; 
+            const sheetdbURL = 'https://sheetdb.io/api/v1/k1qtzemkf5hq6'; 
             fetch(sheetdbURL, { method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, body: JSON.stringify({ data: [{ 'Timestamp': new Date().toLocaleString(), 'Name': userName, 'Age': age, 'District': city, 'Taluka': taluka, 'Score': score }] }) }).catch(error => console.error('Error:', error));
         }
 
         // ==========================================
-        // MINI-GAMES LOGIC
+        // GAME 1-5 Logic Omitted for brevity (Uses previous logic exactly)
         // ==========================================
         
         // (Chakra Match)
@@ -989,13 +964,13 @@
         function resetBandhan() { bandhanCount = 0; swipeStage = 0; document.getElementById('bandhan-counter').innerText = "0"; document.getElementById('bandhan-message').innerText = ""; const canvas = document.getElementById('bandhanCanvas'); const ctx = canvas.getContext('2d'); ctx.clearRect(0, 0, canvas.width, canvas.height); }
         function initBandhanCanvas() { const canvas = document.getElementById('bandhanCanvas'); const ctx = canvas.getContext('2d'); canvas.addEventListener('mousedown', startTrace); canvas.addEventListener('mousemove', traceArc); canvas.addEventListener('mouseup', endTrace); canvas.addEventListener('mouseleave', endTrace); canvas.addEventListener('touchstart', (e) => { e.preventDefault(); startTrace(e.touches[0]); }, {passive: false}); canvas.addEventListener('touchmove', (e) => { e.preventDefault(); traceArc(e.touches[0]); }, {passive: false}); canvas.addEventListener('touchend', endTrace); function startTrace(e) { if(bandhanCount >= 7) return; isDrawing = true; ctx.beginPath(); const pos = getPos(e); ctx.moveTo(pos.x, pos.y); checkZone(pos.x, pos.y); } function traceArc(e) { if (!isDrawing || bandhanCount >= 7) return; const pos = getPos(e); ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.strokeStyle = `hsla(${bandhanCount * 50}, 70%, 50%, 0.6)`; ctx.lineTo(pos.x, pos.y); ctx.stroke(); checkZone(pos.x, pos.y); } function endTrace() { isDrawing = false; } function getPos(e) { const rect = canvas.getBoundingClientRect(); return { x: e.clientX - rect.left, y: e.clientY - rect.top }; } function checkZone(x, y) { if (x < 100) { if (swipeStage === 0) { swipeStage = 1; } else if (swipeStage === 2) { bandhanCount++; document.getElementById('bandhan-counter').innerText = bandhanCount; swipeStage = 1; if(bandhanCount >= 7) { document.getElementById('bandhan-message').innerText = currentLang === 'en' ? "🛡️ Perfect! Your Aura is fully protected! 🙏" : "🛡️ उत्तम! आपका आभामंडल पूरी तरह से सुरक्षित है! 🙏"; ctx.fillStyle = "rgba(16, 185, 129, 0.2)"; ctx.fillRect(0,0, canvas.width, canvas.height); } } } if (x > 200 && swipeStage === 1) { swipeStage = 2; } } }
 
-        // (Chakra Builder)
+        // (Builder)
         window.startBuilderGame = function() { navigateTo('quiz-page'); hideAllGameContainers(); document.getElementById('quiz-header').classList.add('hidden'); document.getElementById('builder-container').classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); setupBuilderGame(); }
         function setupBuilderGame() { document.getElementById('builder-message').innerText = ""; let draggables = document.querySelectorAll('.drag-item'); let dropZones = document.querySelectorAll('.drop-zone'); draggables.forEach(item => { item.classList.remove('hidden'); }); dropZones.forEach(zone => { zone.classList.remove('filled'); const target = zone.getAttribute('data-target'); zone.innerHTML = target === 'Sahasrara' ? '7' : (target === 'Agnya' ? '6' : (target === 'Vishuddhi' ? '5' : (target === 'Anahata' ? '4' : (target === 'Nabhi' ? '3' : (target === 'Swadisthan' ? '2' : '1'))))); }); if (!window.builderListenersAdded) { draggables.forEach(draggable => { draggable.addEventListener('dragstart', () => { draggable.classList.add('dragging'); }); draggable.addEventListener('dragend', () => { draggable.classList.remove('dragging'); }); }); dropZones.forEach(zone => { zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); }); zone.addEventListener('dragleave', () => { zone.classList.remove('drag-over'); }); zone.addEventListener('drop', e => { e.preventDefault(); zone.classList.remove('drag-over'); const draggable = document.querySelector('.dragging'); if (draggable && draggable.dataset.id === zone.dataset.target) { zone.classList.add('filled'); zone.innerHTML = `<span style="font-size:1.2rem; line-height:1; margin-bottom:2px;">${draggable.dataset.symbol}</span><span style="font-size:0.55rem; display:block; line-height:1;">${draggable.dataset.id}</span>`; draggable.classList.add('hidden'); checkBuilderWin(); } }); }); window.builderListenersAdded = true; } }
         function checkBuilderWin() { if(document.querySelectorAll('.drop-zone.filled').length === 7) { document.getElementById('builder-message').innerText = currentLang === 'en' ? "🙏 Beautiful! You have balanced the Subtle System!" : "🙏 सुंदर! आपने सूक्ष्म तंत्र को संतुलित कर लिया है!"; } }
 
         // (Match Qualities)
-        const qualitiesData = [ { ch: "Mooladhara", q: "Innocence & Purity", hi_q: "अबोधता और पवित्रता" }, { ch: "Swadisthan", q: "Creativity & Attention", hi_q: "रचनात्मकता और ध्यान" }, { ch: "Nabhi", q: "Satisfaction & Peace", hi_q: "संतुष्टि और शांति" }, { ch: "Anahata", q: "Love & Compassion", hi_q: "प्रेम और करुणा" }, { ch: "Vishuddhi", q: "Collectivity & Sweetness", hi_q: "सामूर्हिकता और मधुरता" }, { ch: "Agnya", q: "Forgiveness", hi_q: "क्षमाशीलता" }, { ch: "Sahasrara", q: "Integration & Joy", hi_q: "एकीकरण और आनंद" } ];
+        const qualitiesData = [ { ch: "Mooladhara", q: "Innocence & Purity", hi_q: "अबोधता और पवित्रता" }, { ch: "Swadisthan", q: "Creativity & Attention", hi_q: "रचनात्मकता और ध्यान" }, { ch: "Nabhi", q: "Satisfaction & Peace", hi_q: "संतुष्टि और शांति" }, { ch: "Anahata", q: "Love & Compassion", hi_q: "प्रेम और करुणा" }, { ch: "Vishuddhi", q: "Collectivity & Sweetness", hi_q: "सामूहिकता और मधुरता" }, { ch: "Agnya", q: "Forgiveness", hi_q: "क्षमाशीलता" }, { ch: "Sahasrara", q: "Integration & Joy", hi_q: "एकीकरण और आनंद" } ];
         let selectedMatchItem = null; let matchCount = 0;
         window.startMatchGame = function() { navigateTo('quiz-page'); hideAllGameContainers(); document.getElementById('quiz-header').classList.add('hidden'); document.getElementById('match-container').classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); setupMatchGame(); }
         function setupMatchGame() { matchCount = 0; selectedMatchItem = null; document.getElementById('match-message').innerText = ""; const chCol = document.getElementById('match-chakras'); const qCol = document.getElementById('match-qualities'); chCol.innerHTML = ''; qCol.innerHTML = ''; const shuffledChakras = [...qualitiesData].sort(() => 0.5 - Math.random()); const shuffledQualities = [...qualitiesData].sort(() => 0.5 - Math.random()); shuffledChakras.forEach(d => { let btn = document.createElement('div'); btn.className = 'match-btn type-ch'; btn.innerText = d.ch; btn.dataset.match = d.ch; btn.onclick = () => handleMatchClick(btn, 'ch'); chCol.appendChild(btn); }); shuffledQualities.forEach(d => { let btn = document.createElement('div'); btn.className = 'match-btn type-q'; btn.innerText = currentLang === 'en' ? d.q : d.hi_q; btn.dataset.match = d.ch; btn.onclick = () => handleMatchClick(btn, 'q'); qCol.appendChild(btn); }); }
@@ -1196,4 +1171,4 @@
 
     </script>
 </body>
-</html>
+</html>9
