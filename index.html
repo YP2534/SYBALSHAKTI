@@ -614,9 +614,9 @@
         <p class="translate" data-en="🪷 <strong>Sy Balshakti</strong> &copy; 2026. All rights reserved." data-hi="🪷 <strong>Sy बालशक्ति</strong> &copy; 2026. सर्वाधिकार सुरक्षित।">🪷 <strong>Sy Balshakti</strong> &copy; 2026. All rights reserved.</p>
     </footer>
 
-    <script type="module">
+        <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
-        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+        import { getFirestore, doc, getDoc, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyAFQiG-abyL68Sps6rHC9VAH5ytkrt_8FM",
@@ -631,7 +631,7 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // Attach function to window so the standard script below can call it
+        // Firebase से क्विज पढ़ने के लिए
         window.loadDynamicContent = async function() {
             try {
                 const docRef = doc(db, "quizContent", "live");
@@ -643,7 +643,6 @@
                     document.getElementById('passage-title').innerText = data.passage.title;
                     document.getElementById('passage-body').innerHTML = data.passage.body;
                     
-                    // Attach fetched questions to the global variable
                     window.quizData = data.questions;
 
                     const startBtn = document.getElementById('start-quiz-btn');
@@ -658,7 +657,24 @@
                 console.error("Firebase fetch error:", err);
                 alert("Could not connect to the live database.");
             }
-        }
+        };
+
+        // नया कोड: फॉर्म और स्कोर को Firebase में सेव करने के लिए
+        window.saveScoreToFirebase = async function(userName, age, city, taluka, score) {
+            try {
+                await addDoc(collection(db, "quizSubmissions"), {
+                    timestamp: new Date().toLocaleString(),
+                    name: userName,
+                    age: age,
+                    district: city,
+                    taluka: taluka,
+                    score: score
+                });
+                console.log("Score saved successfully!");
+            } catch (e) {
+                console.error("Error saving score: ", e);
+            }
+        };
     </script>
 
     <script src="https://www.youtube.com/iframe_api"></script>
@@ -844,10 +860,14 @@
             gamesLink.classList.remove('hidden');
             gamesLink.style.animation = "fadeIn 1s ease-in-out";
 
-            // SHEETDB SCORE POSTING KEEPS RUNNING NORMALLY
-            const age = document.getElementById('userAge').value; const city = document.getElementById('userCity').value; const taluka = document.getElementById('userTaluka').value;
-            const sheetdbURL = 'https://sheetdb.io/api/v1/k1qtzemkf5hq6?sheet=Scores'; 
-            fetch(sheetdbURL, { method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, body: JSON.stringify({ data: [{ 'Timestamp': new Date().toLocaleString(), 'Name': userName, 'Age': age, 'District': city, 'Taluka': taluka, 'Score': score }] }) }).catch(error => console.error('Error:', error));
+            // SheetDB की जगह Firebase का उपयोग 
+            const age = document.getElementById('userAge').value; 
+            const city = document.getElementById('userCity').value; 
+            const taluka = document.getElementById('userTaluka').value;
+            
+            if(window.saveScoreToFirebase) {
+                window.saveScoreToFirebase(userName, age, city, taluka, score);
+            }
         }
 
         // ==========================================
