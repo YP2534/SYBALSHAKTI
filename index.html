@@ -614,65 +614,23 @@
         <p class="translate" data-en="🪷 <strong>Sy Balshakti</strong> &copy; 2026. All rights reserved." data-hi="🪷 <strong>Sy बालशक्ति</strong> &copy; 2026. सर्वाधिकार सुरक्षित।">🪷 <strong>Sy Balshakti</strong> &copy; 2026. All rights reserved.</p>
     </footer>
 
-        <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
-        import { getFirestore, doc, getDoc, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+    <script>
+        // PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE
+        const GOOGLE_APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwIBmy3CdvF1He998OWHcm_BI_z9ov19xuHL0EHtxpxX6lZ5qOFdm-IJa1yeJqY6Fo/exec'; 
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyAFQiG-abyL68Sps6rHC9VAH5ytkrt_8FM",
-            authDomain: "sy-balshakti-admin.firebaseapp.com",
-            projectId: "sy-balshakti-admin",
-            storageBucket: "sy-balshakti-admin.firebasestorage.app",
-            messagingSenderId: "652006613871",
-            appId: "1:652006613871:web:eae3f5a3d3bff69ab43e9a",
-            measurementId: "G-EL7K7HPFQE"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        // Firebase से क्विज पढ़ने के लिए
-        window.loadDynamicContent = async function() {
+        window.sendDataToGoogleSheet = async function(actionData) {
             try {
-                const docRef = doc(db, "quizContent", "live");
-                const docSnap = await getDoc(docRef);
-
-                if (docSnap.exists()) {
-                    const data = docSnap.data();
-                    
-                    document.getElementById('passage-title').innerText = data.passage.title;
-                    document.getElementById('passage-body').innerHTML = data.passage.body;
-                    
-                    window.quizData = data.questions;
-
-                    const startBtn = document.getElementById('start-quiz-btn');
-                    startBtn.innerText = "Next ➡️ Start Quiz";
-                    startBtn.disabled = false;
-                    startBtn.classList.remove('disabled');
-                } else {
-                    console.log("No data found in Firebase!");
-                    document.getElementById('passage-title').innerText = "Waiting for Admin to publish content...";
-                }
-            } catch (err) {
-                console.error("Firebase fetch error:", err);
-                alert("Could not connect to the live database.");
-            }
-        };
-
-        // नया कोड: फॉर्म और स्कोर को Firebase में सेव करने के लिए
-        window.saveScoreToFirebase = async function(userName, age, city, taluka, score) {
-            try {
-                await addDoc(collection(db, "quizSubmissions"), {
-                    timestamp: new Date().toLocaleString(),
-                    name: userName,
-                    age: age,
-                    district: city,
-                    taluka: taluka,
-                    score: score
+                await fetch(GOOGLE_APP_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Bypasses CORS restrictions
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(actionData)
                 });
-                console.log("Score saved successfully!");
-            } catch (e) {
-                console.error("Error saving score: ", e);
+                console.log(actionData.action + " data sent to Google Sheet!");
+            } catch (error) {
+                console.error("Error saving to Google Sheet:", error);
             }
         };
     </script>
