@@ -485,7 +485,8 @@
                     
                     <p style="color: var(--secondary); font-weight: 600; margin-bottom: 20px;">🌟 You have unlocked new games in the menu!</p>
 
-                    <button class="btn-primary" style="width: 100%; margin-bottom: 12px;" onclick="navigateTo('games-dashboard')">🎮 Go to Games Zone</button>
+                    <button class="btn-primary" style="width: 100%; margin-bottom: 12px;" onclick="goToGamesZoneTracked()">🎮 Go to Games Zone</button>
+                    
                     <button class="btn-secondary" style="width: 100%;" onclick="location.reload()">🔄 Return to Home</button>
                 </div>
 
@@ -614,8 +615,53 @@
         <p class="translate" data-en="🪷 <strong>Sy Balshakti</strong> &copy; 2026. All rights reserved." data-hi="🪷 <strong>Sy बालशक्ति</strong> &copy; 2026. सर्वाधिकार सुरक्षित।">🪷 <strong>Sy Balshakti</strong> &copy; 2026. All rights reserved.</p>
     </footer>
 
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAFQiG-abyL68Sps6rHC9VAH5ytkrt_8FM",
+            authDomain: "sy-balshakti-admin.firebaseapp.com",
+            projectId: "sy-balshakti-admin",
+            storageBucket: "sy-balshakti-admin.firebasestorage.app",
+            messagingSenderId: "652006613871",
+            appId: "1:652006613871:web:eae3f5a3d3bff69ab43e9a",
+            measurementId: "G-EL7K7HPFQE"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Firebase is now ONLY used to read the live quiz
+        window.loadDynamicContent = async function() {
+            try {
+                const docRef = doc(db, "quizContent", "live");
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists()) {
+                    const data = docSnap.data();
+                    
+                    document.getElementById('passage-title').innerText = data.passage.title;
+                    document.getElementById('passage-body').innerHTML = data.passage.body;
+                    
+                    window.quizData = data.questions;
+
+                    const startBtn = document.getElementById('start-quiz-btn');
+                    startBtn.innerText = "Next ➡️ Start Quiz";
+                    startBtn.disabled = false;
+                    startBtn.classList.remove('disabled');
+                } else {
+                    console.log("No data found in Firebase!");
+                    document.getElementById('passage-title').innerText = "Waiting for Admin to publish content...";
+                }
+            } catch (err) {
+                console.error("Firebase fetch error:", err);
+                alert("Could not connect to the live database.");
+            }
+        };
+    </script>
+
     <script>
-        // PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE
         const GOOGLE_APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwIBmy3CdvF1He998OWHcm_BI_z9ov19xuHL0EHtxpxX6lZ5qOFdm-IJa1yeJqY6Fo/exec'; 
 
         window.sendDataToGoogleSheet = async function(actionData) {
@@ -632,6 +678,21 @@
             } catch (error) {
                 console.error("Error saving to Google Sheet:", error);
             }
+        };
+
+        // Added this missing function to track when they click "Go to Games Zone"
+        window.goToGamesZoneTracked = function() {
+            if(window.sendDataToGoogleSheet) {
+                window.sendDataToGoogleSheet({
+                    action: "Entered Game Zone",
+                    name: window.userName || "Unknown",
+                    age: document.getElementById('userAge').value,
+                    district: document.getElementById('userCity').value,
+                    taluka: document.getElementById('userTaluka').value,
+                    score: window.score || 0
+                });
+            }
+            navigateTo('games-dashboard');
         };
     </script>
 
@@ -743,22 +804,21 @@
             } else { talukaGroup.classList.add('hidden'); }
         });
 
-        // Setup empty variables - these get filled by the Firebase module above
+        // Setup empty variables
         window.quizData = [];
-        let currentQuestionIndex = 0; let score = 0; let userName = "";
+        window.currentQuestionIndex = 0; window.score = 0; window.userName = "";
 
         window.processForm = function() {
-            userName = document.getElementById('userName').value;
+            window.userName = document.getElementById('userName').value;
             const age = document.getElementById('userAge').value;
             const city = document.getElementById('userCity').value;
 
-            if (!userName || !age || !city) { alert("Please fill out your name, age, and district to proceed."); return; }
+            if (!window.userName || !age || !city) { alert("Please fill out your name, age, and district to proceed."); return; }
             hideAllGameContainers();
             document.getElementById('reading-container').classList.remove('hidden');
             document.getElementById('quiz-header').classList.add('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
-            // Trigger Firebase fetch
             if(window.loadDynamicContent) { window.loadDynamicContent(); }
         }
 
@@ -776,9 +836,9 @@
                 return;
             }
             
-            const qData = window.quizData[currentQuestionIndex];
-            document.getElementById('question-text').innerText = `${currentQuestionIndex + 1}. ${qData.question}`;
-            document.getElementById('progress-text').innerText = `Question ${currentQuestionIndex + 1} of 5`;
+            const qData = window.quizData[window.currentQuestionIndex];
+            document.getElementById('question-text').innerText = `${window.currentQuestionIndex + 1}. ${qData.question}`;
+            document.getElementById('progress-text').innerText = `Question ${window.currentQuestionIndex + 1} of 5`;
             const optionsContainer = document.getElementById('options-container'); optionsContainer.innerHTML = ''; 
 
             qData.options.forEach(option => {
@@ -789,20 +849,20 @@
         }
 
         function checkAnswer(selectedOption, clickedButton) {
-            const currentQ = window.quizData[currentQuestionIndex];
+            const currentQ = window.quizData[window.currentQuestionIndex];
             const buttons = document.querySelectorAll('.option-btn');
             buttons.forEach(btn => btn.disabled = true);
 
             if (selectedOption === currentQ.correctAnswer || currentQ.correctAnswer.includes(selectedOption)) {
-                score++; clickedButton.classList.add('correct-option');
+                window.score++; clickedButton.classList.add('correct-option');
             } else {
                 clickedButton.classList.add('incorrect-option');
                 buttons.forEach(btn => { if (btn.innerText === currentQ.correctAnswer || currentQ.correctAnswer.includes(btn.innerText)) btn.classList.add('correct-option'); });
             }
 
             setTimeout(() => {
-                currentQuestionIndex++;
-                if (currentQuestionIndex < window.quizData.length) { loadQuestion(); } else { showResults(); }
+                window.currentQuestionIndex++;
+                if (window.currentQuestionIndex < window.quizData.length) { loadQuestion(); } else { showResults(); }
             }, 1500);
         }
 
@@ -810,21 +870,28 @@
             if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') ytPlayer.pauseVideo();
             hideAllGameContainers();
             document.getElementById('result-container').classList.remove('hidden');
-            document.getElementById('display-name').innerText = userName;
-            document.getElementById('score-display').innerText = score;
+            document.getElementById('display-name').innerText = window.userName;
+            document.getElementById('score-display').innerText = window.score;
             document.getElementById('quiz-header').classList.remove('hidden');
             
             const gamesLink = document.getElementById('nav-games-link');
             gamesLink.classList.remove('hidden');
             gamesLink.style.animation = "fadeIn 1s ease-in-out";
 
-            // SheetDB की जगह Firebase का उपयोग 
             const age = document.getElementById('userAge').value; 
             const city = document.getElementById('userCity').value; 
             const taluka = document.getElementById('userTaluka').value;
             
-            if(window.saveScoreToFirebase) {
-                window.saveScoreToFirebase(userName, age, city, taluka, score);
+            // Replaced saveScoreToFirebase with sendDataToGoogleSheet!
+            if(window.sendDataToGoogleSheet) {
+                window.sendDataToGoogleSheet({
+                    action: "Quiz Completed",
+                    name: window.userName,
+                    age: age,
+                    district: city,
+                    taluka: taluka,
+                    score: window.score
+                });
             }
         }
 
