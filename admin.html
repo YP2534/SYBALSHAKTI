@@ -10,9 +10,14 @@
         :root { --primary: #6d28d9; --bg: #f8fafc; --surface: #ffffff; --text: #0f172a; --border: #e2e8f0; }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); padding: 40px 5%; margin: 0; }
         .container { max-width: 800px; margin: auto; background: var(--surface); padding: 40px; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        
+        /* Added styling for the login screen */
+        .login-container { max-width: 400px; text-align: center; margin-top: 10vh; }
+        .hidden { display: none !important; }
+        
         h1 { color: var(--primary); text-align: center; margin-bottom: 30px; font-weight: 800; }
         h2 { border-bottom: 2px solid var(--border); padding-bottom: 10px; margin-top: 40px; }
-        .form-group { margin-bottom: 20px; }
+        .form-group { margin-bottom: 20px; text-align: left; }
         label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.95rem; }
         input, textarea, select { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; font-family: inherit; box-sizing: border-box; }
         textarea { resize: vertical; min-height: 100px; }
@@ -27,7 +32,19 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="container login-container" id="login-box">
+        <h1 style="margin-bottom: 10px;">🔒 Admin Login</h1>
+        <p style="color: var(--text-muted); margin-bottom: 25px;">Please enter the password to manage content.</p>
+        
+        <div class="form-group">
+            <input type="password" id="adminPassword" placeholder="Enter Password" onkeypress="handleKeyPress(event)">
+        </div>
+        
+        <button onclick="checkPassword()">Login</button>
+        <p id="login-error" class="error hidden" style="margin-top: 15px;">❌ Incorrect password. Try again.</p>
+    </div>
+
+    <div class="container hidden" id="main-admin-panel">
         <h1>🪷 Balshakti Content Admin</h1>
         <form id="adminForm">
             
@@ -48,6 +65,31 @@
             <div id="status-msg"></div>
         </form>
     </div>
+
+    <script>
+        function checkPassword() {
+            const passInput = document.getElementById('adminPassword').value;
+            const errorMsg = document.getElementById('login-error');
+            
+            // Checking for your exact password
+            if (passInput === "880514") {
+                // Hide login, show admin panel
+                document.getElementById('login-box').classList.add('hidden');
+                document.getElementById('main-admin-panel').classList.remove('hidden');
+                errorMsg.classList.add('hidden');
+            } else {
+                // Show error message
+                errorMsg.classList.remove('hidden');
+            }
+        }
+
+        // Allows pressing "Enter" on the keyboard to login
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        }
+    </script>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
