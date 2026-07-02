@@ -1,977 +1,945 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="sHwCisK0l3COiYDDb5xiqG0BlsWYmrf9IIMrcReux9o" />
-    <title>Sy Balshakti | Sahaj Yoga Quiz & Teachings</title>
-    <link rel="icon" href="https://i.pinimg.com/736x/93/63/12/9363127162afa0b893c954b81e976cd5.jpg" type="image/jpeg">
-    <meta name="description" content="Welcome to the Sy Balshakti quiz! Test your knowledge on Sahaj Yoga, the wisdom of Shri Mataji Nirmala Devi, daily meditation, and core spiritual values.">
-    <meta name="keywords" content="Sy Balshakti, Sahaj Yoga, Balshakti Quiz, Shri Mataji Nirmala Devi, Meditation for kids, Spiritual Values">
-    <meta name="author" content="Sy Balshakti">
-    
-    <meta name="robots" content="index, follow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="sHwCisK0l3COiYDDb5xiqG0BlsWYmrf9IIMrcReux9o" />
+    <title>Sy Balshakti | Sahaj Yoga Quiz & Teachings</title>
+    <link rel="icon" href="https://i.pinimg.com/736x/93/63/12/9363127162afa0b893c954b81e976cd5.jpg" type="image/jpeg">
+    <meta name="description" content="Welcome to the Sy Balshakti quiz! Test your knowledge on Sahaj Yoga, the wisdom of Shri Mataji Nirmala Devi, daily meditation, and core spiritual values.">
+    <meta name="keywords" content="Sy Balshakti, Sahaj Yoga, Balshakti Quiz, Shri Mataji Nirmala Devi, Meditation for kids, Spiritual Values">
+    <meta name="author" content="Sy Balshakti">
+    
+    <meta name="robots" content="index, follow">
 
-    <meta property="og:title" content="Sy Balshakti | Sahaj Yoga Quiz">
-    <meta property="og:description" content="Participate in the Sy Balshakti quiz. Learn about the teachings of Shri Mataji Nirmala Devi and begin your journey towards inner peace.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="YOUR_VERCEL_LINK_HERE"> 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #6d28d9;
-            --primary-hover: #5b21b6;
-            --secondary: #10b981;
-            --bg: #f8fafc;
-            --surface: #ffffff;
-            --text: #0f172a;
-            --text-muted: #475569;
-            --border: #e2e8f0;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --danger: #ef4444;
-        }
+    <meta property="og:title" content="Sy Balshakti | Sahaj Yoga Quiz">
+    <meta property="og:description" content="Participate in the Sy Balshakti quiz. Learn about the teachings of Shri Mataji Nirmala Devi and begin your journey towards inner peace.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="YOUR_VERCEL_LINK_HERE"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6d28d9;
+            --primary-hover: #5b21b6;
+            --secondary: #10b981;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #0f172a;
+            --text-muted: #475569;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --danger: #ef4444;
+        }
 
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; }
 
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
-            padding-top: 72px;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding-top: 72px;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-        /* Page View Logic */
-        .page-view {
-            display: none;
-            animation: fadeIn 0.4s ease-in-out;
-            flex: 1;
-        }
-        .page-view.active {
-            display: block;
-        }
+        /* Page View Logic */
+        .page-view {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+            flex: 1;
+        }
+        .page-view.active {
+            display: block;
+        }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-        /* Glassmorphism Navbar */
-        .navbar {
-            position: fixed; top: 0; left: 0; right: 0;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 16px 5%; z-index: 1000;
-        }
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 16px 5%; z-index: 1000;
+        }
 
-        .navbar-brand { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--primary); letter-spacing: -0.5px; cursor: pointer; }
-        
-        .navbar-links { display: flex; gap: 32px; align-items: center; margin-left: auto; margin-right: 25px; }
-        .navbar-links a { text-decoration: none; color: var(--text-muted); font-weight: 500; transition: color 0.2s; cursor: pointer; }
-        .navbar-links a:hover { color: var(--primary); }
-        
-        .right-controls { display: flex; align-items: center; gap: 15px; }
+        .navbar-brand { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--primary); letter-spacing: -0.5px; cursor: pointer; }
+        
+        .navbar-links { display: flex; gap: 32px; align-items: center; margin-left: auto; margin-right: 25px; }
+        .navbar-links a { text-decoration: none; color: var(--text-muted); font-weight: 500; transition: color 0.2s; cursor: pointer; }
+        .navbar-links a:hover { color: var(--primary); }
+        
+        .right-controls { display: flex; align-items: center; gap: 15px; }
 
-        /* HAMBURGER ICON STYLES */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 6px;
-            padding: 4px;
-        }
-        .hamburger span {
-            width: 28px;
-            height: 3px;
-            background-color: var(--text);
-            border-radius: 3px;
-            transition: all 0.3s;
-        }
+        /* HAMBURGER ICON STYLES */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+            padding: 4px;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background-color: var(--text);
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
 
-        /* Modern Hero Section */
-        .hero { 
-            padding: 100px 5% 80px; 
-            text-align: center; 
-            background: radial-gradient(circle at top, #f3e8ff 0%, var(--bg) 100%);
-            border-bottom: 1px solid var(--border);
-        }
-        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 24px; line-height: 1.1; letter-spacing: -1px; color: #1e1b4b; }
-        .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 40px; }
-        .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        /* Modern Hero Section */
+        .hero { 
+            padding: 100px 5% 80px; 
+            text-align: center; 
+            background: radial-gradient(circle at top, #f3e8ff 0%, var(--bg) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 24px; line-height: 1.1; letter-spacing: -1px; color: #1e1b4b; }
+        .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 40px; }
+        .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
-        .btn-primary { background: var(--primary); color: white; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: 600; border: none; cursor: pointer; font-size: 1.05rem; transition: all 0.2s; box-shadow: var(--shadow-md); display: inline-block; }
-        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); box-shadow: var(--shadow-lg); }
-        
-        .btn-secondary { background: white; color: var(--text); border: 1px solid var(--border); padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: 600; cursor: pointer; font-size: 1.05rem; transition: all 0.2s; box-shadow: var(--shadow-sm); display: inline-block; }
-        .btn-secondary:hover { border-color: var(--text-muted); }
+        .btn-primary { background: var(--primary); color: white; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: 600; border: none; cursor: pointer; font-size: 1.05rem; transition: all 0.2s; box-shadow: var(--shadow-md); display: inline-block; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+        
+        .btn-secondary { background: white; color: var(--text); border: 1px solid var(--border); padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: 600; cursor: pointer; font-size: 1.05rem; transition: all 0.2s; box-shadow: var(--shadow-sm); display: inline-block; }
+        .btn-secondary:hover { border-color: var(--text-muted); }
 
-        .btn-success { background-color: var(--secondary); border-color: var(--secondary); color: white; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 1.05rem; transition: all 0.2s; box-shadow: var(--shadow-md); display: inline-block;}
-        .btn-success:hover { background-color: #059669; transform: translateY(-1px); }
+        .btn-success { background-color: var(--secondary); border-color: var(--secondary); color: white; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 1.05rem; transition: all 0.2s; box-shadow: var(--shadow-md); display: inline-block;}
+        .btn-success:hover { background-color: #059669; transform: translateY(-1px); }
 
-        /* Features Grid */
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; padding: 0 5%; max-width: 1200px; margin: -40px auto 60px; position: relative; z-index: 10; }
-        .feature-card { background: var(--surface); border: 1px solid var(--border); padding: 32px 24px; border-radius: 16px; text-align: center; box-shadow: var(--shadow-md); transition: transform 0.2s; }
-        .feature-card:hover { transform: translateY(-5px); }
-        .feature-card .icon { font-size: 3rem; margin-bottom: 16px; }
-        .feature-card h3 { margin: 0 0 8px 0; font-size: 1.25rem; color: var(--text); }
-        .feature-card p { margin: 0; color: var(--text-muted); }
+        /* Features Grid */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; padding: 0 5%; max-width: 1200px; margin: -40px auto 60px; position: relative; z-index: 10; }
+        .feature-card { background: var(--surface); border: 1px solid var(--border); padding: 32px 24px; border-radius: 16px; text-align: center; box-shadow: var(--shadow-md); transition: transform 0.2s; }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-card .icon { font-size: 3rem; margin-bottom: 16px; }
+        .feature-card h3 { margin: 0 0 8px 0; font-size: 1.25rem; color: var(--text); }
+        .feature-card p { margin: 0; color: var(--text-muted); }
 
-        .section { padding: 60px 5%; max-width: 1100px; margin: auto; }
-        .section-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 20px; color: var(--text); text-align: center; letter-spacing: -0.5px; }
-        .section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 50px; font-size: 1.1rem; max-width: 700px; margin-left: auto; margin-right: auto; }
-        
-        .split-section { display: flex; align-items: flex-start; gap: 60px; background: var(--surface); padding: 40px; border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); margin-bottom: 40px; }
-        .split-text { flex: 1.2; text-align: left; }
-        .split-text h3 { font-size: 1.8rem; margin-top: 0; color: var(--primary); margin-bottom: 20px; }
-        .split-text p { margin-bottom: 16px; font-size: 1.05rem; }
-        .split-image { flex: 0.8; text-align: center; position: sticky; top: 100px; }
+        .section { padding: 60px 5%; max-width: 1100px; margin: auto; }
+        .section-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 20px; color: var(--text); text-align: center; letter-spacing: -0.5px; }
+        .section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 50px; font-size: 1.1rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        
+        .split-section { display: flex; align-items: flex-start; gap: 60px; background: var(--surface); padding: 40px; border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); margin-bottom: 40px; }
+        .split-text { flex: 1.2; text-align: left; }
+        .split-text h3 { font-size: 1.8rem; margin-top: 0; color: var(--primary); margin-bottom: 20px; }
+        .split-text p { margin-bottom: 16px; font-size: 1.05rem; }
+        .split-image { flex: 0.8; text-align: center; position: sticky; top: 100px; }
 
-        /* Quiz & Form Container */
-        .quiz-wrapper { max-width: 700px; margin: 0 auto; }
-        .card-container { background: var(--surface); padding: 48px; border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow-lg); }
-        
-        .form-group { margin-bottom: 24px; text-align: left; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.95rem; color: var(--text); }
-        .form-control { width: 100%; padding: 14px 16px; border: 1px solid var(--border); border-radius: 10px; font-size: 1rem; box-sizing: border-box; background-color: var(--bg); transition: border-color 0.2s, box-shadow 0.2s; font-family: inherit; }
-        .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.1); background-color: var(--surface); }
-        
-        .hidden { display: none !important; }
-        
-        /* Disabled button state */
-        .btn-primary.disabled { background-color: #cbd5e1; border-color: #cbd5e1; color: #94a3b8; cursor: not-allowed; pointer-events: none; }
+        /* Quiz & Form Container */
+        .quiz-wrapper { max-width: 700px; margin: 0 auto; }
+        .card-container { background: var(--surface); padding: 48px; border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow-lg); }
+        
+        .form-group { margin-bottom: 24px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.95rem; color: var(--text); }
+        .form-control { width: 100%; padding: 14px 16px; border: 1px solid var(--border); border-radius: 10px; font-size: 1rem; box-sizing: border-box; background-color: var(--bg); transition: border-color 0.2s, box-shadow 0.2s; font-family: inherit; }
+        .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.1); background-color: var(--surface); }
+        
+        .hidden { display: none !important; }
+        
+        /* Disabled button state */
+        .btn-primary.disabled { background-color: #cbd5e1; border-color: #cbd5e1; color: #94a3b8; cursor: not-allowed; pointer-events: none; }
 
-        /* Quiz specific styles */
-        #progress-text { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-        #question-text { font-size: 1.5rem; font-weight: 700; line-height: 1.4; color: #1e293b; }
-        
-        .options-grid { display: flex; flex-direction: column; gap: 16px; }
-        .option-btn { background: var(--surface); border: 2px solid var(--border); padding: 18px 24px; border-radius: 12px; font-size: 1.05rem; font-weight: 500; text-align: left; cursor: pointer; transition: all 0.2s; font-family: inherit; color: var(--text); }
-        .option-btn:hover:not(:disabled) { border-color: var(--primary); background: #f5f3ff; transform: translateX(4px); }
-        .option-btn:disabled { cursor: not-allowed; opacity: 0.9; }
+        /* Quiz specific styles */
+        #progress-text { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        #question-text { font-size: 1.5rem; font-weight: 700; line-height: 1.4; color: #1e293b; }
+        
+        .options-grid { display: flex; flex-direction: column; gap: 16px; }
+        .option-btn { background: var(--surface); border: 2px solid var(--border); padding: 18px 24px; border-radius: 12px; font-size: 1.05rem; font-weight: 500; text-align: left; cursor: pointer; transition: all 0.2s; font-family: inherit; color: var(--text); }
+        .option-btn:hover:not(:disabled) { border-color: var(--primary); background: #f5f3ff; transform: translateX(4px); }
+        .option-btn:disabled { cursor: not-allowed; opacity: 0.9; }
 
-        .correct-option { background-color: #ecfdf5 !important; border-color: #10b981 !important; color: #047857 !important; }
-        .incorrect-option { background-color: #fef2f2 !important; border-color: #ef4444 !important; color: #b91c1c !important; }
+        .correct-option { background-color: #ecfdf5 !important; border-color: #10b981 !important; color: #047857 !important; }
+        .incorrect-option { background-color: #fef2f2 !important; border-color: #ef4444 !important; color: #b91c1c !important; }
 
-        /* Memory Game Styles */
-        .memory-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 20px auto; max-width: 650px; }
-        @media (min-width: 480px) { .memory-grid { grid-template-columns: repeat(4, 1fr); } }
-        .memory-card { background-color: var(--primary); color: transparent; padding: 10px; border-radius: 12px; font-size: 0.9rem; font-weight: 600; text-align: center; cursor: pointer; transition: transform 0.3s, background-color 0.3s, color 0.3s; display: flex; align-items: center; justify-content: center; min-height: 70px; user-select: none; border: 2px solid var(--primary-hover); box-shadow: var(--shadow-sm); }
-        .memory-card.flipped { background-color: #f8fafc; color: var(--text); border-color: var(--border); transform: scale(1.05); }
-        .memory-card.matched { background-color: #ecfdf5; color: #047857; border-color: #10b981; cursor: default; transform: scale(1); opacity: 0.9; }
+        /* Memory Game Styles */
+        .memory-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 20px auto; max-width: 650px; }
+        @media (min-width: 480px) { .memory-grid { grid-template-columns: repeat(4, 1fr); } }
+        .memory-card { background-color: var(--primary); color: transparent; padding: 10px; border-radius: 12px; font-size: 0.9rem; font-weight: 600; text-align: center; cursor: pointer; transition: transform 0.3s, background-color 0.3s, color 0.3s; display: flex; align-items: center; justify-content: center; min-height: 70px; user-select: none; border: 2px solid var(--primary-hover); box-shadow: var(--shadow-sm); }
+        .memory-card.flipped { background-color: #f8fafc; color: var(--text); border-color: var(--border); transform: scale(1.05); }
+        .memory-card.matched { background-color: #ecfdf5; color: #047857; border-color: #10b981; cursor: default; transform: scale(1); opacity: 0.9; }
 
-        /* Bandhan Game Styles */
-        .bandhan-area { position: relative; width: 300px; height: 300px; margin: 20px auto; background: #f8fafc; border-radius: 24px; border: 2px dashed var(--border); overflow: hidden; touch-action: none; cursor: crosshair; }
-        .bandhan-area .yogi-emoji { font-size: 6rem; line-height: 300px; text-align: center; pointer-events: none; }
-        #bandhanCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        /* Bandhan Game Styles */
+        .bandhan-area { position: relative; width: 300px; height: 300px; margin: 20px auto; background: #f8fafc; border-radius: 24px; border: 2px dashed var(--border); overflow: hidden; touch-action: none; cursor: crosshair; }
+        .bandhan-area .yogi-emoji { font-size: 6rem; line-height: 300px; text-align: center; pointer-events: none; }
+        #bandhanCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        /* Subtle System Drag & Drop Styles */
-        .builder-container { display: flex; flex-direction: column; align-items: center; gap: 30px; margin-top: 20px; }
-        .subtle-body { width: 180px; height: 460px; border: 3px solid #d8b4fe; border-radius: 90px; position: relative; background: linear-gradient(to top, #ffe4e6, #ffedd5, #fef08a, #dcfce7, #dbeafe, #e0e7ff, #f3e8ff); display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 25px 0; box-shadow: inset 0 0 20px rgba(255,255,255,0.8); }
-        .drop-zone { width: 52px; height: 52px; border: 2px dashed #94a3b8; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 1rem; color: #64748b; background: rgba(255, 255, 255, 0.6); transition: 0.3s; }
-        .drop-zone.drag-over { background: white; transform: scale(1.15); border: 2px solid var(--primary); box-shadow: 0 0 10px rgba(109, 40, 217, 0.2); }
-        .drop-zone.filled { border: 2px solid white; background: white; color: var(--text); font-weight: bold; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        .draggable-chakras { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; max-width: 450px; }
-        .drag-item { padding: 10px 18px; background: white; color: var(--text); border: 2px solid var(--border); border-radius: 25px; cursor: grab; font-weight: 600; font-size: 0.95rem; user-select: none; box-shadow: var(--shadow-sm); transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
-        .drag-item:hover { transform: translateY(-3px); border-color: var(--primary); box-shadow: var(--shadow-md); }
-        .drag-item.hidden { display: none; }
+        /* Subtle System Drag & Drop Styles */
+        .builder-container { display: flex; flex-direction: column; align-items: center; gap: 30px; margin-top: 20px; }
+        .subtle-body { width: 180px; height: 460px; border: 3px solid #d8b4fe; border-radius: 90px; position: relative; background: linear-gradient(to top, #ffe4e6, #ffedd5, #fef08a, #dcfce7, #dbeafe, #e0e7ff, #f3e8ff); display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 25px 0; box-shadow: inset 0 0 20px rgba(255,255,255,0.8); }
+        .drop-zone { width: 52px; height: 52px; border: 2px dashed #94a3b8; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 1rem; color: #64748b; background: rgba(255, 255, 255, 0.6); transition: 0.3s; }
+        .drop-zone.drag-over { background: white; transform: scale(1.15); border: 2px solid var(--primary); box-shadow: 0 0 10px rgba(109, 40, 217, 0.2); }
+        .drop-zone.filled { border: 2px solid white; background: white; color: var(--text); font-weight: bold; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .draggable-chakras { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; max-width: 450px; }
+        .drag-item { padding: 10px 18px; background: white; color: var(--text); border: 2px solid var(--border); border-radius: 25px; cursor: grab; font-weight: 600; font-size: 0.95rem; user-select: none; box-shadow: var(--shadow-sm); transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
+        .drag-item:hover { transform: translateY(-3px); border-color: var(--primary); box-shadow: var(--shadow-md); }
+        .drag-item.hidden { display: none; }
 
-        /* Match Qualities Styles */
-        .match-container { display: flex; justify-content: space-between; gap: 20px; max-width: 600px; margin: 20px auto; }
-        .match-column { display: flex; flex-direction: column; gap: 12px; flex: 1; }
-        .match-btn { padding: 12px; background: white; border: 2px solid var(--border); border-radius: 12px; cursor: pointer; font-weight: 600; transition: 0.2s; }
-        .match-btn.selected { border-color: var(--primary); background: #f5f3ff; transform: scale(1.05); }
-        .match-btn.matched { border-color: var(--secondary); background: #ecfdf5; color: #047857; cursor: default; opacity: 0.8; }
-        
-        /* Clear the Catch Styles */
-        .whack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; max-width: 400px; margin: 20px auto; }
-        .whack-hole { height: 80px; background: #e2e8f0; border-radius: 50%; position: relative; overflow: hidden; display: flex; justify-content: center; align-items: flex-end; border: 3px solid #cbd5e1; }
-        .whack-catch { width: 60px; height: 60px; background: var(--danger); border-radius: 50%; color: white; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 0.8rem; position: absolute; bottom: -60px; cursor: pointer; transition: bottom 0.2s; }
-        .whack-catch.up { bottom: 0; }
-        .whack-catch.cleared { background: var(--secondary); pointer-events: none; }
+        /* Match Qualities Styles */
+        .match-container { display: flex; justify-content: space-between; gap: 20px; max-width: 600px; margin: 20px auto; }
+        .match-column { display: flex; flex-direction: column; gap: 12px; flex: 1; }
+        .match-btn { padding: 12px; background: white; border: 2px solid var(--border); border-radius: 12px; cursor: pointer; font-weight: 600; transition: 0.2s; }
+        .match-btn.selected { border-color: var(--primary); background: #f5f3ff; transform: scale(1.05); }
+        .match-btn.matched { border-color: var(--secondary); background: #ecfdf5; color: #047857; cursor: default; opacity: 0.8; }
+        
+        /* Clear the Catch Styles */
+        .whack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; max-width: 400px; margin: 20px auto; }
+        .whack-hole { height: 80px; background: #e2e8f0; border-radius: 50%; position: relative; overflow: hidden; display: flex; justify-content: center; align-items: flex-end; border: 3px solid #cbd5e1; }
+        .whack-catch { width: 60px; height: 60px; background: var(--danger); border-radius: 50%; color: white; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 0.8rem; position: absolute; bottom: -60px; cursor: pointer; transition: bottom 0.2s; }
+        .whack-catch.up { bottom: 0; }
+        .whack-catch.cleared { background: var(--secondary); pointer-events: none; }
 
-        /* Reading Passage Styles */
-        .reading-content p { margin-bottom: 16px; font-size: 1.05rem; color: var(--text); line-height: 1.7; }
+        /* Reading Passage Styles */
+        .reading-content p { margin-bottom: 16px; font-size: 1.05rem; color: var(--text); line-height: 1.7; }
 
-        /* Values Grid Detailed */
-        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .values-card { background: var(--surface); border: 1px solid var(--border); padding: 32px; border-radius: 16px; box-shadow: var(--shadow-sm); }
-        .values-card.highlight { border-top: 4px solid var(--primary); }
-        .values-card h3 { font-size: 1.4rem; margin-top: 0; color: var(--text); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-        .values-card p { color: var(--text-muted); margin-bottom: 16px; }
-        .values-card ul { padding-left: 20px; margin: 0; color: var(--text-muted); }
-        .values-card li { margin-bottom: 10px; }
+        /* Values Grid Detailed */
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .values-card { background: var(--surface); border: 1px solid var(--border); padding: 32px; border-radius: 16px; box-shadow: var(--shadow-sm); }
+        .values-card.highlight { border-top: 4px solid var(--primary); }
+        .values-card h3 { font-size: 1.4rem; margin-top: 0; color: var(--text); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+        .values-card p { color: var(--text-muted); margin-bottom: 16px; }
+        .values-card ul { padding-left: 20px; margin: 0; color: var(--text-muted); }
+        .values-card li { margin-bottom: 10px; }
 
-        /* Support Page Cards */
-        .support-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .support-card { background: var(--surface); border: 1px solid var(--border); padding: 40px 30px; border-radius: 16px; text-align: center; box-shadow: var(--shadow-sm); }
-        .support-card .icon { font-size: 3rem; margin-bottom: 20px; }
-        .support-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
-        .support-card p { color: var(--text-muted); margin-bottom: 20px; }
+        /* Support Page Cards */
+        .support-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .support-card { background: var(--surface); border: 1px solid var(--border); padding: 40px 30px; border-radius: 16px; text-align: center; box-shadow: var(--shadow-sm); }
+        .support-card .icon { font-size: 3rem; margin-bottom: 20px; }
+        .support-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .support-card p { color: var(--text-muted); margin-bottom: 20px; }
 
-        /* Snakes & Ladders Custom Styles */
-        .sl-board-wrapper { position: relative; width: 100%; max-width: 500px; aspect-ratio: 1 / 1; margin: 20px auto; border: 4px solid var(--text); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-lg); background-image: url('image.png'); background-size: 100% 100%; background-repeat: no-repeat; background-position: center; }
-        .sl-token { position: absolute; width: 6%; height: 6%; border-radius: 50%; transform: translate(30%, 30%); transition: top 0.4s ease-in-out, left 0.4s ease-in-out; border: 2px solid white; box-shadow: 0 4px 6px rgba(0,0,0,0.5); z-index: 10; }
-        .sl-token.p1 { background: #3b82f6; } 
-        .sl-token.p2 { background: #ef4444; } 
-        .sl-controls { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 20px; }
-        .dice-container { width: 80px; height: 80px; background: white; border: 3px solid var(--border); border-radius: 16px; display: flex; justify-content: center; align-items: center; font-size: 2.5rem; font-weight: bold; color: var(--text); box-shadow: var(--shadow-md); transition: transform 0.1s; cursor: pointer; }
-        .dice-container:disabled { cursor: not-allowed; opacity: 0.7; }
-        .dice-rolling { animation: shake 0.5s infinite; }
-        @keyframes shake { 0% { transform: rotate(0deg) scale(1); } 25% { transform: rotate(15deg) scale(1.1); } 50% { transform: rotate(0deg) scale(1); } 75% { transform: rotate(-15deg) scale(1.1); } 100% { transform: rotate(0deg) scale(1); } }
-        .sl-info { background: #f8fafc; padding: 10px 20px; border-radius: 12px; font-size: 1.1rem; font-weight: 600; display: flex; gap: 20px; border: 1px solid var(--border); margin-bottom: 10px; }
-        .sl-word-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15, 23, 42, 0.9); color: white; display: flex; justify-content: center; align-items: center; flex-direction: column; z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
-        .sl-word-overlay.active { opacity: 1; pointer-events: auto; }
-        .sl-word-text { font-size: 4rem; font-weight: 800; color: #fcd34d; text-align: center; text-transform: uppercase; text-shadow: 0 4px 20px rgba(252, 211, 77, 0.6); transform: scale(0.5); transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); margin-top: 10px; }
-        .sl-word-overlay.active .sl-word-text { transform: scale(1); }
+        /* Snakes & Ladders Custom Styles */
+        .sl-board-wrapper { position: relative; width: 100%; max-width: 500px; aspect-ratio: 1 / 1; margin: 20px auto; border: 4px solid var(--text); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-lg); background-image: url('image.png'); background-size: 100% 100%; background-repeat: no-repeat; background-position: center; }
+        .sl-token { position: absolute; width: 6%; height: 6%; border-radius: 50%; transform: translate(30%, 30%); transition: top 0.4s ease-in-out, left 0.4s ease-in-out; border: 2px solid white; box-shadow: 0 4px 6px rgba(0,0,0,0.5); z-index: 10; }
+        .sl-token.p1 { background: #3b82f6; } 
+        .sl-token.p2 { background: #ef4444; } 
+        .sl-controls { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 20px; }
+        .dice-container { width: 80px; height: 80px; background: white; border: 3px solid var(--border); border-radius: 16px; display: flex; justify-content: center; align-items: center; font-size: 2.5rem; font-weight: bold; color: var(--text); box-shadow: var(--shadow-md); transition: transform 0.1s; cursor: pointer; }
+        .dice-container:disabled { cursor: not-allowed; opacity: 0.7; }
+        .dice-rolling { animation: shake 0.5s infinite; }
+        @keyframes shake { 0% { transform: rotate(0deg) scale(1); } 25% { transform: rotate(15deg) scale(1.1); } 50% { transform: rotate(0deg) scale(1); } 75% { transform: rotate(-15deg) scale(1.1); } 100% { transform: rotate(0deg) scale(1); } }
+        .sl-info { background: #f8fafc; padding: 10px 20px; border-radius: 12px; font-size: 1.1rem; font-weight: 600; display: flex; gap: 20px; border: 1px solid var(--border); margin-bottom: 10px; }
+        .sl-word-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15, 23, 42, 0.9); color: white; display: flex; justify-content: center; align-items: center; flex-direction: column; z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .sl-word-overlay.active { opacity: 1; pointer-events: auto; }
+        .sl-word-text { font-size: 4rem; font-weight: 800; color: #fcd34d; text-align: center; text-transform: uppercase; text-shadow: 0 4px 20px rgba(252, 211, 77, 0.6); transform: scale(0.5); transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); margin-top: 10px; }
+        .sl-word-overlay.active .sl-word-text { transform: scale(1); }
 
-        footer { background: white; padding: 40px 20px; text-align: center; border-top: 1px solid var(--border); color: var(--text-muted); font-weight: 500; margin-top: auto; }
+        footer { background: white; padding: 40px 20px; text-align: center; border-top: 1px solid var(--border); color: var(--text-muted); font-weight: 500; margin-top: auto; }
 
-        @media (max-width: 1024px) {
-            .hamburger { display: flex; }
-            .navbar-links { margin-right: 0; margin-left: 0; }
-            .navbar-links { position: absolute; top: 72px; left: 0; right: 0; background: white; flex-direction: column; padding: 20px 5%; border-bottom: 1px solid var(--border); box-shadow: var(--shadow-md); display: none; gap: 20px; align-items: flex-start; }
-            .navbar-links.active { display: flex; }
-            .navbar-links a { font-size: 1.1rem; width: 100%; padding: 10px 0; border-bottom: 1px solid var(--bg); }
-            .navbar-links button { width: 100%; margin-top: 10px; }
-            .hero { padding: 100px 5% 50px; }
-            .hero h1 { font-size: 2.5rem; }
-            .split-section { flex-direction: column-reverse; padding: 24px; }
-            .split-image { position: static; width: 100%; }
-            .card-container { padding: 32px 20px; }
-            .features-grid { margin-top: 20px; }
-            .sl-word-text { font-size: 2.5rem; }
-        }
-    </style>
+        @media (max-width: 1024px) {
+            .hamburger { display: flex; }
+            .navbar-links { margin-right: 0; margin-left: 0; }
+            .navbar-links { position: absolute; top: 72px; left: 0; right: 0; background: white; flex-direction: column; padding: 20px 5%; border-bottom: 1px solid var(--border); box-shadow: var(--shadow-md); display: none; gap: 20px; align-items: flex-start; }
+            .navbar-links.active { display: flex; }
+            .navbar-links a { font-size: 1.1rem; width: 100%; padding: 10px 0; border-bottom: 1px solid var(--bg); }
+            .navbar-links button { width: 100%; margin-top: 10px; }
+            .hero { padding: 100px 5% 50px; }
+            .hero h1 { font-size: 2.5rem; }
+            .split-section { flex-direction: column-reverse; padding: 24px; }
+            .split-image { position: static; width: 100%; }
+            .card-container { padding: 32px 20px; }
+            .features-grid { margin-top: 20px; }
+            .sl-word-text { font-size: 2.5rem; }
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <a onclick="navigateTo('home-page')" class="navbar-brand translate" data-en="🪷 Sahaj Yoga Balshakti" data-hi="🪷 सहज योग बालशक्ति">🪷 Sahaj Yoga Balshakti</a>
-        
-        <div class="navbar-links" id="nav-links">
-            <a onclick="navigateTo('home-page'); closeMenu()" class="translate" data-en="Home" data-hi="मुख्य पृष्ठ">Home</a>
-            <a onclick="navigateTo('about-page'); closeMenu()" class="translate" data-en="About" data-hi="परिचय">About</a>
-            <a onclick="navigateTo('values-page'); closeMenu()" class="translate" data-en="Values" data-hi="मूल्य">Values</a>
-            <a onclick="navigateTo('support-page'); closeMenu()" class="translate" data-en="Support" data-hi="संपर्क">Support</a>
-            
-            <a id="nav-games-link" class="hidden translate" onclick="navigateTo('games-dashboard'); closeMenu()" style="color: var(--secondary); font-weight: 700;" data-en="🎮 Games Zone" data-hi="🎮 गेम्स ज़ोन">🎮 Games Zone</a>
-            
-            <button onclick="navigateTo('quiz-page'); closeMenu()" class="btn-primary translate" style="padding: 8px 20px; font-size: 0.95rem;" data-en="Start Quiz" data-hi="क्विज शुरू करें">Start Quiz</button>
-        </div>
+    <nav class="navbar">
+        <a onclick="navigateTo('home-page')" class="navbar-brand translate" data-en="🪷 Sahaj Yoga Balshakti" data-hi="🪷 सहज योग बालशक्ति">🪷 Sahaj Yoga Balshakti</a>
+        
+        <div class="navbar-links" id="nav-links">
+            <a onclick="navigateTo('home-page'); closeMenu()" class="translate" data-en="Home" data-hi="मुख्य पृष्ठ">Home</a>
+            <a onclick="navigateTo('about-page'); closeMenu()" class="translate" data-en="About" data-hi="परिचय">About</a>
+            <a onclick="navigateTo('values-page'); closeMenu()" class="translate" data-en="Values" data-hi="मूल्य">Values</a>
+            <a onclick="navigateTo('support-page'); closeMenu()" class="translate" data-en="Support" data-hi="संपर्क">Support</a>
+            
+            <a id="nav-games-link" class="hidden translate" onclick="navigateTo('games-dashboard'); closeMenu()" style="color: var(--secondary); font-weight: 700;" data-en="🎮 Games Zone" data-hi="🎮 गेम्स ज़ोन">🎮 Games Zone</a>
+            
+            <button onclick="navigateTo('quiz-page'); closeMenu()" class="btn-primary translate" style="padding: 8px 20px; font-size: 0.95rem;" data-en="Start Quiz" data-hi="क्विज शुरू करें">Start Quiz</button>
+        </div>
 
-        <div class="right-controls">
-            <button id="lang-toggle-btn" onclick="toggleLanguage()" class="btn-secondary" style="padding: 6px 10px; font-size: 0.85rem; border: 2px solid var(--primary); color: var(--primary); font-weight: 700;">🌐 हिंदी</button>
-            
-            <div class="hamburger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+        <div class="right-controls">
+            <button id="lang-toggle-btn" onclick="toggleLanguage()" class="btn-secondary" style="padding: 6px 10px; font-size: 0.85rem; border: 2px solid var(--primary); color: var(--primary); font-weight: 700;">🌐 हिंदी</button>
+            
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-    <div id="home-page" class="page-view active">
-        <section class="hero">
-            <h1 class="translate" data-en="Sahaj Yoga Balshakti Quiz" data-hi="सहज योग बालशक्ति क्विज">Sahaj Yoga Balshakti Quiz</h1>
-            <p class="translate" data-en="Test your knowledge, learn about the wisdom of Shri Mataji Nirmala Devi, and begin your journey towards inner peace through Sahaj Yoga meditation." data-hi="अपने ज्ञान का परीक्षण करें, श्री माताजी निर्मला देवी के ज्ञान के बारे में जानें, और सहज योग ध्यान के माध्यम से आंतरिक शांति की ओर अपनी यात्रा शुरू करें।">Test your knowledge, learn about the wisdom of Shri Mataji Nirmala Devi, and begin your journey towards inner peace through Sahaj Yoga meditation.</p>
-            <div class="hero-buttons">
-                <button onclick="navigateTo('quiz-page')" class="btn-primary translate" data-en="📝 Start Quiz" data-hi="📝 क्विज शुरू करें">📝 Start Quiz</button>
-                <a href="https://drive.google.com/file/d/1upxjC12LD-XAX5BOOzxCA4eq32sWOx3P/view?usp=sharing" target="_blank" class="btn-success translate" data-en="📱 Download App" data-hi="📱 ऐप डाउनलोड करें">📱 Download App</a>
-            </div>
-        </section>
+    <div id="home-page" class="page-view active">
+        <section class="hero">
+            <h1 class="translate" data-en="Sahaj Yoga Balshakti Quiz" data-hi="सहज योग बालशक्ति क्विज">Sahaj Yoga Balshakti Quiz</h1>
+            <p class="translate" data-en="Test your knowledge, learn about the wisdom of Shri Mataji Nirmala Devi, and begin your journey towards inner peace through Sahaj Yoga meditation." data-hi="अपने ज्ञान का परीक्षण करें, श्री माताजी निर्मला देवी के ज्ञान के बारे में जानें, और सहज योग ध्यान के माध्यम से आंतरिक शांति की ओर अपनी यात्रा शुरू करें।">Test your knowledge, learn about the wisdom of Shri Mataji Nirmala Devi, and begin your journey towards inner peace through Sahaj Yoga meditation.</p>
+            <div class="hero-buttons">
+                <button onclick="navigateTo('quiz-page')" class="btn-primary translate" data-en="📝 Start Quiz" data-hi="📝 क्विज शुरू करें">📝 Start Quiz</button>
+                <a href="https://drive.google.com/file/d/1upxjC12LD-XAX5BOOzxCA4eq32sWOx3P/view?usp=sharing" target="_blank" class="btn-success translate" data-en="📱 Download App" data-hi="📱 ऐप डाउनलोड करें">📱 Download App</a>
+            </div>
+        </section>
 
-        <!-- ====== COLLECTIVE MEDITATION INVITATION CARD ====== -->
-        <section class="section" style="padding-top: 0px; padding-bottom: 40px;">
-            <div class="card-container" style="text-align: center; border: 2px solid var(--primary); background: linear-gradient(to bottom, #ffffff, #f5f3ff);">
-                <h3 style="color: var(--primary); font-size: 1.8rem; margin-top: 0;">🙏 जय श्री माताजी 🙏</h3>
-                <p style="font-size: 1.15rem; margin-bottom: 20px; color: var(--text);">
-                    <em>श्री माताजींच्या कृपेने</em> आपण आपल्या <strong>बालशक्ती</strong> साठी सामूहिक ध्यान सुरू करत आहोत ✨
-                </p>
+        <div class="features-grid">
+            <div class="feature-card"><div class="icon">📚</div><h3 class="translate" data-en="For All Ages" data-hi="सभी उम्र के लिए">For All Ages</h3><p class="translate" data-en="Inclusive for Jr. Kg to 10th Standards" data-hi="जूनियर केजी से 10वीं कक्षा तक के लिए">Inclusive for Jr. Kg to 10th Standards</p></div>
+            <div class="feature-card"><div class="icon">🧘‍♀️</div><h3 class="translate" data-en="Meditation" data-hi="ध्यान">Meditation</h3><p class="translate" data-en="Discover Inner Peace & Balance" data-hi="आंतरिक शांति और संतुलन की खोज">Discover Inner Peace & Balance</p></div>
+            <div class="feature-card"><div class="icon">🙏</div><h3 class="translate" data-en="Values & Culture" data-hi="मूल्य और संस्कृति">Values & Culture</h3><p class="translate" data-en="Nurture Spiritual & Moral Growth" data-hi="आध्यात्मिक और नैतिक विकास को बढ़ावा">Nurture Spiritual & Moral Growth</p></div>
+            <div class="feature-card"><div class="icon">🪷</div><h3 class="translate" data-en="Teachings" data-hi="शिक्षाएं">Teachings</h3><p class="translate" data-en="Timeless Wisdom of Shri Mataji" data-hi="श्री माताजी का शाश्वत ज्ञान">Timeless Wisdom of Shri Mataji</p></div>
+        </div>
+    </div>
 
-                <div style="background: var(--surface); border: 1px solid var(--border); padding: 20px; border-radius: 12px; display: inline-block; text-align: left; margin-bottom: 25px; box-shadow: var(--shadow-sm);">
-                    <p style="margin: 0 0 12px 0; font-size: 1.05rem; color: var(--text);"><strong>ध्यानाचे फायदे:</strong> मुलांची <em>एकाग्रता</em>, <em>शांती</em>, <em>स्मरणशक्ती</em> आणि <em>आत्मविश्वास</em> वाढतो 🧘‍♀️🧘‍♂️</p>
-                    <p style="margin: 0 0 8px 0; font-size: 1.05rem; color: var(--text);"><strong>📅 दिवस:</strong> <em>सोमवार, बुधवार, गुरुवार आणि शुक्रवार</em></p>
-                    <p style="margin: 0; font-size: 1.05rem; color: var(--text);"><strong>⏰ वेळ:</strong> <em>संध्याकाळी 7:30 वाजता</em></p>
-                </div>
+    <div id="about-page" class="page-view">
+        <section class="section">
+            <h2 class="section-title translate" data-en="About Shri Mataji Nirmala Devi" data-hi="श्री माताजी निर्मला देवी के बारे में">About Shri Mataji Nirmala Devi</h2>
+            <p class="section-subtitle translate" data-en="Discover the profound life and global spiritual legacy of the founder of Sahaj Yoga." data-hi="सहज योग की संस्थापिका के गहन जीवन और वैश्विक आध्यात्मिक विरासत की खोज करें।">Discover the profound life and global spiritual legacy of the founder of Sahaj Yoga.</p>
+            
+            <div class="split-section">
+                <div class="split-text">
+                    <h3 class="translate" data-en="The Early Years & Freedom Struggle" data-hi="प्रारंभिक वर्ष और स्वतंत्रता संग्राम">The Early Years & Freedom Struggle</h3>
+                    <p class="translate" data-en="Shri Mataji Nirmala Devi was born on <strong>March 21, 1923</strong>, in Chhindwara, Madhya Pradesh, India, into a Christian family of noble descent. Her parents played a key role in India's liberation movement." data-hi="श्री माताजी निर्मला देवी का जन्म <strong>21 मार्च 1923</strong> को छिंदवाड़ा, मध्य प्रदेश में एक कुलीन परिवार में हुआ था। उनके माता-पिता ने भारत के स्वतंत्रता आंदोलन में महत्वपूर्ण भूमिका निभाई थी।">Shri Mataji Nirmala Devi was born on <strong>March 21, 1923</strong>, in Chhindwara, Madhya Pradesh, India, into a Christian family of noble descent. Her parents played a key role in India's liberation movement.</p>
+                    <p class="translate" data-en="As a child, she spent time with Mahatma Gandhi at his ashram. Gandhi recognized her extraordinary spiritual wisdom even at a young age." data-hi="बचपन में, उन्होंने महात्मा गांधी के साथ उनके आश्रम में समय बिताया। गांधीजी ने छोटी उम्र में ही उनके असाधारण आध्यात्मिक ज्ञान को पहचान लिया था।">As a child, she spent time with Mahatma Gandhi at his ashram. Gandhi recognized her extraordinary spiritual wisdom even at a young age.</p>
 
-                <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 25px;">
-                    👉 कृपया आपल्या सर्व मुलांना/बालशक्तीला यात <em>नक्की सहभागी</em> करा.<br>
-                    ⏳ <em>सर्वांनी वेळेवर जोईन व्हा.</em>
-                </p>
+                    <h3 style="margin-top: 30px;" class="translate" data-en="The Discovery of Sahaj Yoga (1970)" data-hi="सहज योग की खोज (1970)">The Discovery of Sahaj Yoga (1970)</h3>
+                    <p class="translate" data-en="On <strong>May 5, 1970</strong>, while meditating on a beach in Nargol, Gujarat, Shri Mataji experienced the opening of the Sahasrara (the seventh chakra). This monumental event made it possible for humanity to achieve <em>Self-Realization</em> en masse, a process previously available only to a few dedicated seekers after years of penance." data-hi="<strong>5 मई 1970</strong> को, गुजरात के नारगोल में समुद्र तट पर ध्यान करते हुए, श्री माताजी ने सहस्रार (सातवें चक्र) के खुलने का अनुभव किया। इस घटना ने मानवता के लिए बड़े पैमाने पर <em>आत्म-साक्षात्कार</em> प्राप्त करना संभव बना दिया।">On <strong>May 5, 1970</strong>, while meditating on a beach in Nargol, Gujarat, Shri Mataji experienced the opening of the Sahasrara (the seventh chakra). This monumental event made it possible for humanity to achieve <em>Self-Realization</em> en masse, a process previously available only to a few dedicated seekers after years of penance.</p>
+                    
+                    <h3 style="margin-top: 30px;" class="translate" data-en="A Global Spiritual Movement" data-hi="एक वैश्विक आध्यात्मिक आंदोलन">A Global Spiritual Movement</h3>
+                    <p class="translate" data-en="Unlike other modern spiritual teachers, Shri Mataji insisted that Self-Realization is a living process, and therefore, <strong>it cannot be paid for</strong>. She traveled across the globe completely free of charge, spreading the message of peace and awakening the Kundalini energy in hundreds of thousands of people." data-hi="अन्य आधुनिक आध्यात्मिक गुरुओं के विपरीत, श्री माताजी ने जोर दिया कि आत्म-साक्षात्कार एक जीवंत प्रक्रिया है, और इसलिए, <strong>इसके लिए पैसे नहीं दिए जा सकते</strong>। उन्होंने शांति का संदेश फैलाने के लिए दुनिया भर की यात्रा की।">Unlike other modern spiritual teachers, Shri Mataji insisted that Self-Realization is a living process, and therefore, <strong>it cannot be paid for</strong>. She traveled across the globe completely free of charge, spreading the message of peace and awakening the Kundalini energy in hundreds of thousands of people.</p>
+                    <ul>
+                        <li class="translate" data-en="Nominated for the Nobel Peace Prize twice." data-hi="नोबेल शांति पुरस्कार के लिए दो बार नामांकित।">Nominated for the Nobel Peace Prize twice.</li>
+                        <li class="translate" data-en="Honored by the United Nations and multiple global institutions." data-hi="संयुक्त राष्ट्र और कई वैश्विक संस्थानों द्वारा सम्मानित।">Honored by the United Nations and multiple global institutions.</li>
+                        <li class="translate" data-en="Sahaj Yoga is now practiced in over 100 countries worldwide." data-hi="सहज योग अब दुनिया भर के 100 से अधिक देशों में किया जाता है।">Sahaj Yoga is now practiced in over 100 countries worldwide.</li>
+                    </ul>
+                </div>
+                <div class="split-image">
+                    <div class="image-placeholder">📸<br><span style="font-size:1.2rem; font-weight:500; color:#64748b; margin-top:10px;" class="translate" data-en="Shri Mataji Photo" data-hi="श्री माताजी की फोटो">Shri Mataji Photo</span></div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-                <button class="btn-primary" style="font-size: 1.2rem; padding: 14px 35px; background-color: #2563eb; border: none;" 
-                        onclick="alert('you join this meeting - > https://us05web.zoom.us/j/84624810921?pwd=M3v2PgRyKRgBgt91AlbEU3PydbNPfp.1'); window.open('https://us05web.zoom.us/j/84624810921?pwd=M3v2PgRyKRgBgt91AlbEU3PydbNPfp.1', '_blank');">
-                    🎥 Join Meditation Meeting
-                </button>
+    <div id="values-page" class="page-view">
+        <section class="section">
+            <h2 class="section-title translate" data-en="Core Values & Daily Routine" data-hi="मुख्य मूल्य और दिनचर्या">Core Values & Daily Routine</h2>
+            <p class="section-subtitle translate" data-en="The foundation of Balshakti is built upon pure moral values and dedicated spiritual routines for a joyous life." data-hi="बालशक्ति की नींव शुद्ध नैतिक मूल्यों और आनंदमय जीवन के लिए समर्पित आध्यात्मिक दिनचर्या पर बनी है।">The foundation of Balshakti is built upon pure moral values and dedicated spiritual routines for a joyous life.</p>
+            
+            <div class="values-grid">
+                <div class="values-card highlight">
+                    <h3 class="translate" data-en="🧘‍♀️ Daily Meditation Routine" data-hi="🧘‍♀️ दैनिक ध्यान दिनचर्या">🧘‍♀️ Daily Meditation Routine</h3>
+                    <p class="translate" data-en="Consistency is the key to spiritual growth in Sahaj Yoga." data-hi="सहज योग में आध्यात्मिक विकास के लिए निरंतरता कुंजी है।">Consistency is the key to spiritual growth in Sahaj Yoga.</p>
+                    <ul>
+                        <li class="translate" data-en="<strong>Morning:</strong> 10 minutes of meditation to start the day with positive energy." data-hi="<strong>सुबह:</strong> सकारात्मक ऊर्जा के साथ दिन की शुरुआत करने के लिए 10 मिनट का ध्यान।"><strong>Morning:</strong> 10 minutes of meditation to start the day with positive energy.</li>
+                        <li class="translate" data-en="<strong>Evening:</strong> Foot-soaking (Jal Kriya) to clear daily catchments and relieve stress." data-hi="<strong>शाम:</strong> दैनिक बाधाओं को दूर करने और तनाव से राहत के लिए फुट-सोकिंग (जल क्रिया)।"><strong>Evening:</strong> Foot-soaking (Jal Kriya) to clear daily catchments and relieve stress.</li>
+                        <li class="translate" data-en="<strong>Collectivity:</strong> Attending weekly center meditation to grow with others." data-hi="<strong>सामूहिकता:</strong> दूसरों के साथ बढ़ने के लिए साप्ताहिक ध्यान केंद्र में भाग लेना।"><strong>Collectivity:</strong> Attending weekly center meditation to grow with others.</li>
+                    </ul>
+                </div>
 
-                <p style="margin-top: 30px; margin-bottom: 0; font-style: italic; color: var(--text-muted); font-size: 1rem;">
-                    ~ सहज प्रेम ~ <br>
-                    <strong>छ. संभाजीनगर जिल्हा समिती</strong>
-                </p>
-            </div>
-        </section>
-        <!-- ==================================================== -->
+                <div class="values-card highlight">
+                    <h3 class="translate" data-en="✨ Innocence & Purity (Shri Ganesha)" data-hi="✨ अबोधता और पवित्रता (श्री गणेश)">✨ Innocence & Purity (Shri Ganesha)</h3>
+                    <p class="translate" data-en="The essence of the Mooladhara Chakra." data-hi="मूलाधार चक्र का सार।">The essence of the Mooladhara Chakra.</p>
+                    <ul>
+                        <li class="translate" data-en="Maintaining a pure heart, free from cunningness." data-hi="चालाकी से मुक्त, एक शुद्ध हृदय बनाए रखना।">Maintaining a pure heart, free from cunningness.</li>
+                        <li class="translate" data-en="Treating others with absolute honesty and transparency." data-hi="दूसरों के साथ पूर्ण ईमानदारी और पारदर्शिता के साथ व्यवहार करना।">Treating others with absolute honesty and transparency.</li>
+                        <li class="translate" data-en="Preserving childlike joy and avoiding artificial adult complications." data-hi="बच्चों जैसी खुशी को बनाए रखना और कृत्रिम वयस्क जटिलताओं से बचना।">Preserving childlike joy and avoiding artificial adult complications.</li>
+                    </ul>
+                </div>
 
-        <div class="features-grid">
-            <div class="feature-card"><div class="icon">📚</div><h3 class="translate" data-en="For All Ages" data-hi="सभी उम्र के लिए">For All Ages</h3><p class="translate" data-en="Inclusive for Jr. Kg to 10th Standards" data-hi="जूनियर केजी से 10वीं कक्षा तक के लिए">Inclusive for Jr. Kg to 10th Standards</p></div>
-            <div class="feature-card"><div class="icon">🧘‍♀️</div><h3 class="translate" data-en="Meditation" data-hi="ध्यान">Meditation</h3><p class="translate" data-en="Discover Inner Peace & Balance" data-hi="आंतरिक शांति और संतुलन की खोज">Discover Inner Peace & Balance</p></div>
-            <div class="feature-card"><div class="icon">🙏</div><h3 class="translate" data-en="Values & Culture" data-hi="मूल्य और संस्कृति">Values & Culture</h3><p class="translate" data-en="Nurture Spiritual & Moral Growth" data-hi="आध्यात्मिक और नैतिक विकास को बढ़ावा">Nurture Spiritual & Moral Growth</p></div>
-            <div class="feature-card"><div class="icon">🪷</div><h3 class="translate" data-en="Teachings" data-hi="शिक्षाएं">Teachings</h3><p class="translate" data-en="Timeless Wisdom of Shri Mataji" data-hi="श्री माताजी का शाश्वत ज्ञान">Timeless Wisdom of Shri Mataji</p></div>
-        </div>
-    </div>
+                <div class="values-card highlight">
+                    <h3 class="translate" data-en="🙏 Respect & Morality" data-hi="🙏 सम्मान और नैतिकता">🙏 Respect & Morality</h3>
+                    <p class="translate" data-en="Building a balanced character (The Void / Guru Principle)." data-hi="एक संतुलित चरित्र का निर्माण (भवसागर / गुरु तत्व)।">Building a balanced character (The Void / Guru Principle).</p>
+                    <ul>
+                        <li class="translate" data-en="Always respecting parents, teachers, and elders." data-hi="हमेशा माता-पिता, शिक्षकों और बड़ों का सम्मान करना।">Always respecting parents, teachers, and elders.</li>
+                        <li class="translate" data-en="Speaking the truth gracefully, without hurting others." data-hi="दूसरों को चोट पहुँचाए बिना शालीनता से सच बोलना।">Speaking the truth gracefully, without hurting others.</li>
+                        <li class="translate" data-en="Avoiding bad habits, anger, and unnecessary arguments." data-hi="बुरी आदतों, क्रोध और अनावश्यक तर्कों से बचना।">Avoiding bad habits, anger, and unnecessary arguments.</li>
+                    </ul>
+                </div>
 
-    <div id="about-page" class="page-view">
-        <section class="section">
-            <h2 class="section-title translate" data-en="About Shri Mataji Nirmala Devi" data-hi="श्री माताजी निर्मला देवी के बारे में">About Shri Mataji Nirmala Devi</h2>
-            <p class="section-subtitle translate" data-en="Discover the profound life and global spiritual legacy of the founder of Sahaj Yoga." data-hi="सहज योग की संस्थापिका के गहन जीवन और वैश्विक आध्यात्मिक विरासत की खोज करें।">Discover the profound life and global spiritual legacy of the founder of Sahaj Yoga.</p>
-            
-            <div class="split-section">
-                <div class="split-text">
-                    <h3 class="translate" data-en="The Early Years & Freedom Struggle" data-hi="प्रारंभिक वर्ष और स्वतंत्रता संग्राम">The Early Years & Freedom Struggle</h3>
-                    <p class="translate" data-en="Shri Mataji Nirmala Devi was born on <strong>March 21, 1923</strong>, in Chhindwara, Madhya Pradesh, India, into a Christian family of noble descent. Her parents played a key role in India's liberation movement." data-hi="श्री माताजी निर्मला देवी का जन्म <strong>21 मार्च 1923</strong> को छिंदवाड़ा, मध्य प्रदेश में एक कुलीन परिवार में हुआ था। उनके माता-पिता ने भारत के स्वतंत्रता आंदोलन में महत्वपूर्ण भूमिका निभाई थी।">Shri Mataji Nirmala Devi was born on <strong>March 21, 1923</strong>, in Chhindwara, Madhya Pradesh, India, into a Christian family of noble descent. Her parents played a key role in India's liberation movement.</p>
-                    <p class="translate" data-en="As a child, she spent time with Mahatma Gandhi at his ashram. Gandhi recognized her extraordinary spiritual wisdom even at a young age." data-hi="बचपन में, उन्होंने महात्मा गांधी के साथ उनके आश्रम में समय बिताया। गांधीजी ने छोटी उम्र में ही उनके असाधारण आध्यात्मिक ज्ञान को पहचान लिया था।">As a child, she spent time with Mahatma Gandhi at his ashram. Gandhi recognized her extraordinary spiritual wisdom even at a young age.</p>
+                <div class="values-card highlight">
+                    <h3 class="translate" data-en="🌍 Universal Love & Brotherhood" data-hi="🌍 सार्वभौमिक प्रेम और भाईचारा">🌍 Universal Love & Brotherhood</h3>
+                    <p class="translate" data-en="Awakening the Heart (Anahata Chakra)." data-hi="हृदय का जागरण (अनाहत चक्र)।">Awakening the Heart (Anahata Chakra).</p>
+                    <ul>
+                        <li class="translate" data-en="Respecting all religions and spiritual true masters." data-hi="सभी धर्मों और सच्चे आध्यात्मिक गुरुओं का सम्मान करना।">Respecting all religions and spiritual true masters.</li>
+                        <li class="translate" data-en="Helping others selflessly without expecting anything in return." data-hi="बिना किसी स्वार्थ के दूसरों की निस्वार्थ भाव से मदद करना।">Helping others selflessly without expecting anything in return.</li>
+                        <li class="translate" data-en="Protecting nature, animals, and our environment." data-hi="प्रकृति, जानवरों और हमारे पर्यावरण की रक्षा करना।">Protecting nature, animals, and our environment.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
 
-                    <h3 style="margin-top: 30px;" class="translate" data-en="The Discovery of Sahaj Yoga (1970)" data-hi="सहज योग की खोज (1970)">The Discovery of Sahaj Yoga (1970)</h3>
-                    <p class="translate" data-en="On <strong>May 5, 1970</strong>, while meditating on a beach in Nargol, Gujarat, Shri Mataji experienced the opening of the Sahasrara (the seventh chakra). This monumental event made it possible for humanity to achieve <em>Self-Realization</em> en masse, a process previously available only to a few dedicated seekers after years of penance." data-hi="<strong>5 मई 1970</strong> को, गुजरात के नारगोल में समुद्र तट पर ध्यान करते हुए, श्री माताजी ने सहस्रार (सातवें चक्र) के खुलने का अनुभव किया। इस घटना ने मानवता के लिए बड़े पैमाने पर <em>आत्म-साक्षात्कार</em> प्राप्त करना संभव बना दिया।">On <strong>May 5, 1970</strong>, while meditating on a beach in Nargol, Gujarat, Shri Mataji experienced the opening of the Sahasrara (the seventh chakra). This monumental event made it possible for humanity to achieve <em>Self-Realization</em> en masse, a process previously available only to a few dedicated seekers after years of penance.</p>
-                    
-                    <h3 style="margin-top: 30px;" class="translate" data-en="A Global Spiritual Movement" data-hi="एक वैश्विक आध्यात्मिक आंदोलन">A Global Spiritual Movement</h3>
-                    <p class="translate" data-en="Unlike other modern spiritual teachers, Shri Mataji insisted that Self-Realization is a living process, and therefore, <strong>it cannot be paid for</strong>. She traveled across the globe completely free of charge, spreading the message of peace and awakening the Kundalini energy in hundreds of thousands of people." data-hi="अन्य आधुनिक आध्यात्मिक गुरुओं के विपरीत, श्री माताजी ने जोर दिया कि आत्म-साक्षात्कार एक जीवंत प्रक्रिया है, और इसलिए, <strong>इसके लिए पैसे नहीं दिए जा सकते</strong>। उन्होंने शांति का संदेश फैलाने के लिए दुनिया भर की यात्रा की।">Unlike other modern spiritual teachers, Shri Mataji insisted that Self-Realization is a living process, and therefore, <strong>it cannot be paid for</strong>. She traveled across the globe completely free of charge, spreading the message of peace and awakening the Kundalini energy in hundreds of thousands of people.</p>
-                    <ul>
-                        <li class="translate" data-en="Nominated for the Nobel Peace Prize twice." data-hi="नोबेल शांति पुरस्कार के लिए दो बार नामांकित।">Nominated for the Nobel Peace Prize twice.</li>
-                        <li class="translate" data-en="Honored by the United Nations and multiple global institutions." data-hi="संयुक्त राष्ट्र और कई वैश्विक संस्थानों द्वारा सम्मानित।">Honored by the United Nations and multiple global institutions.</li>
-                        <li class="translate" data-en="Sahaj Yoga is now practiced in over 100 countries worldwide." data-hi="सहज योग अब दुनिया भर के 100 से अधिक देशों में किया जाता है।">Sahaj Yoga is now practiced in over 100 countries worldwide.</li>
-                    </ul>
-                </div>
-                <div class="split-image">
-                    <div class="image-placeholder">📸<br><span style="font-size:1.2rem; font-weight:500; color:#64748b; margin-top:10px;" class="translate" data-en="Shri Mataji Photo" data-hi="श्री माताजी की फोटो">Shri Mataji Photo</span></div>
-                </div>
-            </div>
-        </section>
-    </div>
+    <div id="support-page" class="page-view">
+        <section class="section">
+            <h2 class="section-title translate" data-en="Support & Contact" data-hi="संपर्क और सहायता">Support & Contact</h2>
+            <p class="section-subtitle translate" data-en="Need help with the quiz, app downloads, or want to learn more about Sahaj Yoga meditation? We are here for you." data-hi="क्या आपको क्विज़, ऐप डाउनलोड में मदद चाहिए, या सहज योग ध्यान के बारे में अधिक जानना चाहते हैं? हम यहाँ हैं।">Need help with the quiz, app downloads, or want to learn more about Sahaj Yoga meditation? We are here for you.</p>
 
-    <div id="values-page" class="page-view">
-        <section class="section">
-            <h2 class="section-title translate" data-en="Core Values & Daily Routine" data-hi="मुख्य मूल्य और दिनचर्या">Core Values & Daily Routine</h2>
-            <p class="section-subtitle translate" data-en="The foundation of Balshakti is built upon pure moral values and dedicated spiritual routines for a joyous life." data-hi="बालशक्ति की नींव शुद्ध नैतिक मूल्यों और आनंदमय जीवन के लिए समर्पित आध्यात्मिक दिनचर्या पर बनी है।">The foundation of Balshakti is built upon pure moral values and dedicated spiritual routines for a joyous life.</p>
-            
-            <div class="values-grid">
-                <div class="values-card highlight">
-                    <h3 class="translate" data-en="🧘‍♀️ Daily Meditation Routine" data-hi="🧘‍♀️ दैनिक ध्यान दिनचर्या">🧘‍♀️ Daily Meditation Routine</h3>
-                    <p class="translate" data-en="Consistency is the key to spiritual growth in Sahaj Yoga." data-hi="सहज योग में आध्यात्मिक विकास के लिए निरंतरता कुंजी है।">Consistency is the key to spiritual growth in Sahaj Yoga.</p>
-                    <ul>
-                        <li class="translate" data-en="<strong>Morning:</strong> 10 minutes of meditation to start the day with positive energy." data-hi="<strong>सुबह:</strong> सकारात्मक ऊर्जा के साथ दिन की शुरुआत करने के लिए 10 मिनट का ध्यान।"><strong>Morning:</strong> 10 minutes of meditation to start the day with positive energy.</li>
-                        <li class="translate" data-en="<strong>Evening:</strong> Foot-soaking (Jal Kriya) to clear daily catchments and relieve stress." data-hi="<strong>शाम:</strong> दैनिक बाधाओं को दूर करने और तनाव से राहत के लिए फुट-सोकिंग (जल क्रिया)।"><strong>Evening:</strong> Foot-soaking (Jal Kriya) to clear daily catchments and relieve stress.</li>
-                        <li class="translate" data-en="<strong>Collectivity:</strong> Attending weekly center meditation to grow with others." data-hi="<strong>सामूहिकता:</strong> दूसरों के साथ बढ़ने के लिए साप्ताहिक ध्यान केंद्र में भाग लेना।"><strong>Collectivity:</strong> Attending weekly center meditation to grow with others.</li>
-                    </ul>
-                </div>
+            <div class="support-grid">
+                <div class="support-card">
+                    <div class="icon">💬</div>
+                    <h3 class="translate" data-en="WhatsApp Support" data-hi="व्हाट्सएप सपोर्ट">WhatsApp Support</h3>
+                    <p class="translate" data-en="Join our official Balshakti WhatsApp group for daily updates, quiz hints, and meditation links." data-hi="दैनिक अपडेट, क्विज़ हिंट्स और ध्यान लिंक के लिए हमारे आधिकारिक बालशक्ति व्हाट्सएप समूह में शामिल हों।">Join our official Balshakti WhatsApp group for daily updates, quiz hints, and meditation links.</p>
+                    <a href="#" class="btn-success translate" style="padding: 10px 20px; font-size: 0.95rem;" data-en="Join Group" data-hi="ग्रुप से जुड़ें">Join Group</a>
+                </div>
+                
+                <div class="support-card">
+                    <div class="icon">📧</div>
+                    <h3 class="translate" data-en="Email Us" data-hi="हमें ईमेल करें">Email Us</h3>
+                    <p class="translate" data-en="Facing technical issues with the quiz or the Android App? Send us a detailed email." data-hi="क्विज़ या एंड्रॉइड ऐप के साथ तकनीकी समस्याओं का सामना कर रहे हैं? हमें ईमेल भेजें।">Facing technical issues with the quiz or the Android App? Send us a detailed email.</p>
+                    <a href="mailto:ypprogamer124@gmail.com" class="btn-secondary translate" style="padding: 10px 20px; font-size: 0.95rem;" data-en="Send Email" data-hi="ईमेल भेजें">Send Email</a>
+                </div>
 
-                <div class="values-card highlight">
-                    <h3 class="translate" data-en="✨ Innocence & Purity (Shri Ganesha)" data-hi="✨ अबोधता और पवित्रता (श्री गणेश)">✨ Innocence & Purity (Shri Ganesha)</h3>
-                    <p class="translate" data-en="The essence of the Mooladhara Chakra." data-hi="मूलाधार चक्र का सार।">The essence of the Mooladhara Chakra.</p>
-                    <ul>
-                        <li class="translate" data-en="Maintaining a pure heart, free from cunningness." data-hi="चालाकी से मुक्त, एक शुद्ध हृदय बनाए रखना।">Maintaining a pure heart, free from cunningness.</li>
-                        <li class="translate" data-en="Treating others with absolute honesty and transparency." data-hi="दूसरों के साथ पूर्ण ईमानदारी और पारदर्शिता के साथ व्यवहार करना।">Treating others with absolute honesty and transparency.</li>
-                        <li class="translate" data-en="Preserving childlike joy and avoiding artificial adult complications." data-hi="बच्चों जैसी खुशी को बनाए रखना और कृत्रिम वयस्क जटिलताओं से बचना।">Preserving childlike joy and avoiding artificial adult complications.</li>
-                    </ul>
-                </div>
+                <div class="support-card">
+                    <div class="icon">📞</div>
+                    <h3 class="translate" data-en="Helpline" data-hi="हेल्पलाइन">Helpline</h3>
+                    <p class="translate" data-en="Call our toll-free national helpline to find a free Sahaj Yoga meditation center near you." data-hi="अपने आस-पास एक निःशुल्क सहज योग ध्यान केंद्र खोजने के लिए हमारी टोल-फ्री राष्ट्रीय हेल्पलाइन पर कॉल करें।">Call our toll-free national helpline to find a free Sahaj Yoga meditation center near you.</p>
+                    <h2 style="color: var(--primary); margin: 10px 0;">9359881192</h2>
+                </div>
+            </div>
+        </section>
+    </div>
 
-                <div class="values-card highlight">
-                    <h3 class="translate" data-en="🙏 Respect & Morality" data-hi="🙏 सम्मान और नैतिकता">🙏 Respect & Morality</h3>
-                    <p class="translate" data-en="Building a balanced character (The Void / Guru Principle)." data-hi="एक संतुलित चरित्र का निर्माण (भवसागर / गुरु तत्व)।">Building a balanced character (The Void / Guru Principle).</p>
-                    <ul>
-                        <li class="translate" data-en="Always respecting parents, teachers, and elders." data-hi="हमेशा माता-पिता, शिक्षकों और बड़ों का सम्मान करना।">Always respecting parents, teachers, and elders.</li>
-                        <li class="translate" data-en="Speaking the truth gracefully, without hurting others." data-hi="दूसरों को चोट पहुँचाए बिना शालीनता से सच बोलना।">Speaking the truth gracefully, without hurting others.</li>
-                        <li class="translate" data-en="Avoiding bad habits, anger, and unnecessary arguments." data-hi="बुरी आदतों, क्रोध और अनावश्यक तर्कों से बचना।">Avoiding bad habits, anger, and unnecessary arguments.</li>
-                    </ul>
-                </div>
+    <div id="games-dashboard" class="page-view">
+        <section class="section text-center">
+            <h2 class="section-title translate" data-en="🎮 Unlocked Games Zone" data-hi="🎮 अनलॉक गेम्स ज़ोन">🎮 Unlocked Games Zone</h2>
+            <p class="section-subtitle translate" data-en="You have successfully unlocked these games by completing the quiz!" data-hi="क्विज पूरा करके आपने सफलतापूर्वक इन गेम्स को अनलॉक कर लिया है!">You have successfully unlocked these games by completing the quiz!</p>
+            <div class="quiz-wrapper" style="display:flex; flex-direction:column; gap:15px;">
+                <button class="btn-primary translate" style="padding: 20px; font-size: 1.2rem;" onclick="startMiniGame()" data-en="🧩 1. Chakra Memory Match" data-hi="🧩 1. चक्र मेमोरी मैच">🧩 1. Chakra Memory Match</button>
+                <button class="btn-success translate" style="padding: 20px; font-size: 1.2rem;" onclick="startBandhanGame()" data-en="🛡️ 2. Bandhan Tracer" data-hi="🛡️ 2. बंधन ट्रेसर">🛡️ 2. Bandhan Tracer</button>
+                <button class="btn-secondary translate" style="padding: 20px; font-size: 1.2rem;" onclick="startBuilderGame()" data-en="🧘‍♂️ 3. Subtle System Builder" data-hi="🧘‍♂️ 3. सूक्ष्म तंत्र (Subtle System) बिल्डर">🧘‍♂️ 3. Subtle System Builder</button>
+                <button class="btn-primary translate" style="padding: 20px; font-size: 1.2rem; background-color: #f59e0b; border-color: #f59e0b;" onclick="startMatchGame()" data-en="✨ 4. Match the Qualities" data-hi="✨ 4. गुणों का मिलान करें">✨ 4. Match the Qualities</button>
+                <button class="btn-secondary translate" style="padding: 20px; font-size: 1.2rem; color: #ef4444; border-color: #ef4444;" onclick="startCatchGame()" data-en="💧 5. Clear the Catch" data-hi="💧 5. कैच (बाधा) साफ़ करें">💧 5. Clear the Catch</button>
+                
+                <button class="btn-success translate" style="padding: 20px; font-size: 1.2rem; background-color: #10b981; border-color: #10b981;" onclick="openSnakeLadderSetup()" data-en="🐍 6. Snakes & Ladders" data-hi="🐍 6. सांप और सीढ़ी">🐍 6. Snakes & Ladders</button>
+            </div>
+        </section>
+    </div>
 
-                <div class="values-card highlight">
-                    <h3 class="translate" data-en="🌍 Universal Love & Brotherhood" data-hi="🌍 सार्वभौमिक प्रेम और भाईचारा">🌍 Universal Love & Brotherhood</h3>
-                    <p class="translate" data-en="Awakening the Heart (Anahata Chakra)." data-hi="हृदय का जागरण (अनाहत चक्र)।">Awakening the Heart (Anahata Chakra).</p>
-                    <ul>
-                        <li class="translate" data-en="Respecting all religions and spiritual true masters." data-hi="सभी धर्मों और सच्चे आध्यात्मिक गुरुओं का सम्मान करना।">Respecting all religions and spiritual true masters.</li>
-                        <li class="translate" data-en="Helping others selflessly without expecting anything in return." data-hi="बिना किसी स्वार्थ के दूसरों की निस्वार्थ भाव से मदद करना।">Helping others selflessly without expecting anything in return.</li>
-                        <li class="translate" data-en="Protecting nature, animals, and our environment." data-hi="प्रकृति, जानवरों और हमारे पर्यावरण की रक्षा करना।">Protecting nature, animals, and our environment.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </div>
+    <div id="quiz-page" class="page-view">
+        <section class="section">
+            <h2 class="section-title" id="quiz-header">📝 Sahaj Yoga Balshakti Quiz</h2>
+            
+            <div class="quiz-wrapper">
+                
+                <div class="card-container" id="form-container">
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <h3 style="margin-top:0; font-size: 1.5rem;">Participant Details</h3>
+                        <p style="color:var(--text-muted); margin:0;">Please fill out your details to enter the challenge.</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Player's Name *</label>
+                        <input type="text" id="userName" class="form-control" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Age *</label>
+                        <select id="userAge" class="form-control" required><option value="">Select Age</option></select>
+                    </div>
+                    <div class="form-group">
+                        <label>District *</label>
+                        <select id="userCity" class="form-control" required><option value="">Select District</option></select>
+                    </div>
+                    <div class="form-group hidden" id="taluka-group">
+                        <label>Taluka / Area *</label>
+                        <select id="userTaluka" class="form-control" required><option value="">Select Taluka</option></select>
+                    </div>
+                    <button class="btn-primary" style="width:100%; margin-top:20px; padding:16px; font-size:1.1rem;" onclick="processForm()">Proceed ➡️</button>
+                </div>
 
-    <div id="support-page" class="page-view">
-        <section class="section">
-            <h2 class="section-title translate" data-en="Support & Contact" data-hi="संपर्क और सहायता">Support & Contact</h2>
-            <p class="section-subtitle translate" data-en="Need help with the quiz, app downloads, or want to learn more about Sahaj Yoga meditation? We are here for you." data-hi="क्या आपको क्विज़, ऐप डाउनलोड में मदद चाहिए, या सहज योग ध्यान के बारे में अधिक जानना चाहते हैं? हम यहाँ हैं।">Need help with the quiz, app downloads, or want to learn more about Sahaj Yoga meditation? We are here for you.</p>
+                <div class="card-container hidden" id="reading-container">
+                    <h3 style="text-align: center; color: var(--primary); margin-top: 0; font-size: 1.6rem; border-bottom: 2px solid var(--border); padding-bottom: 15px; margin-bottom: 25px;">
+                        READ THIS AND SOLVE THE QUIZ
+                    </h3>
+                    
+                    <div class="reading-content" id="dynamic-reading-content" style="margin-bottom: 30px;">
+                        <h2 id="passage-title">Loading Study Material...</h2>
+                        <div id="passage-body">
+                            <p>Please wait while the latest chapter content loads securely...</p>
+                        </div>
+                    </div>
 
-            <div class="support-grid">
-                <div class="support-card">
-                    <div class="icon">💬</div>
-                    <h3 class="translate" data-en="WhatsApp Support" data-hi="व्हाट्सएप सपोर्ट">WhatsApp Support</h3>
-                    <p class="translate" data-en="Join our official Balshakti WhatsApp group for daily updates, quiz hints, and meditation links." data-hi="दैनिक अपडेट, क्विज़ हिंट्स और ध्यान लिंक के लिए हमारे आधिकारिक बालशक्ति व्हाट्सएप समूह में शामिल हों।">Join our official Balshakti WhatsApp group for daily updates, quiz hints, and meditation links.</p>
-                    <a href="#" class="btn-success translate" style="padding: 10px 20px; font-size: 0.95rem;" data-en="Join Group" data-hi="ग्रुप से जुड़ें">Join Group</a>
-                </div>
-                
-                <div class="support-card">
-                    <div class="icon">📧</div>
-                    <h3 class="translate" data-en="Email Us" data-hi="हमें ईमेल करें">Email Us</h3>
-                    <p class="translate" data-en="Facing technical issues with the quiz or the Android App? Send us a detailed email." data-hi="क्विज़ या एंड्रॉइड ऐप के साथ तकनीकी समस्याओं का सामना कर रहे हैं? हमें ईमेल भेजें।">Facing technical issues with the quiz or the Android App? Send us a detailed email.</p>
-                    <a href="mailto:ypprogamer124@gmail.com" class="btn-secondary translate" style="padding: 10px 20px; font-size: 0.95rem;" data-en="Send Email" data-hi="ईमेल भेजें">Send Email</a>
-                </div>
+                    <button id="start-quiz-btn" class="btn-primary disabled" style="width: 100%; padding: 16px; font-size: 1.1rem; background-color: var(--secondary); border-color: var(--secondary);" onclick="startActualQuiz()" disabled>Fetching Quiz Content...</button>
+                </div>
 
-                <div class="support-card">
-                    <div class="icon">📞</div>
-                    <h3 class="translate" data-en="Helpline" data-hi="हेल्पलाइन">Helpline</h3>
-                    <p class="translate" data-en="Call our toll-free national helpline to find a free Sahaj Yoga meditation center near you." data-hi="अपने आस-पास एक निःशुल्क सहज योग ध्यान केंद्र खोजने के लिए हमारी टोल-फ्री राष्ट्रीय हेल्पलाइन पर कॉल करें।">Call our toll-free national helpline to find a free Sahaj Yoga meditation center near you.</p>
-                    <h2 style="color: var(--primary); margin: 10px 0;">9359881192</h2>
-                </div>
-            </div>
-        </section>
-    </div>
+                <div class="card-container hidden" id="quiz-container">
+                    <div id="progress-text" style="color:var(--primary); text-align:center; font-weight:700;">Question 1 of 5</div>
+                    <h2 id="question-text" style="text-align:center; margin-bottom:40px;">Question goes here</h2>
+                    <div id="options-container" class="options-grid"></div>
+                </div>
 
-    <div id="games-dashboard" class="page-view">
-        <section class="section text-center">
-            <h2 class="section-title translate" data-en="🎮 Unlocked Games Zone" data-hi="🎮 अनलॉक गेम्स ज़ोन">🎮 Unlocked Games Zone</h2>
-            <p class="section-subtitle translate" data-en="You have successfully unlocked these games by completing the quiz!" data-hi="क्विज पूरा करके आपने सफलतापूर्वक इन गेम्स को अनलॉक कर लिया है!">You have successfully unlocked these games by completing the quiz!</p>
-            <div class="quiz-wrapper" style="display:flex; flex-direction:column; gap:15px;">
-                <button class="btn-primary translate" style="padding: 20px; font-size: 1.2rem;" onclick="startMiniGame()" data-en="🧩 1. Chakra Memory Match" data-hi="🧩 1. चक्र मेमोरी मैच">🧩 1. Chakra Memory Match</button>
-                <button class="btn-success translate" style="padding: 20px; font-size: 1.2rem;" onclick="startBandhanGame()" data-en="🛡️ 2. Bandhan Tracer" data-hi="🛡️ 2. बंधन ट्रेसर">🛡️ 2. Bandhan Tracer</button>
-                <button class="btn-secondary translate" style="padding: 20px; font-size: 1.2rem;" onclick="startBuilderGame()" data-en="🧘‍♂️ 3. Subtle System Builder" data-hi="🧘‍♂️ 3. सूक्ष्म तंत्र (Subtle System) बिल्डर">🧘‍♂️ 3. Subtle System Builder</button>
-                <button class="btn-primary translate" style="padding: 20px; font-size: 1.2rem; background-color: #f59e0b; border-color: #f59e0b;" onclick="startMatchGame()" data-en="✨ 4. Match the Qualities" data-hi="✨ 4. गुणों का मिलान करें">✨ 4. Match the Qualities</button>
-                <button class="btn-secondary translate" style="padding: 20px; font-size: 1.2rem; color: #ef4444; border-color: #ef4444;" onclick="startCatchGame()" data-en="💧 5. Clear the Catch" data-hi="💧 5. कैच (बाधा) साफ़ करें">💧 5. Clear the Catch</button>
-                
-                <button class="btn-success translate" style="padding: 20px; font-size: 1.2rem; background-color: #10b981; border-color: #10b981;" onclick="openSnakeLadderSetup()" data-en="🐍 6. Snakes & Ladders" data-hi="🐍 6. सांप और सीढ़ी">🐍 6. Snakes & Ladders</button>
-            </div>
-        </section>
-    </div>
+                <div class="card-container hidden" id="result-container" style="text-align:center;">
+                    <div style="font-size: 4rem; margin-bottom: 20px;">🎉</div>
+                    <h2 style="font-size: 2rem; margin-bottom: 10px;">Quiz Complete!</h2>
+                    <p style="font-size: 1.2rem; color: var(--text-muted);">Great job, <span id="display-name" style="font-weight:700; color: var(--text);"></span>!</p>
+                    
+                    <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 16px; padding: 30px; margin: 30px 0;">
+                        <p style="font-size:1.2rem; margin: 0; color: var(--text-muted);">Your Final Score</p>
+                        <p style="font-size:3rem; margin: 10px 0 0 0;"><strong style="color:var(--primary);"><span id="score-display">0</span> / 5</strong></p>
+                    </div>
+                    
+                    <p style="color: var(--secondary); font-weight: 600; margin-bottom: 20px;">🌟 You have unlocked new games in the menu!</p>
 
-    <div id="quiz-page" class="page-view">
-        <section class="section">
-            <h2 class="section-title" id="quiz-header">📝 Sahaj Yoga Balshakti Quiz</h2>
-            
-            <div class="quiz-wrapper">
-                
-                <div class="card-container" id="form-container">
-                    <div style="text-align: center; margin-bottom: 30px;">
-                        <h3 style="margin-top:0; font-size: 1.5rem;">Participant Details</h3>
-                        <p style="color:var(--text-muted); margin:0;">Please fill out your details to enter the challenge.</p>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Player's Name *</label>
-                        <input type="text" id="userName" class="form-control" placeholder="Enter your full name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Age *</label>
-                        <select id="userAge" class="form-control" required><option value="">Select Age</option></select>
-                    </div>
-                    <div class="form-group">
-                        <label>District *</label>
-                        <select id="userCity" class="form-control" required><option value="">Select District</option></select>
-                    </div>
-                    <div class="form-group hidden" id="taluka-group">
-                        <label>Taluka / Area *</label>
-                        <select id="userTaluka" class="form-control" required><option value="">Select Taluka</option></select>
-                    </div>
-                    <button class="btn-primary" style="width:100%; margin-top:20px; padding:16px; font-size:1.1rem;" onclick="processForm()">Proceed ➡️</button>
-                </div>
+                    <button class="btn-primary" style="width: 100%; margin-bottom: 12px;" onclick="goToGamesZoneTracked()">🎮 Go to Games Zone</button>
+                    
+                    <button class="btn-secondary" style="width: 100%;" onclick="location.reload()">🔄 Return to Home</button>
+                </div>
 
-                <div class="card-container hidden" id="reading-container">
-                    <h3 style="text-align: center; color: var(--primary); margin-top: 0; font-size: 1.6rem; border-bottom: 2px solid var(--border); padding-bottom: 15px; margin-bottom: 25px;">
-                        READ THIS AND SOLVE THE QUIZ
-                    </h3>
-                    
-                    <div class="reading-content" id="dynamic-reading-content" style="margin-bottom: 30px;">
-                        <h2 id="passage-title">Loading Study Material...</h2>
-                        <div id="passage-body">
-                            <p>Please wait while the latest chapter content loads securely...</p>
-                        </div>
-                    </div>
+                <div class="card-container hidden" id="game-container" style="text-align:center;">
+                    <h2 style="margin-top:0; color: var(--primary); font-size: 1.8rem;" class="translate" data-en="🧘‍♀️ Chakra Memory Match" data-hi="🧘‍♀️ चक्र मेमोरी मैच">🧘‍♀️ Chakra Memory Match</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 5px;" class="translate" data-en="Flip the cards to match the identical Chakras!" data-hi="समान चक्रों का मिलान करने के लिए कार्ड को पलटें!">Flip the cards to match the identical Chakras!</p>
+                    <div id="memory-board" class="memory-grid"></div>
+                    <p id="game-message" style="font-size: 1.2rem; font-weight: 700; color: var(--secondary); min-height: 30px; margin-top: 15px;"></p>
+                    <button class="btn-secondary translate" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')" data-en="⬅️ Back to Games" data-hi="⬅️ गेम्स पर वापस जाएं">⬅️ Back to Games</button>
+                </div>
 
-                    <button id="start-quiz-btn" class="btn-primary disabled" style="width: 100%; padding: 16px; font-size: 1.1rem; background-color: var(--secondary); border-color: var(--secondary);" onclick="startActualQuiz()" disabled>Fetching Quiz Content...</button>
-                </div>
+                <div class="card-container hidden" id="bandhan-container" style="text-align:center;">
+                    <h2 style="margin-top:0; color: var(--secondary); font-size: 1.8rem;" class="translate" data-en="🛡️ Bandhan Tracer" data-hi="🛡️ बंधन ट्रेसर">🛡️ Bandhan Tracer</h2>
+                    <p style="color: var(--text-muted);" class="translate" data-en="Drag/Swipe your finger over the yogi from <b>Left to Right</b> and back to complete 1 Bandhan. Do this 7 times!" data-hi="1 बंधन पूरा करने के लिए अपनी उंगली को <b>बाएं से दाएं</b> और वापस स्वाइप करें। इसे 7 बार करें!">Drag/Swipe your finger over the yogi from <b>Left to Right</b> and back to complete 1 Bandhan. Do this 7 times!</p>
+                    <div class="bandhan-area" id="bandhanArea">
+                        <div class="yogi-emoji">🧘‍♂️</div>
+                        <canvas id="bandhanCanvas" width="300" height="300"></canvas>
+                    </div>
+                    <div style="background: #f8fafc; padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+                        <h3 style="margin: 0; color: var(--text);"><span class="translate" data-en="Bandhans:" data-hi="बंधन:">Bandhans:</span> <span id="bandhan-counter" style="color: var(--primary);">0</span> / 7</h3>
+                    </div>
+                    <p id="bandhan-message" style="font-size: 1.1rem; font-weight: 700; color: var(--secondary); min-height: 25px;"></p>
+                    <button class="btn-secondary translate" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')" data-en="⬅️ Back to Games" data-hi="⬅️ गेम्स पर वापस जाएं">⬅️ Back to Games</button>
+                </div>
 
-                <div class="card-container hidden" id="quiz-container">
-                    <div id="progress-text" style="color:var(--primary); text-align:center; font-weight:700;">Question 1 of 5</div>
-                    <h2 id="question-text" style="text-align:center; margin-bottom:40px;">Question goes here</h2>
-                    <div id="options-container" class="options-grid"></div>
-                </div>
+                <div class="card-container hidden" id="builder-container" style="text-align:center;">
+                    <h2 style="margin-top:0; color: var(--primary); font-size: 1.8rem;" class="translate" data-en="🧘‍♂️ Build the Subtle System" data-hi="🧘‍♂️ सूक्ष्म तंत्र (Subtle System) बनाएं">🧘‍♂️ Build the Subtle System</h2>
+                    <p style="color: var(--text-muted);" class="translate" data-en="Drag the Chakras to their correct physical position from bottom to top!" data-hi="चक्रों को नीचे से ऊपर उनके सही भौतिक स्थान पर ड्रैग करें!">Drag the Chakras to their correct physical position from bottom to top!</p>
+                    <div class="builder-container">
+                        <div class="subtle-body">
+                            <div class="drop-zone" data-target="Sahasrara">7</div>
+                            <div class="drop-zone" data-target="Agnya">6</div>
+                            <div class="drop-zone" data-target="Vishuddhi">5</div>
+                            <div class="drop-zone" data-target="Anahata">4</div>
+                            <div class="drop-zone" data-target="Nabhi">3</div>
+                            <div class="drop-zone" data-target="Swadisthan">2</div>
+                            <div class="drop-zone" data-target="Mooladhara">1</div>
+                        </div>
+                        <div class="draggable-chakras" id="draggable-items">
+                            <div class="drag-item" draggable="true" data-id="Nabhi" data-symbol="🟡">🟡 Nabhi</div>
+                            <div class="drag-item" draggable="true" data-id="Sahasrara" data-symbol="🪷">🪷 Sahasrara</div>
+                            <div class="drag-item" draggable="true" data-id="Mooladhara" data-symbol="🔴">🔴 Mooladhara</div>
+                            <div class="drag-item" draggable="true" data-id="Agnya" data-symbol="🟣">🟣 Agnya</div>
+                            <div class="drag-item" draggable="true" data-id="Anahata" data-symbol="🟢">🟢 Anahata</div>
+                            <div class="drag-item" draggable="true" data-id="Vishuddhi" data-symbol="🔵">🔵 Vishuddhi</div>
+                            <div class="drag-item" draggable="true" data-id="Swadisthan" data-symbol="🟠">🟠 Swadisthan</div>
+                        </div>
+                    </div>
+                    <p id="builder-message" style="font-size: 1.2rem; font-weight: 700; color: var(--secondary); margin-top: 20px;"></p>
+                    <button class="btn-secondary translate" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')" data-en="⬅️ Back to Games" data-hi="⬅️ गेम्स पर वापस जाएं">⬅️ Back to Games</button>
+                </div>
 
-                <div class="card-container hidden" id="result-container" style="text-align:center;">
-                    <div style="font-size: 4rem; margin-bottom: 20px;">🎉</div>
-                    <h2 style="font-size: 2rem; margin-bottom: 10px;">Quiz Complete!</h2>
-                    <p style="font-size: 1.2rem; color: var(--text-muted);">Great job, <span id="display-name" style="font-weight:700; color: var(--text);"></span>!</p>
-                    
-                    <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 16px; padding: 30px; margin: 30px 0;">
-                        <p style="font-size:1.2rem; margin: 0; color: var(--text-muted);">Your Final Score</p>
-                        <p style="font-size:3rem; margin: 10px 0 0 0;"><strong style="color:var(--primary);"><span id="score-display">0</span> / 5</strong></p>
-                    </div>
-                    
-                    <p style="color: var(--secondary); font-weight: 600; margin-bottom: 20px;">🌟 You have unlocked new games in the menu!</p>
+                <div class="card-container hidden" id="match-container" style="text-align:center;">
+                    <h2 style="margin-top:0; color: #f59e0b; font-size: 1.8rem;" class="translate" data-en="✨ Match the Qualities" data-hi="✨ गुणों का मिलान करें">✨ Match the Qualities</h2>
+                    <p style="color: var(--text-muted);" class="translate" data-en="Select a Chakra, then select its corresponding moral quality." data-hi="एक चक्र चुनें, फिर उसके संबंधित नैतिक गुण का चयन करें।">Select a Chakra, then select its corresponding moral quality.</p>
+                    <div class="match-container">
+                        <div class="match-column" id="match-chakras"></div>
+                        <div class="match-column" id="match-qualities"></div>
+                    </div>
+                    <p id="match-message" style="font-size: 1.2rem; font-weight: 700; color: var(--secondary); margin-top: 20px;"></p>
+                    <button class="btn-secondary translate" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')" data-en="⬅️ Back to Games" data-hi="⬅️ गेम्स पर वापस जाएं">⬅️ Back to Games</button>
+                </div>
 
-                    <button class="btn-primary" style="width: 100%; margin-bottom: 12px;" onclick="goToGamesZoneTracked()">🎮 Go to Games Zone</button>
-                    
-                    <button class="btn-secondary" style="width: 100%;" onclick="location.reload()">🔄 Return to Home</button>
-                </div>
+                <div class="card-container hidden" id="catch-container" style="text-align:center;">
+                    <h2 style="margin-top:0; color: var(--danger); font-size: 1.8rem;" class="translate" data-en="💧 Clear the Catch" data-hi="💧 कैच (बाधा) साफ़ करें">💧 Clear the Catch</h2>
+                    <p style="color: var(--text-muted);" class="translate" data-en="Tap the red Stress/Catch bubbles quickly to clear the chakras!" data-hi="चक्रों को साफ करने বঙ্গবন্ধकों को साफ करने के लिए लाल तनाव/कैच बुलबुले को जल्दी से टैप करें!">Tap the red Stress/Catch bubbles quickly to clear the chakras!</p>
+                    <div style="background: #f8fafc; padding: 15px; border-radius: 12px; margin-bottom: 20px; display:flex; justify-content:space-around;">
+                        <h3 style="margin: 0;"><span class="translate" data-en="Score:" data-hi="स्कोर:">Score:</span> <span id="catch-score" style="color: var(--primary);">0</span></h3>
+                        <h3 style="margin: 0;"><span class="translate" data-en="Time:" data-hi="समय:">Time:</span> <span id="catch-time" style="color: var(--danger);">30</span>s</h3>
+                    </div>
+                    <div class="whack-grid" id="whack-grid">
+                        <div class="whack-hole"><div class="whack-catch" onclick="whackCatch(this)">Anger</div></div>
+                        <div class="whack-hole"><div class="whack-catch" onclick="whackCatch(this)">Stress</div></div>
+                        <div class="whack-hole"><div class="whack-catch" onclick="whackCatch(this)">Fear</div></div>
+                        <div class="whack-hole"><div class="whack-catch" onclick="whackCatch(this)">Ego</div></div>
+                        <div class="whack-hole"><div class="whack-catch" onclick="whackCatch(this)">Greed</div></div>
+                        <div class="whack-hole"><div class="whack-catch" onclick="whackCatch(this)">Guilt</div></div>
+                    </div>
+                    <button class="btn-primary translate" id="btn-start-catch" style="width: 100%; margin-top: 20px;" onclick="startGameCatch()" data-en="▶️ Start Cleaning!" data-hi="▶️ सफाई शुरू करें!">▶️ Start Cleaning!</button>
+                    <button class="btn-secondary translate" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')" data-en="⬅️ Back to Games" data-hi="⬅️ गेम्स पर वापस जाएं">⬅️ Back to Games</button>
+                </div>
 
-                <div class="card-container hidden" id="game-container" style="text-align:center;">
-                    <h2 style="margin-top:0; color: var(--primary); font-size: 1.8rem;" class="translate" data-en="🧘‍♀️ Chakra Memory Match" data-hi="🧘‍♀️ चक्र मेमोरी मैच">🧘‍♀️ Chakra Memory Match</h2>
-                    <p style="color: var(--text-muted); margin-bottom: 5px;" class="translate" data-en="Flip the cards to match the identical Chakras!" data-hi="समान चक्रों का मिलान करने के लिए कार्ड को पलटें!">Flip the cards to match the identical Chakras!</p>
-                    <div id="memory-board" class="memory-grid"></div>
-                    <p id="game-message" style="font-size: 1.2rem; font-weight: 700; color: var(--secondary); min-height: 30px; margin-top: 15px;"></p>
-                    <button class="btn-secondary translate" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')" data-en="⬅️ Back to Games" data-hi="⬅️ गेम्स पर वापस जाएं">⬅️ Back to Games</button>
-                </div>
+                <div class="card-container hidden" id="snake-ladder-container" style="text-align:center; padding: 30px 20px;">
+                    <h2 style="margin-top:0; color: #10b981; font-size: 1.8rem;" class="translate" data-en="🐍 Snakes & Ladders" data-hi="🐍 सांप और सीढ़ी">🐍 Snakes & Ladders</h2>
+                    
+                    <div id="sl-setup-ui">
+                        <p style="color: var(--text-muted); margin-bottom: 20px;" class="translate" data-en="Choose your mode to begin!" data-hi="शुरू करने के लिए अपना मोड चुनें!">Choose your mode to begin!</p>
+                        <div style="display:flex; flex-direction:column; gap:15px; max-width:300px; margin: 0 auto;">
+                            <button class="btn-primary translate" onclick="initSnakeLadder(false)" data-en="👥 Play with Friend (Pass & Play)" data-hi="👥 मित्र के साथ खेलें (पास एंड प्ले)">👥 Play with Friend (Pass & Play)</button>
+                            <button class="btn-success translate" onclick="initSnakeLadder(true)" data-en="🤖 Play with Computer" data-hi="🤖 कंप्यूटर के साथ खेलें">🤖 Play with Computer</button>
+                            <button class="btn-secondary translate" onclick="navigateTo('games-dashboard')" data-en="⬅️ Cancel" data-hi="⬅️ रद्द करें">⬅️ Cancel</button>
+                        </div>
+                    </div>
 
-                <div class="card-container hidden" id="bandhan-container" style="text-align:center;">
-                    <h2 style="margin-top:0; color: var(--secondary); font-size: 1.8rem;" class="translate" data-en="🛡️ Bandhan Tracer" data-hi="🛡️ बंधन ट्रेसर">🛡️ Bandhan Tracer</h2>
-                    <p style="color: var(--text-muted);" class="translate" data-en="Drag/Swipe your finger over the yogi from <b>Left to Right</b> and back to complete 1 Bandhan. Do this 7 times!" data-hi="1 बंधन पूरा करने के लिए अपनी उंगली को <b>बाएं से दाएं</b> और वापस स्वाइप करें। इसे 7 बार करें!">Drag/Swipe your finger over the yogi from <b>Left to Right</b> and back to complete 1 Bandhan. Do this 7 times!</p>
-                    <div class="bandhan-area" id="bandhanArea">
-                        <div class="yogi-emoji">🧘‍♂️</div>
-                        <canvas id="bandhanCanvas" width="300" height="300"></canvas>
-                    </div>
-                    <div style="background: #f8fafc; padding: 15px; border-radius: 12px; margin-bottom: 20px;">
-                        <h3 style="margin: 0; color: var(--text);"><span class="translate" data-en="Bandhans:" data-hi="बंधन:">Bandhans:</span> <span id="bandhan-counter" style="color: var(--primary);">0</span> / 7</h3>
-                    </div>
-                    <p id="bandhan-message" style="font-size: 1.1rem; font-weight: 700; color: var(--secondary); min-height: 25px;"></p>
-                    <button class="btn-secondary translate" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')" data-en="⬅️ Back to Games" data-hi="⬅️ गेम्स पर वापस जाएं">⬅️ Back to Games</button>
-                </div>
+                    <div id="sl-game-ui" class="hidden">
+                        <div class="sl-info">
+                            <span id="sl-turn-indicator" style="color: var(--primary);">Player 1's Turn (Blue)</span>
+                            <span id="sl-game-msg" style="color: var(--secondary); margin-left: auto;">Roll the dice!</span>
+                        </div>
 
-                <div class="card-container hidden" id="builder-container" style="text-align:center;">
-                    <h2 style="margin-top:0; color: var(--primary); font-size: 1.8rem;" class="translate" data-en="🧘‍♂️ Build the Subtle System" data-hi="🧘‍♂️ सूक्ष्म तंत्र (Subtle System) बनाएं">🧘‍♂️ Build the Subtle System</h2>
-                    <p style="color: var(--text-muted);" class="translate" data-en="Drag the Chakras to their correct physical position from bottom to top!" data-hi="चक्रों को नीचे से ऊपर उनके सही भौतिक स्थान पर ड्रैग करें!">Drag the Chakras to their correct physical position from bottom to top!</p>
-                    <div class="builder-container">
-                        <div class="subtle-body">
-                            <div class="drop-zone" data-target="Sahasrara">7</div>
-                            <div class="drop-zone" data-target="Agnya">6</div>
-                            <div class="drop-zone" data-target="Vishuddhi">5</div>
-                            <div class="drop-zone" data-target="Anahata">4</div>
-                            <div class="drop-zone" data-target="Nabhi">3</div>
-                            <div class="drop-zone" data-target="Swadisthan">2</div>
-                            <div class="drop-zone" data-target="Mooladhara">1</div>
-                        </div>
-                        <div class="draggable-chakras" id="draggable-items">
-                            <div class="drag-item" draggable="true" data-id="Nabhi" data-symbol="🟡">🟡 Nabhi</div>
-                            <div class="drag-item" draggable="true" data-id="Sahasrara" data-symbol="🪷">🪷 Sahasrara</div>
-                            <div class="drag-item" draggable="true" data-id="Mooladhara" data-symbol="🔴">🔴 Mooladhara</div>
-                            <div class="drag-item" draggable="true" data-id="Agnya" data-symbol="🟣">🟣 Agnya</div>
-                            <div class="drag-item" draggable="true" data-id="Anahata" data-symbol="🟢">🟢 Anahata</div>
-                            <div class="drag-item" draggable="true" data-id="Vishuddhi" data-symbol="🔵">🔵 Vishuddhi</div>
-                            <div class="drag-item" draggable="true" data-id="Swadisthan" data-symbol="🟠">🟠 Swadisthan</div>
-                        </div>
-                    </div>
-                    <p id="builder-message" style="font-size: 1.2rem; font-weight: 700; color: var(--secondary); margin-top: 20px;"></p>
-                    <button class="btn-secondary translate" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')" data-en="⬅️ Back to Games" data-hi="⬅️ गेम्स पर वापस जाएं">⬅️ Back to Games</button>
-                </div>
+                        <div class="sl-board-wrapper" id="sl-board">
+                            <div class="sl-token p1" id="sl-token-1"></div>
+                            <div class="sl-token p2" id="sl-token-2"></div>
+                        </div>
 
-                <div class="card-container hidden" id="match-container" style="text-align:center;">
-                    <h2 style="margin-top:0; color: #f59e0b; font-size: 1.8rem;" class="translate" data-en="✨ Match the Qualities" data-hi="✨ गुणों का मिलान करें">✨ Match the Qualities</h2>
-                    <p style="color: var(--text-muted);" class="translate" data-en="Select a Chakra, then select its corresponding moral quality." data-hi="एक चक्र चुनें, फिर उसके संबंधित नैतिक गुण का चयन करें।">Select a Chakra, then select its corresponding moral quality.</p>
-                    <div class="match-container">
-                        <div class="match-column" id="match-chakras"></div>
-                        <div class="match-column" id="match-qualities"></div>
-                    </div>
-                    <p id="match-message" style="font-size: 1.2rem; font-weight: 700; color: var(--secondary); margin-top: 20px;"></p>
-                    <button class="btn-secondary translate" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')" data-en="⬅️ Back to Games" data-hi="⬅️ गेम्स पर वापस जाएं">⬅️ Back to Games</button>
-                </div>
+                        <div class="sl-controls">
+                            <button id="sl-dice-btn" class="dice-container" onclick="rollSLDice()">🎲</button>
+                            <button class="btn-secondary translate" style="width: 100%; max-width: 300px;" onclick="navigateTo('games-dashboard')" data-en="⬅️ Exit Game" data-hi="⬅️ बाहर निकलें">⬅️ Exit Game</button>
+                        </div>
+                    </div>
 
-                <div class="card-container hidden" id="catch-container" style="text-align:center;">
-                    <h2 style="margin-top:0; color: var(--danger); font-size: 1.8rem;" class="translate" data-en="💧 Clear the Catch" data-hi="💧 कैच (बाधा) साफ़ करें">💧 Clear the Catch</h2>
-                    <p style="color: var(--text-muted);" class="translate" data-en="Tap the red Stress/Catch bubbles quickly to clear the chakras!" data-hi="चक्रों को साफ करने বঙ্গবন্ধकों को साफ करने के लिए लाल तनाव/कैच बुलबुले को जल्दी से टैप करें!">Tap the red Stress/Catch bubbles quickly to clear the chakras!</p>
-                    <div style="background: #f8fafc; padding: 15px; border-radius: 12px; margin-bottom: 20px; display:flex; justify-content:space-around;">
-                        <h3 style="margin: 0;"><span class="translate" data-en="Score:" data-hi="स्कोर:">Score:</span> <span id="catch-score" style="color: var(--primary);">0</span></h3>
-                        <h3 style="margin: 0;"><span class="translate" data-en="Time:" data-hi="समय:">Time:</span> <span id="catch-time" style="color: var(--danger);">30</span>s</h3>
-                    </div>
-                    <div class="whack-grid" id="whack-grid">
-                        <div class="whack-hole"><div class="whack-catch" onclick="whackCatch(this)">Anger</div></div>
-                        <div class="whack-hole"><div class="whack-catch" onclick="whackCatch(this)">Stress</div></div>
-                        <div class="whack-hole"><div class="whack-catch" onclick="whackCatch(this)">Fear</div></div>
-                        <div class="whack-hole"><div class="whack-catch" onclick="whackCatch(this)">Ego</div></div>
-                        <div class="whack-hole"><div class="whack-catch" onclick="whackCatch(this)">Greed</div></div>
-                        <div class="whack-hole"><div class="whack-catch" onclick="whackCatch(this)">Guilt</div></div>
-                    </div>
-                    <button class="btn-primary translate" id="btn-start-catch" style="width: 100%; margin-top: 20px;" onclick="startGameCatch()" data-en="▶️ Start Cleaning!" data-hi="▶️ सफाई शुरू करें!">▶️ Start Cleaning!</button>
-                    <button class="btn-secondary translate" style="width: 100%; margin-top: 10px;" onclick="navigateTo('games-dashboard')" data-en="⬅️ Back to Games" data-hi="⬅️ गेम्स पर वापस जाएं">⬅️ Back to Games</button>
-                </div>
+                </div>
 
-                <div class="card-container hidden" id="snake-ladder-container" style="text-align:center; padding: 30px 20px;">
-                    <h2 style="margin-top:0; color: #10b981; font-size: 1.8rem;" class="translate" data-en="🐍 Snakes & Ladders" data-hi="🐍 सांप और सीढ़ी">🐍 Snakes & Ladders</h2>
-                    
-                    <div id="sl-setup-ui">
-                        <p style="color: var(--text-muted); margin-bottom: 20px;" class="translate" data-en="Choose your mode to begin!" data-hi="शुरू करने के लिए अपना मोड चुनें!">Choose your mode to begin!</p>
-                        <div style="display:flex; flex-direction:column; gap:15px; max-width:300px; margin: 0 auto;">
-                            <button class="btn-primary translate" onclick="initSnakeLadder(false)" data-en="👥 Play with Friend (Pass & Play)" data-hi="👥 मित्र के साथ खेलें (पास एंड प्ले)">👥 Play with Friend (Pass & Play)</button>
-                            <button class="btn-success translate" onclick="initSnakeLadder(true)" data-en="🤖 Play with Computer" data-hi="🤖 कंप्यूटर के साथ खेलें">🤖 Play with Computer</button>
-                            <button class="btn-secondary translate" onclick="navigateTo('games-dashboard')" data-en="⬅️ Cancel" data-hi="⬅️ रद्द करें">⬅️ Cancel</button>
-                        </div>
-                    </div>
+            </div>
+        </section>
+    </div>
+    
+    <div class="sl-word-overlay" id="sl-word-overlay">
+        <span style="font-size: 1.5rem; margin-bottom:10px;">✨ You landed on ✨</span>
+        <div class="sl-word-text" id="sl-word-display">WORD</div>
+    </div>
 
-                    <div id="sl-game-ui" class="hidden">
-                        <div class="sl-info">
-                            <span id="sl-turn-indicator" style="color: var(--primary);">Player 1's Turn (Blue)</span>
-                            <span id="sl-game-msg" style="color: var(--secondary); margin-left: auto;">Roll the dice!</span>
-                        </div>
+    <div id="youtube-audio" style="display: none;"></div>
 
-                        <div class="sl-board-wrapper" id="sl-board">
-                            <div class="sl-token p1" id="sl-token-1"></div>
-                            <div class="sl-token p2" id="sl-token-2"></div>
-                        </div>
+    <footer>
+        <p class="translate" data-en="🪷 <strong>Sy Balshakti</strong> &copy; 2026. All rights reserved." data-hi="🪷 <strong>Sy बालशक्ति</strong> &copy; 2026. सर्वाधिकार सुरक्षित।">🪷 <strong>Sy Balshakti</strong> &copy; 2026. All rights reserved.</p>
+    </footer>
 
-                        <div class="sl-controls">
-                            <button id="sl-dice-btn" class="dice-container" onclick="rollSLDice()">🎲</button>
-                            <button class="btn-secondary translate" style="width: 100%; max-width: 300px;" onclick="navigateTo('games-dashboard')" data-en="⬅️ Exit Game" data-hi="⬅️ बाहर निकलें">⬅️ Exit Game</button>
-                        </div>
-                    </div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
-                </div>
+        const firebaseConfig = {
+            apiKey: "AIzaSyAFQiG-abyL68Sps6rHC9VAH5ytkrt_8FM",
+            authDomain: "sy-balshakti-admin.firebaseapp.com",
+            projectId: "sy-balshakti-admin",
+            storageBucket: "sy-balshakti-admin.firebasestorage.app",
+            messagingSenderId: "652006613871",
+            appId: "1:652006613871:web:eae3f5a3d3bff69ab43e9a",
+            measurementId: "G-EL7K7HPFQE"
+        };
 
-            </div>
-        </section>
-    </div>
-    
-    <div class="sl-word-overlay" id="sl-word-overlay">
-        <span style="font-size: 1.5rem; margin-bottom:10px;">✨ You landed on ✨</span>
-        <div class="sl-word-text" id="sl-word-display">WORD</div>
-    </div>
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
 
-    <div id="youtube-audio" style="display: none;"></div>
+        // Firebase is now ONLY used to read the live quiz
+        window.loadDynamicContent = async function() {
+            try {
+                const docRef = doc(db, "quizContent", "live");
+                const docSnap = await getDoc(docRef);
 
-    <footer>
-        <p class="translate" data-en="🪷 <strong>Sy Balshakti</strong> &copy; 2026. All rights reserved." data-hi="🪷 <strong>Sy बालशक्ति</strong> &copy; 2026. सर्वाधिकार सुरक्षित।">🪷 <strong>Sy Balshakti</strong> &copy; 2026. All rights reserved.</p>
-    </footer>
+                if (docSnap.exists()) {
+                    const data = docSnap.data();
+                    
+                    document.getElementById('passage-title').innerText = data.passage.title;
+                    document.getElementById('passage-body').innerHTML = data.passage.body;
+                    
+                    window.quizData = data.questions;
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
-        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyAFQiG-abyL68Sps6rHC9VAH5ytkrt_8FM",
-            authDomain: "sy-balshakti-admin.firebaseapp.com",
-            projectId: "sy-balshakti-admin",
-            storageBucket: "sy-balshakti-admin.firebasestorage.app",
-            messagingSenderId: "652006613871",
-            appId: "1:652006613871:web:eae3f5a3d3bff69ab43e9a",
-            measurementId: "G-EL7K7HPFQE"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        // Firebase is now ONLY used to read the live quiz
-        window.loadDynamicContent = async function() {
-            try {
-                const docRef = doc(db, "quizContent", "live");
-                const docSnap = await getDoc(docRef);
-
-                if (docSnap.exists()) {
-                    const data = docSnap.data();
-                    
-                    document.getElementById('passage-title').innerText = data.passage.title;
-                    document.getElementById('passage-body').innerHTML = data.passage.body;
-                    
-                    window.quizData = data.questions;
-
-                    const startBtn = document.getElementById('start-quiz-btn');
-                    startBtn.innerText = "Next ➡️ Start Quiz";
-                    startBtn.disabled = false;
-                    startBtn.classList.remove('disabled');
-                } else {
-                    console.log("No data found in Firebase!");
-                    document.getElementById('passage-title').innerText = "Waiting for Admin to publish content...";
-                }
-            } catch (err) {
-                console.error("Firebase fetch error:", err);
-                alert("Could not connect to the live database.");
-            }
-        };
-    </script>
+                    const startBtn = document.getElementById('start-quiz-btn');
+                    startBtn.innerText = "Next ➡️ Start Quiz";
+                    startBtn.disabled = false;
+                    startBtn.classList.remove('disabled');
+                } else {
+                    console.log("No data found in Firebase!");
+                    document.getElementById('passage-title').innerText = "Waiting for Admin to publish content...";
+                }
+            } catch (err) {
+                console.error("Firebase fetch error:", err);
+                alert("Could not connect to the live database.");
+            }
+        };
+    </script>
 
 <script>
-        // 1. PASTE YOUR NEW GOOGLE APPS SCRIPT URL HERE:
-        const GOOGLE_APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzD1sYw4nhdjnOGnZyHy7RfUxgt94jtTsuGJ8rNdo9vBUYASXPcYTRy_sM9dZeUB0po/exec'; 
+        // 1. PASTE YOUR NEW GOOGLE APPS SCRIPT URL HERE:
+        const GOOGLE_APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzD1sYw4nhdjnOGnZyHy7RfUxgt94jtTsuGJ8rNdo9vBUYASXPcYTRy_sM9dZeUB0po/exec'; 
 
-        window.sendDataToGoogleSheet = async function(actionData) {
-            try {
-                await fetch(GOOGLE_APP_SCRIPT_URL, {
-                    method: 'POST',
-                    // 2. REMOVED 'no-cors' mode 
-                    // 3. CHANGED Content-Type to text/plain to fix the Google Sheet block
-                    headers: {
-                        'Content-Type': 'text/plain;charset=utf-8' 
-                    },
-                    body: JSON.stringify(actionData)
-                });
-                console.log(actionData.action + " data sent to Google Sheet!");
-            } catch (error) {
-                console.error("Error saving to Google Sheet:", error);
-            }
-        };
+        window.sendDataToGoogleSheet = async function(actionData) {
+            try {
+                await fetch(GOOGLE_APP_SCRIPT_URL, {
+                    method: 'POST',
+                    // 2. REMOVED 'no-cors' mode 
+                    // 3. CHANGED Content-Type to text/plain to fix the Google Sheet block
+                    headers: {
+                        'Content-Type': 'text/plain;charset=utf-8' 
+                    },
+                    body: JSON.stringify(actionData)
+                });
+                console.log(actionData.action + " data sent to Google Sheet!");
+            } catch (error) {
+                console.error("Error saving to Google Sheet:", error);
+            }
+        };
 
-        // Added this missing function to track when they click "Go to Games Zone"
-        window.goToGamesZoneTracked = function() {
-            if(window.sendDataToGoogleSheet) {
-                window.sendDataToGoogleSheet({
-                    action: "Entered Game Zone",
-                    name: window.userName || "Unknown",
-                    age: document.getElementById('userAge').value,
-                    district: document.getElementById('userCity').value,
-                    taluka: document.getElementById('userTaluka').value,
-                    score: window.score || 0
-                });
-            }
-            navigateTo('games-dashboard');
-        };
-    </script>
+        // Added this missing function to track when they click "Go to Games Zone"
+        window.goToGamesZoneTracked = function() {
+            if(window.sendDataToGoogleSheet) {
+                window.sendDataToGoogleSheet({
+                    action: "Entered Game Zone",
+                    name: window.userName || "Unknown",
+                    age: document.getElementById('userAge').value,
+                    district: document.getElementById('userCity').value,
+                    taluka: document.getElementById('userTaluka').value,
+                    score: window.score || 0
+                });
+            }
+            navigateTo('games-dashboard');
+        };
+    </script>
 
-    <script src="https://www.youtube.com/iframe_api"></script>
-    <script>
-        // --- TRANSLATION LOGIC ---
-        let currentLang = 'en';
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        // --- TRANSLATION LOGIC ---
+        let currentLang = 'en';
 
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'hi' : 'en';
-            
-            const toggleBtn = document.getElementById('lang-toggle-btn');
-            toggleBtn.innerText = currentLang === 'en' ? '🌐 हिंदी' : '🌐 English';
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'hi' : 'en';
+            
+            const toggleBtn = document.getElementById('lang-toggle-btn');
+            toggleBtn.innerText = currentLang === 'en' ? '🌐 हिंदी' : '🌐 English';
 
-            const translatableElements = document.querySelectorAll('.translate');
-            translatableElements.forEach(el => {
-                if (currentLang === 'hi' && el.dataset.hi) {
-                    el.innerHTML = el.dataset.hi;
-                } else if (currentLang === 'en' && el.dataset.en) {
-                    el.innerHTML = el.dataset.en;
-                }
-            });
-        }
+            const translatableElements = document.querySelectorAll('.translate');
+            translatableElements.forEach(el => {
+                if (currentLang === 'hi' && el.dataset.hi) {
+                    el.innerHTML = el.dataset.hi;
+                } else if (currentLang === 'en' && el.dataset.en) {
+                    el.innerHTML = el.dataset.en;
+                }
+            });
+        }
 
-        // --- YOUTUBE API LOGIC ---
-        var ytPlayer;
-        function onYouTubeIframeAPIReady() {
-            ytPlayer = new YT.Player('youtube-audio', {
-                height: '0', width: '0', videoId: '312SQ9kea8M',
-                playerVars: { 'autoplay': 0, 'controls': 0, 'showinfo': 0, 'rel': 0, 'start': 1770, 'end': 1938 },
-                events: { 'onReady': function(event) { event.target.setVolume(20); }, 'onStateChange': function(event) { if (event.data === YT.PlayerState.ENDED) { ytPlayer.seekTo(1770); ytPlayer.playVideo(); } } }
-            });
-        }
+        // --- YOUTUBE API LOGIC ---
+        var ytPlayer;
+        function onYouTubeIframeAPIReady() {
+            ytPlayer = new YT.Player('youtube-audio', {
+                height: '0', width: '0', videoId: '312SQ9kea8M',
+                playerVars: { 'autoplay': 0, 'controls': 0, 'showinfo': 0, 'rel': 0, 'start': 1770, 'end': 1938 },
+                events: { 'onReady': function(event) { event.target.setVolume(20); }, 'onStateChange': function(event) { if (event.data === YT.PlayerState.ENDED) { ytPlayer.seekTo(1770); ytPlayer.playVideo(); } } }
+            });
+        }
 
-        function toggleMenu() { document.getElementById('nav-links').classList.toggle('active'); }
-        function closeMenu() { document.getElementById('nav-links').classList.remove('active'); }
+        function toggleMenu() { document.getElementById('nav-links').classList.toggle('active'); }
+        function closeMenu() { document.getElementById('nav-links').classList.remove('active'); }
 
-        function navigateTo(pageId) {
-            document.querySelectorAll('.page-view').forEach(page => page.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        function navigateTo(pageId) {
+            document.querySelectorAll('.page-view').forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-        function hideAllGameContainers() {
-            const containers = ['form-container', 'reading-container', 'quiz-container', 'result-container', 'game-container', 'bandhan-container', 'builder-container', 'match-container', 'catch-container', 'snake-ladder-container'];
-            containers.forEach(id => {
-                let el = document.getElementById(id);
-                if(el) el.classList.add('hidden');
-            });
-        }
+        function hideAllGameContainers() {
+            const containers = ['form-container', 'reading-container', 'quiz-container', 'result-container', 'game-container', 'bandhan-container', 'builder-container', 'match-container', 'catch-container', 'snake-ladder-container'];
+            containers.forEach(id => {
+                let el = document.getElementById(id);
+                if(el) el.classList.add('hidden');
+            });
+        }
 
-        const ageSelect = document.getElementById('userAge');
-        for (let i = 4; i <= 20; i++) { let option = document.createElement('option'); option.value = i; option.text = i; ageSelect.appendChild(option); }
+        const ageSelect = document.getElementById('userAge');
+        for (let i = 4; i <= 20; i++) { let option = document.createElement('option'); option.value = i; option.text = i; ageSelect.appendChild(option); }
 
-        const locationData = {
-            "Ahilyanagar (Ahmednagar)": ["Akola", "Jamkhed", "Karjat", "Kopargaon", "Nagar", "Nevasa", "Parner", "Pathardi", "Rahta", "Rahuri", "Sangamner", "Shevgaon", "Shrigonda", "Shrirampur"],
-            "Akola": ["Akola", "Akot", "Balapur", "Barshitakli", "Murtijapur", "Patur", "Telhara"],
-            "Amravati": ["Achalpur", "Amravati", "Anjangaon Surji", "Bhatkuli", "Chandur Railway", "Chandurbazar", "Chikhaldara", "Daryapur", "Dhamangaon Railway", "Dharni", "Morshi", "Nandgaon-Khandeshwar", "Teosa", "Warud"],
-            "Beed": ["Ambejogai", "Ashti", "Beed", "Dharur", "Georai", "Kaij", "Majalgaon", "Parli", "Patoda", "Shirur Kasar", "Wadwani"],
-            "Bhandara": ["Bhandara", "Lakhandur", "Lakhani", "Mohadi", "Pauni", "Sakoli", "Tumsar"],
-            "Buldhana": ["Buldhana", "Chikhli", "Deulgaon Raja", "Jalgaon Jamod", "Khamgaon", "Lonar", "Malkapur", "Mehkar", "Motala", "Nandura", "Sangrampur", "Shegaon", "Sindkhed Raja"],
-            "Chandrapur": ["Ballarpur", "Bhadravati", "Bramhapuri", "Chandrapur", "Chimur", "Gondpipri", "Jivati", "Korpana", "Mul", "Nagbhid", "Pombhurna", "Rajura", "Saoli", "Sindewahi", "Warora"],
-            "Chhatrapati Sambhajinagar (Aurangabad)": ["Aurangabad", "Gangapur", "Kannad", "Khuldabad", "Paithan", "Phulambri", "Sillod", "Soegaon", "Vaijapur"],
-            "Dharashiv (Osmanabad)": ["Bhum", "Kalamb", "Lohara", "Omerga", "Osmanabad", "Paranda", "Tuljapur", "Washi"],
-            "Dhule": ["Dhule", "Sakri", "Shirpur", "Sindkheda"],
-            "Gadchiroli": ["Aheri", "Armori", "Bhamragad", "Chamorshi", "Desaiganj", "Dhanora", "Etapalli", "Gadchiroli", "Korchi", "Kurkheda", "Mulchera", "Sironcha"],
-            "Gondia": ["Amgaon", "Arjuni Morgaon", "Deori", "Gondia", "Goregaon", "Sadak Arjuni", "Salekasa", "Tirora"],
-            "Hingoli": ["Aundha Nagnath", "Hingoli", "Kalamnuri", "Sengaon", "Vasmat"],
-            "Jalgaon": ["Amalner", "Bhadgaon", "Bhusawal", "Bodwad", "Chalisgaon", "Chopda", "Dharangaon", "Erandol", "Jalgaon", "Jamner", "Muktainagar", "Pachora", "Parola", "Raver", "Yawal"],
-            "Jalna": ["Ambad", "Badnapur", "Bhokardan", "Ghansawangi", "Jafrabad", "Jalna", "Mantha", "Partur"],
-            "Kolhapur": ["Ajra", "Bhudargad", "Chandgad", "Gadhinglaj", "Gaganbawada", "Hatkanangale", "Kagal", "Karvir", "Panhala", "Radhanagari", "Shahuwadi", "Shirol"],
-            "Latur": ["Ahmadpur", "Ausa", "Chakur", "Deoni", "Jalkot", "Latur", "Nilanga", "Renapur", "Shirur Anantpal", "Udgir"],
-            "Mumbai City": ["Mumbai City"],
-            "Mumbai Suburban": ["Andheri", "Borivali", "Kurla"],
-            "Nagpur": ["Bhiwapur", "Hingna", "Kalameshwar", "Kamptee", "Katol", "Kuhi", "Mouda", "Nagpur (Rural)", "Nagpur (Urban)", "Narkhed", "Parseoni", "Ramtek", "Savner", "Umred"],
-            "Nanded": ["Ardhapur", "Bhokar", "Biloli", "Deglur", "Dharmabad", "Hadgaon", "Himayatnagar", "Kandhar", "Kinwat", "Loha", "Mahur", "Mudkhed", "Mukhed", "Naigaon", "Nanded", "Umri"],
-            "Nandurbar": ["Akkalkuwa", "Akrani", "Nandurbar", "Navapur", "Shahada", "Talode"],
-            "Palghar": ["Dahanu", "Jawhar", "Mokhada", "Palghar", "Talasari", "Vada", "Vasai", "Vikramgad"],
-            "Parbhani": ["Gangakhed", "Jintur", "Manwath", "Palam", "Parbhani", "Pathri", "Purna", "Selu", "Sonpeth"],
-            "Pune": ["Ambegaon", "Baramati", "Bhor", "Daund", "Haveli", "Indapur", "Junnar", "Khed", "Maval", "Mulshi", "Pune City", "Purandar", "Shirur", "Velha"],
-            "Raigad": ["Alibag", "Karjat", "Khalapur", "Mahad", "Mangaon", "Mhasla", "Murud", "Panvel", "Pen", "Poladpur", "Roha", "Shrivardhan", "Sudhagad", "Tala", "Uran"],
-            "Ratnagiri": ["Chiplun", "Dapoli", "Guhagar", "Khed", "Lanja", "Mandangad", "Rajapur", "Ratnagiri", "Sangameshwar"],
-            "Sangli": ["Atpadi", "Jat", "Kadegaon", "Kavathe-Mahankal", "Khanapur", "Miraj", "Palus", "Shirala", "Tasgaon", "Walwa"],
-            "Satara": ["Jaoli", "Karad", "Khandala", "Khatav", "Koregaon", "Maan", "Mahabaleshwar", "Patan", "Phaltan", "Satara", "Wai"],
-            "Sindhudurg": ["Devgad", "Dodamarg", "Kankavli", "Kudal", "Malvan", "Sawantwadi", "Vaibhavwadi", "Vengurla"],
-            "Solapur": ["Akkalkot", "Barshi", "Karmala", "Madha", "Malshiras", "Mangalwedha", "Mohol", "North Solapur", "Pandharpur", "Sangola", "South Solapur"],
-            "Thane": ["Ambarnath", "Bhiwandi", "Kalyan", "Murbad", "Shahapur", "Thane", "Ulhasnagar"],
-            "Wardha": ["Arvi", "Ashti", "Deoli", "Hinganghat", "Karanja", "Samudrapur", "Seloo", "Wardha"],
-            "Washim": ["Karanja", "Malegaon", "Mangrulpir", "Manora", "Risod", "Washim"],
-            "Yavatmal": ["Arni", "Babhulgaon", "Darwha", "Digras", "Ghatanji", "Kalamb", "Kelapur", "Mahagaon", "Maregaon", "Ner", "Pusad", "Ralegaon", "Umarkhed", "Wani", "Yavatmal", "Zari Jamani"]
-        };
+        const locationData = {
+            "Ahilyanagar (Ahmednagar)": ["Akola", "Jamkhed", "Karjat", "Kopargaon", "Nagar", "Nevasa", "Parner", "Pathardi", "Rahta", "Rahuri", "Sangamner", "Shevgaon", "Shrigonda", "Shrirampur"],
+            "Akola": ["Akola", "Akot", "Balapur", "Barshitakli", "Murtijapur", "Patur", "Telhara"],
+            "Amravati": ["Achalpur", "Amravati", "Anjangaon Surji", "Bhatkuli", "Chandur Railway", "Chandurbazar", "Chikhaldara", "Daryapur", "Dhamangaon Railway", "Dharni", "Morshi", "Nandgaon-Khandeshwar", "Teosa", "Warud"],
+            "Beed": ["Ambejogai", "Ashti", "Beed", "Dharur", "Georai", "Kaij", "Majalgaon", "Parli", "Patoda", "Shirur Kasar", "Wadwani"],
+            "Bhandara": ["Bhandara", "Lakhandur", "Lakhani", "Mohadi", "Pauni", "Sakoli", "Tumsar"],
+            "Buldhana": ["Buldhana", "Chikhli", "Deulgaon Raja", "Jalgaon Jamod", "Khamgaon", "Lonar", "Malkapur", "Mehkar", "Motala", "Nandura", "Sangrampur", "Shegaon", "Sindkhed Raja"],
+            "Chandrapur": ["Ballarpur", "Bhadravati", "Bramhapuri", "Chandrapur", "Chimur", "Gondpipri", "Jivati", "Korpana", "Mul", "Nagbhid", "Pombhurna", "Rajura", "Saoli", "Sindewahi", "Warora"],
+            "Chhatrapati Sambhajinagar (Aurangabad)": ["Aurangabad", "Gangapur", "Kannad", "Khuldabad", "Paithan", "Phulambri", "Sillod", "Soegaon", "Vaijapur"],
+            "Dharashiv (Osmanabad)": ["Bhum", "Kalamb", "Lohara", "Omerga", "Osmanabad", "Paranda", "Tuljapur", "Washi"],
+            "Dhule": ["Dhule", "Sakri", "Shirpur", "Sindkheda"],
+            "Gadchiroli": ["Aheri", "Armori", "Bhamragad", "Chamorshi", "Desaiganj", "Dhanora", "Etapalli", "Gadchiroli", "Korchi", "Kurkheda", "Mulchera", "Sironcha"],
+            "Gondia": ["Amgaon", "Arjuni Morgaon", "Deori", "Gondia", "Goregaon", "Sadak Arjuni", "Salekasa", "Tirora"],
+            "Hingoli": ["Aundha Nagnath", "Hingoli", "Kalamnuri", "Sengaon", "Vasmat"],
+            "Jalgaon": ["Amalner", "Bhadgaon", "Bhusawal", "Bodwad", "Chalisgaon", "Chopda", "Dharangaon", "Erandol", "Jalgaon", "Jamner", "Muktainagar", "Pachora", "Parola", "Raver", "Yawal"],
+            "Jalna": ["Ambad", "Badnapur", "Bhokardan", "Ghansawangi", "Jafrabad", "Jalna", "Mantha", "Partur"],
+            "Kolhapur": ["Ajra", "Bhudargad", "Chandgad", "Gadhinglaj", "Gaganbawada", "Hatkanangale", "Kagal", "Karvir", "Panhala", "Radhanagari", "Shahuwadi", "Shirol"],
+            "Latur": ["Ahmadpur", "Ausa", "Chakur", "Deoni", "Jalkot", "Latur", "Nilanga", "Renapur", "Shirur Anantpal", "Udgir"],
+            "Mumbai City": ["Mumbai City"],
+            "Mumbai Suburban": ["Andheri", "Borivali", "Kurla"],
+            "Nagpur": ["Bhiwapur", "Hingna", "Kalameshwar", "Kamptee", "Katol", "Kuhi", "Mouda", "Nagpur (Rural)", "Nagpur (Urban)", "Narkhed", "Parseoni", "Ramtek", "Savner", "Umred"],
+            "Nanded": ["Ardhapur", "Bhokar", "Biloli", "Deglur", "Dharmabad", "Hadgaon", "Himayatnagar", "Kandhar", "Kinwat", "Loha", "Mahur", "Mudkhed", "Mukhed", "Naigaon", "Nanded", "Umri"],
+            "Nandurbar": ["Akkalkuwa", "Akrani", "Nandurbar", "Navapur", "Shahada", "Talode"],
+            "Palghar": ["Dahanu", "Jawhar", "Mokhada", "Palghar", "Talasari", "Vada", "Vasai", "Vikramgad"],
+            "Parbhani": ["Gangakhed", "Jintur", "Manwath", "Palam", "Parbhani", "Pathri", "Purna", "Selu", "Sonpeth"],
+            "Pune": ["Ambegaon", "Baramati", "Bhor", "Daund", "Haveli", "Indapur", "Junnar", "Khed", "Maval", "Mulshi", "Pune City", "Purandar", "Shirur", "Velha"],
+            "Raigad": ["Alibag", "Karjat", "Khalapur", "Mahad", "Mangaon", "Mhasla", "Murud", "Panvel", "Pen", "Poladpur", "Roha", "Shrivardhan", "Sudhagad", "Tala", "Uran"],
+            "Ratnagiri": ["Chiplun", "Dapoli", "Guhagar", "Khed", "Lanja", "Mandangad", "Rajapur", "Ratnagiri", "Sangameshwar"],
+            "Sangli": ["Atpadi", "Jat", "Kadegaon", "Kavathe-Mahankal", "Khanapur", "Miraj", "Palus", "Shirala", "Tasgaon", "Walwa"],
+            "Satara": ["Jaoli", "Karad", "Khandala", "Khatav", "Koregaon", "Maan", "Mahabaleshwar", "Patan", "Phaltan", "Satara", "Wai"],
+            "Sindhudurg": ["Devgad", "Dodamarg", "Kankavli", "Kudal", "Malvan", "Sawantwadi", "Vaibhavwadi", "Vengurla"],
+            "Solapur": ["Akkalkot", "Barshi", "Karmala", "Madha", "Malshiras", "Mangalwedha", "Mohol", "North Solapur", "Pandharpur", "Sangola", "South Solapur"],
+            "Thane": ["Ambarnath", "Bhiwandi", "Kalyan", "Murbad", "Shahapur", "Thane", "Ulhasnagar"],
+            "Wardha": ["Arvi", "Ashti", "Deoli", "Hinganghat", "Karanja", "Samudrapur", "Seloo", "Wardha"],
+            "Washim": ["Karanja", "Malegaon", "Mangrulpir", "Manora", "Risod", "Washim"],
+            "Yavatmal": ["Arni", "Babhulgaon", "Darwha", "Digras", "Ghatanji", "Kalamb", "Kelapur", "Mahagaon", "Maregaon", "Ner", "Pusad", "Ralegaon", "Umarkhed", "Wani", "Yavatmal", "Zari Jamani"]
+        };
 
-        const citySelect = document.getElementById('userCity');
-        const talukaSelect = document.getElementById('userTaluka');
-        const talukaGroup = document.getElementById('taluka-group');
+        const citySelect = document.getElementById('userCity');
+        const talukaSelect = document.getElementById('userTaluka');
+        const talukaGroup = document.getElementById('taluka-group');
 
-        Object.keys(locationData).forEach(district => {
-            let option = document.createElement('option'); option.value = district; option.text = district; citySelect.appendChild(option);
-        });
+        Object.keys(locationData).forEach(district => {
+            let option = document.createElement('option'); option.value = district; option.text = district; citySelect.appendChild(option);
+        });
 
-        citySelect.addEventListener('change', function() {
-            const selectedCity = this.value;
-            talukaSelect.innerHTML = '<option value="">Select Taluka</option>'; 
-            if (selectedCity && locationData[selectedCity]) {
-                locationData[selectedCity].forEach(taluka => {
-                    let option = document.createElement('option'); option.value = taluka; option.text = taluka; talukaSelect.appendChild(option);
-                });
-                talukaGroup.classList.remove('hidden');
-            } else { talukaGroup.classList.add('hidden'); }
-        });
+        citySelect.addEventListener('change', function() {
+            const selectedCity = this.value;
+            talukaSelect.innerHTML = '<option value="">Select Taluka</option>'; 
+            if (selectedCity && locationData[selectedCity]) {
+                locationData[selectedCity].forEach(taluka => {
+                    let option = document.createElement('option'); option.value = taluka; option.text = taluka; talukaSelect.appendChild(option);
+                });
+                talukaGroup.classList.remove('hidden');
+            } else { talukaGroup.classList.add('hidden'); }
+        });
 
-        // Setup empty variables
-        window.quizData = [];
-        window.currentQuestionIndex = 0; window.score = 0; window.userName = "";
+        // Setup empty variables
+        window.quizData = [];
+        window.currentQuestionIndex = 0; window.score = 0; window.userName = "";
 
-        window.processForm = function() {
-            window.userName = document.getElementById('userName').value;
-            const age = document.getElementById('userAge').value;
-            const city = document.getElementById('userCity').value;
+        window.processForm = function() {
+            window.userName = document.getElementById('userName').value;
+            const age = document.getElementById('userAge').value;
+            const city = document.getElementById('userCity').value;
 
-            if (!window.userName || !age || !city) { alert("Please fill out your name, age, and district to proceed."); return; }
-            hideAllGameContainers();
-            document.getElementById('reading-container').classList.remove('hidden');
-            document.getElementById('quiz-header').classList.add('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            if(window.loadDynamicContent) { window.loadDynamicContent(); }
-        }
+            if (!window.userName || !age || !city) { alert("Please fill out your name, age, and district to proceed."); return; }
+            hideAllGameContainers();
+            document.getElementById('reading-container').classList.remove('hidden');
+            document.getElementById('quiz-header').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            if(window.loadDynamicContent) { window.loadDynamicContent(); }
+        }
 
-        window.startActualQuiz = function() {
-            hideAllGameContainers();
-            document.getElementById('quiz-container').classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            if (ytPlayer && typeof ytPlayer.playVideo === 'function') { ytPlayer.seekTo(1770); ytPlayer.playVideo(); }
-            loadQuestion();
-        }
+        window.startActualQuiz = function() {
+            hideAllGameContainers();
+            document.getElementById('quiz-container').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (ytPlayer && typeof ytPlayer.playVideo === 'function') { ytPlayer.seekTo(1770); ytPlayer.playVideo(); }
+            loadQuestion();
+        }
 
-        function loadQuestion() {
-            if(!window.quizData || window.quizData.length === 0) {
-                alert("Error: Questions failed to load properly. Please restart.");
-                return;
-            }
-            
-            const qData = window.quizData[window.currentQuestionIndex];
-            document.getElementById('question-text').innerText = `${window.currentQuestionIndex + 1}. ${qData.question}`;
-            document.getElementById('progress-text').innerText = `Question ${window.currentQuestionIndex + 1} of 5`;
-            const optionsContainer = document.getElementById('options-container'); optionsContainer.innerHTML = ''; 
+        function loadQuestion() {
+            if(!window.quizData || window.quizData.length === 0) {
+                alert("Error: Questions failed to load properly. Please restart.");
+                return;
+            }
+            
+            const qData = window.quizData[window.currentQuestionIndex];
+            document.getElementById('question-text').innerText = `${window.currentQuestionIndex + 1}. ${qData.question}`;
+            document.getElementById('progress-text').innerText = `Question ${window.currentQuestionIndex + 1} of 5`;
+            const optionsContainer = document.getElementById('options-container'); optionsContainer.innerHTML = ''; 
 
-            qData.options.forEach(option => {
-                const btn = document.createElement('button'); btn.className = 'option-btn'; btn.innerText = option;
-                btn.onclick = () => checkAnswer(option, btn);
-                optionsContainer.appendChild(btn);
-            });
-        }
+            qData.options.forEach(option => {
+                const btn = document.createElement('button'); btn.className = 'option-btn'; btn.innerText = option;
+                btn.onclick = () => checkAnswer(option, btn);
+                optionsContainer.appendChild(btn);
+            });
+        }
 
-        function checkAnswer(selectedOption, clickedButton) {
-            const currentQ = window.quizData[window.currentQuestionIndex];
-            const buttons = document.querySelectorAll('.option-btn');
-            buttons.forEach(btn => btn.disabled = true);
+        function checkAnswer(selectedOption, clickedButton) {
+            const currentQ = window.quizData[window.currentQuestionIndex];
+            const buttons = document.querySelectorAll('.option-btn');
+            buttons.forEach(btn => btn.disabled = true);
 
-            if (selectedOption === currentQ.correctAnswer || currentQ.correctAnswer.includes(selectedOption)) {
-                window.score++; clickedButton.classList.add('correct-option');
-            } else {
-                clickedButton.classList.add('incorrect-option');
-                buttons.forEach(btn => { if (btn.innerText === currentQ.correctAnswer || currentQ.correctAnswer.includes(btn.innerText)) btn.classList.add('correct-option'); });
-            }
+            if (selectedOption === currentQ.correctAnswer || currentQ.correctAnswer.includes(selectedOption)) {
+                window.score++; clickedButton.classList.add('correct-option');
+            } else {
+                clickedButton.classList.add('incorrect-option');
+                buttons.forEach(btn => { if (btn.innerText === currentQ.correctAnswer || currentQ.correctAnswer.includes(btn.innerText)) btn.classList.add('correct-option'); });
+            }
 
-            setTimeout(() => {
-                window.currentQuestionIndex++;
-                if (window.currentQuestionIndex < window.quizData.length) { loadQuestion(); } else { showResults(); }
-            }, 1500);
-        }
+            setTimeout(() => {
+                window.currentQuestionIndex++;
+                if (window.currentQuestionIndex < window.quizData.length) { loadQuestion(); } else { showResults(); }
+            }, 1500);
+        }
 
-        function showResults() {
-            if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') ytPlayer.pauseVideo();
-            hideAllGameContainers();
-            document.getElementById('result-container').classList.remove('hidden');
-            document.getElementById('display-name').innerText = window.userName;
-            document.getElementById('score-display').innerText = window.score;
-            document.getElementById('quiz-header').classList.remove('hidden');
-            
-            const gamesLink = document.getElementById('nav-games-link');
-            gamesLink.classList.remove('hidden');
-            gamesLink.style.animation = "fadeIn 1s ease-in-out";
+        function showResults() {
+            if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') ytPlayer.pauseVideo();
+            hideAllGameContainers();
+            document.getElementById('result-container').classList.remove('hidden');
+            document.getElementById('display-name').innerText = window.userName;
+            document.getElementById('score-display').innerText = window.score;
+            document.getElementById('quiz-header').classList.remove('hidden');
+            
+            const gamesLink = document.getElementById('nav-games-link');
+            gamesLink.classList.remove('hidden');
+            gamesLink.style.animation = "fadeIn 1s ease-in-out";
 
-            const age = document.getElementById('userAge').value; 
-            const city = document.getElementById('userCity').value; 
-            const taluka = document.getElementById('userTaluka').value;
-            
-            // Replaced saveScoreToFirebase with sendDataToGoogleSheet!
-            if(window.sendDataToGoogleSheet) {
-                window.sendDataToGoogleSheet({
-                    action: "Quiz Completed",
-                    name: window.userName,
-                    age: age,
-                    district: city,
-                    taluka: taluka,
-                    score: window.score
-                });
-            }
-        }
+            const age = document.getElementById('userAge').value; 
+            const city = document.getElementById('userCity').value; 
+            const taluka = document.getElementById('userTaluka').value;
+            
+            // Replaced saveScoreToFirebase with sendDataToGoogleSheet!
+            if(window.sendDataToGoogleSheet) {
+                window.sendDataToGoogleSheet({
+                    action: "Quiz Completed",
+                    name: window.userName,
+                    age: age,
+                    district: city,
+                    taluka: taluka,
+                    score: window.score
+                });
+            }
+        }
 
-        // ==========================================
-        // MINI-GAMES LOGIC
-        // ==========================================
-        const gamePairs = [ { id: 1, text: 'Mooladhara' }, { id: 1, text: 'Mooladhara' }, { id: 2, text: 'Swadisthan' }, { id: 2, text: 'Swadisthan' }, { id: 3, text: 'Nabhi' }, { id: 3, text: 'Nabhi' }, { id: 4, text: 'Void' }, { id: 4, text: 'Void' }, { id: 5, text: 'Anahata' }, { id: 5, text: 'Anahata' }, { id: 6, text: 'Vishuddhi' }, { id: 6, text: 'Vishuddhi' }, { id: 7, text: 'Agnya' }, { id: 7, text: 'Agnya' }, { id: 8, text: 'Sahasrara' }, { id: 8, text: 'Sahasrara' } ];
-        let firstCard = null, secondCard = null, lockBoard = false, matchedCount = 0;
-        window.startMiniGame = function() { navigateTo('quiz-page'); hideAllGameContainers(); document.getElementById('quiz-header').classList.add('hidden'); document.getElementById('game-container').classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); setupMemoryGame(); }
-        function setupMemoryGame() { const board = document.getElementById('memory-board'); board.innerHTML = ''; matchedCount = 0; document.getElementById('game-message').innerText = ''; const shuffledCards = gamePairs.sort(() => 0.5 - Math.random()); shuffledCards.forEach((cardData) => { const card = document.createElement('div'); card.classList.add('memory-card'); card.dataset.id = cardData.id; card.dataset.text = cardData.text; card.innerText = "?"; card.addEventListener('click', () => flipCard(card)); board.appendChild(card); }); }
-        function flipCard(card) { if (lockBoard || card === firstCard || card.classList.contains('matched')) return; card.classList.add('flipped'); card.innerText = card.dataset.text; if (!firstCard) { firstCard = card; return; } secondCard = card; checkMatch(); }
-        function checkMatch() { if (firstCard.dataset.id === secondCard.dataset.id) { firstCard.classList.add('matched'); secondCard.classList.add('matched'); matchedCount += 2; if (matchedCount === gamePairs.length) { document.getElementById('game-message').innerText = currentLang === 'en' ? "🎉 Congratulations! You matched all Chakras!" : "🎉 बधाई हो! आपने सभी चक्रों का मिलान कर लिया!"; } firstCard = null; secondCard = null; lockBoard = false; } else { lockBoard = true; setTimeout(() => { firstCard.classList.remove('flipped'); firstCard.innerText = "?"; secondCard.classList.remove('flipped'); secondCard.innerText = "?"; firstCard = null; secondCard = null; lockBoard = false; }, 800); } }
+        // ==========================================
+        // MINI-GAMES LOGIC
+        // ==========================================
+        const gamePairs = [ { id: 1, text: 'Mooladhara' }, { id: 1, text: 'Mooladhara' }, { id: 2, text: 'Swadisthan' }, { id: 2, text: 'Swadisthan' }, { id: 3, text: 'Nabhi' }, { id: 3, text: 'Nabhi' }, { id: 4, text: 'Void' }, { id: 4, text: 'Void' }, { id: 5, text: 'Anahata' }, { id: 5, text: 'Anahata' }, { id: 6, text: 'Vishuddhi' }, { id: 6, text: 'Vishuddhi' }, { id: 7, text: 'Agnya' }, { id: 7, text: 'Agnya' }, { id: 8, text: 'Sahasrara' }, { id: 8, text: 'Sahasrara' } ];
+        let firstCard = null, secondCard = null, lockBoard = false, matchedCount = 0;
+        window.startMiniGame = function() { navigateTo('quiz-page'); hideAllGameContainers(); document.getElementById('quiz-header').classList.add('hidden'); document.getElementById('game-container').classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); setupMemoryGame(); }
+        function setupMemoryGame() { const board = document.getElementById('memory-board'); board.innerHTML = ''; matchedCount = 0; document.getElementById('game-message').innerText = ''; const shuffledCards = gamePairs.sort(() => 0.5 - Math.random()); shuffledCards.forEach((cardData) => { const card = document.createElement('div'); card.classList.add('memory-card'); card.dataset.id = cardData.id; card.dataset.text = cardData.text; card.innerText = "?"; card.addEventListener('click', () => flipCard(card)); board.appendChild(card); }); }
+        function flipCard(card) { if (lockBoard || card === firstCard || card.classList.contains('matched')) return; card.classList.add('flipped'); card.innerText = card.dataset.text; if (!firstCard) { firstCard = card; return; } secondCard = card; checkMatch(); }
+        function checkMatch() { if (firstCard.dataset.id === secondCard.dataset.id) { firstCard.classList.add('matched'); secondCard.classList.add('matched'); matchedCount += 2; if (matchedCount === gamePairs.length) { document.getElementById('game-message').innerText = currentLang === 'en' ? "🎉 Congratulations! You matched all Chakras!" : "🎉 बधाई हो! आपने सभी चक्रों का मिलान कर लिया!"; } firstCard = null; secondCard = null; lockBoard = false; } else { lockBoard = true; setTimeout(() => { firstCard.classList.remove('flipped'); firstCard.innerText = "?"; secondCard.classList.remove('flipped'); secondCard.innerText = "?"; firstCard = null; secondCard = null; lockBoard = false; }, 800); } }
 
-        let bandhanCount = 0, swipeStage = 0, isDrawing = false;
-        window.startBandhanGame = function() { navigateTo('quiz-page'); hideAllGameContainers(); document.getElementById('quiz-header').classList.add('hidden'); document.getElementById('bandhan-container').classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); resetBandhan(); initBandhanCanvas(); }
-        function resetBandhan() { bandhanCount = 0; swipeStage = 0; document.getElementById('bandhan-counter').innerText = "0"; document.getElementById('bandhan-message').innerText = ""; const canvas = document.getElementById('bandhanCanvas'); const ctx = canvas.getContext('2d'); ctx.clearRect(0, 0, canvas.width, canvas.height); }
-        function initBandhanCanvas() { const canvas = document.getElementById('bandhanCanvas'); const ctx = canvas.getContext('2d'); canvas.addEventListener('mousedown', startTrace); canvas.addEventListener('mousemove', traceArc); canvas.addEventListener('mouseup', endTrace); canvas.addEventListener('mouseleave', endTrace); canvas.addEventListener('touchstart', (e) => { e.preventDefault(); startTrace(e.touches[0]); }, {passive: false}); canvas.addEventListener('touchmove', (e) => { e.preventDefault(); traceArc(e.touches[0]); }, {passive: false}); canvas.addEventListener('touchend', endTrace); function startTrace(e) { if(bandhanCount >= 7) return; isDrawing = true; ctx.beginPath(); const pos = getPos(e); ctx.moveTo(pos.x, pos.y); checkZone(pos.x, pos.y); } function traceArc(e) { if (!isDrawing || bandhanCount >= 7) return; const pos = getPos(e); ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.strokeStyle = `hsla(${bandhanCount * 50}, 70%, 50%, 0.6)`; ctx.lineTo(pos.x, pos.y); ctx.stroke(); checkZone(pos.x, pos.y); } function endTrace() { isDrawing = false; } function getPos(e) { const rect = canvas.getBoundingClientRect(); return { x: e.clientX - rect.left, y: e.clientY - rect.top }; } function checkZone(x, y) { if (x < 100) { if (swipeStage === 0) { swipeStage = 1; } else if (swipeStage === 2) { bandhanCount++; document.getElementById('bandhan-counter').innerText = bandhanCount; swipeStage = 1; if(bandhanCount >= 7) { document.getElementById('bandhan-message').innerText = currentLang === 'en' ? "🛡️ Perfect! Your Aura is fully protected! 🙏" : "🛡️ उत्तम! आपका आभामंडल पूरी तरह से सुरक्षित है! 🙏"; ctx.fillStyle = "rgba(16, 185, 129, 0.2)"; ctx.fillRect(0,0, canvas.width, canvas.height); } } } if (x > 200 && swipeStage === 1) { swipeStage = 2; } } }
+        let bandhanCount = 0, swipeStage = 0, isDrawing = false;
+        window.startBandhanGame = function() { navigateTo('quiz-page'); hideAllGameContainers(); document.getElementById('quiz-header').classList.add('hidden'); document.getElementById('bandhan-container').classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); resetBandhan(); initBandhanCanvas(); }
+        function resetBandhan() { bandhanCount = 0; swipeStage = 0; document.getElementById('bandhan-counter').innerText = "0"; document.getElementById('bandhan-message').innerText = ""; const canvas = document.getElementById('bandhanCanvas'); const ctx = canvas.getContext('2d'); ctx.clearRect(0, 0, canvas.width, canvas.height); }
+        function initBandhanCanvas() { const canvas = document.getElementById('bandhanCanvas'); const ctx = canvas.getContext('2d'); canvas.addEventListener('mousedown', startTrace); canvas.addEventListener('mousemove', traceArc); canvas.addEventListener('mouseup', endTrace); canvas.addEventListener('mouseleave', endTrace); canvas.addEventListener('touchstart', (e) => { e.preventDefault(); startTrace(e.touches[0]); }, {passive: false}); canvas.addEventListener('touchmove', (e) => { e.preventDefault(); traceArc(e.touches[0]); }, {passive: false}); canvas.addEventListener('touchend', endTrace); function startTrace(e) { if(bandhanCount >= 7) return; isDrawing = true; ctx.beginPath(); const pos = getPos(e); ctx.moveTo(pos.x, pos.y); checkZone(pos.x, pos.y); } function traceArc(e) { if (!isDrawing || bandhanCount >= 7) return; const pos = getPos(e); ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.strokeStyle = `hsla(${bandhanCount * 50}, 70%, 50%, 0.6)`; ctx.lineTo(pos.x, pos.y); ctx.stroke(); checkZone(pos.x, pos.y); } function endTrace() { isDrawing = false; } function getPos(e) { const rect = canvas.getBoundingClientRect(); return { x: e.clientX - rect.left, y: e.clientY - rect.top }; } function checkZone(x, y) { if (x < 100) { if (swipeStage === 0) { swipeStage = 1; } else if (swipeStage === 2) { bandhanCount++; document.getElementById('bandhan-counter').innerText = bandhanCount; swipeStage = 1; if(bandhanCount >= 7) { document.getElementById('bandhan-message').innerText = currentLang === 'en' ? "🛡️ Perfect! Your Aura is fully protected! 🙏" : "🛡️ उत्तम! आपका आभामंडल पूरी तरह से सुरक्षित है! 🙏"; ctx.fillStyle = "rgba(16, 185, 129, 0.2)"; ctx.fillRect(0,0, canvas.width, canvas.height); } } } if (x > 200 && swipeStage === 1) { swipeStage = 2; } } }
 
-        window.startBuilderGame = function() { navigateTo('quiz-page'); hideAllGameContainers(); document.getElementById('quiz-header').classList.add('hidden'); document.getElementById('builder-container').classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); setupBuilderGame(); }
-        function setupBuilderGame() { document.getElementById('builder-message').innerText = ""; let draggables = document.querySelectorAll('.drag-item'); let dropZones = document.querySelectorAll('.drop-zone'); draggables.forEach(item => { item.classList.remove('hidden'); }); dropZones.forEach(zone => { zone.classList.remove('filled'); const target = zone.getAttribute('data-target'); zone.innerHTML = target === 'Sahasrara' ? '7' : (target === 'Agnya' ? '6' : (target === 'Vishuddhi' ? '5' : (target === 'Anahata' ? '4' : (target === 'Nabhi' ? '3' : (target === 'Swadisthan' ? '2' : '1'))))); }); if (!window.builderListenersAdded) { draggables.forEach(draggable => { draggable.addEventListener('dragstart', () => { draggable.classList.add('dragging'); }); draggable.addEventListener('dragend', () => { draggable.classList.remove('dragging'); }); }); dropZones.forEach(zone => { zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); }); zone.addEventListener('dragleave', () => { zone.classList.remove('drag-over'); }); zone.addEventListener('drop', e => { e.preventDefault(); zone.classList.remove('drag-over'); const draggable = document.querySelector('.dragging'); if (draggable && draggable.dataset.id === zone.dataset.target) { zone.classList.add('filled'); zone.innerHTML = `<span style="font-size:1.2rem; line-height:1; margin-bottom:2px;">${draggable.dataset.symbol}</span><span style="font-size:0.55rem; display:block; line-height:1;">${draggable.dataset.id}</span>`; draggable.classList.add('hidden'); checkBuilderWin(); } }); }); window.builderListenersAdded = true; } }
-        function checkBuilderWin() { if(document.querySelectorAll('.drop-zone.filled').length === 7) { document.getElementById('builder-message').innerText = currentLang === 'en' ? "🙏 Beautiful! You have balanced the Subtle System!" : "🙏 सुंदर! आपने सूक्ष्म तंत्र को संतुलित कर लिया है!"; } }
+        window.startBuilderGame = function() { navigateTo('quiz-page'); hideAllGameContainers(); document.getElementById('quiz-header').classList.add('hidden'); document.getElementById('builder-container').classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); setupBuilderGame(); }
+        function setupBuilderGame() { document.getElementById('builder-message').innerText = ""; let draggables = document.querySelectorAll('.drag-item'); let dropZones = document.querySelectorAll('.drop-zone'); draggables.forEach(item => { item.classList.remove('hidden'); }); dropZones.forEach(zone => { zone.classList.remove('filled'); const target = zone.getAttribute('data-target'); zone.innerHTML = target === 'Sahasrara' ? '7' : (target === 'Agnya' ? '6' : (target === 'Vishuddhi' ? '5' : (target === 'Anahata' ? '4' : (target === 'Nabhi' ? '3' : (target === 'Swadisthan' ? '2' : '1'))))); }); if (!window.builderListenersAdded) { draggables.forEach(draggable => { draggable.addEventListener('dragstart', () => { draggable.classList.add('dragging'); }); draggable.addEventListener('dragend', () => { draggable.classList.remove('dragging'); }); }); dropZones.forEach(zone => { zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); }); zone.addEventListener('dragleave', () => { zone.classList.remove('drag-over'); }); zone.addEventListener('drop', e => { e.preventDefault(); zone.classList.remove('drag-over'); const draggable = document.querySelector('.dragging'); if (draggable && draggable.dataset.id === zone.dataset.target) { zone.classList.add('filled'); zone.innerHTML = `<span style="font-size:1.2rem; line-height:1; margin-bottom:2px;">${draggable.dataset.symbol}</span><span style="font-size:0.55rem; display:block; line-height:1;">${draggable.dataset.id}</span>`; draggable.classList.add('hidden'); checkBuilderWin(); } }); }); window.builderListenersAdded = true; } }
+        function checkBuilderWin() { if(document.querySelectorAll('.drop-zone.filled').length === 7) { document.getElementById('builder-message').innerText = currentLang === 'en' ? "🙏 Beautiful! You have balanced the Subtle System!" : "🙏 सुंदर! आपने सूक्ष्म तंत्र को संतुलित कर लिया है!"; } }
 
-        const qualitiesData = [ { ch: "Mooladhara", q: "Innocence & Purity", hi_q: "अबोधता और पवित्रता" }, { ch: "Swadisthan", q: "Creativity & Attention", hi_q: "रचनात्मकता और ध्यान" }, { ch: "Nabhi", q: "Satisfaction & Peace", hi_q: "संतुष्टि और शांति" }, { ch: "Anahata", q: "Love & Compassion", hi_q: "प्रेम और करुणा" }, { ch: "Vishuddhi", q: "Collectivity & Sweetness", hi_q: "सामूहिकता और मधुरता" }, { ch: "Agnya", q: "Forgiveness", hi_q: "क्षमाशीलता" }, { ch: "Sahasrara", q: "Integration & Joy", hi_q: "एकीकरण और आनंद" } ];
-        let selectedMatchItem = null; let matchCount = 0;
-        window.startMatchGame = function() { navigateTo('quiz-page'); hideAllGameContainers(); document.getElementById('quiz-header').classList.add('hidden'); document.getElementById('match-container').classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); setupMatchGame(); }
-        function setupMatchGame() { matchCount = 0; selectedMatchItem = null; document.getElementById('match-message').innerText = ""; const chCol = document.getElementById('match-chakras'); const qCol = document.getElementById('match-qualities'); chCol.innerHTML = ''; qCol.innerHTML = ''; const shuffledChakras = [...qualitiesData].sort(() => 0.5 - Math.random()); const shuffledQualities = [...qualitiesData].sort(() => 0.5 - Math.random()); shuffledChakras.forEach(d => { let btn = document.createElement('div'); btn.className = 'match-btn type-ch'; btn.innerText = d.ch; btn.dataset.match = d.ch; btn.onclick = () => handleMatchClick(btn, 'ch'); chCol.appendChild(btn); }); shuffledQualities.forEach(d => { let btn = document.createElement('div'); btn.className = 'match-btn type-q'; btn.innerText = currentLang === 'en' ? d.q : d.hi_q; btn.dataset.match = d.ch; btn.onclick = () => handleMatchClick(btn, 'q'); qCol.appendChild(btn); }); }
-        function handleMatchClick(btn, type) { if(btn.classList.contains('matched')) return; document.querySelectorAll(`.type-${type}`).forEach(b => b.classList.remove('selected')); btn.classList.add('selected'); if(!selectedMatchItem) { selectedMatchItem = btn; return; } if((selectedMatchItem.classList.contains('type-ch') && type === 'ch') || (selectedMatchItem.classList.contains('type-q') && type === 'q')){ selectedMatchItem = btn; return; } if(selectedMatchItem.dataset.match === btn.dataset.match) { btn.classList.remove('selected'); btn.classList.add('matched'); selectedMatchItem.classList.remove('selected'); selectedMatchItem.classList.add('matched'); matchCount++; if(matchCount === qualitiesData.length) { document.getElementById('match-message').innerText = currentLang === 'en' ? "✨ Amazing! You matched all the qualities perfectly!" : "✨ बहुत बढ़िया! आपने सभी गुणों का पूरी तरह से मिलान कर लिया!"; } } else { setTimeout(() => { btn.classList.remove('selected'); if(selectedMatchItem) selectedMatchItem.classList.remove('selected'); selectedMatchItem = null; }, 400); } selectedMatchItem = null; }
+        const qualitiesData = [ { ch: "Mooladhara", q: "Innocence & Purity", hi_q: "अबोधता और पवित्रता" }, { ch: "Swadisthan", q: "Creativity & Attention", hi_q: "रचनात्मकता और ध्यान" }, { ch: "Nabhi", q: "Satisfaction & Peace", hi_q: "संतुष्टि और शांति" }, { ch: "Anahata", q: "Love & Compassion", hi_q: "प्रेम और करुणा" }, { ch: "Vishuddhi", q: "Collectivity & Sweetness", hi_q: "सामूहिकता और मधुरता" }, { ch: "Agnya", q: "Forgiveness", hi_q: "क्षमाशीलता" }, { ch: "Sahasrara", q: "Integration & Joy", hi_q: "एकीकरण और आनंद" } ];
+        let selectedMatchItem = null; let matchCount = 0;
+        window.startMatchGame = function() { navigateTo('quiz-page'); hideAllGameContainers(); document.getElementById('quiz-header').classList.add('hidden'); document.getElementById('match-container').classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); setupMatchGame(); }
+        function setupMatchGame() { matchCount = 0; selectedMatchItem = null; document.getElementById('match-message').innerText = ""; const chCol = document.getElementById('match-chakras'); const qCol = document.getElementById('match-qualities'); chCol.innerHTML = ''; qCol.innerHTML = ''; const shuffledChakras = [...qualitiesData].sort(() => 0.5 - Math.random()); const shuffledQualities = [...qualitiesData].sort(() => 0.5 - Math.random()); shuffledChakras.forEach(d => { let btn = document.createElement('div'); btn.className = 'match-btn type-ch'; btn.innerText = d.ch; btn.dataset.match = d.ch; btn.onclick = () => handleMatchClick(btn, 'ch'); chCol.appendChild(btn); }); shuffledQualities.forEach(d => { let btn = document.createElement('div'); btn.className = 'match-btn type-q'; btn.innerText = currentLang === 'en' ? d.q : d.hi_q; btn.dataset.match = d.ch; btn.onclick = () => handleMatchClick(btn, 'q'); qCol.appendChild(btn); }); }
+        function handleMatchClick(btn, type) { if(btn.classList.contains('matched')) return; document.querySelectorAll(`.type-${type}`).forEach(b => b.classList.remove('selected')); btn.classList.add('selected'); if(!selectedMatchItem) { selectedMatchItem = btn; return; } if((selectedMatchItem.classList.contains('type-ch') && type === 'ch') || (selectedMatchItem.classList.contains('type-q') && type === 'q')){ selectedMatchItem = btn; return; } if(selectedMatchItem.dataset.match === btn.dataset.match) { btn.classList.remove('selected'); btn.classList.add('matched'); selectedMatchItem.classList.remove('selected'); selectedMatchItem.classList.add('matched'); matchCount++; if(matchCount === qualitiesData.length) { document.getElementById('match-message').innerText = currentLang === 'en' ? "✨ Amazing! You matched all the qualities perfectly!" : "✨ बहुत बढ़िया! आपने सभी गुणों का पूरी तरह से मिलान कर लिया!"; } } else { setTimeout(() => { btn.classList.remove('selected'); if(selectedMatchItem) selectedMatchItem.classList.remove('selected'); selectedMatchItem = null; }, 400); } selectedMatchItem = null; }
 
-        let catchScore = 0; let catchTime = 30; let catchTimerId = null; let catchIntervalId = null;
-        window.startCatchGame = function() { navigateTo('quiz-page'); hideAllGameContainers(); document.getElementById('quiz-header').classList.add('hidden'); document.getElementById('catch-container').classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); document.getElementById('btn-start-catch').style.display = 'block'; document.getElementById('catch-score').innerText = '0'; document.getElementById('catch-time').innerText = '30'; document.querySelectorAll('.whack-catch').forEach(c => { c.classList.remove('up'); c.classList.remove('cleared'); }); }
-        window.startGameCatch = function() { document.getElementById('btn-start-catch').style.display = 'none'; catchScore = 0; catchTime = 30; document.getElementById('catch-score').innerText = catchScore; document.getElementById('catch-time').innerText = catchTime; catchTimerId = setInterval(() => { catchTime--; document.getElementById('catch-time').innerText = catchTime; if(catchTime <= 0) { clearInterval(catchTimerId); clearInterval(catchIntervalId); document.querySelectorAll('.whack-catch').forEach(c => c.classList.remove('up')); const msg = currentLang === 'en' ? `Time's up! You cleared ${catchScore} catches!` : `समय समाप्त! आपने ${catchScore} बाधाएं साफ़ कीं!`; alert(msg); document.getElementById('btn-start-catch').style.display = 'block'; document.getElementById('btn-start-catch').innerText = currentLang === 'en' ? '🔄 Play Again' : '🔄 फिर से खेलें'; } }, 1000); catchIntervalId = setInterval(() => { const catches = document.querySelectorAll('.whack-catch'); const randomCatch = catches[Math.floor(Math.random() * catches.length)]; if(!randomCatch.classList.contains('up')) { randomCatch.classList.add('up'); randomCatch.classList.remove('cleared'); const words = currentLang === 'en' ? ["Anger", "Stress", "Ego", "Fear", "Greed"] : ["क्रोध", "तनाव", "अहंकार", "भय", "लालच"]; randomCatch.innerText = words[Math.floor(Math.random()*5)]; setTimeout(() => { randomCatch.classList.remove('up'); }, 1200); } }, 800); }
-        window.whackCatch = function(element) { if(!element.classList.contains('up') || element.classList.contains('cleared')) return; element.classList.add('cleared'); element.innerText = currentLang === 'en' ? "✨ Clear!" : "✨ साफ़!"; catchScore += 10; document.getElementById('catch-score').innerText = catchScore; setTimeout(() => { element.classList.remove('up'); }, 300); }
+        let catchScore = 0; let catchTime = 30; let catchTimerId = null; let catchIntervalId = null;
+        window.startCatchGame = function() { navigateTo('quiz-page'); hideAllGameContainers(); document.getElementById('quiz-header').classList.add('hidden'); document.getElementById('catch-container').classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); document.getElementById('btn-start-catch').style.display = 'block'; document.getElementById('catch-score').innerText = '0'; document.getElementById('catch-time').innerText = '30'; document.querySelectorAll('.whack-catch').forEach(c => { c.classList.remove('up'); c.classList.remove('cleared'); }); }
+        window.startGameCatch = function() { document.getElementById('btn-start-catch').style.display = 'none'; catchScore = 0; catchTime = 30; document.getElementById('catch-score').innerText = catchScore; document.getElementById('catch-time').innerText = catchTime; catchTimerId = setInterval(() => { catchTime--; document.getElementById('catch-time').innerText = catchTime; if(catchTime <= 0) { clearInterval(catchTimerId); clearInterval(catchIntervalId); document.querySelectorAll('.whack-catch').forEach(c => c.classList.remove('up')); const msg = currentLang === 'en' ? `Time's up! You cleared ${catchScore} catches!` : `समय समाप्त! आपने ${catchScore} बाधाएं साफ़ कीं!`; alert(msg); document.getElementById('btn-start-catch').style.display = 'block'; document.getElementById('btn-start-catch').innerText = currentLang === 'en' ? '🔄 Play Again' : '🔄 फिर से खेलें'; } }, 1000); catchIntervalId = setInterval(() => { const catches = document.querySelectorAll('.whack-catch'); const randomCatch = catches[Math.floor(Math.random() * catches.length)]; if(!randomCatch.classList.contains('up')) { randomCatch.classList.add('up'); randomCatch.classList.remove('cleared'); const words = currentLang === 'en' ? ["Anger", "Stress", "Ego", "Fear", "Greed"] : ["क्रोध", "तनाव", "अहंकार", "भय", "लालच"]; randomCatch.innerText = words[Math.floor(Math.random()*5)]; setTimeout(() => { randomCatch.classList.remove('up'); }, 1200); } }, 800); }
+        window.whackCatch = function(element) { if(!element.classList.contains('up') || element.classList.contains('cleared')) return; element.classList.add('cleared'); element.innerText = currentLang === 'en' ? "✨ Clear!" : "✨ साफ़!"; catchScore += 10; document.getElementById('catch-score').innerText = catchScore; setTimeout(() => { element.classList.remove('up'); }, 300); }
 
-        const slData = { words: { 1: "Mooladhara", 4: "Innocence", 14: "Foot-Soak", 25: "Collective Meditation", 35: "Lethargy", 48: "Guilt", 60: "Introspection", 62: "Ego & Anger", 66: "Forgiveness", 78: "False Guru", 88: "Overthinking", 98: "Doubt", 100: "Sahasrara" }, ladders: { 14: 28, 17: 24, 25: 58, 66: 87 }, snakes: { 35: 5, 48: 11, 62: 20, 78: 45, 88: 53, 98: 56 } };
-        const slState = { players: [{ pos: 1 }, { pos: 1 }], turn: 0, isVsComp: false, isAnimating: false };
+        const slData = { words: { 1: "Mooladhara", 4: "Innocence", 14: "Foot-Soak", 25: "Collective Meditation", 35: "Lethargy", 48: "Guilt", 60: "Introspection", 62: "Ego & Anger", 66: "Forgiveness", 78: "False Guru", 88: "Overthinking", 98: "Doubt", 100: "Sahasrara" }, ladders: { 14: 28, 17: 24, 25: 58, 66: 87 }, snakes: { 35: 5, 48: 11, 62: 20, 78: 45, 88: 53, 98: 56 } };
+        const slState = { players: [{ pos: 1 }, { pos: 1 }], turn: 0, isVsComp: false, isAnimating: false };
 
-        window.openSnakeLadderSetup = function() { navigateTo('quiz-page'); hideAllGameContainers(); document.getElementById('quiz-header').classList.add('hidden'); document.getElementById('snake-ladder-container').classList.remove('hidden'); document.getElementById('sl-setup-ui').classList.remove('hidden'); document.getElementById('sl-game-ui').classList.add('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-        window.initSnakeLadder = function(vsComputer) { slState.isVsComp = vsComputer; slState.players = [{ pos: 1 }, { pos: 1 }]; slState.turn = 0; slState.isAnimating = false; document.getElementById('sl-setup-ui').classList.add('hidden'); document.getElementById('sl-game-ui').classList.remove('hidden'); document.getElementById('sl-dice-btn').innerText = "🎲"; document.getElementById('sl-dice-btn').disabled = false; updateTokenUI(0); updateTokenUI(1); updateTurnText(); showMessage(currentLang === 'en' ? "Game Started!" : "खेल शुरू!"); }
-        function getCellCoordinates(pos) { let p = pos - 1; let row = 9 - Math.floor(p / 10); let col = Math.floor(p / 10) % 2 === 0 ? p % 10 : 9 - (p % 10); return { top: row * 10, left: col * 10 }; }
-        function updateTokenUI(pIndex) { let pos = slState.players[pIndex].pos; let coords = getCellCoordinates(pos); let token = document.getElementById(`sl-token-${pIndex + 1}`); token.style.top = coords.top + "%"; token.style.left = coords.left + "%"; }
-        function updateTurnText() { const txt = document.getElementById('sl-turn-indicator'); const diceBtn = document.getElementById('sl-dice-btn'); if (slState.turn === 0) { txt.innerText = currentLang === 'en' ? "Player 1's Turn (Blue)" : "खिलाड़ी 1 की बारी (नीला)"; txt.style.color = "#3b82f6"; diceBtn.disabled = false; } else { let name = slState.isVsComp ? "Computer's" : "Player 2's"; let hiName = slState.isVsComp ? "कंप्यूटर की" : "खिलाड़ी 2 की"; txt.innerText = currentLang === 'en' ? `${name} Turn (Red)` : `${hiName} बारी (लाल)`; txt.style.color = "#ef4444"; if(slState.isVsComp) diceBtn.disabled = true; else diceBtn.disabled = false; } }
-        function showMessage(msg) { document.getElementById('sl-game-msg').innerText = msg; }
-        const sleep = ms => new Promise(r => setTimeout(r, ms));
-        window.rollSLDice = async function() { if (slState.isAnimating) return; slState.isAnimating = true; const diceBtn = document.getElementById('sl-dice-btn'); diceBtn.classList.add('dice-rolling'); let finalRoll = 1; for(let i=0; i<10; i++){ finalRoll = Math.floor(Math.random() * 6) + 1; diceBtn.innerText = finalRoll; await sleep(50); } diceBtn.classList.remove('dice-rolling'); showMessage(currentLang === 'en' ? `Rolled a ${finalRoll}!` : `${finalRoll} आया!`); await sleep(400); await moveTokenStepByStep(slState.turn, finalRoll); }
-        async function moveTokenStepByStep(pIndex, roll) { let startPos = slState.players[pIndex].pos; let targetPos = startPos + roll; if (targetPos > 100) { showMessage(currentLang === 'en' ? "Need exact roll to win!" : "जीतने के लिए सही संख्या चाहिए!"); await sleep(1000); } else { for (let i = 0; i < roll; i++) { slState.players[pIndex].pos += 1; updateTokenUI(pIndex); await sleep(300); } let finalPos = slState.players[pIndex].pos; if (slData.snakes[finalPos]) { await sleep(300); slState.players[pIndex].pos = slData.snakes[finalPos]; updateTokenUI(pIndex); showMessage(currentLang === 'en' ? "Oh no! Snake bite!" : "अरे नहीं! सांप ने काट लिया!"); await sleep(800); } else if (slData.ladders[finalPos]) { await sleep(300); slState.players[pIndex].pos = slData.ladders[finalPos]; updateTokenUI(pIndex); showMessage(currentLang === 'en' ? "Yay! Climbed a ladder!" : "वाह! सीढ़ी चढ़ गए!"); await sleep(800); } finalPos = slState.players[pIndex].pos; if (slData.words[finalPos]) { await triggerWordOverlay(slData.words[finalPos]); } if (finalPos === 100) { let winner = pIndex === 0 ? "Player 1" : (slState.isVsComp ? "Computer" : "Player 2"); let hiWinner = pIndex === 0 ? "खिलाड़ी 1" : (slState.isVsComp ? "कंप्यूटर" : "खिलाड़ी 2"); showMessage(currentLang === 'en' ? `🎉 ${winner} WINS! 🎉` : `🎉 ${hiWinner} जीत गया! 🎉`); document.getElementById('sl-dice-btn').disabled = true; return; } } if (roll !== 6) { slState.turn = slState.turn === 0 ? 1 : 0; } else { showMessage(currentLang === 'en' ? "Rolled a 6! Roll again!" : "6 आया! फिर से चलें!"); } updateTurnText(); slState.isAnimating = false; if (slState.isVsComp && slState.turn === 1) { setTimeout(rollSLDice, 1200); } }
-        async function triggerWordOverlay(word) { const overlay = document.getElementById('sl-word-overlay'); const wordEl = document.getElementById('sl-word-display'); wordEl.innerText = word; overlay.classList.add('active'); await sleep(3000); overlay.classList.remove('active'); await sleep(400); }
-    </script>
+        window.openSnakeLadderSetup = function() { navigateTo('quiz-page'); hideAllGameContainers(); document.getElementById('quiz-header').classList.add('hidden'); document.getElementById('snake-ladder-container').classList.remove('hidden'); document.getElementById('sl-setup-ui').classList.remove('hidden'); document.getElementById('sl-game-ui').classList.add('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        window.initSnakeLadder = function(vsComputer) { slState.isVsComp = vsComputer; slState.players = [{ pos: 1 }, { pos: 1 }]; slState.turn = 0; slState.isAnimating = false; document.getElementById('sl-setup-ui').classList.add('hidden'); document.getElementById('sl-game-ui').classList.remove('hidden'); document.getElementById('sl-dice-btn').innerText = "🎲"; document.getElementById('sl-dice-btn').disabled = false; updateTokenUI(0); updateTokenUI(1); updateTurnText(); showMessage(currentLang === 'en' ? "Game Started!" : "खेल शुरू!"); }
+        function getCellCoordinates(pos) { let p = pos - 1; let row = 9 - Math.floor(p / 10); let col = Math.floor(p / 10) % 2 === 0 ? p % 10 : 9 - (p % 10); return { top: row * 10, left: col * 10 }; }
+        function updateTokenUI(pIndex) { let pos = slState.players[pIndex].pos; let coords = getCellCoordinates(pos); let token = document.getElementById(`sl-token-${pIndex + 1}`); token.style.top = coords.top + "%"; token.style.left = coords.left + "%"; }
+        function updateTurnText() { const txt = document.getElementById('sl-turn-indicator'); const diceBtn = document.getElementById('sl-dice-btn'); if (slState.turn === 0) { txt.innerText = currentLang === 'en' ? "Player 1's Turn (Blue)" : "खिलाड़ी 1 की बारी (नीला)"; txt.style.color = "#3b82f6"; diceBtn.disabled = false; } else { let name = slState.isVsComp ? "Computer's" : "Player 2's"; let hiName = slState.isVsComp ? "कंप्यूटर की" : "खिलाड़ी 2 की"; txt.innerText = currentLang === 'en' ? `${name} Turn (Red)` : `${hiName} बारी (लाल)`; txt.style.color = "#ef4444"; if(slState.isVsComp) diceBtn.disabled = true; else diceBtn.disabled = false; } }
+        function showMessage(msg) { document.getElementById('sl-game-msg').innerText = msg; }
+        const sleep = ms => new Promise(r => setTimeout(r, ms));
+        window.rollSLDice = async function() { if (slState.isAnimating) return; slState.isAnimating = true; const diceBtn = document.getElementById('sl-dice-btn'); diceBtn.classList.add('dice-rolling'); let finalRoll = 1; for(let i=0; i<10; i++){ finalRoll = Math.floor(Math.random() * 6) + 1; diceBtn.innerText = finalRoll; await sleep(50); } diceBtn.classList.remove('dice-rolling'); showMessage(currentLang === 'en' ? `Rolled a ${finalRoll}!` : `${finalRoll} आया!`); await sleep(400); await moveTokenStepByStep(slState.turn, finalRoll); }
+        async function moveTokenStepByStep(pIndex, roll) { let startPos = slState.players[pIndex].pos; let targetPos = startPos + roll; if (targetPos > 100) { showMessage(currentLang === 'en' ? "Need exact roll to win!" : "जीतने के लिए सही संख्या चाहिए!"); await sleep(1000); } else { for (let i = 0; i < roll; i++) { slState.players[pIndex].pos += 1; updateTokenUI(pIndex); await sleep(300); } let finalPos = slState.players[pIndex].pos; if (slData.snakes[finalPos]) { await sleep(300); slState.players[pIndex].pos = slData.snakes[finalPos]; updateTokenUI(pIndex); showMessage(currentLang === 'en' ? "Oh no! Snake bite!" : "अरे नहीं! सांप ने काट लिया!"); await sleep(800); } else if (slData.ladders[finalPos]) { await sleep(300); slState.players[pIndex].pos = slData.ladders[finalPos]; updateTokenUI(pIndex); showMessage(currentLang === 'en' ? "Yay! Climbed a ladder!" : "वाह! सीढ़ी चढ़ गए!"); await sleep(800); } finalPos = slState.players[pIndex].pos; if (slData.words[finalPos]) { await triggerWordOverlay(slData.words[finalPos]); } if (finalPos === 100) { let winner = pIndex === 0 ? "Player 1" : (slState.isVsComp ? "Computer" : "Player 2"); let hiWinner = pIndex === 0 ? "खिलाड़ी 1" : (slState.isVsComp ? "कंप्यूटर" : "खिलाड़ी 2"); showMessage(currentLang === 'en' ? `🎉 ${winner} WINS! 🎉` : `🎉 ${hiWinner} जीत गया! 🎉`); document.getElementById('sl-dice-btn').disabled = true; return; } } if (roll !== 6) { slState.turn = slState.turn === 0 ? 1 : 0; } else { showMessage(currentLang === 'en' ? "Rolled a 6! Roll again!" : "6 आया! फिर से चलें!"); } updateTurnText(); slState.isAnimating = false; if (slState.isVsComp && slState.turn === 1) { setTimeout(rollSLDice, 1200); } }
+        async function triggerWordOverlay(word) { const overlay = document.getElementById('sl-word-overlay'); const wordEl = document.getElementById('sl-word-display'); wordEl.innerText = word; overlay.classList.add('active'); await sleep(3000); overlay.classList.remove('active'); await sleep(400); }
+    </script>
 </body>
 </html>
